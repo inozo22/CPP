@@ -1,3 +1,15 @@
+# **************************************************************************** #
+#                                                                              #
+#                                                         :::      ::::::::    #
+#    Makefile                                           :+:      :+:    :+:    #
+#                                                     +:+ +:+         +:+      #
+#    By: nimai <nimai@student.42urduliz.com>        +#+  +:+       +#+         #
+#                                                 +#+#+#+#+#+   +#+            #
+#    Created: 2023/07/25 11:05:17 by nimai             #+#    #+#              #
+#    Updated: 2023/07/25 11:44:12 by nimai            ###   ########.fr        #
+#                                                                              #
+# **************************************************************************** #
+
 NAME		:= phonebook
 
 LIBS_TARGET	:= 
@@ -6,7 +18,7 @@ LIBS		:=
 INCS		:= inc
 
 SRC_DIR		:= src
-SRCS		:= main.cpp sample.cpp
+SRCS		:= main.cpp PhoneBook.cpp Contact.cpp
 
 SRCS		:= $(SRCS:%=$(SRC_DIR)/%)
 
