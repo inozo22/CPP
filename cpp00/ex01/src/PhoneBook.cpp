@@ -6,7 +6,7 @@
 /*   By: nimai <nimai@student.42urduliz.com>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/25 11:05:51 by nimai             #+#    #+#             */
-/*   Updated: 2023/07/25 14:54:54 by nimai            ###   ########.fr       */
+/*   Updated: 2023/07/25 15:37:56 by nimai            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,6 +62,27 @@ void	PhoneBook::cmd_add()
 void	PhoneBook::cmd_search()
 {
 	std::cout << "I'm in cmd_search." << std::endl;
+	if (_count == 0)
+	{
+		std::cout << "phonebook is empty." << std::endl;
+		return ;
+	}
+	std::cout << "+----------+----------+----------+----------+\n";
+	std::cout << "|index     |first name|last name |nick name |\n";
+	std::cout << "+----------+----------+----------+----------+\n";
+	for (int i = 0; i < _count; ++i)
+	{
+		this->contact[i].get_info_list(i);
+	}
+	std::cout << "+----------+----------+----------+----------+" << std::endl;
+	while (1)
+	{
+		std::string input;
+		std::cout << "[SEARCH] > ";
+		std::getline(std::cin, input);
+		if (input == "Q")
+			break;
+	}
 	
 }
 
