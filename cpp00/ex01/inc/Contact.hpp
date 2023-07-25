@@ -6,22 +6,28 @@
 /*   By: nimai <nimai@student.42urduliz.com>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/25 11:04:56 by nimai             #+#    #+#             */
-/*   Updated: 2023/07/25 11:22:41 by nimai            ###   ########.fr       */
+/*   Updated: 2023/07/25 13:57:58 by nimai            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef _CONTACT_HPP_
 #define _CONTACT_HPP_
 
-# include "PhoneBook.hpp"
+# include <string>
+# include <iostream>
+# include <iomanip>
 
 class Contact
 {
-	std::string	firstname;
-	std::string	lastname;
-	std::string	nickname;
-	std::string	phone;
-	std::string	secret;
+	public:
+		Contact();
+		~Contact();
+	private:
+		std::string	firstname;
+		std::string	lastname;
+		std::string	nickname;
+		std::string	phone;
+		std::string	secret;
 	
 	
 };
