@@ -6,7 +6,7 @@
 /*   By: nimai <nimai@student.42urduliz.com>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/25 11:05:51 by nimai             #+#    #+#             */
-/*   Updated: 2023/07/25 16:39:55 by nimai            ###   ########.fr       */
+/*   Updated: 2023/07/25 16:41:08 by nimai            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,7 +63,7 @@ void	PhoneBook::cmd_add()
 	input = (char)_id;
 	this->contact[_pos].set_info(i, input);
 	std::cout << "info[5]: " << input << std::endl;
-	//I'd like to put id number here, but doesn't to let me do
+	//I'd like to put id number here, but doesn't let me do
 	_pos++;
 	_id++;
 	if (_line < 8)
