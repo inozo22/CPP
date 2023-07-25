@@ -6,7 +6,7 @@
 /*   By: nimai <nimai@student.42urduliz.com>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/25 11:05:37 by nimai             #+#    #+#             */
-/*   Updated: 2023/07/25 15:26:19 by nimai            ###   ########.fr       */
+/*   Updated: 2023/07/25 16:33:51 by nimai            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,8 +31,9 @@ void Contact::set_info(int &colum, std::string &input)
 
 void Contact::get_info_list(int &index) const
 {
+	(void)index;
 	std::cout << "|";
-	std::cout << std::setfill(' ') << std::setw(10) << index;
+	std::cout << std::setfill(' ') << std::setw(10) << this->info[5];
 	for (int i = 0; i < 3; ++i)
 	{
 		std::cout << "|";

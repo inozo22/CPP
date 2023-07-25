@@ -6,7 +6,7 @@
 /*   By: nimai <nimai@student.42urduliz.com>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/25 11:04:56 by nimai             #+#    #+#             */
-/*   Updated: 2023/07/25 15:21:37 by nimai            ###   ########.fr       */
+/*   Updated: 2023/07/25 16:28:45 by nimai            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,7 @@ class Contact
 		void	get_info_list(int &index) const;
 	//	void	get_info_index() const;
 	private:
-		std::string	info[5];
+		std::string	info[6];
 	
 };
 

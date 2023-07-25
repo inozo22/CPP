@@ -6,7 +6,7 @@
 /*   By: nimai <nimai@student.42urduliz.com>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/25 11:04:40 by nimai             #+#    #+#             */
-/*   Updated: 2023/07/25 15:06:40 by nimai            ###   ########.fr       */
+/*   Updated: 2023/07/25 16:21:01 by nimai            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,9 @@ class PhoneBook
 		void	cmd_exit();
 	private:
 		Contact	contact[MAX_CONTACT];
-		int		_count;
+		int		_pos;
+		int		_line;
+		int		_id;
 	
 	
 	
