@@ -6,7 +6,7 @@
 /*   By: nimai <nimai@student.42urduliz.com>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/24 15:37:11 by nimai             #+#    #+#             */
-/*   Updated: 2023/07/25 11:49:34 by nimai            ###   ########.fr       */
+/*   Updated: 2023/07/25 12:08:00 by nimai            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,8 +20,9 @@ int	main()
 	while (1)
 	{
 		std::cout << PHONEBOOK;
-		std::cin >> cmd;
+		std::getline(std::cin, cmd);
 
+//		std::cout << "cmd: " << cmd << "\n";
 		if (cmd == "ADD")
 		{
 			phonebook.cmd_add();
@@ -35,7 +36,7 @@ int	main()
 			phonebook.cmd_exit();
 		}
 		else
-			std::cout << "USAGE: ADD / SEARCH / EXIT" << std::endl;
+			std::cout << USAGE << std::endl;
 	}
 
 	
