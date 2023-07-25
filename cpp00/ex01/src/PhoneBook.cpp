@@ -6,14 +6,17 @@
 /*   By: nimai <nimai@student.42urduliz.com>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/25 11:05:51 by nimai             #+#    #+#             */
-/*   Updated: 2023/07/25 13:59:49 by nimai            ###   ########.fr       */
+/*   Updated: 2023/07/25 14:54:54 by nimai            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../inc/PhoneBook.hpp"
 
-PhoneBook::PhoneBook()
+PhoneBook::PhoneBook(): _count (0)
 {
+	std::string empty = "";
+	for (int i = 0; i < MAX_CONTACT; i++)
+		contact[i].set_info(i, empty);
 	std::cout << "Has been made PhoneBook object." << std::endl;
 }
 
@@ -37,20 +40,23 @@ void	PhoneBook::cmd_add()
 		"phone_number",
 		"darkest_secret"
 	};
+
+	if (_count > MAX_CONTACT)
+		_count = 0;
 	
 	std::string input;
-	for (int i = 0; i < 11; ++i)
+	for (int i = 0; i < 5; ++i)
 	{
 		std::cout << "[ADD] " << std::setfill(' ') << std::setw(15);
-		std::cout << heads[i] << " < ";
+		std::cout << heads[i] << " > ";
 		std::getline(std::cin, input);
 		if (input.length())
 		{
-			
+			this->contact[_count].set_info(i, input);
 		}
 	}
 	
-	
+	_count++;
 }
 
 void	PhoneBook::cmd_search()

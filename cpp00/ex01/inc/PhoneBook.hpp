@@ -6,15 +6,16 @@
 /*   By: nimai <nimai@student.42urduliz.com>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/25 11:04:40 by nimai             #+#    #+#             */
-/*   Updated: 2023/07/25 13:45:01 by nimai            ###   ########.fr       */
+/*   Updated: 2023/07/25 15:06:40 by nimai            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef _PHONEBOOK_HPP_
-#define _PHONEBOOK_HPP_
+# define _PHONEBOOK_HPP_
 
 # include <string>
 # include <iostream>
+# include <iomanip>
 # include "Contact.hpp"
 
 # define PHONEBOOK "phonebook ☏ "
@@ -31,6 +32,7 @@ class PhoneBook
 		void	cmd_exit();
 	private:
 		Contact	contact[MAX_CONTACT];
+		int		_count;
 	
 	
 	
