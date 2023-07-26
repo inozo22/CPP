@@ -6,7 +6,7 @@
 /*   By: nimai <nimai@student.42urduliz.com>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/25 11:05:37 by nimai             #+#    #+#             */
-/*   Updated: 2023/07/26 11:35:31 by nimai            ###   ########.fr       */
+/*   Updated: 2023/07/26 12:08:26 by nimai            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,6 @@
 Contact::Contact()
 {
 //	std::cout << "Has been made Contact object." << std::endl;
-//	std::cout << "first: " << Contact::firstname << "\nlast: " << Contact::lastname << "\nnickname: " << Contact::nickname << "\nphone: " << Contact::phone << "\nsecret: " << Contact::secret << std::endl;
 }
 
 Contact::~Contact()
@@ -25,7 +24,6 @@ Contact::~Contact()
 
 void Contact::set_info(int &colum, std::string &input)
 {
-//	std::cout << "colum: " << colum << "input: " << input << std::endl;
 	this->info[colum] = input;
 }
 
@@ -65,9 +63,7 @@ void Contact::get_info_full(std::string &input) const
 		"darkest_secret"
 	};
 	if (input != info[5])
-	{
 		return ;
-	}
 	for (int i = 0; i < 5; ++i)
 	{
 		std::cout << std::setw(15) << heads[i] << " : ";

@@ -6,7 +6,7 @@
 /*   By: nimai <nimai@student.42urduliz.com>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/25 11:05:51 by nimai             #+#    #+#             */
-/*   Updated: 2023/07/26 11:39:53 by nimai            ###   ########.fr       */
+/*   Updated: 2023/07/26 11:53:44 by nimai            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -102,6 +102,7 @@ void	PhoneBook::cmd_exit()
 {
 	std::cout << "EXIT" << std::endl;
 	PhoneBook::~PhoneBook();
+	system ("leaks phonebook");
 	exit (0);
 }
 
