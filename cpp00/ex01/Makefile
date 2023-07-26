@@ -6,7 +6,7 @@
 #    By: nimai <nimai@student.42urduliz.com>        +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/07/25 11:05:17 by nimai             #+#    #+#              #
-#    Updated: 2023/07/25 11:44:12 by nimai            ###   ########.fr        #
+#    Updated: 2023/07/26 12:53:12 by nimai            ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -27,7 +27,7 @@ OBJS		:= $(SRCS:$(SRC_DIR)/%.cpp=$(BUILD_DIR)/%.o)
 DEPS		:= $(OBJS:.o=.d)
 
 CC			:= c++
-CFLAGS		:= -Wall -Wextra -Werror -pedantic
+CFLAGS		:= -Wall -Wextra -Werror -pedantic -std=c++98
 CPPFLAGS	:= $(addprefix -I,$(INCS)) -MMD -MP
 LDFLAGS		:= $(addprefix -L,$(dir $(LIBS_TARGET)))
 LDLIBS		:= $(addprefix -l,$(LIBS))
