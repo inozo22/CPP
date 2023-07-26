@@ -6,7 +6,7 @@
 /*   By: nimai <nimai@student.42urduliz.com>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/25 11:05:37 by nimai             #+#    #+#             */
-/*   Updated: 2023/07/25 16:33:51 by nimai            ###   ########.fr       */
+/*   Updated: 2023/07/26 11:35:31 by nimai            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,10 +25,13 @@ Contact::~Contact()
 
 void Contact::set_info(int &colum, std::string &input)
 {
-	std::cout << "colum: " << colum << "input: " << input << std::endl;
+//	std::cout << "colum: " << colum << "input: " << input << std::endl;
 	this->info[colum] = input;
 }
 
+/**
+ * @note info[5] has id from phonebook
+  */
 void Contact::get_info_list(int &index) const
 {
 	(void)index;
@@ -49,4 +52,25 @@ void Contact::get_info_list(int &index) const
 		}
 	}
 	std::cout << "|" << std::endl;
+}
+
+void Contact::get_info_full(std::string &input) const
+{
+	std::string heads[5] = 
+	{
+		"first_name",
+		"last_name",
+		"nickname",
+		"phone_number",
+		"darkest_secret"
+	};
+	if (input != info[5])
+	{
+		return ;
+	}
+	for (int i = 0; i < 5; ++i)
+	{
+		std::cout << std::setw(15) << heads[i] << " : ";
+		std::cout << info[i] << std::endl;
+	}	
 }

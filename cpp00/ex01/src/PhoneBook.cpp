@@ -6,7 +6,7 @@
 /*   By: nimai <nimai@student.42urduliz.com>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/25 11:05:51 by nimai             #+#    #+#             */
-/*   Updated: 2023/07/25 16:41:08 by nimai            ###   ########.fr       */
+/*   Updated: 2023/07/26 11:39:53 by nimai            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,11 +27,7 @@ PhoneBook::~PhoneBook()
 
 void	PhoneBook::cmd_add()
 {
-	std::cout << "I'm in cmd_add." << std::endl;
-	// std::string info;
-
-	// std::cout << PHONEBOOK;
-	// std::getline(std::cin, info);
+	_id++;
 	std::string heads[5] = 
 	{
 		"first_name",
@@ -45,12 +41,10 @@ void	PhoneBook::cmd_add()
 	{
 		_line = 8;
 		_pos = 0;
-	}
-	
+	}	
 	std::string input;
-	int	i;
-	i = -1;
-	while (++i < 5)
+	int	i = 0;
+	while (i < 5)
 	{
 		std::cout << "[ADD] " << std::setfill(' ') << std::setw(15);
 		std::cout << heads[i] << " > ";
@@ -58,21 +52,20 @@ void	PhoneBook::cmd_add()
 		if (input.length())
 		{
 			this->contact[_pos].set_info(i, input);
+			i++;
 		}
+		else
+			std::cout << "CAUTION! input field is empty, please fill it." << std::endl;
 	}
-	input = (char)_id;
+	input = std::to_string(_id);
 	this->contact[_pos].set_info(i, input);
-	std::cout << "info[5]: " << input << std::endl;
-	//I'd like to put id number here, but doesn't let me do
 	_pos++;
-	_id++;
 	if (_line < 8)
 		_line++;
 }
 
 void	PhoneBook::cmd_search()
 {
-	std::cout << "I'm in cmd_search." << std::endl;
 	if (_id == 0)
 	{
 		std::cout << "phonebook is empty." << std::endl;
@@ -91,10 +84,18 @@ void	PhoneBook::cmd_search()
 		std::string input;
 		std::cout << "[SEARCH] > ";
 		std::getline(std::cin, input);
-		if (input == "Q")
+		if (input == "Q" || input == "q")
 			break;
-	}
-	
+		if (input > "0" && input <= std::to_string(_id))
+		{
+			for (int i = 0; i < _line; ++i)
+			{
+				this->contact[i].get_info_full(input);
+			}	
+		}
+		else
+			std::cout << "please input one of index, or, 'q' or 'Q' to quit search command."  << std::endl;
+	}	
 }
 
 void	PhoneBook::cmd_exit()
