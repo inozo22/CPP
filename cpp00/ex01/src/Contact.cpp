@@ -6,7 +6,7 @@
 /*   By: nimai <nimai@student.42urduliz.com>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/25 11:05:37 by nimai             #+#    #+#             */
-/*   Updated: 2023/07/26 12:08:26 by nimai            ###   ########.fr       */
+/*   Updated: 2023/07/27 11:47:55 by nimai            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,7 +52,7 @@ void Contact::get_info_list(int &index) const
 	std::cout << "|" << std::endl;
 }
 
-void Contact::get_info_full(std::string &input) const
+int Contact::get_info_full(std::string &input) const
 {
 	std::string heads[5] = 
 	{
@@ -63,10 +63,11 @@ void Contact::get_info_full(std::string &input) const
 		"darkest_secret"
 	};
 	if (input != info[5])
-		return ;
+		return(1) ;
 	for (int i = 0; i < 5; ++i)
 	{
 		std::cout << std::setw(15) << heads[i] << " : ";
 		std::cout << info[i] << std::endl;
-	}	
+	}
+	return (0);
 }

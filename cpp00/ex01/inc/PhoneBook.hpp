@@ -6,7 +6,7 @@
 /*   By: nimai <nimai@student.42urduliz.com>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/25 11:04:40 by nimai             #+#    #+#             */
-/*   Updated: 2023/07/25 16:21:01 by nimai            ###   ########.fr       */
+/*   Updated: 2023/07/27 11:51:44 by nimai            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,7 @@
 
 # define PHONEBOOK "phonebook ☏ "
 # define USAGE "USAGE: ADD / SEARCH / EXIT"
+# define USAGE_SEARCH "please input one of index, or, 'q' or 'Q' to quit search command."
 # define MAX_CONTACT 8
 
 class PhoneBook

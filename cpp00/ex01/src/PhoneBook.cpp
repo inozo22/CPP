@@ -6,7 +6,7 @@
 /*   By: nimai <nimai@student.42urduliz.com>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/25 11:05:51 by nimai             #+#    #+#             */
-/*   Updated: 2023/07/26 12:59:01 by nimai            ###   ########.fr       */
+/*   Updated: 2023/07/27 13:04:00 by nimai            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,10 +38,7 @@ void	PhoneBook::cmd_add()
 	};
 
 	if (_pos >= MAX_CONTACT)
-	{
-		_line = 8;
 		_pos = 0;
-	}	
 	std::string input;
 	int	i = 0;
 	while (i < 5)
@@ -81,20 +78,16 @@ void	PhoneBook::cmd_search()
 	std::cout << "+----------+----------+----------+----------+" << std::endl;
 	while (1)
 	{
+		int	ret = 0;
 		std::string input;
 		std::cout << "[SEARCH] > ";
 		std::getline(std::cin, input);
 		if (input == "Q" || input == "q")
 			break;
-		if (input > "0" && input <= std::to_string(_id))
-		{
-			for (int i = 0; i < _line; ++i)
-			{
-				this->contact[i].get_info_full(input);
-			}	
-		}
-		else
-			std::cout << "please input one of index, or, 'q' or 'Q' to quit search command."  << std::endl;
+		for (int i = 0; i < _line; ++i)
+			ret += this->contact[i].get_info_full(input);
+		if (ret == _line)
+			std::cout << USAGE_SEARCH << std::endl;
 	}	
 }
 
