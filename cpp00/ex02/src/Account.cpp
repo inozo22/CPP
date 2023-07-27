@@ -6,7 +6,7 @@
 /*   By: nimai <nimai@student.42urduliz.com>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/26 12:22:06 by nimai             #+#    #+#             */
-/*   Updated: 2023/07/27 18:26:46 by nimai            ###   ########.fr       */
+/*   Updated: 2023/07/27 18:46:24 by nimai            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,8 @@
 
 	Account::~Account(void)
 	{
-		
+		Account::_displayTimestamp();
+		std::cout << "index:" << Account::_accountIndex << ";amount:" << Account::checkAmount() << ";closed" << std::endl;
 	}
 
 	int	Account::getNbAccounts(void)
@@ -77,13 +78,24 @@
 	
 	bool	Account::makeWithdrawal(int withdrawal)
 	{
-		(void)withdrawal;
-		return 0;
+		Account::_displayTimestamp();
+		std::cout << "index:" << Account::_accountIndex << ";p_amount:" << Account::_amount;
+		if ((Account::_amount - withdrawal) < 0)
+		{
+			std::cout << ":refused" << CLEAR << std::endl;
+			return false;
+		}
+		Account::_nbWithdrawals++;
+		Account::_amount -= withdrawal;
+		std::cout << ";amount:" << Account::_amount << ";nb_withdrawls:" << Account::_nbWithdrawals << CLEAR <<std::endl;
+		Account::_totalNbWithdrawals++;
+		Account::_totalAmount -= withdrawal;
+		return true;
 	}
 	
 	int		Account::checkAmount(void) const
     {
-        return 0;
+        return (Account::_amount);
 	}
 	
 	void	Account::displayStatus(void) const
