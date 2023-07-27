@@ -6,7 +6,7 @@
 /*   By: nimai <nimai@student.42urduliz.com>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/26 12:22:06 by nimai             #+#    #+#             */
-/*   Updated: 2023/07/27 17:58:54 by nimai            ###   ########.fr       */
+/*   Updated: 2023/07/27 18:11:46 by nimai            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,9 +28,10 @@
 		std::cout << "index:" << Account::_accountIndex;
 		std::cout << ";amount:" << initial_deposit << ";created" << std::endl;
 		Account::_nbAccounts++;
+		Account::_amount = initial_deposit;
 		Account::_totalAmount += initial_deposit;
 	}
-	
+
 	Account::~Account(void)
 	{
 		
@@ -59,8 +60,8 @@
 	void	Account::displayAccountsInfos(void)
 	{
 		Account::_displayTimestamp();
-		std::cout << "accounts:" << Account::_nbAccounts << ";total:" << Account::_totalAmount;
-		std::cout << ";deposits:" << Account::_totalNbDeposits << ";withdrawls:" << Account::_totalNbWithdrawals << std::endl;
+		std::cout << "\033[1;34maccounts:" << Account::_nbAccounts << ";total:" << Account::_totalAmount;
+		std::cout << ";deposits:" << Account::_totalNbDeposits << ";withdrawls:" << Account::_totalNbWithdrawals << "\033[0m" << std::endl;
 	}
 	
 	void	Account::makeDeposit(int deposit)
@@ -82,7 +83,10 @@
 	
 	void	Account::displayStatus(void) const
     {
-
+	//	std::cout << _accountIndex << "hello" << std::endl;
+		Account::_displayTimestamp();
+		std::cout << "index:" << Account::_accountIndex << ";amount:" << Account::_amount;
+		std::cout << ";deposits:" << Account::_nbDeposits << ";withdrawls:" << Account::_nbWithdrawals << std::endl;
     }
 
 	void	Account::_displayTimestamp(void)
