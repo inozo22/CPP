@@ -6,7 +6,7 @@
 /*   By: nimai <nimai@student.42urduliz.com>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/26 12:22:06 by nimai             #+#    #+#             */
-/*   Updated: 2023/07/26 15:41:16 by nimai            ###   ########.fr       */
+/*   Updated: 2023/07/27 14:27:58 by nimai            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -82,8 +82,21 @@
 
 	void	Account::_displayTimestamp(void)
 	{
-		    std::time_t result = std::time(nullptr);
-    		std::cout << std::put_time(std::localtime(&result)) << std::endl;
-			//230726: Time display doesn't work yet
-
+		struct timespec ts;
+		struct tm t;
+		
+		int ret;
+		
+		ret = clock_gettime(CLOCK_REALTIME, &ts);
+		if (ret < 0)
+		{
+			perror("clock_gettime fail.");
+		}
+		localtime_r(&ts.tv_sec, &t);
+		char buf[32];
+		ret = strftime(buf, 32, "[%Y%m%d_%H%M%S]", &t);
+		if (ret == 0)
+		{
+			perror("strftime fail.");
+		}
 	}
