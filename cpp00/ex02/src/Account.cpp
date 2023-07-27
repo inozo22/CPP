@@ -6,7 +6,7 @@
 /*   By: nimai <nimai@student.42urduliz.com>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/26 12:22:06 by nimai             #+#    #+#             */
-/*   Updated: 2023/07/27 15:58:20 by nimai            ###   ########.fr       */
+/*   Updated: 2023/07/27 17:58:54 by nimai            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,12 +23,12 @@
 
 	Account::Account(int initial_deposit)
 	{
-		std::cout << initial_deposit << std::endl;
-		_accountIndex = Account::getNbAccounts();
+		Account::_accountIndex = Account::getNbAccounts();
 		Account::_displayTimestamp();
-		std::cout << "index:" << _accountIndex;
-		std::cout << ";amount:" << initial_deposit << std::endl;
-		_nbAccounts++;
+		std::cout << "index:" << Account::_accountIndex;
+		std::cout << ";amount:" << initial_deposit << ";created" << std::endl;
+		Account::_nbAccounts++;
+		Account::_totalAmount += initial_deposit;
 	}
 	
 	Account::~Account(void)
@@ -59,8 +59,8 @@
 	void	Account::displayAccountsInfos(void)
 	{
 		Account::_displayTimestamp();
-		std::cout << "I'm in displayAccountsInfos" << std::endl;
-		
+		std::cout << "accounts:" << Account::_nbAccounts << ";total:" << Account::_totalAmount;
+		std::cout << ";deposits:" << Account::_totalNbDeposits << ";withdrawls:" << Account::_totalNbWithdrawals << std::endl;
 	}
 	
 	void	Account::makeDeposit(int deposit)
