@@ -6,7 +6,7 @@
 /*   By: nimai <nimai@student.42urduliz.com>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/26 12:22:06 by nimai             #+#    #+#             */
-/*   Updated: 2023/07/27 14:27:58 by nimai            ###   ########.fr       */
+/*   Updated: 2023/07/27 15:58:20 by nimai            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,8 +23,12 @@
 
 	Account::Account(int initial_deposit)
 	{
-		(void)initial_deposit;
+		std::cout << initial_deposit << std::endl;
 		_accountIndex = Account::getNbAccounts();
+		Account::_displayTimestamp();
+		std::cout << "index:" << _accountIndex;
+		std::cout << ";amount:" << initial_deposit << std::endl;
+		_nbAccounts++;
 	}
 	
 	Account::~Account(void)
@@ -54,8 +58,9 @@
 
 	void	Account::displayAccountsInfos(void)
 	{
+		Account::_displayTimestamp();
 		std::cout << "I'm in displayAccountsInfos" << std::endl;
-		_displayTimestamp();
+		
 	}
 	
 	void	Account::makeDeposit(int deposit)
@@ -84,9 +89,8 @@
 	{
 		struct timespec ts;
 		struct tm t;
-		
 		int ret;
-		
+	
 		ret = clock_gettime(CLOCK_REALTIME, &ts);
 		if (ret < 0)
 		{
@@ -99,4 +103,5 @@
 		{
 			perror("strftime fail.");
 		}
+		std::cout << buf << " ";
 	}
