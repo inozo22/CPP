@@ -6,7 +6,7 @@
 /*   By: nimai <nimai@student.42urduliz.com>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/28 10:08:19 by nimai             #+#    #+#             */
-/*   Updated: 2023/07/28 11:18:30 by nimai            ###   ########.fr       */
+/*   Updated: 2023/07/28 12:03:49 by nimai            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,12 +35,12 @@ public:
 	// static int	getNbWithdrawals( void );
 	// static void	displayAccountsInfos( void );
 
-	Zombie( void );
+//	Zombie( void );
 	~Zombie( void );
 
+	Zombie( std::string name );
 	void	announce( void );
-    Zombie*	newZombie( std::string name );
-    void	randomChump( std::string name );
+
 	// bool	makeWithdrawal( int withdrawal );
 	// int		checkAmount( void ) const;
 	// void	displayStatus( void ) const;
@@ -64,5 +64,8 @@ private:
 //	Zombie( void );
 
 };
+
+Zombie*	newZombie( std::string name );
+void	randomChump( std::string name );
 
 #endif

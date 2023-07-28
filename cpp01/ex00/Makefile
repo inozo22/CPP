@@ -6,7 +6,7 @@
 #    By: nimai <nimai@student.42urduliz.com>        +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/07/25 11:05:17 by nimai             #+#    #+#              #
-#    Updated: 2023/07/28 10:49:49 by nimai            ###   ########.fr        #
+#    Updated: 2023/07/28 11:57:12 by nimai            ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -18,7 +18,7 @@ LIBS		:=
 INCS		:= inc
 
 SRC_DIR		:= src
-SRCS		:= main.cpp Zombie.cpp
+SRCS		:= main.cpp Zombie.cpp newZombie.cpp randomChump.cpp
 
 SRCS		:= $(SRCS:%=$(SRC_DIR)/%)
 
