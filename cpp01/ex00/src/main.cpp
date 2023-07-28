@@ -6,7 +6,7 @@
 /*   By: nimai <nimai@student.42urduliz.com>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/28 10:06:00 by nimai             #+#    #+#             */
-/*   Updated: 2023/07/28 12:05:39 by nimai            ###   ########.fr       */
+/*   Updated: 2023/07/28 12:06:28 by nimai            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,13 +36,5 @@ int	main(void)
 	std::cout << "Zombie name > " << std::flush;
 	std::cin >> name;
 	randomChump(name);
-	return 0;
-	
-
-//	z.announce();
-	
-//	std::cout << "* LOUD AND UNBEARABLE FEEDBACK NOISE *";
-	std::cout << std::endl;
-//	z.announce();
 	return 0;
 }
