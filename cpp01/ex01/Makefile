@@ -6,11 +6,11 @@
 #    By: nimai <nimai@student.42urduliz.com>        +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/07/25 11:05:17 by nimai             #+#    #+#              #
-#    Updated: 2023/07/28 11:57:12 by nimai            ###   ########.fr        #
+#    Updated: 2023/07/30 15:47:49 by nimai            ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME		:= BraiiiiiiinnnzzzZ...
+NAME		:= horde
 
 LIBS_TARGET	:= 
 LIBS		:= 
@@ -18,7 +18,7 @@ LIBS		:=
 INCS		:= inc
 
 SRC_DIR		:= src
-SRCS		:= main.cpp Zombie.cpp newZombie.cpp randomChump.cpp
+SRCS		:= main.cpp Zombie.cpp zombieHorde.cpp
 
 SRCS		:= $(SRCS:%=$(SRC_DIR)/%)
 
@@ -48,13 +48,13 @@ CYAN 		:= \033[1;36m
 
 define	ART
 $(YELLOW)
-       /^-^\        "/^-----^\\"
-      / o o \       "V  @ @  V"
-     /   ▼   \       "|  ▽  |" BraiiiiiiinnnzzzZ...
-     V \ ∧ / V        "\ Q / "
+Braiii"/^-^\"innnzzz"/^-----^\\"
+     "/ @ @ \"      "V  @ @  V"
+    "/   ▼   \"      "|  ▽  |" BraiiiiiiinnnzzzZ...
+    "V \ O / V"       "\ Q / "
        / - \\ ========= / - \\
       /    |   CPP01   |    \\
-("   /     |    EX00   |     \\     )"
+("   /     |    EX01   |     \\     )"
  ===/___) || ========= || (___\\====$(CLR_RMV)
 endef
 export	ART
