@@ -6,7 +6,7 @@
 /*   By: nimai <nimai@student.42urduliz.com>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/26 12:22:06 by nimai             #+#    #+#             */
-/*   Updated: 2023/07/28 09:56:29 by nimai            ###   ########.fr       */
+/*   Updated: 2023/07/30 15:16:25 by nimai            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -117,14 +117,16 @@
 		ret = clock_gettime(CLOCK_REALTIME, &ts);
 		if (ret < 0)
 		{
-			perror("clock_gettime fail.");
+			return ;
+			//perror("clock_gettime fail.");
 		}
 		localtime_r(&ts.tv_sec, &t);
 		char buf[32];
 		ret = strftime(buf, 32, "[%Y%m%d_%H%M%S]", &t);
 		if (ret == 0)
 		{
-			perror("strftime fail.");
+			return ;
+			//perror("strftime fail.");
 		}
 		std::cout << buf << " ";
 	}
