@@ -6,7 +6,7 @@
 /*   By: nimai <nimai@student.42urduliz.com>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/28 10:08:19 by nimai             #+#    #+#             */
-/*   Updated: 2023/07/28 12:03:49 by nimai            ###   ########.fr       */
+/*   Updated: 2023/07/31 14:41:36 by nimai            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,43 +26,13 @@ class Zombie {
 
 
 public:
-
-//	typedef Zombie		zombie;
-
-	// static int	getNbAccounts( void );
-	// static int	getTotalAmount( void );
-	// static int	getNbDeposits( void );
-	// static int	getNbWithdrawals( void );
-	// static void	displayAccountsInfos( void );
-
 //	Zombie( void );
+	Zombie( std::string name );
 	~Zombie( void );
 
-	Zombie( std::string name );
 	void	announce( void );
-
-	// bool	makeWithdrawal( int withdrawal );
-	// int		checkAmount( void ) const;
-	// void	displayStatus( void ) const;
-
-
 private:
     std::string name;
-
-	// static int	_nbAccounts;
-	// static int	_totalAmount;
-	// static int	_totalNbDeposits;
-	// static int	_totalNbWithdrawals;
-
-	// static void	_displayTimestamp( void );
-
-	// int				_accountIndex;
-	// int				_amount;
-	// int				_nbDeposits;
-	// int				_nbWithdrawals;
-
-//	Zombie( void );
-
 };
 
 Zombie*	newZombie( std::string name );
