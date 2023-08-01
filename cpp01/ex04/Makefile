@@ -6,7 +6,7 @@
 #    By: nimai <nimai@student.42urduliz.com>        +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/07/25 11:05:17 by nimai             #+#    #+#              #
-#    Updated: 2023/08/01 16:52:21 by nimai            ###   ########.fr        #
+#    Updated: 2023/08/01 17:05:16 by nimai            ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -76,7 +76,6 @@ $(BUILD_DIR)/%.o: $(SRC_DIR)/%.cpp
 -include $(DEPS)
 
 clean:
-#	for f in $(dir $(LIBS_TARGET)); do $(MAKE) -C $$f clean; done
 	$(RM) $(OBJS) $(DEPS)
 
 fclean: clean
