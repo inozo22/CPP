@@ -6,7 +6,7 @@
 /*   By: nimai <nimai@student.42urduliz.com>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/31 16:03:55 by nimai             #+#    #+#             */
-/*   Updated: 2023/07/31 17:17:51 by nimai            ###   ########.fr       */
+/*   Updated: 2023/08/01 16:21:09 by nimai            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,10 +19,10 @@ HumanA::HumanA( std::string input_name, Weapon &input_weapon ) : name(input_name
 
 HumanA::~HumanA(void)
 {	
-	std::cout << std::endl << this->name << " has left from the field." << std::endl;
+	std::cout << this->name << " has left from the field." << std::endl;
 }
 
 void	HumanA::attack( void )
 {
-	std::cout << this->name << " attacks with his " << this->weapon.getType() << std::endl;
+	std::cout << this->name << " has attacked with his " << this->weapon.getType() << std::endl;
 }

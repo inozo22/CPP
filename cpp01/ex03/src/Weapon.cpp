@@ -6,7 +6,7 @@
 /*   By: nimai <nimai@student.42urduliz.com>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/31 16:03:11 by nimai             #+#    #+#             */
-/*   Updated: 2023/07/31 16:40:29 by nimai            ###   ########.fr       */
+/*   Updated: 2023/08/01 16:22:26 by nimai            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,19 +14,14 @@
 
 Weapon::Weapon( std::string name_type )
 {
-	std::cout << "...preparing for the battle." << std::endl;
+	std::cout << "\n...preparing for the battle." << std::endl;
 	this->type = name_type;
 }
 
 Weapon::~Weapon( void )
 {	
-	std::cout << std::endl << this->type << " has been destroyed." << std::endl;
+	std::cout << this->type << " has been destroyed." << std::endl;
 }
-
-// void	Zombie::announce( void )
-// {
-//     std::cout << Zombie::name << ": BraiiiiiiinnnzzzZ..." << std::endl;
-// }
 
 std::string	Weapon::getType( void )
 {
