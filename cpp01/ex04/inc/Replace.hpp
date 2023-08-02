@@ -31,10 +31,12 @@ public:
 
 	Replace( std::string filename, std::string s1, std::string s2 );
 	~Replace( void );
-//	void	attack( void );
+	void	func( void );
 
 private:
-	std::string name;
+	std::string _infile;
+	std::string _target;
+	std::string _replacement;
 
 };
 
