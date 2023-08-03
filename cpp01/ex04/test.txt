@@ -7,6 +7,7 @@ k
 L
 
 Ohayougozaimasu
+Konnichiwa
 
 LDLIBS
 youy
