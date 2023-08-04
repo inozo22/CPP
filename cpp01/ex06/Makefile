@@ -26,7 +26,8 @@ OBJS		:= $(SRCS:$(SRC_DIR)/%.cpp=$(BUILD_DIR)/%.o)
 DEPS		:= $(OBJS:.o=.d)
 
 CC			:= c++
-CFLAGS		:= -Wall -Wextra -Werror -pedantic -std=c++98
+#CFLAGS		:= -Wall -Wextra -Werror -pedantic -std=c++98
+CFLAGS		:= -pedantic -std=c++98
 CPPFLAGS	:= $(addprefix -I,$(INCS)) -MMD -MP
 LDFLAGS		:= $(addprefix -L,$(dir $(LIBS_TARGET)))
 LDLIBS		:= $(addprefix -l,$(LIBS))
@@ -53,7 +54,7 @@ DEBUG  /^-^\         /^-----^\\
      V \ ∧ / V         \ Q / 
   info / - \\ ========= / - \\
       /    |   CPP01   |    \\ ERROR
-("   /     |    EX05   |     \\     )"
+("   /     |    EX06   |     \\     )"
  ===/___) || ========= || (___\\====$(CLR_RMV)
 endef
 export	ART
