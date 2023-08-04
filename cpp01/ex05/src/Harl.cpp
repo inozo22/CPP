@@ -6,7 +6,7 @@
 /*   By: nimai <nimai@student.42urduliz.com>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/31 16:03:55 by nimai             #+#    #+#             */
-/*   Updated: 2023/08/04 11:10:34 by nimai            ###   ########.fr       */
+/*   Updated: 2023/08/04 11:35:17 by nimai            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ Harl::Harl( void )
 
 Harl::~Harl(void)
 {	
-	//std::cout << this->_filename << " has left from the field." << std::endl;
+
 }
 
 void	Harl::debug( void )
@@ -42,15 +42,13 @@ void	Harl::complain( std::string level )
 {
 	std::string levels[4] = {"DEBUG", "INFO", "WARNING", "ERROR"};
 	Pointer pointer[4] = {&Harl::debug, &Harl::info, &Harl::warning, &Harl::error};
-	int i;
-	for (i = 0; i < 4; ++i)
+	for (int i = 0; i < 4; ++i)
 	{
 		if (level == levels[i])
 		{
 			(this->*pointer[i])();
-			break ;
+			return ;
 		}
 	}
-	if (i == 4)
-		std::cout << "doesn't match" << std::endl;
+	std::cout << "doesn't match" << std::endl;
 }
