@@ -6,7 +6,7 @@
 /*   By: nimai <nimai@student.42urduliz.com>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/28 10:06:00 by nimai             #+#    #+#             */
-/*   Updated: 2023/08/04 11:36:35 by nimai            ###   ########.fr       */
+/*   Updated: 2023/08/04 17:03:22 by nimai            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,8 +14,12 @@
 
 int	main(int ac, char **av)
 {
+	if (ac != 2)
+	{
+		std::cerr << "you have to put for arguments as \"./Harl s1\"" << std::endl;
+		return (1);
+	}
 	std::string str = av[1];
-
 	if (str == UTEST || str == LTEST)
 	{
 		std::cout << GREEN << "\n=====  TEST  =====\n" << CLEAR;
@@ -39,11 +43,6 @@ int	main(int ac, char **av)
 		std::cout << RED << "\ninput \"WERROR\"\n" << CLEAR;
 		harl_test.complain("WERROR");
 		return (0);		
-	}
-	if (ac != 2)
-	{
-		std::cerr << "you have to put for arguments as \"./Harl s1\"" << std::endl;
-		return (1);
 	}
 	Harl	harl;
 	harl.complain(av[1]);
