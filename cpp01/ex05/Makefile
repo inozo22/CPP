@@ -6,7 +6,7 @@
 #    By: nimai <nimai@student.42urduliz.com>        +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/07/25 11:05:17 by nimai             #+#    #+#              #
-#    Updated: 2023/08/03 13:45:00 by nimai            ###   ########.fr        #
+#    Updated: 2023/08/04 11:01:56 by nimai            ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -18,7 +18,7 @@ LIBS		:=
 INCS		:= inc
 
 SRC_DIR		:= src
-SRCS		:= main.cpp 
+SRCS		:= main.cpp Harl.cpp
 SRCS		:= $(SRCS:%=$(SRC_DIR)/%)
 
 BUILD_DIR	:= .build
@@ -46,14 +46,14 @@ BLUE		:= \033[1;34m
 CYAN 		:= \033[1;36m
 
 define	ART
-$(YELLOW)
-AAA    /^-^\         /^-----^\\
-      / o o \        V  o o  V
-     /   ▼   \        |  ▽  |  AAA->BBB
+$(YELLOW)		I don't like to be complained...
+DEBUG  /^-^\         /^-----^\\
+      / = = \        V  T T  V
+     /   ▼   \        |  ▽  |  WARNING
      V \ ∧ / V         \ Q / 
-  CCC  / - \\ ========= / - \\
-      /    |   CPP01   |    \\ CCC->DDD
-("   /     |    EX04   |     \\     )"
+  info / - \\ ========= / - \\
+      /    |   CPP01   |    \\ ERROR
+("   /     |    EX05   |     \\     )"
  ===/___) || ========= || (___\\====$(CLR_RMV)
 endef
 export	ART
