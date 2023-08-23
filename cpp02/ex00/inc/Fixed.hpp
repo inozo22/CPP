@@ -6,7 +6,7 @@
 /*   By: nimai <nimai@student.42urduliz.com>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/28 10:08:19 by nimai             #+#    #+#             */
-/*   Updated: 2023/08/22 14:41:50 by nimai            ###   ########.fr       */
+/*   Updated: 2023/08/23 20:01:03 by nimai            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,18 +28,18 @@ class Fixed {
 
 private:
 	int	_value;
-	static const int	_bits;
+	static const int	_bits = 8;
 public:
 
 	Fixed( void );
 	~Fixed( void );
 	Fixed( const Fixed &fixed );
 	Fixed & operator = ( const Fixed &fixed );
-	
-	void	complain( std::string level );
-};
 
-typedef void (Fixed::*Pointer) ( void );
+	int		getRawBits( void ) const;
+	void	setRawBits( int const raw );
+
+};
 
 
 #endif

@@ -6,7 +6,7 @@
 #    By: nimai <nimai@student.42urduliz.com>        +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/07/25 11:05:17 by nimai             #+#    #+#              #
-#    Updated: 2023/08/04 16:50:56 by nimai            ###   ########.fr        #
+#    Updated: 2023/08/23 17:49:50 by nimai            ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -18,7 +18,7 @@ LIBS		:=
 INCS		:= inc
 
 SRC_DIR		:= src
-SRCS		:= main.cpp #Fixed.cpp
+SRCS		:= main.cpp Fixed.cpp
 SRCS		:= $(SRCS:%=$(SRC_DIR)/%)
 
 BUILD_DIR	:= .build
@@ -26,7 +26,7 @@ OBJS		:= $(SRCS:$(SRC_DIR)/%.cpp=$(BUILD_DIR)/%.o)
 DEPS		:= $(OBJS:.o=.d)
 
 CC			:= c++
-#CFLAGS		:= -Wall -Wextra -Werror -pedantic -std=c++98
+CFLAGS		:= -Wall -Wextra -Werror -pedantic -std=c++98
 CFLAGS		:= -pedantic -std=c++98
 CPPFLAGS	:= $(addprefix -I,$(INCS)) -MMD -MP
 LDFLAGS		:= $(addprefix -L,$(dir $(LIBS_TARGET)))
@@ -47,15 +47,16 @@ BLUE		:= \033[1;34m
 CYAN 		:= \033[1;36m
 
 define	ART
-$(YELLOW)		I don't like to be complained...
-DEBUG  /^-^\         /^-----^\\
-      / = = \        V  T T  V
-     /   ▼   \        |  ▽  |  WARNING
-     V \ ∧ / V         \ Q / 
-  info / - \\ ========= / - \\
-      /    |   CPP01   |    \\ ERROR
-("   /     |    EX06   |     \\     )"
- ===/___) || ========= || (___\\====$(CLR_RMV)
+$(YELLOW)
+	  		I don't like math...
+        /^-^\         /^-----^\\
+       / T T \        V  T T  V
+      /   ▼   \        |  ▽  |
+      V \ ∧ / V         \ Q / 
+        / - \\ ========= / - \\
+       /    |   CPP02   |    \\
+      /     |    EX00   |     \\     
+ (===/___) || ========= || (___\\====)$(CLR_RMV)
 endef
 export	ART
 
