@@ -6,7 +6,7 @@
 /*   By: nimai <nimai@student.42urduliz.com>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/28 10:08:19 by nimai             #+#    #+#             */
-/*   Updated: 2023/08/23 20:20:16 by nimai            ###   ########.fr       */
+/*   Updated: 2023/08/24 15:30:29 by nimai            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,6 +23,7 @@
 # define LTEST "test"
 
 # include <iostream>
+# include <cmath>
 
 class Fixed {
 
@@ -33,14 +34,18 @@ public:
 
 	Fixed( void );
 	Fixed( const int num );
+	Fixed( const float numf );
 	~Fixed( void );
-	Fixed( const Fixed &fixed );
-	Fixed & operator = ( const Fixed &fixed );
+	Fixed( const Fixed &src );
+	Fixed & operator = ( const Fixed &src );
 
 	int		getRawBits( void ) const;
 	void	setRawBits( int const raw );
+	float	toFloat( void ) const;
+	int 	toInt( void )const;
 
 };
 
+std::ostream& operator<<(std::ostream &out, Fixed const &src);
 
 #endif
