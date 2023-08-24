@@ -6,7 +6,7 @@
 /*   By: nimai <nimai@student.42urduliz.com>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/31 16:03:55 by nimai             #+#    #+#             */
-/*   Updated: 2023/08/24 15:50:35 by nimai            ###   ########.fr       */
+/*   Updated: 2023/08/24 16:09:57 by nimai            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,15 +20,11 @@ Fixed::Fixed( void ): _value(0)
 Fixed::Fixed( const int num ): _value(num << this->_bits)//there is a conflict230823
 {
 	std::cout << "Int constructor called" << std::endl;
-	std::cout << "num: " << num << std::endl;
-	std::cout << "value: " << this->_value << std::endl;
 }
 
 Fixed::Fixed( const float numf ): _value(roundf((float)numf * (1 << this->_bits)))
 {
 	std::cout << "Float constructor called" << std::endl;
-	std::cout << "numf: " << numf << std::endl;
-	std::cout << "value: " << this->_value << std::endl;
 }
 
 Fixed::~Fixed(void)
@@ -45,8 +41,6 @@ Fixed::Fixed( const Fixed &src )
 Fixed &Fixed::operator = ( const Fixed &src )
 {
 	std::cout << "Copy assignment operator called" << std::endl;
-	if (this == &src)
- 		return (*this);
 	this->_value = src.getRawBits();
 	return (*this);
 }
@@ -64,6 +58,7 @@ void	Fixed::setRawBits( int const raw )
 
 float	Fixed::toFloat( void ) const
 {
+//	return 0;
 	return ((float)this->_value / (1 << this->_bits));
 }
 
