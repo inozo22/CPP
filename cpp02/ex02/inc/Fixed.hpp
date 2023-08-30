@@ -6,7 +6,7 @@
 /*   By: nimai <nimai@student.42urduliz.com>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/28 10:08:19 by nimai             #+#    #+#             */
-/*   Updated: 2023/08/24 15:30:29 by nimai            ###   ########.fr       */
+/*   Updated: 2023/08/30 17:47:21 by nimai            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,8 @@
 # include <iostream>
 # include <cmath>
 
-class Fixed {
+class Fixed 
+{
 
 private:
 	int	_value;
@@ -39,10 +40,27 @@ public:
 	Fixed( const Fixed &src );
 	Fixed & operator = ( const Fixed &src );
 
-	int		getRawBits( void ) const;
-	void	setRawBits( int const raw );
-	float	toFloat( void ) const;
-	int 	toInt( void )const;
+	int			getRawBits( void ) const;
+	void		setRawBits( int const raw );
+	float		toFloat( void ) const;
+	int 		toInt( void )const;
+//The 6 comparison operators: >, <, >=, <=, == and !=
+
+//The 4 arithmetic operators: +, -, *, and /
+
+//The 4 increment/decrement (++i, i++, --i, i--) operators
+	Fixed	&operator++( void );
+	Fixed	&operator--( void );
+	Fixed	operator++( int );
+	Fixed	operator--( int );
+
+//overloaded member functions
+	static Fixed& min( Fixed &a, Fixed &b );
+	static const Fixed& min( const Fixed &a, const Fixed &b );
+	static Fixed& max( Fixed &a, Fixed &b );
+	static const Fixed& max( const Fixed &a, const Fixed &b );
+
+
 
 };
 
