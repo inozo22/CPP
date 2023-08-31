@@ -6,7 +6,7 @@
 /*   By: nimai <nimai@student.42urduliz.com>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/28 10:08:19 by nimai             #+#    #+#             */
-/*   Updated: 2023/08/24 15:30:29 by nimai            ###   ########.fr       */
+/*   Updated: 2023/08/30 12:45:11 by nimai            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,6 +46,6 @@ public:
 
 };
 
-std::ostream& operator<<(std::ostream &out, Fixed const &src);
+//std::ostream& operator<<(std::ostream &out, Fixed const &src);
 
 #endif
