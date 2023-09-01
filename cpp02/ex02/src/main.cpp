@@ -6,11 +6,12 @@
 /*   By: nimai <nimai@student.42urduliz.com>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/28 10:06:00 by nimai             #+#    #+#             */
-/*   Updated: 2023/08/30 17:54:05 by nimai            ###   ########.fr       */
+/*   Updated: 2023/09/01 13:43:55 by nimai            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Fixed.hpp"
+#include <array>
 
 int	main(void)
 {
@@ -27,6 +28,14 @@ int	main(void)
 	std::cout << a << std::endl;
 	std::cout << a++ << std::endl;
 	std::cout << a << std::endl;
+	std::cout << --a << std::endl;
+	std::cout << a << std::endl;
+	std::cout << a-- << std::endl;
+	std::cout << a << std::endl;
+
+
+
+
 //	std::cout << --a << std::endl;
 	// std::cout << a << std::endl;
 	// std::cout << a++ << std::endl;

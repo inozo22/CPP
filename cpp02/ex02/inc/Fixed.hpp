@@ -6,7 +6,7 @@
 /*   By: nimai <nimai@student.42urduliz.com>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/28 10:08:19 by nimai             #+#    #+#             */
-/*   Updated: 2023/08/30 17:47:21 by nimai            ###   ########.fr       */
+/*   Updated: 2023/09/01 14:00:32 by nimai            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,7 +38,7 @@ public:
 	Fixed( const float numf );
 	~Fixed( void );
 	Fixed( const Fixed &src );
-	Fixed & operator = ( const Fixed &src );
+	Fixed &operator=( const Fixed &src );
 
 	int			getRawBits( void ) const;
 	void		setRawBits( int const raw );
@@ -53,6 +53,9 @@ public:
 	Fixed	&operator--( void );
 	Fixed	operator++( int );
 	Fixed	operator--( int );
+
+	Fixed	operator-=( const Fixed &src );
+	Fixed	operator+=( const Fixed &src );
 
 //overloaded member functions
 	static Fixed& min( Fixed &a, Fixed &b );
