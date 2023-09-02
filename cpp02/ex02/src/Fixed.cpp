@@ -154,15 +154,15 @@ int	Fixed::toInt( void ) const
 	return (this->_value / (1 << this->_bits));
 }
 
-Fixed	&Fixed::operator+=( const Fixed &src )
-{
-	src.getRawBits();
-}
+//Fixed	&Fixed::operator+=( const Fixed &src )
+//{
+	//src.getRawBits();
+//}
 
-Fixed	&Fixed::operator-=( const Fixed &src )
-{
-	src.getRawBits();
-}
+//Fixed	&Fixed::operator-=( const Fixed &src )
+//{
+//	src.getRawBits();
+//}
 
 
 

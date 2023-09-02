@@ -54,8 +54,8 @@ public:
 	Fixed	operator++( int );
 	Fixed	operator--( int );
 
-	Fixed	operator-=( const Fixed &src );
-	Fixed	operator+=( const Fixed &src );
+/* 	Fixed	operator-=( const Fixed &src );
+	Fixed	operator+=( const Fixed &src ); */
 
 //overloaded member functions
 	static Fixed& min( Fixed &a, Fixed &b );
