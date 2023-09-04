@@ -74,8 +74,8 @@ bool	bsp( Point const a, Point const b, Point const c, Point const point )
 	std::cout << "area: " << area << "	s: " << s << "	t: " << t << std::endl;
 
 	if (((Fixed (0) < s ) && ( s < Fixed(1))) && ((Fixed(0) < t ) && ( t < Fixed(1))) && ((Fixed(0) < temp ) && (temp < Fixed(1))))
-		return (1);
-	return (true);
+		return (true);
+	return (false);
 }
 
 
