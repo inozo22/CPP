@@ -6,7 +6,7 @@
 /*   By: nimai <nimai@student.42urduliz.com>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/28 10:08:19 by nimai             #+#    #+#             */
-/*   Updated: 2023/09/01 14:00:32 by nimai            ###   ########.fr       */
+/*   Updated: 2023/09/04 12:51:29 by nimai            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,18 +44,26 @@ public:
 	void		setRawBits( int const raw );
 	float		toFloat( void ) const;
 	int 		toInt( void )const;
+
 //The 6 comparison operators: >, <, >=, <=, == and !=
+	bool	operator>(const Fixed &src) const;
+	bool	operator<(const Fixed &src) const;
+	bool	operator>=(const Fixed &src) const;
+	bool	operator<=(const Fixed &src) const;
+	bool	operator==(const Fixed &src) const;
+	bool	operator!=(const Fixed &src) const;
 
 //The 4 arithmetic operators: +, -, *, and /
+	Fixed	operator+(const Fixed &src) const;
+	Fixed	operator-(const Fixed &src) const;
+	Fixed	operator*(const Fixed &src) const;
+	Fixed	operator/(const Fixed &src) const;
 
 //The 4 increment/decrement (++i, i++, --i, i--) operators
 	Fixed	&operator++( void );
 	Fixed	&operator--( void );
 	Fixed	operator++( int );
 	Fixed	operator--( int );
-
-/* 	Fixed	operator-=( const Fixed &src );
-	Fixed	operator+=( const Fixed &src ); */
 
 //overloaded member functions
 	static Fixed& min( Fixed &a, Fixed &b );

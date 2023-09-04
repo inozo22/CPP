@@ -6,7 +6,7 @@
 /*   By: nimai <nimai@student.42urduliz.com>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/31 16:03:55 by nimai             #+#    #+#             */
-/*   Updated: 2023/09/01 14:03:06 by nimai            ###   ########.fr       */
+/*   Updated: 2023/09/04 12:54:24 by nimai            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,14 +18,16 @@ Fixed::Fixed( void ): _value(0)
 //	std::cout << "Default constructor called" << std::endl;
 }
 
-Fixed::Fixed( const int num ): _value(num << this->_bits)//there is a conflict230823
+Fixed::Fixed( const int num ): _value(num << this->_bits)
 {
-	std::cout << "Int constructor called, value is " << this->_value << std::endl;
+	// std::cout << "Int constructor called, value is " << this->_value << std::endl;
+	// std::cout << "num is " << num << std::endl;
 }
 
 Fixed::Fixed( const float numf ): _value(roundf((float)numf * (1 << this->_bits)))
 {
-	std::cout << "Float constructor called, value is " << this->_value << std::endl;
+	// std::cout << "Float constructor called, value is " << this->_value << std::endl;
+	// std::cout << "numf is " << numf << std::endl;
 }
 
 Fixed::~Fixed(void)
@@ -39,10 +41,6 @@ Fixed::Fixed( const Fixed &src )
 	this->operator=(src);
 }
 //constructor and destructor//constructor and destructor//
-
-
-
-
 
 
 /**
@@ -92,26 +90,78 @@ Fixed const &Fixed::max( const Fixed &a, const Fixed &b )
 
 //The 6 comparison operators: >, <, >=, <=, == and !=
 
+bool	Fixed::operator>(const Fixed &src) const
+{
+	return (this->_value > src._value);
+}
+
+bool	Fixed::operator<(const Fixed &src) const
+{
+	return (this->_value < src._value);
+}
+
+bool	Fixed::operator>=(const Fixed &src) const
+{
+	return (this->_value >= src._value);
+}
+
+bool	Fixed::operator<=(const Fixed &src) const
+{
+	return (this->_value <= src._value);
+}
+
+bool	Fixed::operator==(const Fixed &src) const
+{
+	return (this->_value == src._value);
+}
+
+bool	Fixed::operator!=(const Fixed &src) const
+{
+	return (this->_value != src._value);
+}
+
+
+
 //The 4 arithmetic operators: +, -, *, and /
+
+Fixed	Fixed::operator+(const Fixed &src) const
+{
+	return (Fixed(this->toFloat() + src.toFloat()));
+}
+
+Fixed	Fixed::operator-(const Fixed &src) const
+{
+	return (Fixed(this->toFloat() - src.toFloat()));
+}
+
+Fixed	Fixed::operator*(const Fixed &src) const
+{
+	return (Fixed(this->toFloat() * src.toFloat()));
+}
+
+Fixed	Fixed::operator/(const Fixed &src) const
+{
+	return (Fixed(this->toFloat() / src.toFloat()));
+}
 
 //The 4 increment/decrement (++i, i++, --i, i--) operators
 Fixed	&Fixed::operator++( void )
 {
-	std::cout << "++ with ref called" << std::endl;
+//	std::cout << "++ with ref called" << std::endl;
 	this->_value++;
 	return (*this);
 }
 
 Fixed	&Fixed::operator--( void )
 {
-	std::cout << "-- with ref called" << std::endl;
+//	std::cout << "-- with ref called" << std::endl;
 	this->_value--;
 	return (*this);
 }
 
 Fixed	Fixed::operator++( int )
 {
-	std::cout << "++ called" << std::endl;
+//	std::cout << "++ called" << std::endl;
 	Fixed tmp( *this );
 	operator++();
 	return (tmp);
@@ -119,7 +169,7 @@ Fixed	Fixed::operator++( int )
 
 Fixed	Fixed::operator--( int )
 {
-	std::cout << "-- called" << std::endl;
+//	std::cout << "-- called" << std::endl;
 	Fixed tmp( *this );
 	operator--();
 	return (tmp);
@@ -127,7 +177,7 @@ Fixed	Fixed::operator--( int )
 
 Fixed &Fixed::operator=( const Fixed &src )
 {
-	std::cout << "Copy assignment operator called" << std::endl;
+//	std::cout << "Copy assignment operator called" << std::endl;
 	if (this == &src)
  		return (*this);
 	this->_value = src.getRawBits();
@@ -153,20 +203,6 @@ int	Fixed::toInt( void ) const
 {
 	return (this->_value / (1 << this->_bits));
 }
-
-//Fixed	&Fixed::operator+=( const Fixed &src )
-//{
-	//src.getRawBits();
-//}
-
-//Fixed	&Fixed::operator-=( const Fixed &src )
-//{
-//	src.getRawBits();
-//}
-
-
-
-
 
 std::ostream& operator<<(std::ostream &out, Fixed const &src)
 {
