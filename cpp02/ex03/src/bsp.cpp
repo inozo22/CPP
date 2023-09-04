@@ -15,38 +15,65 @@
 
 //double Area = 0.5 *(-p1y*p2x + p0y*(-p1x + p2x) + p0x*(p1y - p2y) + p1x*p2y);
 
+/* Fixed	getArea( Point const point, Point const a, Point const b, Point const c )
+{
+	(void)point;
+	Fixed	ret;
+	ret._value = 0.5 * (-(b.getY()) * c.getX() + a.getY() * (-(b.getX()) + c.getX()) + \
+	a.getX() * (b.getY() - c.getY()) + b.getX() * c.getY());
+	return (ret);
+} */
 Fixed	getArea( Point const point, Point const a, Point const b, Point const c )
 {
 	(void)point;
-	Fixed	ret = 0.5 * (-(b.getY()) * c.getX() + a.getY() * (-(b.getX()) + c.getX()) + \
-	a.getX() * (b.getY() - c.getY()) + b.getX() * c.getY());
+	Fixed const ret ( (Fixed)(0.5f * (-(b.getY().toFloat()) * c.getX().toFloat() + a.getY().toFloat() * (-(b.getX().toFloat()) + c.getX().toFloat()) + a.getX().toFloat() * (b.getY().toFloat() - c.getY().toFloat()) + b.getX().toFloat() * c.getY().toFloat())));
+	std::cout << "area ret: " << ret << std::endl;
 	return (ret);
 }
 
 //double s = 1/(2*Area)*(p0y*p2x - p0x*p2y + (p2y - p0y)*px + (p0x - p2x)*py);
 
+/* Fixed	getS( Point area, Point const point, Point const a, Point const c )
+{
+	Fixed	ret;
+	ret._value = 1/( 2 * area._x()) * (a.getY().toFloat() * c.getX().toFloat() - a.getX().toFloat() * c.getY().toFloat() + (c.getY().toFloat() - \
+	a.getY().toFloat()) * point.getX().toFloat() + (a.getX().toFloat() - c.getX().toFloat() * point.getY().toFloat()));
+	return (ret);
+} */
 Fixed	getS( Fixed area, Point const point, Point const a, Point const c )
 {
-	Fixed	ret = 1/( 2 * area.toFloat()) * (a.getY() * c.getX() - a.getX() * c.getY() + (c.getY() - \
-	a.getY()) * point.getX() + (a.getX() - c.getX() * point.getY()));
+	Fixed	ret ( (Fixed) 1.00f /( Fixed (2) * area) * (a.getY()/* .toFloat() */ * c.getX()/* .toFloat() */ - a.getX()/* .toFloat() */ * c.getY()/* .toFloat() */ + (c.getY()/* .toFloat() */ - \
+	a.getY()/* .toFloat() */) * point.getX()/* .toFloat() */ + (a.getX()/* .toFloat() */ - c.getX()/* .toFloat() */ * point.getY()/* .toFloat() */)));
+	std::cout << "s ret: " << ret << std::endl;
 	return (ret);
 }
 
 //double t = 1/(2*Area)*(p0x*p1y - p0y*p1x + (p0y - p1y)*px + (p1x - p0x)*py);
 
+/* Fixed	getT( Point area, Point const point, Point const a, Point const b )
+{
+	Fixed	ret;
+	ret._value = 1/( 2 * area.toFloat()) * (a.getX().toFloat() * b.getY().toFloat() - a.getY().toFloat() * b.getX().toFloat() + (a.getY().toFloat() - b.getY().toFloat()) * point.getX().toFloat() + (b.getX().toFloat() - a.getX().toFloat()) * point.getY().toFloat());
+	return (ret);
+} */
 Fixed	getT( Fixed area, Point const point, Point const a, Point const b )
 {
-	Fixed	ret = 1/( 2 * area.toFloat()) * (a.getX() * b.getY() - a.getY() * b.getX() + (a.getY() - b.getY()) * point.getX() + (b.getX() - a.getX()) * point.getY());
+	Fixed	ret( (Fixed) 1.00f /( Fixed (2) * area) * (a.getX()/* .toFloat() */ * b.getY()/* .toFloat() */ - a.getY()/* .toFloat() */ * b.getX()/* .toFloat() */ + (a.getY()/* .toFloat() */ - b.getY()/* .toFloat() */) * point.getX()/* .toFloat() */ + (b.getX()/* .toFloat() */ - a.getX()/* .toFloat() */) * point.getY()/* .toFloat() */));
+	std::cout << "t ret: " << ret << std::endl;
 	return (ret);
 }
 
 bool	bsp( Point const a, Point const b, Point const c, Point const point )
 {
+//	Point area = getArea( point, a, b, c );
 	Fixed area = getArea( point, a, b, c );
 	Fixed s = getS( area, point, a, c );
 	Fixed t = getT( area, point, a, b );
+	Fixed temp = ( Fixed(1) - s - t);
 
-	if ((0 < s < 1) && (0 < t < 1) && (0 < 1 - s - t < 1))
+	std::cout << "area: " << area << "	s: " << s << "	t: " << t << std::endl;
+
+	if (((Fixed (0) < s ) && ( s < Fixed(1))) && ((Fixed(0) < t ) && ( t < Fixed(1))) && ((Fixed(0) < temp ) && (temp < Fixed(1))))
 		return (1);
 	return (true);
 }
