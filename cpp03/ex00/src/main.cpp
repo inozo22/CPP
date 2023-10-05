@@ -6,19 +6,16 @@
 /*   By: nimai <nimai@student.42urduliz.com>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/28 10:06:00 by nimai             #+#    #+#             */
-/*   Updated: 2023/08/23 19:50:27 by nimai            ###   ########.fr       */
+/*   Updated: 2023/10/05 17:38:06 by nimai            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Fixed.hpp"
+#include "ClapTrap.hpp"
 
 int	main(void)
 {
-	Fixed	a;
-	Fixed	b( a );
-	Fixed	c;
-	
-	c = b;
+	ClapTrap	humanA;
+	ClapTrap	humanB;
 
 	std::cout << a.getRawBits() << std::endl;
 	std::cout << b.getRawBits() << std::endl;

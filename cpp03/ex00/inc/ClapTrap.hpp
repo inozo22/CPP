@@ -6,7 +6,7 @@
 /*   By: nimai <nimai@student.42urduliz.com>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/28 10:08:19 by nimai             #+#    #+#             */
-/*   Updated: 2023/09/05 15:11:02 by nimai            ###   ########.fr       */
+/*   Updated: 2023/10/05 13:35:47 by nimai            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,49 +35,14 @@ private:
 
 public:
 	ClapTrap( void );
-	ClapTrap( const int num );
-	ClapTrap( const float numf );
+	ClapTrap( std::string name );
+	ClapTrap( ClapTrap const &ClapTrap );
 	~ClapTrap( void );
-	ClapTrap( const ClapTrap &src );
 	ClapTrap &operator=( const ClapTrap &src );
 
 	void	attack(const std::string& target);
 	void	takeDamage(unsigned int amount);
 	void	beRepaired(unsigned int amount);
-// 	int			getRawBits( void ) const;
-// 	void		setRawBits( int const raw );
-// 	float		toFloat( void ) const;
-// 	int 		toInt( void )const;
-
-// //The 6 comparison operators: >, <, >=, <=, == and !=
-// 	bool	operator>(const ClapTrap &src) const;
-// 	bool	operator<(const ClapTrap &src) const;
-// 	bool	operator>=(const ClapTrap &src) const;
-// 	bool	operator<=(const ClapTrap &src) const;
-// 	bool	operator==(const ClapTrap &src) const;
-// 	bool	operator!=(const ClapTrap &src) const;
-
-// //The 4 arithmetic operators: +, -, *, and /
-// 	ClapTrap	operator+(const ClapTrap &src) const;
-// 	ClapTrap	operator-(const ClapTrap &src) const;
-// 	ClapTrap	operator*(const ClapTrap &src) const;
-// 	ClapTrap	operator/(const ClapTrap &src) const;
-
-// //The 4 increment/decrement (++i, i++, --i, i--) operators
-// 	ClapTrap	&operator++( void );
-// 	ClapTrap	&operator--( void );
-// 	ClapTrap	operator++( int );
-// 	ClapTrap	operator--( int );
-
-// //overloaded member functions
-// 	static ClapTrap& min( ClapTrap &a, ClapTrap &b );
-// 	static const ClapTrap& min( const ClapTrap &a, const ClapTrap &b );
-// 	static ClapTrap& max( ClapTrap &a, ClapTrap &b );
-// 	static const ClapTrap& max( const ClapTrap &a, const ClapTrap &b );
-
 };
-
-std::ostream& operator<<(std::ostream &out, ClapTrap const &src);
-
 
 #endif
