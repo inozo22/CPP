@@ -6,7 +6,7 @@
 /*   By: nimai <nimai@student.42urduliz.com>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/28 10:08:19 by nimai             #+#    #+#             */
-/*   Updated: 2023/10/05 13:35:47 by nimai            ###   ########.fr       */
+/*   Updated: 2023/10/23 16:42:21 by nimai            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,13 +36,19 @@ private:
 public:
 	ClapTrap( void );
 	ClapTrap( std::string name );
-	ClapTrap( ClapTrap const &ClapTrap );
+	ClapTrap( ClapTrap const &src );
 	~ClapTrap( void );
 	ClapTrap &operator=( const ClapTrap &src );
+
+	std::string		getName(void) const;
+	unsigned int	getHp(void) const;
+	unsigned int	getEnergy(void) const;
+	unsigned int	getDamage(void) const;
 
 	void	attack(const std::string& target);
 	void	takeDamage(unsigned int amount);
 	void	beRepaired(unsigned int amount);
+	
 };
 
 #endif
