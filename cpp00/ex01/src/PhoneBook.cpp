@@ -6,7 +6,7 @@
 /*   By: nimai <nimai@student.42urduliz.com>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/25 11:05:51 by nimai             #+#    #+#             */
-/*   Updated: 2023/10/23 15:58:34 by nimai            ###   ########.fr       */
+/*   Updated: 2023/10/24 12:40:25 by nimai            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,14 +45,19 @@ void	PhoneBook::cmd_add()
 	{
 		std::cout << "[ADD] " << std::setfill(' ') << std::setw(15);
 		std::cout << heads[i] << " > ";
-		std::getline(std::cin, input);
-		if (input.length())
+		// std::getline(std::cin, input);
+		if (!std::getline(std::cin, input))
 		{
+			std::cout << "in cmd_add: " << COLOR_RED"Please don't send eof!!!!" << COLOR_RESET << std::endl;
+			break ;
+		}
+		if (!input.length() || (input.find_first_not_of(' ') == std::string::npos))
+			std::cout << "CAUTION! input field is empty, please fill it." << std::endl;
+		else
+		{	
 			this->contact[_pos].set_info(i, input);
 			i++;
 		}
-		else
-			std::cout << "CAUTION! input field is empty, please fill it." << std::endl;
 	}
 	input = std::to_string(_id);
 	this->contact[_pos].set_info(i, input);
@@ -81,7 +86,12 @@ void	PhoneBook::cmd_search()
 		int	ret = 0;
 		std::string input;
 		std::cout << "[SEARCH] > ";
-		std::getline(std::cin, input);
+		// std::getline(std::cin, input);
+		if (!std::getline(std::cin, input))
+		{
+			std::cout << "in cmd_search: " << COLOR_RED"Please don't send eof!!!!" << COLOR_RESET << std::endl;
+			break ;
+		}
 		if (input == "Q" || input == "q")
 			break;
 		for (int i = 0; i < _line; ++i)

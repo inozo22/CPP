@@ -6,7 +6,7 @@
 /*   By: nimai <nimai@student.42urduliz.com>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/25 11:05:37 by nimai             #+#    #+#             */
-/*   Updated: 2023/07/27 11:47:55 by nimai            ###   ########.fr       */
+/*   Updated: 2023/10/24 12:02:40 by nimai            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,13 +41,7 @@ void Contact::get_info_list(int &index) const
 		if (this->info[i].size() <= 10)
 			std::cout << std::setfill(' ') << std::setw(10) << this->info[i];
 		else
-		{
-			for (int j = 0; j < 9; ++j)
-			{
-				std::cout << this->info[i][j];
-			}
-			std::cout << ".";
-		}
+			std::cout << this->info[i].substr(0, 9) << ".";
 	}
 	std::cout << "|" << std::endl;
 }
