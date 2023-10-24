@@ -6,7 +6,7 @@
 /*   By: nimai <nimai@student.42urduliz.com>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/28 10:08:19 by nimai             #+#    #+#             */
-/*   Updated: 2023/10/23 16:42:21 by nimai            ###   ########.fr       */
+/*   Updated: 2023/10/24 16:53:27 by nimai            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,11 +29,15 @@ class ClapTrap
 
 private:
 	std::string		_name;
-	unsigned int	_hp = 10;
-	unsigned int	_energy = 10;
-	unsigned int	_damage = 0;
+	unsigned int	_hp;
+	unsigned int	_energy;
+	unsigned int	_damage;
 
 public:
+	static unsigned int const	defaultHp = 10;
+	static unsigned int const	defaultEnergy = 10;
+	static unsigned int const	defaultDamage = 0;
+
 	ClapTrap( void );
 	ClapTrap( std::string name );
 	ClapTrap( ClapTrap const &src );
