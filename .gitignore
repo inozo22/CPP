@@ -1,0 +1,9 @@
+*.o
+*.a
+*.exe
+*.out
+test
+*.rpt
+*.dSYM
+.DS_Store
+.vscode/*
