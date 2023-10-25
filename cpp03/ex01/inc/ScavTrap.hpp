@@ -1,17 +1,17 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ClapTrap.hpp                                       :+:      :+:    :+:   */
+/*   ScavTrap.hpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: nimai <nimai@student.42urduliz.com>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/28 10:08:19 by nimai             #+#    #+#             */
-/*   Updated: 2023/10/25 13:37:07 by nimai            ###   ########.fr       */
+/*   Updated: 2023/10/25 13:47:46 by nimai            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef __CLAPTRAP_HPP__
-# define __CLAPTRAP_HPP__
+#ifndef __SCAVTRAP_HPP__
+# define __SCAVTRAP_HPP__
 
 # define BLUE "\033[1;34m"
 # define YELLOW "\033[1;33m"
@@ -22,38 +22,31 @@
 # define UTEST "TEST"
 # define LTEST "test"
 
-# define CLAPTRAP_DEFAULT_HP 10
-# define CLAPTRAP_DEFAULT_ENERGY 10
-# define CLAPTRAP_DEFAULT_DAMAGE 0
+# define SCAVTRAP_DEFAULT_HP 100
+# define SCAVTRAP_DEFAULT_ENERGY 50
+# define SCAVTRAP_DEFAULT_DAMAGE 20
 
 # include <iostream>
+# include "ClapTrap.hpp"
 
-class ClapTrap 
+class ScavTrap : public ClapTrap
 {
 
-protected:
-	std::string		name;
-	unsigned int	hp;
-	unsigned int	energy;
-	unsigned int	damage;
+// private:
+// 	std::string		_name;
+// 	unsigned int	_hp;
+// 	unsigned int	_energy;
+// 	unsigned int	_damage;
 
 public:
-
-	ClapTrap( void );
-	ClapTrap( std::string name );
-	ClapTrap( ClapTrap const &src );
-	~ClapTrap( void );
-	ClapTrap &operator=( const ClapTrap &src );
-
-	std::string		getName(void) const;
-	unsigned int	getHp(void) const;
-	unsigned int	getEnergy(void) const;
-	unsigned int	getDamage(void) const;
+	ScavTrap( void );
+	ScavTrap( std::string name );
+	ScavTrap( ScavTrap const &src );
+	~ScavTrap( void );
+	ScavTrap &operator=( const ScavTrap &src );
 
 	void	attack(const std::string& target);
-	void	takeDamage(unsigned int amount);
-	void	beRepaired(unsigned int amount);
-	
+	void	guardGate(void);
 };
 
 #endif
