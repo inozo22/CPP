@@ -6,7 +6,7 @@
 /*   By: nimai <nimai@student.42urduliz.com>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/28 10:06:00 by nimai             #+#    #+#             */
-/*   Updated: 2023/10/24 18:16:17 by nimai            ###   ########.fr       */
+/*   Updated: 2023/10/25 09:49:38 by nimai            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,8 +36,9 @@ int	main(void)
 	Clap1.beRepaired(5000);
 	Clap2.beRepaired(5000);
 	Clap2.attack(Clap2Name);
-	Clap2.takeDamage(5000);
+	Clap2.takeDamage(5009);
 	Clap2.beRepaired(5000);
+	Clap2.attack(Clap1Name);
 	Clap2.takeDamage(1);
 	return 0;
 }
