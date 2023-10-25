@@ -6,7 +6,7 @@
 /*   By: nimai <nimai@student.42urduliz.com>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/31 16:03:55 by nimai             #+#    #+#             */
-/*   Updated: 2023/10/25 15:55:48 by nimai            ###   ########.fr       */
+/*   Updated: 2023/10/25 16:40:34 by nimai            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -69,40 +69,6 @@ void	ScavTrap::attack(const std::string& target)
 	std::cout << GREEN << this->name << ": hp: " << this->hp << " energy: " << this->energy << CLEAR << std::endl;
 }
 
-// void	ScavTrap::takeDamage(unsigned int amount)
-// {
-// 	if (this->_hp <= 0)
-// 	{
-// 		std::cout << "ScavTrap " << this->_name << " can't be taken more damage. It's already..." << std::endl;
-// 	}
-// 	else
-// 	{
-// 		std::cout << "ScavTrap " << this->_name << " takes " << amount << " points of damage!" << std::endl;
-//         this->_hp -= amount;
-// 		if (this->_hp <= 0)
-// 			std::cout << this->_name << " is destroyed..." << std::endl;
-// 	}
-// 	std::cout << RED << this->_name << ": hp: " << this->_hp << " energy: " << this->_energy << CLEAR << std::endl;
-
-// }
-
-// void	ScavTrap::beRepaired(unsigned int amount)
-// {
-//     if (this->_hp > 0 && this->_energy > 0)
-// 	{
-//         std::cout << "ScavTrap " << this->_name << " is being repaired for " << amount << " hit points." << std::endl;
-//         this->_hp += amount;
-//         this->_energy--;
-//     }
-// 	else if (this->_hp <= 0)
-// 	{
-//         std::cout << "ScavTrap " << _name << " can't be repaired due to be severely damaged." << std::endl;
-//     }
-// 	else
-//         std::cout << "ScavTrap " << _name << " can't be repaired due to lack of energy points." << std::endl;	
-// 	std::cout << BLUE << this->_name << ": hp: " << this->_hp << " energy: " << this->_energy << CLEAR << std::endl;
-// }
-
 void	ScavTrap::guardGate( void )
 {
 	if (this->hp > 0 && energy > 0)
@@ -116,24 +82,5 @@ void	ScavTrap::guardGate( void )
 	}
 	std::cout << GREEN << this->name << ": hp: " << this->hp << " energy: " << this->energy << CLEAR << std::endl;
 }
-
-// std::string		ScavTrap::getName(void) const
-// {
-// 	return (this->_name);
-// }
-// unsigned int	ScavTrap::getHp(void) const
-// {
-// 	return (this->_hp);	
-// }
-// unsigned int	ScavTrap::getEnergy(void) const
-// {
-// 	return (this->_energy);
-// }
-// unsigned int	ScavTrap::getDamage(void) const
-// {
-// 	return (this->_damage);
-// }
-
-
 
 /**********************************************************************************/
