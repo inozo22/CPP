@@ -6,20 +6,20 @@
 /*   By: nimai <nimai@student.42urduliz.com>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/31 16:03:55 by nimai             #+#    #+#             */
-/*   Updated: 2023/10/25 09:48:30 by nimai            ###   ########.fr       */
+/*   Updated: 2023/10/25 13:10:18 by nimai            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ClapTrap.hpp"
 
 //***	constructor and destructor//constructor and destructor	***//
-ClapTrap::ClapTrap( void ) : _hp(defaultHp), _energy(defaultEnergy), _damage(defaultDamage)
+ClapTrap::ClapTrap( void ) : _hp(CLAPTRAP_DEFAULT_HP), _energy(CLAPTRAP_DEFAULT_ENERGY), _damage(CLAPTRAP_DEFAULT_DAMAGE)
 {
 	this->_name = "noname";
 	std::cout << "Default constructor called." << std::endl;
 }
 
-ClapTrap::ClapTrap( std::string name ) : _name(name), _hp(defaultHp), _energy(defaultEnergy), _damage(defaultDamage)
+ClapTrap::ClapTrap( std::string name ) : _name(name), _hp(CLAPTRAP_DEFAULT_HP), _energy(CLAPTRAP_DEFAULT_ENERGY), _damage(CLAPTRAP_DEFAULT_DAMAGE)
 {
 	std::cout << this->_name << ": Created." << std::endl;
 }

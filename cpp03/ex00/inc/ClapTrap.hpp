@@ -6,7 +6,7 @@
 /*   By: nimai <nimai@student.42urduliz.com>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/28 10:08:19 by nimai             #+#    #+#             */
-/*   Updated: 2023/10/24 16:53:27 by nimai            ###   ########.fr       */
+/*   Updated: 2023/10/25 13:09:44 by nimai            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,6 +22,10 @@
 # define UTEST "TEST"
 # define LTEST "test"
 
+# define CLAPTRAP_DEFAULT_HP 10
+# define CLAPTRAP_DEFAULT_ENERGY 10
+# define CLAPTRAP_DEFAULT_DAMAGE 0
+
 # include <iostream>
 
 class ClapTrap 
@@ -34,9 +38,9 @@ private:
 	unsigned int	_damage;
 
 public:
-	static unsigned int const	defaultHp = 10;
-	static unsigned int const	defaultEnergy = 10;
-	static unsigned int const	defaultDamage = 0;
+	// static unsigned int const	defaultHp = 10;
+	// static unsigned int const	defaultEnergy = 10;
+	// static unsigned int const	defaultDamage = 0;
 
 	ClapTrap( void );
 	ClapTrap( std::string name );

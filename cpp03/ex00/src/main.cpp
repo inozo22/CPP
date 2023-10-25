@@ -6,7 +6,7 @@
 /*   By: nimai <nimai@student.42urduliz.com>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/28 10:06:00 by nimai             #+#    #+#             */
-/*   Updated: 2023/10/25 09:49:38 by nimai            ###   ########.fr       */
+/*   Updated: 2023/10/25 13:10:59 by nimai            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@ int	main(void)
 	for (int i = 0; i < 10; i++) 
 	{
 		Clap1.attack(Clap2Name);
-		Clap2.takeDamage(ClapTrap::defaultDamage);
+		Clap2.takeDamage(CLAPTRAP_DEFAULT_DAMAGE);
 	}
     std::cout << "Hello, after a loop!" << std::endl;
 	Clap1.attack(Clap2Name);
