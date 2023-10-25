@@ -6,84 +6,43 @@
 /*   By: nimai <nimai@student.42urduliz.com>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/28 10:06:00 by nimai             #+#    #+#             */
-/*   Updated: 2023/09/04 16:42:47 by nimai            ###   ########.fr       */
+/*   Updated: 2023/10/25 15:32:07 by nimai            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Fixed.hpp"
+#include "ClapTrap.hpp"
+#include "ScavTrap.hpp"
 
 int	main(void)
 {
-	Fixed		a;
-	Fixed const	b( Fixed( 5.05f ) * Fixed( 2 ) );
-	// Fixed const	b( Fixed( 2.02f ) );
-	// Fixed const	c( Fixed( 2 ) );
+	std::string clapName = "Clap";
+	std::string scavName = "Scav";
 
-	std::cout << a << std::endl;
-	std::cout << ++a << std::endl;
-	std::cout << a << std::endl;
-	std::cout << a++ << std::endl;
-	std::cout << a << std::endl;
-	std::cout << --a << std::endl;
-	std::cout << a << std::endl;
-	std::cout << a-- << std::endl;
-	std::cout << a << std::endl;
-	std::cout << a + b << std::endl;
-	std::cout << a + b + b << std::endl;
-	std::cout << a + b + b - b << std::endl;
-	std::cout << a + b + b - b / b << std::endl;
-	std::cout << a + b + b - b / b * a << std::endl;
-	a++;
-	a = a + b;
+	ScavTrap	scav(scavName);
+	ClapTrap	clap(clapName);
 
-	if (a > 5)
-		std::cout << "> works" << std::endl;
-	else
-		std::cout << "fail" << std::endl;
-	if (b < a)
-		std::cout << "< works" << std::endl;
-	else
-		std::cout << "fail" << std::endl;
-
-	a = b;
-
-	if (a >= b)
-		std::cout << ">= works" << std::endl;
-	else
-		std::cout << "fail" << std::endl;
-	if (a <= b)
-		std::cout << "<= works" << std::endl;
-	else
-		std::cout << "fail" << std::endl;
-
-	if (a == b)
-		std::cout << "== works" << std::endl;
-	else
-		std::cout << "fail" << std::endl;
-
-	if (a != b)
-		std::cout << "fail" << std::endl;
-	else
-		std::cout << "!= works" << std::endl;
+	scav.beRepaired(0);
+	scav.beRepaired(10);
+	for (int i = 0; i < 5; i++) 
+	{
+		clap.attack(scavName);
+		scav.takeDamage(CLAPTRAP_DEFAULT_DAMAGE);
+	}
+    std::cout << "Hello, after a loop!" << std::endl;
+	scav.attack(scavName);
+	clap.takeDamage(SCAVTRAP_DEFAULT_DAMAGE);
+	clap.beRepaired(4);
+	scav.guardGate();
+	clap.attack(clapName);
+	scav.takeDamage(5);
+	scav.beRepaired(5000);
+	clap.beRepaired(5000);
+	clap.attack(scavName);
+	clap.takeDamage(SCAVTRAP_DEFAULT_DAMAGE);
+	clap.beRepaired(5000);
+	clap.attack(clapName);
+	clap.takeDamage(1);
 	return 0;
 }
 
 
-//main official(in subject)
-// int	main(void)
-// {
-// 	Fixed		a;
-// 	Fixed const	b( Fixed( 5.05f ) * Fixed( 2 ) );
-
-// 	std::cout << a << std::endl;
-// 	std::cout << ++a << std::endl;
-// 	std::cout << a << std::endl;
-// 	std::cout << a++ << std::endl;
-// 	std::cout << a << std::endl;
-
-// 	std::cout << b << std::endl;
-
-// 	std::cout << Fixed::max( a, b ) << std::endl;
-
-// 	return 0;
-// }

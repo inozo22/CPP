@@ -6,11 +6,11 @@
 #    By: nimai <nimai@student.42urduliz.com>        +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/07/25 11:05:17 by nimai             #+#    #+#              #
-#    Updated: 2023/09/01 12:50:45 by nimai            ###   ########.fr        #
+#    Updated: 2023/10/25 16:43:28 by nimai            ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME		:= Fixed
+NAME		:= FragTrap
 
 LIBS_TARGET	:= 
 LIBS		:= 
@@ -18,7 +18,7 @@ LIBS		:=
 INCS		:= inc
 
 SRC_DIR		:= src
-SRCS		:= main.cpp Fixed.cpp
+SRCS		:= main.cpp ClapTrap.cpp ScavTrap.cpp
 SRCS		:= $(SRCS:%=$(SRC_DIR)/%)
 
 BUILD_DIR	:= .build
@@ -27,7 +27,7 @@ DEPS		:= $(OBJS:.o=.d)
 
 CC			:= c++
 CFLAGS		:= -Wall -Wextra -Werror -pedantic -std=c++98
-#CFLAGS		:= -pedantic -std=c++98
+CFLAGS		:= -pedantic -std=c++98
 CPPFLAGS	:= $(addprefix -I,$(INCS)) -MMD -MP
 LDFLAGS		:= $(addprefix -L,$(dir $(LIBS_TARGET)))
 LDLIBS		:= $(addprefix -l,$(LIBS))
@@ -48,13 +48,12 @@ CYAN 		:= \033[1;36m
 
 define	ART
 $(YELLOW)
-	  		I don't like math...
         /^-^\         /^-----^\\
-       / T T \        V  T T  V
+       / o o \        V  o o  V
       /   ▼   \        |  ▽  |
       V \ ∧ / V         \ Q / 
         / - \\ ========= / - \\
-       /    |   CPP02   |    \\
+       /    |   CPP03   |    \\
       /     |    EX02   |     \\     
  (===/___) || ========= || (___\\====)$(CLR_RMV)
 endef
