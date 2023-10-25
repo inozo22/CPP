@@ -6,7 +6,7 @@
 /*   By: nimai <nimai@student.42urduliz.com>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/31 16:03:55 by nimai             #+#    #+#             */
-/*   Updated: 2023/10/25 14:08:25 by nimai            ###   ########.fr       */
+/*   Updated: 2023/10/25 15:25:49 by nimai            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,7 +56,7 @@ void	ClapTrap::attack(const std::string& target)
 	if (this->hp > 0 && energy > 0)
 	{
 		std::cout << "ClapTrap " << this->name <<  " attacks " << target << ", causing "
-		<< this->damage << "points of damage!" << std::endl;
+		<< this->damage << " points of damage!" << std::endl;
 		this->energy--;
 	}
 	else
@@ -72,14 +72,15 @@ void	ClapTrap::takeDamage(unsigned int amount)
 	{
 		std::cout << "ClapTrap " << this->name << " can't be taken more damage. It's already..." << std::endl;
 	}
+	else if (((int)this->hp - (int)amount) <= 0)
+	{
+		std::cout << "ClapTrap " << this->name << " takes " << amount - this->hp << " points of damage!" << std::endl;
+		std::cout << this->name << " is destroyed..." << std::endl;
+		this->hp = 0;
+	}
 	else
 	{
 		std::cout << "ClapTrap " << this->name << " takes " << amount << " points of damage!" << std::endl;
-/////////////
-        this->hp = (int)this->hp - (int)amount;
-/////////////
-		if (this->hp <= 0)
-			std::cout << this->name << " is destroyed..." << std::endl;
 	}
 	std::cout << RED << this->name << ": hp: " << this->hp << " energy: " << this->energy << CLEAR << std::endl;
 
