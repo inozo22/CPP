@@ -6,11 +6,11 @@
 #    By: nimai <nimai@student.42urduliz.com>        +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/07/25 11:05:17 by nimai             #+#    #+#              #
-#    Updated: 2023/08/23 20:11:32 by nimai            ###   ########.fr        #
+#    Updated: 2023/10/25 11:27:33 by nimai            ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME		:= Fixed
+NAME		:= ScavTrap
 
 LIBS_TARGET	:= 
 LIBS		:= 
@@ -18,7 +18,7 @@ LIBS		:=
 INCS		:= inc
 
 SRC_DIR		:= src
-SRCS		:= main.cpp Fixed.cpp
+SRCS		:= main.cpp ClapTrap.cpp
 SRCS		:= $(SRCS:%=$(SRC_DIR)/%)
 
 BUILD_DIR	:= .build
@@ -48,13 +48,12 @@ CYAN 		:= \033[1;36m
 
 define	ART
 $(YELLOW)
-	  		I don't like math...
         /^-^\         /^-----^\\
-       / T T \        V  T T  V
+       / o o \        V  o o  V
       /   ▼   \        |  ▽  |
       V \ ∧ / V         \ Q / 
         / - \\ ========= / - \\
-       /    |   CPP02   |    \\
+       /    |   CPP03   |    \\
       /     |    EX01   |     \\     
  (===/___) || ========= || (___\\====)$(CLR_RMV)
 endef

@@ -1,17 +1,17 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Fixed.hpp                                          :+:      :+:    :+:   */
+/*   ClapTrap.hpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: nimai <nimai@student.42urduliz.com>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/28 10:08:19 by nimai             #+#    #+#             */
-/*   Updated: 2023/08/30 12:45:11 by nimai            ###   ########.fr       */
+/*   Updated: 2023/10/24 16:53:27 by nimai            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef __FIXED_HPP__
-# define __FIXED_HPP__
+#ifndef __CLAPTRAP_HPP__
+# define __CLAPTRAP_HPP__
 
 # define BLUE "\033[1;34m"
 # define YELLOW "\033[1;33m"
@@ -23,29 +23,36 @@
 # define LTEST "test"
 
 # include <iostream>
-# include <cmath>
 
-class Fixed {
+class ClapTrap 
+{
 
 private:
-	int	_value;
-	static const int	_bits = 8;
+	std::string		_name;
+	unsigned int	_hp;
+	unsigned int	_energy;
+	unsigned int	_damage;
+
 public:
+	static unsigned int const	defaultHp = 10;
+	static unsigned int const	defaultEnergy = 10;
+	static unsigned int const	defaultDamage = 0;
 
-	Fixed( void );
-	Fixed( const int num );
-	Fixed( const float numf );
-	~Fixed( void );
-	Fixed( const Fixed &src );
-	Fixed & operator = ( const Fixed &src );
+	ClapTrap( void );
+	ClapTrap( std::string name );
+	ClapTrap( ClapTrap const &src );
+	~ClapTrap( void );
+	ClapTrap &operator=( const ClapTrap &src );
 
-	int		getRawBits( void ) const;
-	void	setRawBits( int const raw );
-	float	toFloat( void ) const;
-	int 	toInt( void )const;
+	std::string		getName(void) const;
+	unsigned int	getHp(void) const;
+	unsigned int	getEnergy(void) const;
+	unsigned int	getDamage(void) const;
 
+	void	attack(const std::string& target);
+	void	takeDamage(unsigned int amount);
+	void	beRepaired(unsigned int amount);
+	
 };
-
-//std::ostream& operator<<(std::ostream &out, Fixed const &src);
 
 #endif

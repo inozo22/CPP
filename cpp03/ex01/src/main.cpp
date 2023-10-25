@@ -6,31 +6,40 @@
 /*   By: nimai <nimai@student.42urduliz.com>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/28 10:06:00 by nimai             #+#    #+#             */
-/*   Updated: 2023/08/30 13:12:01 by nimai            ###   ########.fr       */
+/*   Updated: 2023/10/25 09:49:38 by nimai            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Fixed.hpp"
+#include "ClapTrap.hpp"
 
 int	main(void)
 {
-	Fixed		a;
-	Fixed const	b( 10 );
-	Fixed const	c( 42.42f );
-	Fixed const	d( b );
+	std::string Clap1Name = "S3-E3";
+	std::string Clap2Name = "D-4QP";
 
-	a = Fixed( 1234.4321f );
+	ClapTrap	Clap1(Clap1Name);
+	ClapTrap	Clap2(Clap2Name);
 
-	std::cout << "a is " << a << std::endl;
-	std::cout << "b is " << b << std::endl;
-	std::cout << "c is " << c << std::endl;
-	std::cout << "d is " << d << std::endl;
-	
-	std::cout << "a is " << a.toInt() << " as integer" << std::endl;
-	std::cout << "b is " << b.toInt() << " as integer" << std::endl;
-	std::cout << "c is " << c.toInt() << " as integer" << std::endl;
-	std::cout << "d is " << d.toInt() << " as integer" << std::endl;
-
+	Clap1.beRepaired(0);
+	Clap1.beRepaired(10);
+	for (int i = 0; i < 10; i++) 
+	{
+		Clap1.attack(Clap2Name);
+		Clap2.takeDamage(ClapTrap::defaultDamage);
+	}
+    std::cout << "Hello, after a loop!" << std::endl;
+	Clap1.attack(Clap2Name);
+	Clap2.takeDamage(5);
+	Clap2.beRepaired(4);
+	Clap2.attack(Clap1Name);
+	Clap1.takeDamage(5);
+	Clap1.beRepaired(5000);
+	Clap2.beRepaired(5000);
+	Clap2.attack(Clap2Name);
+	Clap2.takeDamage(5009);
+	Clap2.beRepaired(5000);
+	Clap2.attack(Clap1Name);
+	Clap2.takeDamage(1);
 	return 0;
 }
 
