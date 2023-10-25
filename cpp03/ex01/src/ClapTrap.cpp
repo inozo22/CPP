@@ -6,20 +6,20 @@
 /*   By: nimai <nimai@student.42urduliz.com>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/31 16:03:55 by nimai             #+#    #+#             */
-/*   Updated: 2023/10/25 15:25:49 by nimai            ###   ########.fr       */
+/*   Updated: 2023/10/25 16:26:01 by nimai            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ClapTrap.hpp"
 
 //***	constructor and destructor//constructor and destructor	***//
-ClapTrap::ClapTrap( void ) : hp(CLAPTRAP_DEFAULT_HP), energy(CLAPTRAP_DEFAULT_ENERGY), damage(CLAPTRAP_DEFAULT_DAMAGE)
+ClapTrap::ClapTrap( void ) : hp(CLAPTRAP_DEFAULT_HP), max_hp(CLAPTRAP_DEFAULT_HP), energy(CLAPTRAP_DEFAULT_ENERGY), damage(CLAPTRAP_DEFAULT_DAMAGE)
 {
 	this->name = "noname";
 	std::cout << "Default constructor called." << std::endl;
 }
 
-ClapTrap::ClapTrap( std::string name ) : name(name), hp(CLAPTRAP_DEFAULT_HP), energy(CLAPTRAP_DEFAULT_ENERGY), damage(CLAPTRAP_DEFAULT_DAMAGE)
+ClapTrap::ClapTrap( std::string name ) : name(name), hp(CLAPTRAP_DEFAULT_HP), max_hp(CLAPTRAP_DEFAULT_HP), energy(CLAPTRAP_DEFAULT_ENERGY), damage(CLAPTRAP_DEFAULT_DAMAGE)
 {
 	std::cout << this->name << ": Created." << std::endl;
 }
@@ -56,13 +56,14 @@ void	ClapTrap::attack(const std::string& target)
 	if (this->hp > 0 && energy > 0)
 	{
 		std::cout << "ClapTrap " << this->name <<  " attacks " << target << ", causing "
-		<< this->damage << " points of damage!" << std::endl;
+		<< this->damage << " points of damage!";
 		this->energy--;
 	}
 	else
 	{
-		std::cout << "ClapTrap " << this->name << " can't attack due to lack of energy or hit points." << std::endl;
+		std::cout << "ClapTrap " << this->name << " can't attack due to lack of energy or hit points.";
 	}
+	std::cout << "[HP]" << this->hp << "/ " << this->max_hp << std::endl;
 	std::cout << GREEN << this->name << ": hp: " << this->hp << " energy: " << this->energy << CLEAR << std::endl;
 }
 
@@ -70,18 +71,19 @@ void	ClapTrap::takeDamage(unsigned int amount)
 {
 	if (this->hp <= 0)
 	{
-		std::cout << "ClapTrap " << this->name << " can't be taken more damage. It's already..." << std::endl;
+		std::cout << "ClapTrap " << this->name << " can't be taken more damage. It's already...";
 	}
 	else if (((int)this->hp - (int)amount) <= 0)
 	{
 		std::cout << "ClapTrap " << this->name << " takes " << amount - this->hp << " points of damage!" << std::endl;
-		std::cout << this->name << " is destroyed..." << std::endl;
+		std::cout << this->name << " is destroyed...";
 		this->hp = 0;
 	}
 	else
 	{
-		std::cout << "ClapTrap " << this->name << " takes " << amount << " points of damage!" << std::endl;
+		std::cout << "ClapTrap " << this->name << " takes " << amount << " points of damage!";
 	}
+	std::cout << YELLOW << "[HP]" << this->hp << "/" << this->max_hp << CLEAR << std::endl;
 	std::cout << RED << this->name << ": hp: " << this->hp << " energy: " << this->energy << CLEAR << std::endl;
 
 }
@@ -90,16 +92,28 @@ void	ClapTrap::beRepaired(unsigned int amount)
 {
     if (this->hp > 0 && this->energy > 0)
 	{
-        std::cout << "ClapTrap " << this->name << " is being repaired for " << amount << " hit points." << std::endl;
-        this->hp += amount;
+		if (((int)this->hp + (int)amount) > this->max_hp)
+		{
+			amount = (int)this->max_hp - (int)this->hp;
+			this->hp = this->max_hp;
+		}
+		else
+		{
+	        this->hp += amount;		
+		}
+        std::cout << "ClapTrap " << this->name << " is being repaired for " << amount << " hit points.";
         this->energy--;
     }
 	else if (this->hp <= 0)
 	{
-        std::cout << "ClapTrap " << name << " can't be repaired due to be severely damaged." << std::endl;
+        std::cout << "ClapTrap " << name << " can't be repaired due to be severely damaged.";
     }
 	else
-        std::cout << "ClapTrap " << name << " can't be repaired due to lack of energy points." << std::endl;	
+        std::cout << "ClapTrap " << name << " can't be repaired due to lack of energy points.";	
+	if ((int)this->hp < ((int)this->max_hp * 0.5))
+		std::cout << RED << "[HP]" << this->hp << "/" << this->max_hp << CLEAR << std::endl;
+	else
+		std::cout << YELLOW << "[HP]" << this->hp << "/" << this->max_hp << CLEAR << std::endl;
 	std::cout << BLUE << this->name << ": hp: " << this->hp << " energy: " << this->energy << CLEAR << std::endl;
 }
 

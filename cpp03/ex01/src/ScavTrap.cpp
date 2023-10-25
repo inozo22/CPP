@@ -6,7 +6,7 @@
 /*   By: nimai <nimai@student.42urduliz.com>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/31 16:03:55 by nimai             #+#    #+#             */
-/*   Updated: 2023/10/25 14:02:51 by nimai            ###   ########.fr       */
+/*   Updated: 2023/10/25 15:55:48 by nimai            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,7 @@ ScavTrap::ScavTrap( void )
 ScavTrap::ScavTrap( std::string name ) : ClapTrap( name )
 {
 	this->hp = SCAVTRAP_DEFAULT_HP;
+	this->max_hp = SCAVTRAP_DEFAULT_HP;
 	this->energy = SCAVTRAP_DEFAULT_ENERGY;
 	this->damage = SCAVTRAP_DEFAULT_DAMAGE;
 	std::cout << "ScavTrap " << name << ": Created." << std::endl;
@@ -106,12 +107,12 @@ void	ScavTrap::guardGate( void )
 {
 	if (this->hp > 0 && energy > 0)
 	{
-		std::cout << "ScavTrap " << this->name <<  " is very defensive and doesn't take damage." << std::endl;
+		std::cout << "ScavTrap " << this->name <<  " is now in Gate keeper mode." << std::endl;
 		this->energy--;
 	}
 	else
 	{
-		std::cout << "ScavTrap " << this->name << " can't attack due to lack of energy or hit points." << std::endl;
+		std::cout << "ScavTrap " << this->name << " can't switch to Gate keeper mode due to lack of energy or hit points." << std::endl;
 	}
 	std::cout << GREEN << this->name << ": hp: " << this->hp << " energy: " << this->energy << CLEAR << std::endl;
 }

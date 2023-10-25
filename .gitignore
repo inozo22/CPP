@@ -1,4 +1,5 @@
 *.o
+*.d
 *.a
 *.exe
 *.out
@@ -7,3 +8,5 @@ test
 *.dSYM
 .DS_Store
 .vscode/*
+ClapTrap
+ScavTrap
