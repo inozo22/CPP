@@ -1,37 +1,39 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   FragTrap.hpp                                       :+:      :+:    :+:   */
+/*   DiamondTrap.hpp                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: nimai <nimai@student.42urduliz.com>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/10/25 16:45:29 by nimai             #+#    #+#             */
-/*   Updated: 2023/10/26 16:05:46 by nimai            ###   ########.fr       */
+/*   Created: 2023/10/26 12:59:37 by nimai             #+#    #+#             */
+/*   Updated: 2023/10/26 15:34:38 by nimai            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef __FRAGTRAP_HPP__
-# define __FRAGTRAP_HPP__
+#ifndef __DIAMONDTRAP_HPP__
+# define __DIAMONDTRAP_HPP__
 
-# define FRAGTRAP_DEFAULT_HP 100
-# define FRAGTRAP_DEFAULT_ENERGY 100
-# define FRAGTRAP_DEFAULT_DAMAGE 30
+# include "ScavTrap.hpp"
+# include "FragTrap.hpp"
 
-# include "ClapTrap.hpp"
-
-class FragTrap : virtual public ClapTrap
+class DiamondTrap : public FragTrap, public ScavTrap
 {
 
-public:
-	FragTrap( std::string name );
-	FragTrap( FragTrap const &src );
-	~FragTrap( void );
-	FragTrap &operator=( const FragTrap &src );
+private:
+    std::string _name;
 
-	void	highFiveGuys(void);
+public:
+	DiamondTrap( std::string name );
+	DiamondTrap( DiamondTrap const &src );
+	~DiamondTrap( void );
+	DiamondTrap &operator=( const DiamondTrap &src );
+
+    using   ScavTrap::attack;
+
+	void	whoAmI(void);
 
 protected:
-	FragTrap( void );
+	DiamondTrap( void );
 };
 
 #endif

@@ -6,7 +6,7 @@
 /*   By: nimai <nimai@student.42urduliz.com>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/28 10:08:19 by nimai             #+#    #+#             */
-/*   Updated: 2023/10/25 16:57:40 by nimai            ###   ########.fr       */
+/*   Updated: 2023/10/26 16:05:53 by nimai            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,11 +19,10 @@
 
 # include "ClapTrap.hpp"
 
-class ScavTrap : public ClapTrap
+class ScavTrap : virtual public ClapTrap
 {
 
 public:
-	ScavTrap( void );
 	ScavTrap( std::string name );
 	ScavTrap( ScavTrap const &src );
 	~ScavTrap( void );
@@ -31,6 +30,9 @@ public:
 
 	void	attack(const std::string& target);
 	void	guardGate(void);
+
+protected:
+	ScavTrap( void );
 };
 
 #endif

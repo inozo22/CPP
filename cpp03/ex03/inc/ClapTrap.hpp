@@ -6,7 +6,7 @@
 /*   By: nimai <nimai@student.42urduliz.com>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/28 10:08:19 by nimai             #+#    #+#             */
-/*   Updated: 2023/10/25 15:45:25 by nimai            ###   ########.fr       */
+/*   Updated: 2023/10/26 15:34:19 by nimai            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,10 +37,10 @@ protected:
 	unsigned int	max_hp;
 	unsigned int	energy;
 	unsigned int	damage;
+	ClapTrap( void );
 
 public:
 
-	ClapTrap( void );
 	ClapTrap( std::string name );
 	ClapTrap( ClapTrap const &src );
 	~ClapTrap( void );

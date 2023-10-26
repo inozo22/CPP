@@ -1,84 +1,57 @@
 #include <iostream>
 #include <string>
 
-
 class ClapTrap {
 public:
-    ClapTrap(const std::string& name);
-    ClapTrap(const ClapTrap& other);
-    virtual ~ClapTrap(); // Virtual destructor for proper chaining
-
-    void attack(const std::string& target);
-
-    // Getter for name
-    std::string getName() const;
+    ClapTrap(std::string name) : name(name) {}
 
 protected:
     std::string name;
+};
+
+class FragTrap {
+public:
+    FragTrap(std::string name) : hitPoints(100), energyPoints(100), attackDamage(30), name(name + "_clap_name") {}
+
+    void attack(std::string target) {
+        std::cout << "FragTrap " << name << " attacks " << target << " causing " << attackDamage << " points of damage!" << std::endl;
+    }
+
+protected:
     int hitPoints;
     int energyPoints;
     int attackDamage;
 };
 
-class FragTrap : public ClapTrap {
+class ScavTrap {
 public:
-    FragTrap(const std::string& name);
-    ~FragTrap(); // Destructor
+    ScavTrap(std::string name) : energyPoints(50), name(name + "_clap_name") {}
 
-    void attack(const std::string& target); // Overriding the attack method
-    void highFivesGuys();
+    void attack(std::string target) {
+        std::cout << "ScavTrap " << name << " attacks " << target << " causing " << energyPoints << " points of damage!" << std::endl;
+    }
+
+protected:
+    int energyPoints;
+    std::string name;
 };
 
+class DiamondTrap : public FragTrap, public ScavTrap {
+public:
+    DiamondTrap(std::string name) : ClapTrap(name), FragTrap(name), ScavTrap(name) {}
 
-
-ClapTrap::ClapTrap(const std::string& name) : name(name), hitPoints(100), energyPoints(50), attackDamage(20) {
-    std::cout << "ClapTrap " << name << " created" << std::endl;
-}
-
-ClapTrap::ClapTrap(const ClapTrap& other) : name(other.name), hitPoints(other.hitPoints), energyPoints(other.energyPoints), attackDamage(other.attackDamage) {
-    std::cout << "ClapTrap " << name << " copied" << std::endl;
-}
-
-ClapTrap::~ClapTrap() {
-    std::cout << "ClapTrap " << name << " destroyed" << std::endl;
-}
-
-void ClapTrap::attack(const std::string& target) {
-    std::cout << "ClapTrap " << name << " attacks " << target << " with " << attackDamage << " damage!" << std::endl;
-}
-
-std::string ClapTrap::getName() const {
-    return name;
-}
-
-FragTrap::FragTrap(const std::string& name) : ClapTrap(name) {
-    std::cout << "FragTrap " << name << " is ready to frag!" << std::endl;
-    // Customize attributes for FragTrap
-    this->hitPoints = 100;
-    this->energyPoints = 100;
-    this->attackDamage = 30;
-}
-
-FragTrap::~FragTrap() {
-    std::cout << "FragTrap " << name << " says goodbye and disappears in a puff of smoke!" << std::endl;
-}
-
-void FragTrap::attack(const std::string& target) {
-    std::cout << "FragTrap " << name << " attacks " << target << " with a powerful attack, dealing " << attackDamage << " damage!" << std::endl;
-}
-
-void FragTrap::highFivesGuys() {
-    std::cout << "FragTrap " << name << " requests a high-five from everyone!" << std::endl;
-}
+    void whoAmI() {
+        std::cout << "I am " << name << " and my ClapTrap name is " << ClapTrap::name << std::endl;
+    }
+};
 
 int main() {
-    ClapTrap clapTrap("CL4P-TP");
-    FragTrap fragTrap("FR4G-TP");
+    DiamondTrap diamond("Diamond");
 
-    clapTrap.attack("Bandit");
-    fragTrap.attack("Bandit");
-
-    fragTrap.highFivesGuys();
+    diamond.whoAmI();
+    diamond.attack("Target");
+    diamond.FragTrap::attack("Target");
+    diamond.ScavTrap::attack("Target");
 
     return 0;
 }
