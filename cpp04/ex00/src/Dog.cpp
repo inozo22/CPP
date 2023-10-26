@@ -1,42 +1,42 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Animal.cpp                                         :+:      :+:    :+:   */
+/*   Dog.cpp                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: nimai <nimai@student.42urduliz.com>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/26 16:16:49 by nimai             #+#    #+#             */
-/*   Updated: 2023/10/26 17:06:21 by nimai            ###   ########.fr       */
+/*   Updated: 2023/10/26 17:06:55 by nimai            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Animal.hpp"
+#include "Dog.hpp"
 
 //***	constructor and destructor//constructor and destructor	***//
-Animal::Animal( void ) : type(DEFAULT_ANIMAL)
+Dog::Dog( void ) : Animal("Dog")
 {
-	std::cout << "Default constructor called in Animal. type: " << this->type << std::endl;
+	std::cout << "Default constructor called in Dog. type: " << this->type << std::endl;
 }
 
-Animal::Animal( std::string type ) : type(type)
-{
-	std::cout << this->type << ": Created in Animal." << std::endl;
-}
+// Dog::Dog( std::string name ) : type(DEFAULT_Dog)
+// {
+// 	std::cout << this->name << ": Created in Dog." << std::endl;
+// }
 
-Animal::~Animal(void)
+Dog::~Dog(void)
 {	
-	std::cout << this->type << ": Default destructor called in Animal." << std::endl;
+	std::cout << this->type << ": Default destructor called in Dog." << std::endl;
 }
 
-Animal::Animal( const Animal &src )
+Dog::Dog( const Dog &src )
 {
-	std::cout << this->type << ": Copy constructor called in Animal." << std::endl;
+	std::cout << this->type << ": Copy constructor called in Dog." << std::endl;
 	this->operator=(src);
 }
 
-Animal &Animal::operator=( const Animal &src )
+Dog &Dog::operator=( const Dog &src )
 {
-	std::cout << GREEN "Animal assignment overload operator called." CLEAR << std::endl;
+	std::cout << GREEN "Dog assignment overload operator called." CLEAR << std::endl;
 	if (this != &src)
 	{
 		this->type = src.getType();
@@ -47,15 +47,15 @@ Animal &Animal::operator=( const Animal &src )
 
 
 /**********************************************************************************/
-void	Animal::makeSound( void ) const
+void	Dog::makeSound( void ) const
 {
-    std::cout << YELLOW << this->type << ": Piyo piyo" CLEAR << std::endl;
+    std::cout << CYAN << this->type << ": " << DOG_SOUND << CLEAR << std::endl;
 	return ;
 }
 
-std::string		Animal::getType(void) const
-{
-	return (this->type);
-}
+// std::string		Dog::getType(void) const
+// {
+// 	return (this->type);
+// }
 
 /**********************************************************************************/

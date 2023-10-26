@@ -6,7 +6,7 @@
 /*   By: nimai <nimai@student.42urduliz.com>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/26 16:16:54 by nimai             #+#    #+#             */
-/*   Updated: 2023/10/26 16:44:15 by nimai            ###   ########.fr       */
+/*   Updated: 2023/10/26 16:56:58 by nimai            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,8 +23,8 @@
 # define LTEST "test"
 
 # define DEFAULT_ANIMAL "Bird"
-# define DOG_SOUND GREEN"Woof woof!"RESET
-# define CAT_SOUND CYAN"Meaw"RESET
+# define DOG_SOUND "Woof woof!"
+# define CAT_SOUND "Meaw"
 
 # include <iostream>
 # include <string>
