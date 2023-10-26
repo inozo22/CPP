@@ -6,23 +6,27 @@
 /*   By: nimai <nimai@student.42urduliz.com>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/28 10:06:00 by nimai             #+#    #+#             */
-/*   Updated: 2023/10/25 15:32:07 by nimai            ###   ########.fr       */
+/*   Updated: 2023/10/26 10:21:01 by nimai            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ClapTrap.hpp"
 #include "ScavTrap.hpp"
+#include "FragTrap.hpp"
 
 int	main(void)
 {
-	std::string clapName = "Clap";
-	std::string scavName = "Scav";
+	std::string clapName = "C000";
+	std::string scavName = "S001";
+	std::string fragName = "F002";
 
 	ScavTrap	scav(scavName);
+	FragTrap	frag(fragName);
 	ClapTrap	clap(clapName);
 
 	scav.beRepaired(0);
 	scav.beRepaired(10);
+	frag.beRepaired(10);
 	for (int i = 0; i < 5; i++) 
 	{
 		clap.attack(scavName);
@@ -42,7 +46,8 @@ int	main(void)
 	clap.beRepaired(5000);
 	clap.attack(clapName);
 	clap.takeDamage(1);
+	frag.attack(scavName);
+	scav.takeDamage(FRAGTRAP_DEFAULT_DAMAGE);
+	frag.highFiveGuys();
 	return 0;
 }
-
-

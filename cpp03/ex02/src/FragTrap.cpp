@@ -6,7 +6,7 @@
 /*   By: nimai <nimai@student.42urduliz.com>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/25 16:45:42 by nimai             #+#    #+#             */
-/*   Updated: 2023/10/25 16:59:28 by nimai            ###   ########.fr       */
+/*   Updated: 2023/10/26 11:32:48 by nimai            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -73,12 +73,12 @@ void	FragTrap::highFiveGuys( void )
 {
 	if (this->hp > 0 && energy > 0)
 	{
-		std::cout << "FragTrap " << this->name <<  " is now in Gate keeper mode." << std::endl;
+		std::cout << CYAN"FragTrap " << this->name <<  " looks for someone to high-five." << CLEAR << std::endl;
 		this->energy--;
 	}
 	else
 	{
-		std::cout << "FragTrap " << this->name << " can't switch to Gate keeper mode due to lack of energy or hit points." << std::endl;
+		std::cout << "FragTrap " << this->name << " can't move to find its friend due to lack of energy or hit points." << std::endl;
 	}
 	std::cout << GREEN << this->name << ": hp: " << this->hp << " energy: " << this->energy << CLEAR << std::endl;
 }
