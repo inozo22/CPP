@@ -1,17 +1,17 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Point.hpp                                          :+:      :+:    :+:   */
+/*   ClapTrap.hpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: nimai <nimai@student.42urduliz.com>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/28 10:08:19 by nimai             #+#    #+#             */
-/*   Updated: 2023/09/04 15:58:19 by nimai            ###   ########.fr       */
+/*   Updated: 2023/10/25 15:45:25 by nimai            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef __POINT_HPP__
-# define __POINT_HPP__
+#ifndef __CLAPTRAP_HPP__
+# define __CLAPTRAP_HPP__
 
 # define BLUE "\033[1;34m"
 # define YELLOW "\033[1;33m"
@@ -22,28 +22,39 @@
 # define UTEST "TEST"
 # define LTEST "test"
 
-# include <iostream>
-# include <cmath>
-# include "Fixed.hpp"
+# define CLAPTRAP_DEFAULT_HP 10
+# define CLAPTRAP_DEFAULT_ENERGY 10
+# define CLAPTRAP_DEFAULT_DAMAGE 0
 
-class Point 
+# include <iostream>
+
+class ClapTrap 
 {
 
-private:
-	const Fixed	_x;
-	const Fixed	_y;
-	//anything else useful
+protected:
+	std::string		name;
+	unsigned int	hp;
+	unsigned int	max_hp;
+	unsigned int	energy;
+	unsigned int	damage;
+
 public:
 
-	Point( void );
-	Point( const float x, const float y );
-	~Point( void );
-	Point( const Point &src );
-	Point &operator=( const Point &src );
+	ClapTrap( void );
+	ClapTrap( std::string name );
+	ClapTrap( ClapTrap const &src );
+	~ClapTrap( void );
+	ClapTrap &operator=( const ClapTrap &src );
 
-	Fixed	getX( void ) const;
-	Fixed	getY( void ) const;
-	//anything else useful
+	std::string		getName(void) const;
+	unsigned int	getHp(void) const;
+	unsigned int	getEnergy(void) const;
+	unsigned int	getDamage(void) const;
+
+	void	attack(const std::string& target);
+	void	takeDamage(unsigned int amount);
+	void	beRepaired(unsigned int amount);
+	
 };
 
 #endif
