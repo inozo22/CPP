@@ -1,7 +1,7 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Animal.hpp                                         :+:      :+:    :+:   */
+/*   WrongAnimal.hpp                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: nimai <nimai@student.42urduliz.com>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
@@ -10,8 +10,8 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef __ANIMAL_HPP__
-# define __ANIMAL_HPP__
+#ifndef __WRONGANIMAL_HPP__
+# define __WRONGANIMAL_HPP__
 
 # define BLUE "\033[1;34m"
 # define YELLOW "\033[1;33m"
@@ -22,25 +22,25 @@
 # define UTEST "TEST"
 # define LTEST "test"
 
-# define DEFAULT_ANIMAL "Bird"
+# define DEFAULT_WRONGANIMAL "Human"
 # define DOG_SOUND "Woof woof!"
 # define CAT_SOUND "Meaw"
 
 # include <iostream>
 # include <string>
 
-class Animal 
+class WrongAnimal 
 {
 
 protected:
 	std::string		type;
 
 public:
-	Animal( void );
-	Animal( std::string type );
-	Animal( Animal const &src );
-	~Animal( void );
-	Animal &operator=( const Animal &src );
+	WrongAnimal( void );
+	WrongAnimal( std::string type );
+	WrongAnimal( WrongAnimal const &src );
+	~WrongAnimal( void );
+	WrongAnimal &operator=( const WrongAnimal &src );
 
 	std::string		getType(void) const;
 	// unsigned int	getHp(void) const;
@@ -50,7 +50,7 @@ public:
 	// void	attack(const std::string& target);
 	// void	takeDamage(unsigned int amount);
 	// void	beRepaired(unsigned int amount);
-    virtual void    makeSound( void ) const;
+    void    makeSound( void ) const;
 	
 };
 
