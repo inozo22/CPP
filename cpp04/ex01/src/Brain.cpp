@@ -6,7 +6,7 @@
 /*   By: nimai <nimai@student.42urduliz.com>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/30 14:03:41 by nimai             #+#    #+#             */
-/*   Updated: 2023/10/30 16:53:29 by nimai            ###   ########.fr       */
+/*   Updated: 2023/10/30 17:43:56 by nimai            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,12 +25,16 @@ Brain::Brain( void )
 
 Brain::~Brain(void)
 {	
-	std::cout << this->type << ": Default destructor called in Brain." << std::endl;
+	std::cout << "Default destructor called in Brain." << std::endl;
 }
 
 Brain::Brain( const Brain &src )
 {
-	std::cout << this->type << ": Copy constructor called in Brain." << std::endl;
+	std::cout << "Copy constructor called in Brain." << std::endl;
+    for (int i = 0; i < this->nb; i++)
+    {
+        this->_ideas[i] = src._ideas[i];
+    }
 	this->operator=(src);
 }
 
@@ -39,7 +43,7 @@ Brain &Brain::operator=( const Brain &src )
 	std::cout << GREEN "Brain assignment overload operator called." CLEAR << std::endl;
 	if (this != &src)
 	{
-		this->type = src.getType();
+		// this->type = src.getType();
 	}
 	return (*this);
 }

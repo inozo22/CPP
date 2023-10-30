@@ -6,7 +6,7 @@
 /*   By: nimai <nimai@student.42urduliz.com>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/30 14:03:14 by nimai             #+#    #+#             */
-/*   Updated: 2023/10/30 17:00:59 by nimai            ###   ########.fr       */
+/*   Updated: 2023/10/30 17:42:30 by nimai            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,6 @@ class Brain
 	    Brain( Brain const &src );
     	Brain &operator=( const Brain &src );
 
-        std::string const getIdea( int )
 
         static int const nb = 100;
 
