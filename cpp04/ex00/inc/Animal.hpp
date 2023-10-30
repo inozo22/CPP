@@ -6,7 +6,7 @@
 /*   By: nimai <nimai@student.42urduliz.com>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/26 16:16:54 by nimai             #+#    #+#             */
-/*   Updated: 2023/10/27 12:02:24 by nimai            ###   ########.fr       */
+/*   Updated: 2023/10/30 13:32:56 by nimai            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,7 +39,7 @@ public:
 	Animal( void );
 	Animal( std::string type );
 	Animal( Animal const &src );
-	~Animal( void );
+	virtual ~Animal( void );
 	Animal &operator=( const Animal &src );
 
 	std::string		getType(void) const;

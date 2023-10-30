@@ -6,7 +6,7 @@
 /*   By: nimai <nimai@student.42urduliz.com>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/26 16:16:05 by nimai             #+#    #+#             */
-/*   Updated: 2023/10/30 11:51:22 by nimai            ###   ########.fr       */
+/*   Updated: 2023/10/30 13:48:24 by nimai            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@
 void    wrong_test()
 {
     std::cout << std::endl << std::endl;
-    std::cout << GREEN "********** WRONG TEST ********** =•ω•= " CLEAR<< std::endl;
+    std::cout << GREEN "********** WRONG TEST ********** = •ω• = meaw!" CLEAR<< std::endl;
     std::cout << std::endl;
     const WrongAnimal* meta = new WrongAnimal();
     const Animal* j = new Dog();
@@ -38,7 +38,7 @@ void    wrong_test()
 void    subject_test()
 {
     std::cout << std::endl << std::endl;
-    std::cout << GREEN "********** SUBJECT TEST ********** U •x• U " CLEAR<< std::endl;
+    std::cout << GREEN "********** SUBJECT TEST ********** U •x• U woof!" CLEAR<< std::endl;
     std::cout << std::endl;
     const Animal* meta = new Animal();
     const Animal* j = new Dog();
