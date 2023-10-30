@@ -6,7 +6,7 @@
 #    By: nimai <nimai@student.42urduliz.com>        +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/07/25 11:05:17 by nimai             #+#    #+#              #
-#    Updated: 2023/10/27 12:09:27 by nimai            ###   ########.fr        #
+#    Updated: 2023/10/30 11:47:14 by nimai            ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -18,7 +18,7 @@ LIBS		:=
 INCS		:= inc
 
 SRC_DIR		:= src
-SRCS		:= main.cpp Animal.cpp Dog.cpp Cat.cpp
+SRCS		:= main.cpp Animal.cpp Dog.cpp Cat.cpp WrongAnimal.cpp WrongCat.cpp
 SRCS		:= $(SRCS:%=$(SRC_DIR)/%)
 
 BUILD_DIR	:= .build

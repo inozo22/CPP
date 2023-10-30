@@ -23,8 +23,6 @@
 # define LTEST "test"
 
 # define DEFAULT_WRONGANIMAL "Human"
-# define DOG_SOUND "Woof woof!"
-# define CAT_SOUND "Meaw"
 
 # include <iostream>
 # include <string>
