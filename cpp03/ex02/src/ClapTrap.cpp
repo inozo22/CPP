@@ -6,7 +6,7 @@
 /*   By: nimai <nimai@student.42urduliz.com>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/31 16:03:55 by nimai             #+#    #+#             */
-/*   Updated: 2023/10/26 11:56:35 by nimai            ###   ########.fr       */
+/*   Updated: 2023/10/30 12:54:34 by nimai            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -95,7 +95,7 @@ void	ClapTrap::beRepaired(unsigned int amount)
 {
     if (this->hp > 0 && this->energy > 0)
 	{
-		if (((int)this->hp + (int)amount) > this->max_hp)
+		if (((int)this->hp + (int)amount) > (int)this->max_hp)
 		{
 			amount = (int)this->max_hp - (int)this->hp;
 			this->hp = this->max_hp;
