@@ -6,7 +6,7 @@
 /*   By: nimai <nimai@student.42urduliz.com>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/26 16:16:05 by nimai             #+#    #+#             */
-/*   Updated: 2023/10/31 12:42:54 by nimai            ###   ########.fr       */
+/*   Updated: 2023/10/31 15:29:19 by nimai            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@
 #include "Cat.hpp"
 #include "WrongCat.hpp"
 
-#define ANIMAL_AMOUNT 4
+#define ANIMAL_AMOUNT 10
 
 void    array_test()
 {
@@ -26,13 +26,23 @@ void    array_test()
 
 	Animal* animalArray[ANIMAL_AMOUNT + 1];
 	animalArray[ANIMAL_AMOUNT] = NULL;
+	std::cout << BLUE "How to keep dogs and cats?-----" CLEAR << std::endl;
+	std::cout << MAGENTA "-----The important thing is that don't keep more than you can take care." CLEAR << std::endl;
 	for (int i = 0; i < ANIMAL_AMOUNT; i++)
 	{
 		if (i % 2 == 0)
 			animalArray[i] = new Dog();
 		else
 			animalArray[i] = new Cat();
-	}    
+	}
+	std::cout << BLUE "I think I welcame too many... they are so loud...-----" CLEAR << std::endl;
+	std::cout << MAGENTA "-----I said to you..." CLEAR << std::endl;	
+	for (int i = 0; i < ANIMAL_AMOUNT; i++)
+	{
+		animalArray[i]->makeSound();
+	}
+	std::cout << BLUE "I decided to find new family for all of them-----" CLEAR << std::endl;
+	std::cout << MAGENTA "-----OK..." CLEAR << std::endl;	
     for (int i = 0; i < ANIMAL_AMOUNT; i++)
 	{
 		delete (animalArray[i]);
@@ -57,14 +67,17 @@ void    my_test()
     std::cout << "dog2: " << dog2.getBrain()->getIdeas(0) << std::endl;
     std::cout << "dog3: " << dog3.getBrain()->getIdeas(0) << std::endl;
 
-    // Cat cat1;
-    // cat1.getBrain->_ideas[0] = "Climb a tree";
+    Cat cat1;
+    cat1.getBrain()->setIdeas(0, "Time for a nap.");
 
-    // Cat cat2 = cat1; // Deep copy constructor
-    // cat2._brain->_ideas[0] = "Take a nap";
+    Cat cat2 = cat1; // Deep copy constructor
+    cat2.getBrain()->setIdeas(0, "Pet me, human.");
 
-    // Cat cat3;
-    // cat3 = cat1; // Deep copy assignment operator
+    Cat cat3;
+    cat3 = cat1; // Deep copy assignment operator
+    std::cout << "cat1: " << cat1.getBrain()->getIdeas(0) << std::endl;
+    std::cout << "cat2: " << cat2.getBrain()->getIdeas(0) << std::endl;
+    std::cout << "cat3: " << cat3.getBrain()->getIdeas(0) << std::endl;
 
 }
 

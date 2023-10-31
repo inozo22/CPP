@@ -6,7 +6,7 @@
 /*   By: nimai <nimai@student.42urduliz.com>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/26 16:16:54 by nimai             #+#    #+#             */
-/*   Updated: 2023/10/30 14:52:01 by nimai            ###   ########.fr       */
+/*   Updated: 2023/10/31 15:28:27 by nimai            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,13 +18,14 @@
 # define RED "\033[1;31m"
 # define CYAN "\033[1;36m"
 # define GREEN "\033[1;32m"
+# define MAGENTA "\033[1;35m"
 # define CLEAR "\033[0m"
 # define UTEST "TEST"
 # define LTEST "test"
 
 # define DEFAULT_ANIMAL "Bird"
-# define DOG_SOUND "Woof woof!"
-# define CAT_SOUND "Meaw"
+# define DOG_SOUND "Woof woof woof!"
+# define CAT_SOUND "Meaw meaw meaw"
 
 # include <iostream>
 # include <string>
