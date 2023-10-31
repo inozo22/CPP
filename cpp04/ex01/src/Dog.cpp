@@ -6,7 +6,7 @@
 /*   By: nimai <nimai@student.42urduliz.com>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/26 16:16:49 by nimai             #+#    #+#             */
-/*   Updated: 2023/10/31 11:38:38 by nimai            ###   ########.fr       */
+/*   Updated: 2023/10/31 12:40:23 by nimai            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,6 +23,7 @@ Dog::Dog( void ) : Animal("Dog")
 Dog::~Dog(void)
 {
 	delete (this->_brain);
+	std::cout << " in Dog destructor." << std::endl;
 	std::cout << this->type << ": Default destructor called in Dog." << std::endl;
 }
 

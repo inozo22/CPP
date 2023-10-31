@@ -6,7 +6,7 @@
 /*   By: nimai <nimai@student.42urduliz.com>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/30 14:03:41 by nimai             #+#    #+#             */
-/*   Updated: 2023/10/31 11:40:09 by nimai            ###   ########.fr       */
+/*   Updated: 2023/10/31 12:41:03 by nimai            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@ Brain::Brain( void )
 
 Brain::~Brain(void)
 {	
-	std::cout << "Default destructor called in Brain." << std::endl;
+	std::cout << "Default destructor called in Brain";
 }
 
 Brain::Brain( const Brain &src )
