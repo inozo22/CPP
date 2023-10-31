@@ -51,7 +51,7 @@ export	ART
 all: $(NAME)
 
 $(NAME): $(OBJS) #$(LIBS_TARGET)
-	$(CC) $(LDFLAGS) $(OBJS) $(LDLIBS) $(MFLAGS) -o $(NAME)
+	$(CC) $(LDFLAGS) $(OBJS) $(LDLIBS) -o $(NAME)
 	$(info CREATED $(NAME))
 	@echo "$$ART"
 

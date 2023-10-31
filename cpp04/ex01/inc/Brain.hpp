@@ -6,7 +6,7 @@
 /*   By: nimai <nimai@student.42urduliz.com>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/30 14:03:14 by nimai             #+#    #+#             */
-/*   Updated: 2023/10/30 17:42:30 by nimai            ###   ########.fr       */
+/*   Updated: 2023/10/31 11:09:07 by nimai            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,18 +18,20 @@
 
 class Brain
 {
-    public:
+	public:
     
-        Brain( void );
-        ~Brain( void );
-	    Brain( Brain const &src );
-    	Brain &operator=( const Brain &src );
+		Brain( void );
+		~Brain( void );
+		Brain( Brain const &src );
+		Brain &operator=( const Brain &src );
 
+		std::string	getIdeas(int i) const;
+		void		setIdeas(int index, std::string const & idea);
 
-        static int const nb = 100;
+		static int const nb = 100;
 
-    private:
-        std::string _ideas[nb];
+	private:
+		std::string _ideas[nb];
 
 };
 

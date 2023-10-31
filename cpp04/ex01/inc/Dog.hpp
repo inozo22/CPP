@@ -6,7 +6,7 @@
 /*   By: nimai <nimai@student.42urduliz.com>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/26 16:16:54 by nimai             #+#    #+#             */
-/*   Updated: 2023/10/26 17:08:15 by nimai            ###   ########.fr       */
+/*   Updated: 2023/10/31 10:47:19 by nimai            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,8 @@
 # define __DOG_HPP__
 
 # include "Animal.hpp"
+# include "Brain.hpp"
+# include <string>
 
 class Dog : public Animal
 {
@@ -24,10 +26,14 @@ public:
 	~Dog( void );
 	Dog &operator=( const Dog &src );
 
+    Brain*		getBrain(void) const;
+
 	// std::string		getType(void) const;
 
     void    makeSound( void ) const;
 
+private:
+	Brain * _brain;
 };
 
 #endif
