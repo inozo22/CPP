@@ -1,36 +1,36 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Dog.hpp                                            :+:      :+:    :+:   */
+/*   Cure.hpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: nimai <nimai@student.42urduliz.com>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/26 16:16:54 by nimai             #+#    #+#             */
-/*   Updated: 2023/10/31 16:06:52 by nimai            ###   ########.fr       */
+/*   Updated: 2023/11/01 12:16:54 by nimai            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef __DOG_HPP__
-# define __DOG_HPP__
+#ifndef __CURE_HPP__
+# define __CURE_HPP__
 
-# include "AAnimal.hpp"
+# include "AMaterial.hpp"
 # include "Brain.hpp"
 # include <string>
 
-class Dog : public AAnimal
+class Cure : public AMaterial
 {
 public:
-	Dog( void );
-	Dog( std::string type );
-	Dog( Dog const &src );
-	~Dog( void );
-	Dog &operator=( const Dog &src );
+	Cure( void );
+	Cure( std::string type );
+	Cure( Cure const &src );
+	~Cure( void );
+	Cure &operator=( const Cure &src );
 
-    Brain*		getBrain(void) const;
-
+	Brain*		getBrain(void) const;
 	// std::string		getType(void) const;
 
     void    makeSound( void ) const;
+	void	use(ICharacter& target);
 
 private:
 	Brain * _brain;

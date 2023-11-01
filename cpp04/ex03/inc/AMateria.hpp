@@ -1,7 +1,7 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   AAnimal.hpp                                         :+:      :+:    :+:   */
+/*   AMateria.hpp                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: nimai <nimai@student.42urduliz.com>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
@@ -10,8 +10,8 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef __AANIMAL_HPP__
-# define __AANIMAL_HPP__
+#ifndef __AMATERIA_HPP__
+# define __AMATERIA_HPP__
 
 // # define BLUE "\033[1;34m"
 // # define YELLOW "\033[1;33m"
@@ -23,7 +23,7 @@
 // # define UTEST "TEST"
 // # define LTEST "test"
 
-# define DEFAULT_AANIMAL "Bird"
+# define DEFAULT_AMateria "Bird"
 # define DOG_SOUND "Woof woof woof!"
 # define CAT_SOUND "Meaw meaw meaw"
 
@@ -31,22 +31,23 @@
 # include <string>
 # include "colors.h"
 
-class AAnimal 
+class AMateria 
 {
 
 protected:
 	std::string		type;
 
 public:
-	AAnimal( void );
-	AAnimal( std::string type );
-	// AAnimal( AAnimal const &src );
-	virtual ~AAnimal( void );
-	AAnimal &operator=( const AAnimal &src );
+	AMateria( void );
+	AMateria( std::string const & type );
+	// AMateria( AMateria const &src );
+	virtual ~AMateria( void );
+	AMateria &operator=( const AMateria &src );
 
-	// std::string		getType(void) const;
+	std::string	const &	getType() const; //Returns the materia type
 
-    virtual void    makeSound( void ) const = 0;
+    virtual AMateria* clone() const = 0;
+	virtual void use(ICharacter& target);
 	
 };
 
