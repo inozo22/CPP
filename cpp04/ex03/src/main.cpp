@@ -13,6 +13,8 @@
 #include "AMateria.hpp"
 #include "IMateriaSource.hpp"
 #include "ICharacter.hpp"
+#include "Ice.hpp"
+#include "Cure.hpp"
 
 //#define ANIMAL_AMOUNT 10
 
@@ -22,7 +24,7 @@ void    array_test()
 	std::cout << GREEN "********** ARRAY TEST ********** U •x• U " RESET<< std::endl;
 	std::cout << std::endl;
 
-	AAnimal* animalArray[ANIMAL_AMOUNT + 1];
+/*	AAnimal* animalArray[ANIMAL_AMOUNT + 1];
 	animalArray[ANIMAL_AMOUNT] = NULL;
 	std::cout << BLUE "How to keep dogs and cats?-----" RESET << std::endl;
 	std::cout << MAGENTA "-----The important thing is that don't keep more than you can take care." RESET << std::endl;
@@ -44,7 +46,7 @@ void    array_test()
     for (int i = 0; i < ANIMAL_AMOUNT; i++)
 	{
 		delete (animalArray[i]);
-	}
+	}*/
 }
 
 void    my_test()
@@ -52,7 +54,7 @@ void    my_test()
     std::cout << std::endl << std::endl;
     std::cout << GREEN "********** MY TEST ********** = •ω• = " RESET<< std::endl;
     std::cout << std::endl;
-    Dog dog1;
+/*    Dog dog1;
     dog1.getBrain()->setIdeas(0, "Is it time for a walk?");
 
     Dog dog2 = dog1; // Deep copy constructor
@@ -75,7 +77,7 @@ void    my_test()
     cat3 = cat1; // Deep copy assignment operator
     std::cout << "cat1: " << cat1.getBrain()->getIdeas(0) << std::endl;
     std::cout << "cat2: " << cat2.getBrain()->getIdeas(0) << std::endl;
-    std::cout << "cat3: " << cat3.getBrain()->getIdeas(0) << std::endl;
+    std::cout << "cat3: " << cat3.getBrain()->getIdeas(0) << std::endl;*/
 
 }
 
@@ -106,7 +108,7 @@ void    subject_test()
     delete me;
     delete src;
 
-    return 0;
+//    return 0;
 }
 
 int main() 

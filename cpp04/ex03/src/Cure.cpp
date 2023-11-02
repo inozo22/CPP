@@ -11,7 +11,6 @@
 /* ************************************************************************** */
 
 #include "Cure.hpp"
-#include "Brain.hpp"
 
 //***	constructor and destructor//constructor and destructor	***//
 Cure::Cure( void ) : AMaterial("cure")

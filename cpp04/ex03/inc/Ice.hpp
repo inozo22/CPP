@@ -31,8 +31,6 @@ public:
 
 	void	use(ICharacter& target);
 
-private:
-	Brain * _brain;
 };
 
 #endif

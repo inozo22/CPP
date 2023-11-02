@@ -13,24 +13,24 @@
 #ifndef __CURE_HPP__
 # define __CURE_HPP__
 
-# include "AMaterial.hpp"
+# include "AMateria.hpp"
 # include <string>
 
 class Cure : public AMaterial
 {
-public:
-	Cure( void );
+	public:
+			Cure( void );
 //	Cure( std::string type );
-	Cure( Cure const &src );
-	~Cure( void );
-	Cure &operator=( const Cure &src );
+			Cure( Cure const &src );
+			~Cure( void );
+			Cure &operator=( const Cure &src );
 
 //	Brain*		getBrain(void) const;
 //	std::string	const &getType(void) const;
 
-	AMateria *	clone( void ) const;
+			AMateria *	clone( void ) const;
 //    void    makeSound( void ) const;
-	void	use(ICharacter& target);
+			void	use(ICharacter& target);
 };
 
 #endif
