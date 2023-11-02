@@ -14,24 +14,23 @@
 #include "Brain.hpp"
 
 //***	constructor and destructor//constructor and destructor	***//
-Ice::Ice( void ) : AMaterial("Ice")
+Ice::Ice( void ) : AMaterial("ice")
 {
-//	this->_brain = new Brain();
 	std::cout << "Default constructor called in Ice. type: " << this->type << std::endl;
 }
 
 Ice::~Ice(void)
 {
-	delete (this->_brain);
-	std::cout << " in Ice destructor." << std::endl;
-	std::cout << this->type << ": Default destructor called in Ice." << std::endl;
+//	delete (this->_brain);
+//	std::cout << " in Ice destructor." << std::endl;
+	std::cout << "Default destructor called in Ice." << std::endl;
 }
 
-Ice::Ice( const Ice &src )
+Ice::Ice( const Ice &src ) : AMateria("ice")
 {
-	this->_brain = NULL;
-	std::cout << this->type << ": Copy constructor called in Ice." << std::endl;
-	this->operator=(src);
+//	this->_brain = NULL;
+	*this = src;
+	std::cout << "Copy constructor called in Ice." << std::endl;
 }
 
 Ice &Ice::operator=( const Ice &src )
@@ -41,9 +40,9 @@ Ice &Ice::operator=( const Ice &src )
 	std::cout << GREEN "Ice assignment overload operator called." RESET << std::endl;
 	// this->type = src.getType();
 	this->type = src.type;
-	if (this->_brain != NULL)
+/*	if (this->_brain != NULL)
 		delete this->_brain;
-	this->_brain = new Brain(*src._brain);
+	this->_brain = new Brain(*src._brain);*/
 	return (*this);
 }
 //***	constructor and destructor//constructor and destructor	***//
@@ -61,6 +60,11 @@ Brain*	Ice::getBrain(void) const
 	return (this->_brain);
 }*/
 
+AMateria *	ice::clone( void ) const
+{
+	AMateria *	iceClone = new Cure();
+	return (iceClone);
+}
 
 
 void	Ice::use(ICharacter& target)

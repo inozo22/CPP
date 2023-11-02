@@ -14,7 +14,7 @@
 #include "IMateriaSource.hpp"
 #include "ICharacter.hpp"
 
-#define ANIMAL_AMOUNT 10
+//#define ANIMAL_AMOUNT 10
 
 void    array_test()
 {
@@ -81,31 +81,39 @@ void    my_test()
 
 void    subject_test()
 {
+
     std::cout << std::endl << std::endl;
     std::cout << GREEN "********** SUBJECT TEST ********** U •x• U " RESET<< std::endl;
     std::cout << std::endl;
-    const AAnimal* j = new Dog();
-    const AAnimal* i = new Cat();
-    delete j;//should not create a leak 
-    delete i;
-    // const AAnimal* meta = new AAnimal();
-    // const AAnimal* j = new Dog();
-    // const AAnimal* i = new Cat();
-    // std::cout << j->getType() << " " << std::endl;
-    // std::cout << i->getType() << " " << std::endl;
-    // i->makeSound(); //will output the cat sound! 
-    // j->makeSound();
-    // meta->makeSound();
-    // delete (meta);
-    // delete (j);
-    // delete (i);
+    IMateriaSource* src = new MateriaSource();
+    src->learnMateria(new Ice());
+    src->learnMateria(new Cure());
+
+    ICharacter* me = new Character("me");
+
+    AMateria* tmp;
+    tmp = src->createMateria("ice");
+    me->equip(tmp);
+    tmp = src->createMateria("cure");
+    me->equip(tmp);
+
+    ICharacter *bob = new Character("bob");
+
+    me->use(0, *bob);
+    me->use(1. *bob);
+
+    delete bob;
+    delete me;
+    delete src;
+
+    return 0;
 }
 
 int main() 
 {
-    // subject_test();
+    subject_test();
     // my_test();
-    array_test();
+    // array_test();
     return 0;
 }
 
