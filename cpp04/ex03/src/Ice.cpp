@@ -16,7 +16,7 @@
 //***	constructor and destructor//constructor and destructor	***//
 Ice::Ice( void ) : AMaterial("Ice")
 {
-	this->_brain = new Brain();
+//	this->_brain = new Brain();
 	std::cout << "Default constructor called in Ice. type: " << this->type << std::endl;
 }
 
@@ -50,7 +50,7 @@ Ice &Ice::operator=( const Ice &src )
 
 
 /**********************************************************************************/
-void	Ice::makeSound( void ) const
+/*void	Ice::makeSound( void ) const
 {
     std::cout << CYAN << this->type << ": " << Ice_SOUND << RESET << std::endl;
 	return ;
@@ -59,7 +59,9 @@ void	Ice::makeSound( void ) const
 Brain*	Ice::getBrain(void) const
 {
 	return (this->_brain);
-}
+}*/
+
+
 
 void	Ice::use(ICharacter& target)
 {

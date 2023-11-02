@@ -13,7 +13,7 @@
 #include "AMateria.hpp"
 
 //***	constructor and destructor//constructor and destructor	***//
-AMaterial::AMaterial( void ) : type(DEFAULT_AMaterial)
+AMaterial::AMaterial( void ) : type("Dfault")
 {
 	std::cout << "Default constructor called in AMaterial. type: " << this->type << std::endl;
 }
@@ -39,7 +39,7 @@ AMaterial &AMaterial::operator=( const AMaterial &src )
 	std::cout << GREEN "AMaterial assignment overload operator called." RESET << std::endl;
 	if (this != &src)
 	{
-		// this->type = src.getType();
+		this->type = src.getType();
 	}
 	return (*this);
 }
@@ -47,16 +47,11 @@ AMaterial &AMaterial::operator=( const AMaterial &src )
 
 
 /**********************************************************************************/
-void	AMaterial::makeSound( void ) const
-{
-    std::cout << YELLOW << this->type << ": Piyo piyo" RESET << std::endl;
-	return ;
-}
 
-// std::string		AMaterial::getType(void) const
-// {
-// 	return (this->type);
-// }
+std::string		AMaterial::getType(void) const
+{
+	return (this->type);
+}
 
 void AMaterial::use(ICharacter& target)
 {

@@ -20,14 +20,15 @@ class Cure : public AMaterial
 {
 public:
 	Cure( void );
-	Cure( std::string type );
-//	Cure( Cure const &src );
+//	Cure( std::string type );
+	Cure( Cure const &src );
 	~Cure( void );
 	Cure &operator=( const Cure &src );
 
 //	Brain*		getBrain(void) const;
-	std::string	const &getType(void) const;
+//	std::string	const &getType(void) const;
 
+	AMateria *	clone( void ) const;
 //    void    makeSound( void ) const;
 	void	use(ICharacter& target);
 };

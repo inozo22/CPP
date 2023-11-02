@@ -18,7 +18,8 @@ LIBS		:=
 INCS		:= inc
 
 SRC_DIR		:= src
-SRCS		:= main.cpp AAnimal.cpp Dog.cpp Cat.cpp WrongAnimal.cpp WrongCat.cpp Brain.cpp
+SRCS		:= main.cpp AMateria.cpp Character.cpp Cure.cpp Ice.cpp \
+				MateriaSource.cpp
 SRCS		:= $(SRCS:%=$(SRC_DIR)/%)
 
 BUILD_DIR	:= .build
