@@ -10,11 +10,9 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "AAnimal.hpp"
-#include "WrongAnimal.hpp"
-#include "Dog.hpp"
-#include "Cat.hpp"
-#include "WrongCat.hpp"
+#include "AMateria.hpp"
+#include "IMateriaSource.hpp"
+#include "ICharacter.hpp"
 
 #define ANIMAL_AMOUNT 10
 

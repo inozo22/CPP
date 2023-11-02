@@ -23,10 +23,6 @@
 // # define UTEST "TEST"
 // # define LTEST "test"
 
-# define DEFAULT_AMateria "Bird"
-# define DOG_SOUND "Woof woof woof!"
-# define CAT_SOUND "Meaw meaw meaw"
-
 # include <iostream>
 # include <string>
 # include "colors.h"
@@ -40,7 +36,7 @@ protected:
 public:
 	AMateria( void );
 	AMateria( std::string const & type );
-	// AMateria( AMateria const &src );
+	AMateria( AMateria const &src );
 	virtual ~AMateria( void );
 	AMateria &operator=( const AMateria &src );
 

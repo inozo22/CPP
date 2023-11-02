@@ -14,7 +14,6 @@
 # define __CURE_HPP__
 
 # include "AMaterial.hpp"
-# include "Brain.hpp"
 # include <string>
 
 class Cure : public AMaterial
@@ -22,18 +21,15 @@ class Cure : public AMaterial
 public:
 	Cure( void );
 	Cure( std::string type );
-	Cure( Cure const &src );
+//	Cure( Cure const &src );
 	~Cure( void );
 	Cure &operator=( const Cure &src );
 
-	Brain*		getBrain(void) const;
-	// std::string		getType(void) const;
+//	Brain*		getBrain(void) const;
+	std::string	const &getType(void) const;
 
-    void    makeSound( void ) const;
+//    void    makeSound( void ) const;
 	void	use(ICharacter& target);
-
-private:
-	Brain * _brain;
 };
 
 #endif
