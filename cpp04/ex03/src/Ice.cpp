@@ -6,7 +6,7 @@
 /*   By: nimai <nimai@student.42urduliz.com>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/26 16:16:49 by nimai             #+#    #+#             */
-/*   Updated: 2023/11/03 10:25:46 by nimai            ###   ########.fr       */
+/*   Updated: 2023/11/03 14:46:55 by nimai            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 //***	constructor and destructor//constructor and destructor	***//
 Ice::Ice( void ) : AMateria("ice")
 {
-	std::cout << "Default constructor called in Ice. type: " << this->type << std::endl;
+	std::cout << "Default constructor called in Ice." << std::endl;
 }
 
 Ice::~Ice(void)

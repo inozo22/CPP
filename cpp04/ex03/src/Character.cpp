@@ -6,7 +6,7 @@
 /*   By: nimai <nimai@student.42urduliz.com>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/01 12:28:12 by nimai             #+#    #+#             */
-/*   Updated: 2023/11/03 13:23:10 by nimai            ###   ########.fr       */
+/*   Updated: 2023/11/03 14:49:41 by nimai            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -74,6 +74,11 @@ std::string const & Character::getName() const
 
 void	Character::equip(AMateria* m)
 {
+	if (!m)
+	{
+		std::cout << RED << this->getName() << ": Can't equip somthing doesn't exist." << RESET << std::endl;
+		return ;
+	}
 	for (int i = 0; i < MAX_MATERIA; i++)
 	{
 		if (this->_materias[i] == NULL)
@@ -83,14 +88,14 @@ void	Character::equip(AMateria* m)
 			return ;
 		}
 	}
-	std::cout << this->getName() << ": I can't have more." << std::endl;
+	std::cout << RED << this->getName() << ": I can't have more." RESET << std::endl;
 }
 
 void	Character::unequip(int idx)
 {
 	if (idx >= MAX_MATERIA || idx < 0)
 	{
-		std::cout << this->getName() << ": the "<< idx + 1 << "'th inventory doesn't exist." << std::endl;
+		std::cout << RED << this->getName() << ": the "<< idx + 1 << "'th inventory doesn't exist." RESET << std::endl;
 	}
 	else
 	{
@@ -100,7 +105,7 @@ void	Character::unequip(int idx)
 			std::cout << this->getName() << ": threw materia: " << this->_materias[idx]->getType() << std::endl;
 		}
 		else
-			std::cout << this->getName() << ": this inventory is empty." << std::endl;
+			std::cout << RED << this->getName() << ": this inventory is empty." RESET << std::endl;
 	}
 }
 
@@ -108,24 +113,23 @@ void	Character::use (int idx, ICharacter& target)
 {
 	if (idx >= MAX_MATERIA || idx < 0)
 	{
-		std::cout << this->getName() << RED ": the "<< idx << "'th inventory doesn't exist so you can't use nothing." RESET << std::endl;
+		std::cout << RED << this->getName() << ": the "<< idx << "th inventory doesn't exist so you can't use nothing." RESET << std::endl;
 	}
 	else
 	{
 		if (this->_materias[idx])
 		{
-
 			if (this->_materias[idx]->getType() == "ice")
-				std::cout << this->getName() << ": * shoots an ice bolt at " << target.getName() << " *" << std::endl;
+				std::cout << CYAN << this->getName() << ": * shoots an ice bolt at " << target.getName() << " *" RESET << std::endl;
 			else if (this->_materias[idx]->getType() == "cure")
-				std::cout << this->getName() << ": * heal " << target.getName() << "'s wounds *" << std::endl;
-			std::cout << this->getName() << ": threw materia: " << this->_materias[idx]->getType() << std::endl;
+				std::cout << GREEN << this->getName() << ": * heal " << target.getName() << "'s wounds *" RESET<< std::endl;
+			// std::cout << this->getName() << ": threw materia: " << this->_materias[idx]->getType() << std::endl;
 			delete (this->_materias[idx]);
 			this->_materias[idx] = NULL;
 		}
 		else
 		{
-			std::cout << this->getName() << ": I don't have nothing to use." << std::endl;
+			std::cout << RED << this->getName() << ": I don't have nothing to use." RESET << std::endl;
 		}
 	}
 

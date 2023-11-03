@@ -6,7 +6,7 @@
 /*   By: nimai <nimai@student.42urduliz.com>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/03 12:22:30 by nimai             #+#    #+#             */
-/*   Updated: 2023/11/03 12:22:32 by nimai            ###   ########.fr       */
+/*   Updated: 2023/11/03 13:53:32 by nimai            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -82,6 +82,6 @@ AMateria* MateriaSource::createMateria( std::string const & type )
 			return (this->_materias[i]->clone());
 		}
 	}
-	std::cout << RED "Sorry, MateriaSource doesn't know how to create " RESET << type << std::endl;
+	std::cout << RED "Sorry, MateriaSource doesn't know how to create " << type << RESET << std::endl;
 	return (NULL);
 }
