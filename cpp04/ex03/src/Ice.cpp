@@ -6,7 +6,7 @@
 /*   By: nimai <nimai@student.42urduliz.com>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/26 16:16:49 by nimai             #+#    #+#             */
-/*   Updated: 2023/11/03 14:46:55 by nimai            ###   ########.fr       */
+/*   Updated: 2023/11/03 15:02:42 by nimai            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,33 +15,26 @@
 //***	constructor and destructor//constructor and destructor	***//
 Ice::Ice( void ) : AMateria("ice")
 {
-	std::cout << "Default constructor called in Ice." << std::endl;
+	// std::cout << "Default constructor called in Ice." << std::endl;
 }
 
 Ice::~Ice(void)
 {
-//	delete (this->_brain);
-//	std::cout << " in Ice destructor." << std::endl;
-	std::cout << "Default destructor called in Ice." << std::endl;
+	// std::cout << "Default destructor called in Ice." << std::endl;
 }
 
 Ice::Ice( const Ice &src ) : AMateria("ice")
 {
-//	this->_brain = NULL;
 	*this = src;
-	std::cout << "Copy constructor called in Ice." << std::endl;
+	// std::cout << "Copy constructor called in Ice." << std::endl;
 }
 
 Ice &Ice::operator=( const Ice &src )
 {
 	if (this == &src)
 		return *this;
-	std::cout << GREEN "Ice assignment overload operator called." RESET << std::endl;
-	// this->type = src.getType();
+	// std::cout << GREEN "Ice assignment overload operator called." RESET << std::endl;
 	this->type = src.type;
-/*	if (this->_brain != NULL)
-		delete this->_brain;
-	this->_brain = new Brain(*src._brain);*/
 	return (*this);
 }
 //***	constructor and destructor//constructor and destructor	***//

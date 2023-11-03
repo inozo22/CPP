@@ -15,28 +15,22 @@
 //***	constructor and destructor//constructor and destructor	***//
 AMateria::AMateria( void ) : type("Dfault")
 {
-	std::cout << "Default constructor called in AMateria. type: " << this->type << std::endl;
+	// std::cout << "Default constructor called in AMateria. type: " << this->type << std::endl;
 }
 
 AMateria::AMateria( std::string const & type ) : type(type)
 {
-	std::cout << this->type << ": Created in AMateria." << std::endl;
+	// std::cout << this->type << ": Created in AMateria." << std::endl;
 }
 
 AMateria::~AMateria(void)
 {	
-	std::cout << this->type << ": Default destructor called in AMateria." << std::endl;
+	// std::cout << this->type << ": Default destructor called in AMateria." << std::endl;
 }
-
-// AMateria::AMateria( const AMateria &src )
-// {
-// 	std::cout << this->type << ": Copy constructor called in AMateria." << std::endl;
-// 	this->operator=(src);
-// }
 
 AMateria &AMateria::operator=( const AMateria &src )
 {
-	std::cout << GREEN "AMateria assignment overload operator called." RESET << std::endl;
+	// std::cout << GREEN "AMateria assignment overload operator called." RESET << std::endl;
 	if (this != &src)
 	{
 		this->type = src.getType();

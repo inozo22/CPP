@@ -6,7 +6,7 @@
 /*   By: nimai <nimai@student.42urduliz.com>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/26 16:16:05 by nimai             #+#    #+#             */
-/*   Updated: 2023/11/03 14:48:28 by nimai            ###   ########.fr       */
+/*   Updated: 2023/11/03 15:07:16 by nimai            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -158,9 +158,9 @@ void    bad_state_test()
 void    subject_test()
 {
 
-    std::cout << std::endl << std::endl;
-    std::cout << GREEN "********** SUBJECT TEST ********** U •x• U " RESET<< std::endl;
-    std::cout << std::endl;
+    // std::cout << std::endl << std::endl;
+    // std::cout << "********** SUBJECT TEST **********"<< std::endl;
+    // std::cout << std::endl;
 
 	IMateriaSource* src = new MateriaSource();
 	src->learnMateria(new Ice());
@@ -186,8 +186,8 @@ void    subject_test()
 
 int main() 
 {
-    // subject_test();
-	bad_state_test();
+    subject_test();
+	// bad_state_test();
     // my_test();
     // array_test();
     return 0;
