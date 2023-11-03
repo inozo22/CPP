@@ -8,9 +8,9 @@
             "type": "lldb",
             "request": "launch",
             "name": "Debug",
-            "program": "${workspaceFolder}/cpp02/ex02/Fixed",
+            "program": "${workspaceFolder}/cpp04/ex03/MiniGame",
             "args": [],
-            "cwd": "${workspaceFolder}/cpp02/ex02"
+            "cwd": "${workspaceFolder}/"
         }
     ]
 }
