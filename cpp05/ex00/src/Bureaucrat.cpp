@@ -6,23 +6,54 @@
 /*   By: nimai <nimai@student.42urduliz.com>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/03 15:51:24 by nimai             #+#    #+#             */
-/*   Updated: 2023/11/03 16:07:24 by nimai            ###   ########.fr       */
+/*   Updated: 2023/11/03 17:29:15 by nimai            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Bureaucrat.hpp"
+// #include <string>
+#include "colors.h"
+#include <iostream>
 
-	// private:
-	// 		std::string const _name;
-	// 		int	_grade;
-	// public:
-	// 		Bureaucrat( void );
-	// 		Bureaucrat( Bureaucrat const & src);
-	// 		Bureaucrat( std::string const & name, int grade );
-	// 		~Bureaucrat( void );
+Bureaucrat::Bureaucrat( void ) : _name("unknown"), _grade(LOWEST)
+{
+	std::cout << "Bureaucrat: Default constructor called." << std::endl;
+}
 
-	// 		Bureaucrat & operator=(const Bureaucrat &src);
+Bureaucrat::Bureaucrat( std::string const & name, int grade ) : _name(name), _grade(grade)
+{
+	std::cout << this->_name << ": Created in Bureaucrat." << std::endl;
+}
 
-	// 		std::string const &	getName( void ) const;
-	// 		int	getGrade( void );  
+Bureaucrat::Bureaucrat( Bureaucrat const & src )
+{
+	std::cout << "Bureaucrat: assignment overload operator called." << std::endl;
+	
+}
 
+Bureaucrat::~Bureaucrat( void )
+{
+	std::cout << this->_name << ": Default destructor called." << std::endl;
+	
+}
+
+Bureaucrat &Bureaucrat::operator=( const Bureaucrat &src )
+{
+	if (this != &src)
+	{
+		this->_grade = src._grade;
+	}
+	return (*this);
+}
+
+
+
+std::string const &Bureaucrat::getName( void ) const
+{
+	return (this->_name);
+}
+
+int	Bureaucrat::getGrade( void )
+{
+	return (this->_grade);
+}

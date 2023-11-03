@@ -6,14 +6,17 @@
 /*   By: nimai <nimai@student.42urduliz.com>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/03 15:50:58 by nimai             #+#    #+#             */
-/*   Updated: 2023/11/03 16:04:08 by nimai            ###   ########.fr       */
+/*   Updated: 2023/11/03 17:33:22 by nimai            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef __BUREAUCRAT_HPP__
 # define __BUREAUCRAT_HPP__
 
-#include <string>
+# include <string>
+
+# define HIGHEST	1
+# define LOWEST	150
 
 class Bureaucrat
 {
@@ -29,6 +32,15 @@ class Bureaucrat
 			Bureaucrat & operator=(const Bureaucrat &src);
 
 			std::string const &	getName( void ) const;
-			int	getGrade( void );  
+			int	getGrade( void );
+
+			class GradeTooHighException : std::exception
+			{
+				
+			};
+			class GradeTooLowException : std::exception
+			{
+				
+			};
 };
 #endif
