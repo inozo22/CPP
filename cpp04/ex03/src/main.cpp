@@ -6,7 +6,7 @@
 /*   By: nimai <nimai@student.42urduliz.com>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/26 16:16:05 by nimai             #+#    #+#             */
-/*   Updated: 2023/11/03 13:09:16 by nimai            ###   ########.fr       */
+/*   Updated: 2023/11/03 13:29:19 by nimai            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -93,31 +93,24 @@ void    subject_test()
 	IMateriaSource* src = new MateriaSource();
 	src->learnMateria(new Ice());
 	src->learnMateria(new Cure());
-    std::cout << std::endl << std::endl;///////////////////////////////
-
 
 	ICharacter* me = new Character("me");
-    std::cout << std::endl << std::endl;///////////////////////////////
-
 
 	AMateria* tmp;
 	tmp = src->createMateria("ice");
 	me->equip(tmp);
 	tmp = src->createMateria("cure");
 	me->equip(tmp);
-    std::cout << std::endl << std::endl;///////////////////////////////
 
 	ICharacter *bob = new Character("bob");
 
 	me->use(0, *bob);
 	me->use(1, *bob);
-    std::cout << std::endl << std::endl;///////////////////////////////
 
 	delete bob;
 	delete me;
 	delete src;
 
-//    return 0;
 }
 
 int main() 
