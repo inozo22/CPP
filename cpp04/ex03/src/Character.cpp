@@ -6,7 +6,7 @@
 /*   By: nimai <nimai@student.42urduliz.com>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/01 12:28:12 by nimai             #+#    #+#             */
-/*   Updated: 2023/11/03 10:21:04 by nimai            ###   ########.fr       */
+/*   Updated: 2023/11/03 13:08:08 by nimai            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -108,22 +108,26 @@ void	Character::use (int idx, ICharacter& target)
 {
 	if (idx >= MAX_MATERIA || idx < 0)
 	{
-		std::cout << this->getName() << ": the "<< idx << "'th inventory doesn't exist so you can't use nothing." << std::endl;
+		std::cout << this->getName() << RED ": the "<< idx << "'th inventory doesn't exist so you can't use nothing." RESET << std::endl;
 	}
 	else
 	{
 		if (this->_materias[idx])
 		{
+
 			if (this->_materias[idx]->getType() == "ice")
 				std::cout << this->getName() << ": * shoots an ice bolt at " << target.getName() << " *" << std::endl;
 			else if (this->_materias[idx]->getType() == "cure")
 				std::cout << this->getName() << ": * heal " << target.getName() << "'s wounds *" << std::endl;
+			std::cout << this->getName() << ": threw materia: " << this->_materias[idx]->getType() << std::endl;
 			delete (this->_materias[idx]);
 			this->_materias[idx] = NULL;
-			std::cout << this->getName() << ": threw materia: " << this->_materias[idx]->getType() << std::endl;
 		}
 		else
+		{
+			std::cout << CYAN "********** KAIXO2 **********" RESET<< std::endl;
 			std::cout << this->getName() << ": I don't have nothing to use." << std::endl;
+		}
 	}
 
 }
