@@ -30,22 +30,20 @@
 
 class AMateria 
 {
+	protected:
+		std::string		type;
 
-protected:
-	std::string		type;
+	public:
+		AMateria( void );
+		AMateria( std::string const & type );
+		AMateria( AMateria const &src );
+		virtual ~AMateria( void );
+		AMateria &operator=( const AMateria &src );
 
-public:
-	AMateria( void );
-	AMateria( std::string const & type );
-	AMateria( AMateria const &src );
-	virtual ~AMateria( void );
-	AMateria &operator=( const AMateria &src );
+		std::string	const &	getType() const; //Returns the materia type
 
-	std::string	const &	getType() const; //Returns the materia type
-
-    virtual AMateria* clone() const = 0;
-	virtual void use(ICharacter& target);
-	
+		virtual AMateria* clone() const = 0;
+		virtual void use(ICharacter& target);
 };
 
 #endif

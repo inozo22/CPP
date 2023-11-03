@@ -1,23 +1,38 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   MateriaSource.hpp                                  :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: nimai <nimai@student.42urduliz.com>        +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2023/11/03 10:11:48 by nimai             #+#    #+#             */
+/*   Updated: 2023/11/03 12:28:12 by nimai            ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #ifndef __MATERIASOURCE_HPP__
 # define __MATERIASOURCE_HPP__
 
 # include <string>
 # include "IMateriaSource.hpp"
+# include "AMateria.hpp"
+
+# define MAX_MATERIA 4
 
 class MateriaSource : public IMateriaSource
 {
-    public:
-            MateriaSource( void );
-            MateriaSource( MateriaSource const & src);
-            ~MateriaSource( void );
+	private:
+			AMateria    *_materias[MAX_MATERIA];
+	public:
+			MateriaSource( void );
+			// MateriaSource( MateriaSource const & src);
+			~MateriaSource( void );
 
-            MateriaSource & operator=(MateriaSource const & src);
+			MateriaSource & operator=(MateriaSource const & src);
 
-            void learnMateria( AMateria * );
-            AMateria* createMateria( std::string const & type );
+			void learnMateria( AMateria *newOne);
+			AMateria* createMateria( std::string const & type );
 
-    private:
-            
 };
 
 #endif

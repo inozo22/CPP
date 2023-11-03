@@ -11,14 +11,16 @@
 /* ************************************************************************** */
 
 #include "Cure.hpp"
+#include <iostream>
+#include <string>
 
 //***	constructor and destructor//constructor and destructor	***//
-Cure::Cure( void ) : AMaterial("cure")
+Cure::Cure( void ) : AMateria("cure")
 {
 	std::cout << "Default constructor called in Cure." << std::endl;
 }
 
-// Cure::Cure( std::string name ) : type(DEFAULT_Cure)
+// Cure::Cure( std::string type ) : type(DEFAULT_Cure)
 // {
 // 	std::cout << this->name << ": Created in Cure." << std::endl;
 // }
@@ -71,6 +73,7 @@ AMateria *	Cure::clone( void ) const
 
 void	Cure::use(ICharacter& target)
 {
-    std::cout << "* heals " << target << "’s wounds *" << std::endl;
+    //std::cout << "* heals " << target << "'s wounds *" << std::endl;
+	(void)target;
 }
 /**********************************************************************************/

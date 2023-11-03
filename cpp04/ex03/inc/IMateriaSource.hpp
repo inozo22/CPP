@@ -1,9 +1,21 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   IMateriaSource.hpp                                 :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: nimai <nimai@student.42urduliz.com>        +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2023/11/03 12:23:13 by nimai             #+#    #+#             */
+/*   Updated: 2023/11/03 12:23:15 by nimai            ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #ifndef __IMATERIASOURCE_HPP__
 # define __IMATERIASOURCE_HPP__
 
-# include <iostream>
+// # include <iostream>
 # include <string>
-# include "MateriaSource.hpp"
+// # include "MateriaSource.hpp"
 # include "AMateria.hpp"
 # include "colors.h"
 

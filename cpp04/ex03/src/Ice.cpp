@@ -6,15 +6,14 @@
 /*   By: nimai <nimai@student.42urduliz.com>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/26 16:16:49 by nimai             #+#    #+#             */
-/*   Updated: 2023/11/01 12:17:53 by nimai            ###   ########.fr       */
+/*   Updated: 2023/11/03 10:25:46 by nimai            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Ice.hpp"
-#include "Brain.hpp"
 
 //***	constructor and destructor//constructor and destructor	***//
-Ice::Ice( void ) : AMaterial("ice")
+Ice::Ice( void ) : AMateria("ice")
 {
 	std::cout << "Default constructor called in Ice. type: " << this->type << std::endl;
 }
@@ -60,15 +59,16 @@ Brain*	Ice::getBrain(void) const
 	return (this->_brain);
 }*/
 
-AMateria *	ice::clone( void ) const
+AMateria *	Ice::clone( void ) const
 {
-	AMateria *	iceClone = new Cure();
+	AMateria *	iceClone = new Ice();
 	return (iceClone);
 }
 
 
 void	Ice::use(ICharacter& target)
 {
-    std::cout << "* shoots an ice bolt at " << target << " *" << std::endl;
+	//std::cout << "* shoots an ice bolt at " << target << " *" << std::endl;
+	(void)target;
 }
 /**********************************************************************************/

@@ -1,7 +1,7 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   AMaterial.cpp                                         :+:      :+:    :+:   */
+/*   AMateria.cpp                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: nimai <nimai@student.42urduliz.com>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
@@ -13,30 +13,30 @@
 #include "AMateria.hpp"
 
 //***	constructor and destructor//constructor and destructor	***//
-AMaterial::AMaterial( void ) : type("Dfault")
+AMateria::AMateria( void ) : type("Dfault")
 {
-	std::cout << "Default constructor called in AMaterial. type: " << this->type << std::endl;
+	std::cout << "Default constructor called in AMateria. type: " << this->type << std::endl;
 }
 
-AMaterial::AMaterial( std::string type ) : type(type)
+AMateria::AMateria( std::string const & type ) : type(type)
 {
-	std::cout << this->type << ": Created in AMaterial." << std::endl;
+	std::cout << this->type << ": Created in AMateria." << std::endl;
 }
 
-AMaterial::~AMaterial(void)
+AMateria::~AMateria(void)
 {	
-	std::cout << this->type << ": Default destructor called in AMaterial." << std::endl;
+	std::cout << this->type << ": Default destructor called in AMateria." << std::endl;
 }
 
-// AMaterial::AMaterial( const AMaterial &src )
+// AMateria::AMateria( const AMateria &src )
 // {
-// 	std::cout << this->type << ": Copy constructor called in AMaterial." << std::endl;
+// 	std::cout << this->type << ": Copy constructor called in AMateria." << std::endl;
 // 	this->operator=(src);
 // }
 
-AMaterial &AMaterial::operator=( const AMaterial &src )
+AMateria &AMateria::operator=( const AMateria &src )
 {
-	std::cout << GREEN "AMaterial assignment overload operator called." RESET << std::endl;
+	std::cout << GREEN "AMateria assignment overload operator called." RESET << std::endl;
 	if (this != &src)
 	{
 		this->type = src.getType();
@@ -48,13 +48,14 @@ AMaterial &AMaterial::operator=( const AMaterial &src )
 
 /**********************************************************************************/
 
-std::string		AMaterial::getType(void) const
+std::string	const	&AMateria::getType(void) const
 {
 	return (this->type);
 }
 
-void AMaterial::use(ICharacter& target)
+void AMateria::use(ICharacter& target)
 {
+	(void)target;
     std::cout << "I don't know what should I use" << std::endl;
 }
 

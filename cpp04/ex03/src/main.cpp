@@ -6,13 +6,15 @@
 /*   By: nimai <nimai@student.42urduliz.com>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/26 16:16:05 by nimai             #+#    #+#             */
-/*   Updated: 2023/10/31 16:07:47 by nimai            ###   ########.fr       */
+/*   Updated: 2023/11/03 10:10:55 by nimai            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "AMateria.hpp"
 #include "IMateriaSource.hpp"
+#include "MateriaSource.hpp"
 #include "ICharacter.hpp"
+#include "Character.hpp"
 #include "Ice.hpp"
 #include "Cure.hpp"
 
@@ -87,26 +89,27 @@ void    subject_test()
     std::cout << std::endl << std::endl;
     std::cout << GREEN "********** SUBJECT TEST ********** U •x• U " RESET<< std::endl;
     std::cout << std::endl;
-    IMateriaSource* src = new MateriaSource();
-    src->learnMateria(new Ice());
-    src->learnMateria(new Cure());
 
-    ICharacter* me = new Character("me");
+	IMateriaSource* src = new MateriaSource();
+	src->learnMateria(new Ice());
+	src->learnMateria(new Cure());
 
-    AMateria* tmp;
-    tmp = src->createMateria("ice");
-    me->equip(tmp);
-    tmp = src->createMateria("cure");
-    me->equip(tmp);
+	ICharacter* me = new Character("me");
 
-    ICharacter *bob = new Character("bob");
+	AMateria* tmp;
+	tmp = src->createMateria("ice");
+	me->equip(tmp);
+	tmp = src->createMateria("cure");
+	me->equip(tmp);
 
-    me->use(0, *bob);
-    me->use(1. *bob);
+	ICharacter *bob = new Character("bob");
 
-    delete bob;
-    delete me;
-    delete src;
+	me->use(0, *bob);
+	me->use(1, *bob);
+
+	delete bob;
+	delete me;
+	delete src;
 
 //    return 0;
 }

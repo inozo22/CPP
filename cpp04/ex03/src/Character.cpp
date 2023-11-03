@@ -6,7 +6,7 @@
 /*   By: nimai <nimai@student.42urduliz.com>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/01 12:28:12 by nimai             #+#    #+#             */
-/*   Updated: 2023/11/01 12:28:13 by nimai            ###   ########.fr       */
+/*   Updated: 2023/11/03 10:21:04 by nimai            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,14 +31,13 @@ Character::Character( std::string name ): _name(name)
 
 Character::Character( Character const &src )
 {
-	this->_name = stc.getName();
+	this->_name = src.getName();
 	for (int i = 0; i < MAX_MATERIA; i++)
 	{
 		if (src._materias[i] != NULL)
 			this->_materias[i] = src._materias[i]->clone();
 	}
 	std::cout << "Copy constructor called in Character." << std::endl;
-	return (*this);
 }
 
 Character::~Character( void )
@@ -51,7 +50,7 @@ Character::~Character( void )
 	std::cout << "Default destructor called in Character";
 }
 
-Character::Character &operator=( const Character &src )
+Character &Character::operator=( const Character &src )
 {
 	if (this != &src)
 	{

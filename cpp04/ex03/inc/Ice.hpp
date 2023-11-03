@@ -6,7 +6,7 @@
 /*   By: nimai <nimai@student.42urduliz.com>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/26 16:16:54 by nimai             #+#    #+#             */
-/*   Updated: 2023/11/01 12:29:26 by nimai            ###   ########.fr       */
+/*   Updated: 2023/11/03 12:27:17 by nimai            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,9 +17,9 @@
 # include "ICharacter.hpp"
 # include <string>
 
-class Ice : public AMaterial
+class Ice : public AMateria
 {
-public:
+	public:
 	Ice( void );
 //	Ice( std::string type );
 	Ice( Ice const &src );

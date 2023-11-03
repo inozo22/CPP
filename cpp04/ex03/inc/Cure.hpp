@@ -6,7 +6,7 @@
 /*   By: nimai <nimai@student.42urduliz.com>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/26 16:16:54 by nimai             #+#    #+#             */
-/*   Updated: 2023/11/01 12:16:54 by nimai            ###   ########.fr       */
+/*   Updated: 2023/11/03 11:23:18 by nimai            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,11 +16,11 @@
 # include "AMateria.hpp"
 # include <string>
 
-class Cure : public AMaterial
+class Cure : public AMateria
 {
 	public:
 			Cure( void );
-//	Cure( std::string type );
+			// Cure( std::string type );
 			Cure( Cure const &src );
 			~Cure( void );
 			Cure &operator=( const Cure &src );

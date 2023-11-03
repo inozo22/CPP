@@ -6,7 +6,7 @@
 /*   By: nimai <nimai@student.42urduliz.com>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/01 12:27:50 by nimai             #+#    #+#             */
-/*   Updated: 2023/11/01 12:33:37 by nimai            ###   ########.fr       */
+/*   Updated: 2023/11/03 09:54:11 by nimai            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,6 @@ class Character: public ICharacter
 			Character( std::string name );
 			Character( Character const &src );
 			~Character();
-			Character 
 			Character &operator=( const Character &src );
 
 			std::string const & getName() const;
