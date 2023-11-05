@@ -20,9 +20,18 @@ Bureaucrat::Bureaucrat( void ) : _name("unknown"), _grade(LOWEST)
 	std::cout << "Bureaucrat: Default constructor called." << std::endl;
 }
 
-Bureaucrat::Bureaucrat( std::string const & name, int grade ) : _name(name), _grade(grade)
+Bureaucrat::Bureaucrat( std::string const & name, int grade ) : _name(name), _grade(LOWEST)
 {
-	std::cout << this->_name << ": Created in Bureaucrat." << std::endl;
+	std::cout << this->_name << ": Bureaucrat constructor called. Grade: " << grade << std::endl;
+	if (grade < HIGHEST)
+		throw(Bureaucrat::GradeTooHighException());
+	else if (grade > LOWEST)
+		throw(Bureaucrat::GradeTooLowException());
+	else
+	{
+		this->_grade = grade;
+		std::cout << this->_name << ": Created. Grade: " << this->_grade << std::endl;
+	}
 }
 
 Bureaucrat::Bureaucrat( Bureaucrat const & src )
