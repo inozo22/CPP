@@ -6,7 +6,7 @@
 /*   By: nimai <nimai@student.42urduliz.com>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/03 15:51:24 by nimai             #+#    #+#             */
-/*   Updated: 2023/11/06 11:06:55 by nimai            ###   ########.fr       */
+/*   Updated: 2023/11/06 15:23:15 by nimai            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,6 @@ Bureaucrat::Bureaucrat( void ) : _name("unknown"), _grade(LOWEST)
 
 Bureaucrat::Bureaucrat( std::string const & name, int grade ) : _name(name), _grade(LOWEST)
 {
-	std::cout << this->_name << ": Bureaucrat constructor called. Grade: " << grade << std::endl;
 	if (grade < HIGHEST)
 		throw(Bureaucrat::GradeTooHighException());
 	else if (grade > LOWEST)
@@ -32,6 +31,7 @@ Bureaucrat::Bureaucrat( std::string const & name, int grade ) : _name(name), _gr
 		this->_grade = grade;
 		std::cout << this->_name << ": Created. Grade: " << this->_grade << std::endl;
 	}
+	std::cout << this->_name << ": Bureaucrat constructor called. Grade: " << grade << std::endl;
 }
 
 Bureaucrat::Bureaucrat( Bureaucrat const & src ): _name(src._name), _grade(src._grade)
