@@ -6,7 +6,7 @@
 /*   By: nimai <nimai@student.42urduliz.com>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/03 15:51:24 by nimai             #+#    #+#             */
-/*   Updated: 2023/11/03 17:29:15 by nimai            ###   ########.fr       */
+/*   Updated: 2023/11/06 11:06:55 by nimai            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,8 @@ Bureaucrat::Bureaucrat( std::string const & name, int grade ) : _name(name), _gr
 	}
 }
 
-Bureaucrat::Bureaucrat( Bureaucrat const & src )
+Bureaucrat::Bureaucrat( Bureaucrat const & src ): _name(src._name), _grade(src._grade)
+
 {
 	std::cout << "Bureaucrat: assignment overload operator called." << std::endl;
 	
@@ -66,3 +67,14 @@ int	Bureaucrat::getGrade( void )
 {
 	return (this->_grade);
 }
+
+const char	*	Bureaucrat::GradeTooHighException::what(void) const throw()
+{
+	return ("Bureaucrat: grade too high.");
+}
+
+const char	*	Bureaucrat::GradeTooLowException::what(void) const throw()
+{
+	return ("Bureaucrat: grade too low.");
+}
+
