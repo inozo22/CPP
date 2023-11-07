@@ -6,11 +6,12 @@
 /*   By: nimai <nimai@student.42urduliz.com>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/03 15:51:24 by nimai             #+#    #+#             */
-/*   Updated: 2023/11/07 11:15:23 by nimai            ###   ########.fr       */
+/*   Updated: 2023/11/07 16:32:34 by nimai            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Bureaucrat.hpp"
+#include "Form.hpp"
 // #include <string>
 #include <iostream>
 
@@ -75,6 +76,11 @@ void	Bureaucrat::decrementGrade( int i )
 		return (throw(Bureaucrat::GradeTooLowException()));
 	this->_grade += i;
 	std::cout << this->_name << " is demoted to " << this->_grade << "th postion. Never mind!" << std::endl;
+}
+
+void	Bureaucrat::signForm( Form & form) const
+{
+	
 }
 
 
