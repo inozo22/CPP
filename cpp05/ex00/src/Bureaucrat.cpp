@@ -6,7 +6,7 @@
 /*   By: nimai <nimai@student.42urduliz.com>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/03 15:51:24 by nimai             #+#    #+#             */
-/*   Updated: 2023/11/06 15:23:15 by nimai            ###   ########.fr       */
+/*   Updated: 2023/11/07 11:01:10 by nimai            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,7 +38,6 @@ Bureaucrat::Bureaucrat( Bureaucrat const & src ): _name(src._name), _grade(src._
 
 {
 	std::cout << "Bureaucrat: assignment overload operator called." << std::endl;
-	
 }
 
 Bureaucrat::~Bureaucrat( void )
@@ -56,6 +55,28 @@ Bureaucrat &Bureaucrat::operator=( const Bureaucrat &src )
 	return (*this);
 }
 
+void	Bureaucrat::incrementGrade( void )
+{
+	this->incrementGrade(1);
+}
+void	Bureaucrat::incrementGrade( int i )
+{
+	if (this->_grade - i < HIGHEST)
+		return (throw(Bureaucrat::GradeTooHighException()));
+	this->_grade -= i;
+	std::cout << this->_name << " is promoted to " << this->_grade << "th postion. Congrats!" << std::endl;
+}
+void	Bureaucrat::decrementGrade( void )
+{
+	this->decrementGrade(1);
+}
+void	Bureaucrat::decrementGrade( int i )
+{
+	if (this->_grade + i > LOWEST)
+		return (throw(Bureaucrat::GradeTooLowException()));
+	this->_grade += i;
+	std::cout << this->_name << " is demoted to " << this->_grade << "th postion. Never mind!" << std::endl;
+}
 
 
 std::string const &Bureaucrat::getName( void ) const
@@ -63,7 +84,7 @@ std::string const &Bureaucrat::getName( void ) const
 	return (this->_name);
 }
 
-int	Bureaucrat::getGrade( void )
+int	Bureaucrat::getGrade( void ) const
 {
 	return (this->_grade);
 }
@@ -78,3 +99,8 @@ const char	*	Bureaucrat::GradeTooLowException::what(void) const throw()
 	return ("Bureaucrat: grade too low.");
 }
 
+std::ostream &	operator << (std::ostream & os, Bureaucrat const & obj)
+{
+	os << "Bureaucrat: " << obj.getName() << " bureaucrat grade " << obj.getGrade();
+	return (os);
+}

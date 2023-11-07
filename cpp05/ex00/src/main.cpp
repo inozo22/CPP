@@ -6,14 +6,15 @@
 /*   By: nimai <nimai@student.42urduliz.com>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/03 15:51:22 by nimai             #+#    #+#             */
-/*   Updated: 2023/11/06 15:21:04 by nimai            ###   ########.fr       */
+/*   Updated: 2023/11/07 11:02:55 by nimai            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Bureaucrat.hpp"
 #include <iostream>
+#include "colors.h"
 
-int	main( void )
+void	main_test( void )
 {
 	std::cout << std::endl << std::endl;
 	std::cout << "********** MAIN TEST **********"<< std::endl;
@@ -23,16 +24,54 @@ int	main( void )
 	{
 		Bureaucrat	test("test", 47);
 		Bureaucrat	Badman("Badman", 150);
+		// Badman.decrementGrade();
 		Bureaucrat	presidente("presidente", 1);
-		Bureaucrat	angel("angel", -20);
-		Bureaucrat	topo("topo", 200);
-		/* code */
+		// Bureaucrat	angel("angel", -20);
+		Bureaucrat	topo("topo", 10);
+		for (int i = 0; i < 100; i++)
+		{
+			topo.incrementGrade();
+		}
+
 	}
-	catch(const std::exception& e)
+	catch(std::exception& e)
 	{
 		std::cerr << e.what() << '\n';
 	}
+}
+
+void second_test()
+{
+	try
+	{
+		Bureaucrat bureaucrat("second", 47);
+		std::cout << bureaucrat << " successfully created." << std::endl;
+		Bureaucrat bureaucrat1("second", 150);
+		std::cout << bureaucrat1 << " successfully created." << std::endl;
+		bureaucrat.incrementGrade(5);
+		bureaucrat1.decrementGrade(5);
+		bureaucrat.incrementGrade(5);
+		return ;
+	}
+	catch(Bureaucrat::GradeTooHighException& e)
+	{
+		std::cerr << RED << e.what() << RESET << '\n';
+	}
+	catch(Bureaucrat::GradeTooLowException& e)
+	{
+		std::cerr << MAGENTA << e.what() << RESET << '\n';
+	}
 	
+
+}
+
+
+int	main( void )
+{
+	// main_test();
+	second_test();
+	
+
 
     
 	return (0);
