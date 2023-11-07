@@ -6,11 +6,11 @@
 #    By: nimai <nimai@student.42urduliz.com>        +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/07/25 11:05:17 by nimai             #+#    #+#              #
-#    Updated: 2023/11/07 11:17:52 by nimai            ###   ########.fr        #
+#    Updated: 2023/11/07 17:06:42 by nimai            ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME		:= Bureaucrat
+NAME		:= Form
 
 LIBS_TARGET	:= 
 LIBS		:= 
@@ -18,7 +18,7 @@ LIBS		:=
 INCS		:= inc
 
 SRC_DIR		:= src
-SRCS		:= main.cpp Bureaucrat.cpp
+SRCS		:= main.cpp Bureaucrat.cpp Form.cpp
 SRCS		:= $(SRCS:%=$(SRC_DIR)/%)
 
 BUILD_DIR	:= .build

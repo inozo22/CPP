@@ -6,7 +6,7 @@
 /*   By: nimai <nimai@student.42urduliz.com>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/03 15:50:58 by nimai             #+#    #+#             */
-/*   Updated: 2023/11/07 16:37:52 by nimai            ###   ########.fr       */
+/*   Updated: 2023/11/07 16:59:55 by nimai            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,6 +35,8 @@
 #define GRAY    "\x1B[38;2;176;174;174m"
 #define RESET   "\x1b[0m"
 
+class Form;
+
 class Bureaucrat
 {
 	private:
@@ -55,7 +57,7 @@ class Bureaucrat
 			void	incrementGrade( int i );
 			void	decrementGrade( void );
 			void	decrementGrade( int i );
-			void	signForm( Form & form) const;
+			void	signForm( Form & form ) const;
 
 			class GradeTooHighException : public std::exception
 			{

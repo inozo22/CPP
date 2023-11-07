@@ -6,7 +6,7 @@
 /*   By: nimai <nimai@student.42urduliz.com>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/03 15:51:24 by nimai             #+#    #+#             */
-/*   Updated: 2023/11/07 16:19:43 by nimai            ###   ########.fr       */
+/*   Updated: 2023/11/07 17:21:41 by nimai            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,10 +54,12 @@ Form &Form::operator=( const Form &src )
 
 void	Form::beSigned(  Bureaucrat const & bureaucrat )
 {
-	if (bureaucrat.)
-		return (throw(Form::GradeTooLowException()));
-	this->_grade += i;
-	std::cout << this->_name << " is demoted to " << this->_grade << "th postion. Never mind!" << std::endl;
+	if (this->_signed)
+		throw(Form::SignedException());
+	if (bureaucrat.getGrade() > this->getGradeToSign())
+		throw(Form::GradeTooLowException());
+	this->_signed = true;
+	std::cout << this->_name << " has signed with " << bureaucrat.getGrade() << "th postion. Good job!" << std::endl;
 }
 
 
@@ -88,6 +90,6 @@ const char	*	Form::GradeTooLowException::what(void) const throw()
 
 std::ostream &	operator << (std::ostream & os, Form const & obj)
 {
-	os << "Form: " << obj.getName() << " Form grade " << obj.getGrade();
+	os << "Form: " << obj.getName() << " Form required grade " << obj.getGradeToSign() << " to sign, ";
 	return (os);
 }

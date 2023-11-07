@@ -6,7 +6,7 @@
 /*   By: nimai <nimai@student.42urduliz.com>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/03 15:50:58 by nimai             #+#    #+#             */
-/*   Updated: 2023/11/07 15:48:55 by nimai            ###   ########.fr       */
+/*   Updated: 2023/11/07 16:59:30 by nimai            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,8 @@
 
 # include <string>
 # include "Bureaucrat.hpp"
+
+class Bureaucrat;
 
 class Form
 {

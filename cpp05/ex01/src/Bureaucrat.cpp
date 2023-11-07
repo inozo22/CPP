@@ -6,12 +6,12 @@
 /*   By: nimai <nimai@student.42urduliz.com>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/03 15:51:24 by nimai             #+#    #+#             */
-/*   Updated: 2023/11/07 16:32:34 by nimai            ###   ########.fr       */
+/*   Updated: 2023/11/07 17:05:22 by nimai            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Bureaucrat.hpp"
-#include "Form.hpp"
+// #include "Form.hpp"
 // #include <string>
 #include <iostream>
 
@@ -78,8 +78,19 @@ void	Bureaucrat::decrementGrade( int i )
 	std::cout << this->_name << " is demoted to " << this->_grade << "th postion. Never mind!" << std::endl;
 }
 
-void	Bureaucrat::signForm( Form & form) const
+void	Bureaucrat::signForm( Form & form ) const
 {
+	// (void)form;
+	try
+	{
+		form.beSigned(*this);
+		std::cout << this->_name << "has signed" << form << std::endl;
+	}
+	catch(const std::exception& e)
+	{
+		std::cout << this->_name << " couldn't sign " << "because: ";
+		std::cerr << e.what() << '\n';
+	}
 	
 }
 
