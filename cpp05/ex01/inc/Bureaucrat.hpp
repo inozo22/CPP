@@ -6,7 +6,7 @@
 /*   By: nimai <nimai@student.42urduliz.com>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/03 15:50:58 by nimai             #+#    #+#             */
-/*   Updated: 2023/11/07 11:14:23 by nimai            ###   ########.fr       */
+/*   Updated: 2023/11/07 11:46:53 by nimai            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,7 @@
 # define __BUREAUCRAT_HPP__
 
 # include <string>
+# include "Form.hpp"
 
 # define HIGHEST	1
 # define LOWEST	150
@@ -54,6 +55,7 @@ class Bureaucrat
 			void	incrementGrade( int i );
 			void	decrementGrade( void );
 			void	decrementGrade( int i );
+			void	signForm( Form & form) const;
 
 			class GradeTooHighException : public std::exception
 			{

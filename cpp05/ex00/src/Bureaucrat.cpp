@@ -6,13 +6,12 @@
 /*   By: nimai <nimai@student.42urduliz.com>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/03 15:51:24 by nimai             #+#    #+#             */
-/*   Updated: 2023/11/07 11:01:10 by nimai            ###   ########.fr       */
+/*   Updated: 2023/11/07 11:14:34 by nimai            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Bureaucrat.hpp"
 // #include <string>
-#include "colors.h"
 #include <iostream>
 
 Bureaucrat::Bureaucrat( void ) : _name("unknown"), _grade(LOWEST)

@@ -6,7 +6,7 @@
 /*   By: nimai <nimai@student.42urduliz.com>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/03 15:51:24 by nimai             #+#    #+#             */
-/*   Updated: 2023/11/07 11:31:39 by nimai            ###   ########.fr       */
+/*   Updated: 2023/11/07 11:55:21 by nimai            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,22 +54,7 @@ Form &Form::operator=( const Form &src )
 	return (*this);
 }
 
-void	Form::incrementGrade( void )
-{
-	this->incrementGrade(1);
-}
-void	Form::incrementGrade( int i )
-{
-	if (this->_grade - i < HIGHEST)
-		return (throw(Form::GradeTooHighException()));
-	this->_grade -= i;
-	std::cout << this->_name << " is promoted to " << this->_grade << "th postion. Congrats!" << std::endl;
-}
-void	Form::decrementGrade( void )
-{
-	this->decrementGrade(1);
-}
-void	Form::decrementGrade( int i )
+void	Form::beSigned(  Bureaucrat const & bureaucrat )
 {
 	if (this->_grade + i > LOWEST)
 		return (throw(Form::GradeTooLowException()));
