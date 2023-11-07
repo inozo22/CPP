@@ -6,7 +6,7 @@
 /*   By: nimai <nimai@student.42urduliz.com>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/03 15:51:24 by nimai             #+#    #+#             */
-/*   Updated: 2023/11/07 17:05:22 by nimai            ###   ########.fr       */
+/*   Updated: 2023/11/07 17:50:44 by nimai            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -76,11 +76,11 @@ void	Bureaucrat::decrementGrade( int i )
 		return (throw(Bureaucrat::GradeTooLowException()));
 	this->_grade += i;
 	std::cout << this->_name << " is demoted to " << this->_grade << "th postion. Never mind!" << std::endl;
+	return ;
 }
 
-void	Bureaucrat::signForm( Form & form ) const
+void	Bureaucrat::signForm( Form & form ) const //I don't know why there is an error
 {
-	// (void)form;
 	try
 	{
 		form.beSigned(*this);
@@ -90,8 +90,7 @@ void	Bureaucrat::signForm( Form & form ) const
 	{
 		std::cout << this->_name << " couldn't sign " << "because: ";
 		std::cerr << e.what() << '\n';
-	}
-	
+	}	
 }
 
 
