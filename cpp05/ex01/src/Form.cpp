@@ -6,7 +6,7 @@
 /*   By: nimai <nimai@student.42urduliz.com>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/03 15:51:24 by nimai             #+#    #+#             */
-/*   Updated: 2023/11/07 15:48:41 by nimai            ###   ########.fr       */
+/*   Updated: 2023/11/07 15:59:43 by nimai            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,20 +14,21 @@
 // #include <string>
 #include <iostream>
 
-Form::Form( void ) : _name("unknown"), _gradeToSign(), _gradeToExecute(), _signed(0)
+Form::Form( void ) : _name("unknown"), _gradeToSign(LOWEST), _gradeToExecute(LOWEST), _signed(0)
 {
 	std::cout << "Form: Default constructor called." << std::endl;
 }
 
 Form::Form( std::string const & name, int const gradeToSign, int const gradeToExecute ) : _name(name), _gradeToSign(gradeToSign), _gradeToExecute(gradeToExecute)
 {
-	if (grade < HIGHEST)
+	if (gradeToSign < HIGHEST || gradeToExecute < HIGHEST)
 		throw(Form::GradeTooHighException());
-	else if (grade > LOWEST)
+	if (gradeToSign > LOWEST || gradeToExecute > LOWEST)
 		throw(Form::GradeTooLowException());
 	else
 	{
-		this->_gradeToSign = grade;
+		this->_gradeToSign = gradeToSign;
+		///////////////////
 		std::cout << this->_name << ": Created. Grade: " << this->_grade << std::endl;
 	}
 	std::cout << this->_name << ": Form constructor called. Grade: " << grade << std::endl;
