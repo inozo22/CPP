@@ -6,7 +6,7 @@
 /*   By: nimai <nimai@student.42urduliz.com>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/03 15:51:24 by nimai             #+#    #+#             */
-/*   Updated: 2023/11/07 11:55:21 by nimai            ###   ########.fr       */
+/*   Updated: 2023/11/07 12:55:17 by nimai            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 // #include <string>
 #include <iostream>
 
-Form::Form( void ) : _name("unknown"), _grade(LOWEST)
+Form::Form( void ) : _name("unknown"), _gradeToSign(), _gradeToExecute(), _signed(0)
 {
 	std::cout << "Form: Default constructor called." << std::endl;
 }
@@ -68,9 +68,14 @@ std::string const &Form::getName( void ) const
 	return (this->_name);
 }
 
-int	Form::getGrade( void ) const
+int	Form::getGradeToSign( void ) const
 {
-	return (this->_grade);
+	return (this->_gradeToSign);
+}
+
+int	Form::getGradeToExecute( void ) const
+{
+	return (this->_gradeToExecute);
 }
 
 const char	*	Form::GradeTooHighException::what(void) const throw()

@@ -6,7 +6,7 @@
 /*   By: nimai <nimai@student.42urduliz.com>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/03 15:50:58 by nimai             #+#    #+#             */
-/*   Updated: 2023/11/07 11:48:06 by nimai            ###   ########.fr       */
+/*   Updated: 2023/11/07 12:55:23 by nimai            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ class Form
 {
 	private:
 			std::string const	_name;
-			bool				_signed = 0;
+			bool				_signed;
 			int					_gradeToSign;
 			int					_gradeToExecute;
 	public:
