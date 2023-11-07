@@ -6,7 +6,7 @@
 /*   By: nimai <nimai@student.42urduliz.com>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/03 15:50:58 by nimai             #+#    #+#             */
-/*   Updated: 2023/11/07 12:55:23 by nimai            ###   ########.fr       */
+/*   Updated: 2023/11/07 15:48:55 by nimai            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@ class Form
 	public:
 			Form( void );
 			Form( Form const & src);
-			Form( std::string const & name, int grade );
+			Form( std::string const & name, int const gradeToSign, int const gradeToExecute );
 			~Form( void );
 
 			Form & operator=(const Form &src);
