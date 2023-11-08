@@ -6,7 +6,7 @@
 /*   By: nimai <nimai@student.42urduliz.com>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/03 15:50:58 by nimai             #+#    #+#             */
-/*   Updated: 2023/11/07 16:59:30 by nimai            ###   ########.fr       */
+/*   Updated: 2023/11/08 09:38:43 by nimai            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,10 +38,6 @@ class Form
 			int	getGradeToExecute( void ) const;
 
 			void	beSigned( Bureaucrat const & bureaucrat);
-			// void	incrementGrade( void );
-			// void	incrementGrade( int i );
-			// void	decrementGrade( void );
-			// void	decrementGrade( int i );
 
 			class GradeTooHighException : public std::exception
 			{
