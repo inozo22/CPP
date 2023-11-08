@@ -6,12 +6,11 @@
 /*   By: nimai <nimai@student.42urduliz.com>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/03 15:51:24 by nimai             #+#    #+#             */
-/*   Updated: 2023/11/08 11:31:05 by nimai            ###   ########.fr       */
+/*   Updated: 2023/11/08 17:04:15 by nimai            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Form.hpp"
-// #include <string>
 #include <iostream>
 
 Form::Form( void ) : _name("unknown"), _signed(false), _gradeToSign(LOWEST), _gradeToExecute(LOWEST) 
@@ -90,6 +89,6 @@ const char	*	Form::SignedException::what(void) const throw()
 
 std::ostream &	operator << (std::ostream & os, Form const & obj)
 {
-	os << "Form: " << obj.getName() << " Form required grade " << obj.getGradeToSign() << " to sign, ";
+	os << "Form: " << obj.getName() << " Form required grade " << obj.getGradeToSign() << " to sign. ";
 	return (os);
 }

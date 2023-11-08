@@ -6,13 +6,11 @@
 /*   By: nimai <nimai@student.42urduliz.com>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/03 15:51:24 by nimai             #+#    #+#             */
-/*   Updated: 2023/11/08 11:30:55 by nimai            ###   ########.fr       */
+/*   Updated: 2023/11/08 17:03:35 by nimai            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Bureaucrat.hpp"
-// #include "Form.hpp"
-// #include <string>
 #include <iostream>
 
 Bureaucrat::Bureaucrat( void ) : _name("unknown"), _grade(LOWEST)

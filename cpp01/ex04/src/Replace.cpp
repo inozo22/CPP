@@ -6,7 +6,7 @@
 /*   By: nimai <nimai@student.42urduliz.com>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/31 16:03:55 by nimai             #+#    #+#             */
-/*   Updated: 2023/08/03 10:43:39 by nimai            ###   ########.fr       */
+/*   Updated: 2023/11/08 15:34:56 by nimai            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,8 @@
 
 Replace::Replace( std::string filename, std::string s1, std::string s2 )
 {
+	if (s1.empty() || s2.empty())
+		return ;
 	this->_inFile = filename;
 	this->_outFile = filename + ".replace";
 	this->_target = s1;
@@ -37,9 +39,6 @@ void	Replace::func( void )
 	
 	std::cout << "Im in func " << this->_inFile << std::endl;//print to check
 	std::ifstream ifs(this->_inFile);
-
-/* I cannot compile in codespaces, but I think it's fine */
-
 
 	if (!ifs.is_open())
 	{
