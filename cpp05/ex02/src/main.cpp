@@ -6,11 +6,12 @@
 /*   By: nimai <nimai@student.42urduliz.com>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/03 15:51:22 by nimai             #+#    #+#             */
-/*   Updated: 2023/11/08 11:13:58 by nimai            ###   ########.fr       */
+/*   Updated: 2023/11/08 10:37:04 by nimai            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Bureaucrat.hpp"
+#include "Form.hpp"
 #include <iostream>
 
 void	main_test( void )
@@ -26,10 +27,11 @@ void	main_test( void )
 		// Badman.decrementGrade();
 		Bureaucrat	presidente("presidente", 1);
 		// Bureaucrat	angel("angel", -20);
-		Bureaucrat	topo("topo", 10);
-		for (int i = 0; i < 100; i++)
+		Bureaucrat	topo("topo", 140);
+		Form	form("form", 123,50);
+		for (int i = 0; i < 5; i++)
 		{
-			topo.incrementGrade();
+			topo.signForm(form);
 		}
 
 	}
