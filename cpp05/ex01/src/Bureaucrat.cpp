@@ -6,7 +6,7 @@
 /*   By: nimai <nimai@student.42urduliz.com>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/03 15:51:24 by nimai             #+#    #+#             */
-/*   Updated: 2023/11/07 17:50:44 by nimai            ###   ########.fr       */
+/*   Updated: 2023/11/08 11:30:55 by nimai            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -79,7 +79,7 @@ void	Bureaucrat::decrementGrade( int i )
 	return ;
 }
 
-void	Bureaucrat::signForm( Form & form ) const //I don't know why there is an error
+void	Bureaucrat::signForm( Form & form ) const
 {
 	try
 	{

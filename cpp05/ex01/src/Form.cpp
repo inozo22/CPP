@@ -6,7 +6,7 @@
 /*   By: nimai <nimai@student.42urduliz.com>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/03 15:51:24 by nimai             #+#    #+#             */
-/*   Updated: 2023/11/08 10:37:51 by nimai            ###   ########.fr       */
+/*   Updated: 2023/11/08 11:31:05 by nimai            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,6 @@ Form::Form( std::string const & name, int const gradeToSign, int const gradeToEx
 		throw(Form::GradeTooLowException());
 	this->_gradeToSign = gradeToSign;
 	this->_gradeToExecute =gradeToExecute;
-	///////////////////
 	std::cout << this->_name << ": Created. Grade to sign: " << this->_gradeToSign << " and grade to execute: " << this->_gradeToExecute << std::endl;
 }
 
@@ -44,10 +43,6 @@ Form::~Form( void )
 Form &Form::operator=( const Form &src )
 {
 	std::cout << "Form assignment operator overload called." << std::endl;
-	// if (this != &src)
-	// {
-	// 	this->_grade = src._grade;
-	// }
 	this->_signed = src._signed;
 	return (*this);
 }
