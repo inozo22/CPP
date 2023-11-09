@@ -6,33 +6,34 @@
 /*   By: nimai <nimai@student.42urduliz.com>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/09 15:50:47 by nimai             #+#    #+#             */
-/*   Updated: 2023/11/09 15:50:53 by nimai            ###   ########.fr       */
+/*   Updated: 2023/11/09 16:08:01 by nimai            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "RobotomyRequestForm.hpp"
 #include <iostream>
 
-RobotomyRequestForm::RobotomyRequestForm( void ) : _name("unknown"), _signed(false), _gradeToSign(LOWEST), _gradeToExecute(LOWEST) 
+RobotomyRequestForm::RobotomyRequestForm( void ) : AForm("robotomyrequestform", LOWEST, LOWEST)
 {
 	std::cout << "RobotomyRequestForm: Default constructor called." << std::endl;
 }
 
-RobotomyRequestForm::RobotomyRequestForm( std::string const & name, int const gradeToSign, int const gradeToExecute ) : _name(name), _signed(false), _gradeToSign(gradeToSign), _gradeToExecute(gradeToExecute)
-{
-	if (gradeToSign < HIGHEST || gradeToExecute < HIGHEST)
-		throw(RobotomyRequestForm::GradeTooHighException());
-	if (gradeToSign > LOWEST || gradeToExecute > LOWEST)
-		throw(RobotomyRequestForm::GradeTooLowException());
-	this->_gradeToSign = gradeToSign;
-	this->_gradeToExecute =gradeToExecute;
-	std::cout << this->_name << ": Created. Grade to sign: " << this->_gradeToSign << " and grade to execute: " << this->_gradeToExecute << std::endl;
-}
-
-// RobotomyRequestForm::RobotomyRequestForm( RobotomyRequestForm const & src ): _name(src._name), _signed(false),  _gradeToSign(src._gradeToSign), _gradeToExecute(src._gradeToExecute)
+// RobotomyRequestForm::RobotomyRequestForm( std::string const & name, int const gradeToSign, int const gradeToExecute ) : _name(name), _signed(false), _gradeToSign(gradeToSign), _gradeToExecute(gradeToExecute)
 // {
-// 	std::cout << this->_name << "RobotomyRequestForm: copy constructor called." << std::endl;
+// 	if (gradeToSign < HIGHEST || gradeToExecute < HIGHEST)
+// 		throw(RobotomyRequestForm::GradeTooHighException());
+// 	if (gradeToSign > LOWEST || gradeToExecute > LOWEST)
+// 		throw(RobotomyRequestForm::GradeTooLowException());
+// 	this->_gradeToSign = gradeToSign;
+// 	this->_gradeToExecute =gradeToExecute;
+// 	std::cout << this->_name << ": Created. Grade to sign: " << this->_gradeToSign << " and grade to execute: " << this->_gradeToExecute << std::endl;
 // }
+
+RobotomyRequestForm::RobotomyRequestForm( RobotomyRequestForm const & src ): AForm("robotomyrequestform", LOWEST, LOWEST)
+{
+	*this = src;
+	// std::cout << this->_name << "RobotomyRequestForm: copy constructor called." << std::endl;
+}
 
 RobotomyRequestForm::~RobotomyRequestForm( void )
 {

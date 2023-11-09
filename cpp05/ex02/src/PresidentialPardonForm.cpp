@@ -6,28 +6,28 @@
 /*   By: nimai <nimai@student.42urduliz.com>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/09 15:50:04 by nimai             #+#    #+#             */
-/*   Updated: 2023/11/09 15:50:08 by nimai            ###   ########.fr       */
+/*   Updated: 2023/11/09 16:02:43 by nimai            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "PresidentialPardonForm.hpp"
 #include <iostream>
 
-PresidentialPardonForm::PresidentialPardonForm( void ) : _name("unknown"), _signed(false), _gradeToSign(LOWEST), _gradeToExecute(LOWEST) 
+PresidentialPardonForm::PresidentialPardonForm( void ) : AForm("presidentialpardonform", LOWEST, LOWEST) 
 {
 	std::cout << "PresidentialPardonForm: Default constructor called." << std::endl;
 }
 
-PresidentialPardonForm::PresidentialPardonForm( std::string const & name, int const gradeToSign, int const gradeToExecute ) : _name(name), _signed(false), _gradeToSign(gradeToSign), _gradeToExecute(gradeToExecute)
-{
-	if (gradeToSign < HIGHEST || gradeToExecute < HIGHEST)
-		throw(PresidentialPardonForm::GradeTooHighException());
-	if (gradeToSign > LOWEST || gradeToExecute > LOWEST)
-		throw(PresidentialPardonForm::GradeTooLowException());
-	this->_gradeToSign = gradeToSign;
-	this->_gradeToExecute =gradeToExecute;
-	std::cout << this->_name << ": Created. Grade to sign: " << this->_gradeToSign << " and grade to execute: " << this->_gradeToExecute << std::endl;
-}
+// PresidentialPardonForm::PresidentialPardonForm( std::string const & name, int const gradeToSign, int const gradeToExecute ) : _name(name), _signed(false), _gradeToSign(gradeToSign), _gradeToExecute(gradeToExecute)
+// {
+// 	if (gradeToSign < HIGHEST || gradeToExecute < HIGHEST)
+// 		throw(PresidentialPardonForm::GradeTooHighException());
+// 	if (gradeToSign > LOWEST || gradeToExecute > LOWEST)
+// 		throw(PresidentialPardonForm::GradeTooLowException());
+// 	this->_gradeToSign = gradeToSign;
+// 	this->_gradeToExecute =gradeToExecute;
+// 	std::cout << this->_name << ": Created. Grade to sign: " << this->_gradeToSign << " and grade to execute: " << this->_gradeToExecute << std::endl;
+// }
 
 PresidentialPardonForm::PresidentialPardonForm( PresidentialPardonForm const & src ): _name(src._name), _signed(false),  _gradeToSign(src._gradeToSign), _gradeToExecute(src._gradeToExecute)
 {
@@ -46,46 +46,46 @@ PresidentialPardonForm &PresidentialPardonForm::operator=( const PresidentialPar
 	return (*this);
 }
 
-void	PresidentialPardonForm::beSigned(  Bureaucrat const & bureaucrat )
-{
-	if (this->_signed)
-		return (throw(PresidentialPardonForm::SignedException()));
-	if (bureaucrat.getGrade() > this->getGradeToSign())
-		return (throw(PresidentialPardonForm::GradeTooLowException()));
-	this->_signed = true;
-	std::cout << this->_name << " has signed with " << bureaucrat.getGrade() << "th postion. Good job!" << std::endl;
-}
+// void	PresidentialPardonForm::beSigned(  Bureaucrat const & bureaucrat )
+// {
+// 	if (this->_signed)
+// 		return (throw(PresidentialPardonForm::SignedException()));
+// 	if (bureaucrat.getGrade() > this->getGradeToSign())
+// 		return (throw(PresidentialPardonForm::GradeTooLowException()));
+// 	this->_signed = true;
+// 	std::cout << this->_name << " has signed with " << bureaucrat.getGrade() << "th postion. Good job!" << std::endl;
+// }
 
 
-std::string const &PresidentialPardonForm::getName( void ) const
-{
-	return (this->_name);
-}
+// std::string const &PresidentialPardonForm::getName( void ) const
+// {
+// 	return (this->_name);
+// }
 
-int	PresidentialPardonForm::getGradeToSign( void ) const
-{
-	return (this->_gradeToSign);
-}
+// int	PresidentialPardonForm::getGradeToSign( void ) const
+// {
+// 	return (this->_gradeToSign);
+// }
 
-int	PresidentialPardonForm::getGradeToExecute( void ) const
-{
-	return (this->_gradeToExecute);
-}
+// int	PresidentialPardonForm::getGradeToExecute( void ) const
+// {
+// 	return (this->_gradeToExecute);
+// }
 
-const char	*	PresidentialPardonForm::GradeTooHighException::what(void) const throw()
-{
-	return ("PresidentialPardonForm: grade too high to sign.");
-}
+// const char	*	PresidentialPardonForm::GradeTooHighException::what(void) const throw()
+// {
+// 	return ("PresidentialPardonForm: grade too high to sign.");
+// }
 
-const char	*	PresidentialPardonForm::GradeTooLowException::what(void) const throw()
-{
-	return ("PresidentialPardonForm: grade too low to sign.");
-}
+// const char	*	PresidentialPardonForm::GradeTooLowException::what(void) const throw()
+// {
+// 	return ("PresidentialPardonForm: grade too low to sign.");
+// }
 
-const char	*	PresidentialPardonForm::SignedException::what(void) const throw()
-{
-	return ("PresidentialPardonForm: is already signed.");
-}
+// const char	*	PresidentialPardonForm::SignedException::what(void) const throw()
+// {
+// 	return ("PresidentialPardonForm: is already signed.");
+// }
 
 std::ostream &	operator << (std::ostream & os, PresidentialPardonForm const & obj)
 {

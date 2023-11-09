@@ -6,33 +6,33 @@
 /*   By: nimai <nimai@student.42urduliz.com>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/09 15:51:13 by nimai             #+#    #+#             */
-/*   Updated: 2023/11/09 15:51:16 by nimai            ###   ########.fr       */
+/*   Updated: 2023/11/09 16:04:47 by nimai            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ShrubberyCreationForm.hpp"
 #include <iostream>
 
-ShrubberyCreationForm::ShrubberyCreationForm( void ) : _name("unknown"), _signed(false), _gradeToSign(LOWEST), _gradeToExecute(LOWEST) 
+ShrubberyCreationForm::ShrubberyCreationForm( void ) : AForm("shrubberycreationform", LOWEST, LOWEST) 
 {
 	std::cout << "ShrubberyCreationForm: Default constructor called." << std::endl;
 }
 
-ShrubberyCreationForm::ShrubberyCreationForm( std::string const & name, int const gradeToSign, int const gradeToExecute ) : _name(name), _signed(false), _gradeToSign(gradeToSign), _gradeToExecute(gradeToExecute)
-{
-	if (gradeToSign < HIGHEST || gradeToExecute < HIGHEST)
-		throw(ShrubberyCreationForm::GradeTooHighException());
-	if (gradeToSign > LOWEST || gradeToExecute > LOWEST)
-		throw(ShrubberyCreationForm::GradeTooLowException());
-	this->_gradeToSign = gradeToSign;
-	this->_gradeToExecute =gradeToExecute;
-	std::cout << this->_name << ": Created. Grade to sign: " << this->_gradeToSign << " and grade to execute: " << this->_gradeToExecute << std::endl;
-}
-
-// ShrubberyCreationForm::ShrubberyCreationForm( ShrubberyCreationForm const & src ): _name(src._name), _signed(false),  _gradeToSign(src._gradeToSign), _gradeToExecute(src._gradeToExecute)
+// ShrubberyCreationForm::ShrubberyCreationForm( std::string const & name, int const gradeToSign, int const gradeToExecute ) : _name(name), _signed(false), _gradeToSign(gradeToSign), _gradeToExecute(gradeToExecute)
 // {
-// 	std::cout << this->_name << "ShrubberyCreationForm: copy constructor called." << std::endl;
+// 	if (gradeToSign < HIGHEST || gradeToExecute < HIGHEST)
+// 		throw(ShrubberyCreationForm::GradeTooHighException());
+// 	if (gradeToSign > LOWEST || gradeToExecute > LOWEST)
+// 		throw(ShrubberyCreationForm::GradeTooLowException());
+// 	this->_gradeToSign = gradeToSign;
+// 	this->_gradeToExecute =gradeToExecute;
+// 	std::cout << this->_name << ": Created. Grade to sign: " << this->_gradeToSign << " and grade to execute: " << this->_gradeToExecute << std::endl;
 // }
+
+ShrubberyCreationForm::ShrubberyCreationForm( ShrubberyCreationForm const & src ): _name(src._name), _signed(false),  _gradeToSign(src._gradeToSign), _gradeToExecute(src._gradeToExecute)
+{
+	std::cout << this->_name << "ShrubberyCreationForm: copy constructor called." << std::endl;
+}
 
 ShrubberyCreationForm::~ShrubberyCreationForm( void )
 {
