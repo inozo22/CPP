@@ -6,14 +6,14 @@
 /*   By: nimai <nimai@student.42urduliz.com>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/09 15:50:04 by nimai             #+#    #+#             */
-/*   Updated: 2023/11/09 16:02:43 by nimai            ###   ########.fr       */
+/*   Updated: 2023/11/09 16:24:01 by nimai            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "PresidentialPardonForm.hpp"
 #include <iostream>
 
-PresidentialPardonForm::PresidentialPardonForm( void ) : AForm("presidentialpardonform", LOWEST, LOWEST) 
+PresidentialPardonForm::PresidentialPardonForm( void ) : AForm("presidentialpardonform", PP_SIGN, PP_EXEC) 
 {
 	std::cout << "PresidentialPardonForm: Default constructor called." << std::endl;
 }
@@ -29,14 +29,14 @@ PresidentialPardonForm::PresidentialPardonForm( void ) : AForm("presidentialpard
 // 	std::cout << this->_name << ": Created. Grade to sign: " << this->_gradeToSign << " and grade to execute: " << this->_gradeToExecute << std::endl;
 // }
 
-PresidentialPardonForm::PresidentialPardonForm( PresidentialPardonForm const & src ): _name(src._name), _signed(false),  _gradeToSign(src._gradeToSign), _gradeToExecute(src._gradeToExecute)
+PresidentialPardonForm::PresidentialPardonForm( PresidentialPardonForm const & src ): AForm("presidentialpardonform", PP_SIGN, PP_EXEC)
 {
 	std::cout << this->_name << "PresidentialPardonForm: copy constructor called." << std::endl;
 }
 
 PresidentialPardonForm::~PresidentialPardonForm( void )
 {
-	std::cout << this->_name << ": Default destructor called." << std::endl;	
+	std::cout << this->_name << ": Default destructor called." << std::endl;
 }
 
 PresidentialPardonForm &PresidentialPardonForm::operator=( const PresidentialPardonForm &src )

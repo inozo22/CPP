@@ -6,7 +6,7 @@
 /*   By: nimai <nimai@student.42urduliz.com>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/03 15:51:24 by nimai             #+#    #+#             */
-/*   Updated: 2023/11/08 17:03:35 by nimai            ###   ########.fr       */
+/*   Updated: 2023/11/09 16:33:44 by nimai            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -90,6 +90,12 @@ void	Bureaucrat::signForm( Form & form ) const
 		std::cerr << e.what() << '\n';
 	}	
 }
+
+void	Bureaucrat::executeForm( Form const & form )
+{
+	
+}
+
 
 
 std::string const &Bureaucrat::getName( void ) const

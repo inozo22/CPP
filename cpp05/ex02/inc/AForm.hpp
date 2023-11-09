@@ -6,7 +6,7 @@
 /*   By: nimai <nimai@student.42urduliz.com>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/03 15:50:58 by nimai             #+#    #+#             */
-/*   Updated: 2023/11/09 16:13:30 by nimai            ###   ########.fr       */
+/*   Updated: 2023/11/09 16:27:43 by nimai            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,12 +16,12 @@
 # include <string>
 # include "Bureaucrat.hpp"
 
-# define SHRUBERRY_REQUIRED 145
-# define SHRUBERRY_EXEC 137
-# define ROBOTOMY_REQUIRED 72
-# define ROBOTOMY_EXEC 45
-# define PRESIDENTIAL_REQUIRED 25
-# define PRESIDENTIAL_EXEC 5
+# define SC_SIGN 145
+# define SC_EXEC 137
+# define RR_SIGN 72
+# define RR_EXEC 45
+# define PP_SIGN 25
+# define PP_EXEC 5
 
 class Bureaucrat;
 
@@ -45,7 +45,7 @@ class AForm
 			int	getGradeToExecute( void ) const;
 
 			void	beSigned( Bureaucrat const & bureaucrat);
-			void	execute( Bureaucrat const & executor ) const;
+			virtual void	execute( Bureaucrat const & executor ) const;
 
 			class GradeTooHighException : public std::exception
 			{

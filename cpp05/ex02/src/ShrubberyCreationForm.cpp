@@ -6,14 +6,14 @@
 /*   By: nimai <nimai@student.42urduliz.com>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/09 15:51:13 by nimai             #+#    #+#             */
-/*   Updated: 2023/11/09 16:04:47 by nimai            ###   ########.fr       */
+/*   Updated: 2023/11/09 16:22:06 by nimai            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ShrubberyCreationForm.hpp"
 #include <iostream>
 
-ShrubberyCreationForm::ShrubberyCreationForm( void ) : AForm("shrubberycreationform", LOWEST, LOWEST) 
+ShrubberyCreationForm::ShrubberyCreationForm( void ) : AForm("shrubberycreationform", SC_SIGN, SC_EXEC) 
 {
 	std::cout << "ShrubberyCreationForm: Default constructor called." << std::endl;
 }
@@ -29,7 +29,7 @@ ShrubberyCreationForm::ShrubberyCreationForm( void ) : AForm("shrubberycreationf
 // 	std::cout << this->_name << ": Created. Grade to sign: " << this->_gradeToSign << " and grade to execute: " << this->_gradeToExecute << std::endl;
 // }
 
-ShrubberyCreationForm::ShrubberyCreationForm( ShrubberyCreationForm const & src ): _name(src._name), _signed(false),  _gradeToSign(src._gradeToSign), _gradeToExecute(src._gradeToExecute)
+ShrubberyCreationForm::ShrubberyCreationForm( ShrubberyCreationForm const & src ):AForm("shrubberycreationform", SC_SIGN, SC_EXEC)
 {
 	std::cout << this->_name << "ShrubberyCreationForm: copy constructor called." << std::endl;
 }

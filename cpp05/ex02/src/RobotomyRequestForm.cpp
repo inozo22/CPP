@@ -6,14 +6,14 @@
 /*   By: nimai <nimai@student.42urduliz.com>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/09 15:50:47 by nimai             #+#    #+#             */
-/*   Updated: 2023/11/09 16:08:01 by nimai            ###   ########.fr       */
+/*   Updated: 2023/11/09 16:22:20 by nimai            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "RobotomyRequestForm.hpp"
 #include <iostream>
 
-RobotomyRequestForm::RobotomyRequestForm( void ) : AForm("robotomyrequestform", LOWEST, LOWEST)
+RobotomyRequestForm::RobotomyRequestForm( void ) : AForm("robotomyrequestform", RR_SIGN, RR_EXEC)
 {
 	std::cout << "RobotomyRequestForm: Default constructor called." << std::endl;
 }
@@ -29,7 +29,7 @@ RobotomyRequestForm::RobotomyRequestForm( void ) : AForm("robotomyrequestform", 
 // 	std::cout << this->_name << ": Created. Grade to sign: " << this->_gradeToSign << " and grade to execute: " << this->_gradeToExecute << std::endl;
 // }
 
-RobotomyRequestForm::RobotomyRequestForm( RobotomyRequestForm const & src ): AForm("robotomyrequestform", LOWEST, LOWEST)
+RobotomyRequestForm::RobotomyRequestForm( RobotomyRequestForm const & src ): AForm("robotomyrequestform", RR_SIGN, RR_EXEC)
 {
 	*this = src;
 	// std::cout << this->_name << "RobotomyRequestForm: copy constructor called." << std::endl;
