@@ -42,23 +42,7 @@ class PresidentialPardonForm : public AForm
 			void	execute( Bureaucrat const & executor ) const;
 
 
-			// void	beSigned( Bureaucrat const & bureaucrat);
 
-			// class GradeTooHighException : public std::exception
-			// {
-			// 	public:
-			// 			virtual const char * what( void ) const throw();
-			// };
-			// class GradeTooLowException : public std::exception
-			// {
-			// 	public:
-			// 			virtual const char * what( void ) const throw();
-			// };
-			// class SignedException : public std::exception
-			// {
-			// 	public:
-			// 			virtual const char * what( void ) const throw();
-			// };
 };
 std::ostream &	operator << (std::ostream & os, PresidentialPardonForm const & obj);
 #endif
