@@ -6,7 +6,7 @@
 /*   By: nimai <nimai@student.42urduliz.com>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/09 15:51:13 by nimai             #+#    #+#             */
-/*   Updated: 2023/11/09 16:22:06 by nimai            ###   ########.fr       */
+/*   Updated: 2023/11/09 16:51:41 by nimai            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -86,6 +86,11 @@ ShrubberyCreationForm &ShrubberyCreationForm::operator=( const ShrubberyCreation
 // {
 // 	return ("ShrubberyCreationForm: is already signed.");
 // }
+
+void	ShrubberyCreationForm::execute( Bureaucrat const & executor ) const
+{
+	
+}
 
 std::ostream &	operator << (std::ostream & os, ShrubberyCreationForm const & obj)
 {

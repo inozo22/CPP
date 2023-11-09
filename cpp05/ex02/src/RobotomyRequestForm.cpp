@@ -6,7 +6,7 @@
 /*   By: nimai <nimai@student.42urduliz.com>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/09 15:50:47 by nimai             #+#    #+#             */
-/*   Updated: 2023/11/09 16:22:20 by nimai            ###   ########.fr       */
+/*   Updated: 2023/11/09 16:51:15 by nimai            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -87,6 +87,11 @@ RobotomyRequestForm &RobotomyRequestForm::operator=( const RobotomyRequestForm &
 // {
 // 	return ("RobotomyRequestForm: is already signed.");
 // }
+
+void	RobotomyRequestForm::execute( Bureaucrat const & executor ) const
+{
+	
+}
 
 std::ostream &	operator << (std::ostream & os, RobotomyRequestForm const & obj)
 {

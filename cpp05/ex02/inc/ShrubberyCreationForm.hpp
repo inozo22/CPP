@@ -6,7 +6,7 @@
 /*   By: nimai <nimai@student.42urduliz.com>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/03 15:50:58 by nimai             #+#    #+#             */
-/*   Updated: 2023/11/08 18:28:40 by nimai            ###   ########.fr       */
+/*   Updated: 2023/11/09 16:49:46 by nimai            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,6 +35,8 @@ class ShrubberyCreationForm : public AForm
 			ShrubberyCreationForm & operator=(const ShrubberyCreationForm &src);
 
 			AForm *	clone( void ) const;
+			void	execute( Bureaucrat const & executor ) const;
+
 			// std::string const &	getName( void ) const;
 			// int	getGradeToSign( void ) const;
 			// int	getGradeToExecute( void ) const;

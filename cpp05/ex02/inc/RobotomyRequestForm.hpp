@@ -6,7 +6,7 @@
 /*   By: nimai <nimai@student.42urduliz.com>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/08 18:05:04 by nimai             #+#    #+#             */
-/*   Updated: 2023/11/08 18:23:57 by nimai            ###   ########.fr       */
+/*   Updated: 2023/11/09 16:49:41 by nimai            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,6 +35,8 @@ class RobotomyRequestForm : public AForm
 			RobotomyRequestForm & operator=(const RobotomyRequestForm &src);
 
 			AForm *	clone( void ) const;
+			void	execute( Bureaucrat const & executor ) const;
+
 			// std::string const &	getName( void ) const;
 			// int	getGradeToSign( void ) const;
 			// int	getGradeToExecute( void ) const;

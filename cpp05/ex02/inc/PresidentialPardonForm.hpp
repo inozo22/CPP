@@ -39,6 +39,8 @@ class PresidentialPardonForm : public AForm
 			// int	getGradeToExecute( void ) const;
 
 			AForm *	clone( void ) const;
+			void	execute( Bureaucrat const & executor ) const;
+
 
 			// void	beSigned( Bureaucrat const & bureaucrat);
 

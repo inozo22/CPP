@@ -6,7 +6,7 @@
 /*   By: nimai <nimai@student.42urduliz.com>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/09 15:50:04 by nimai             #+#    #+#             */
-/*   Updated: 2023/11/09 16:24:01 by nimai            ###   ########.fr       */
+/*   Updated: 2023/11/09 16:50:56 by nimai            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -86,6 +86,13 @@ PresidentialPardonForm &PresidentialPardonForm::operator=( const PresidentialPar
 // {
 // 	return ("PresidentialPardonForm: is already signed.");
 // }
+
+void	PresidentialPardonForm::execute( Bureaucrat const & executor ) const
+{
+	
+}
+
+
 
 std::ostream &	operator << (std::ostream & os, PresidentialPardonForm const & obj)
 {
