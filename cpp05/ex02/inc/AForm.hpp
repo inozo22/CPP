@@ -6,7 +6,7 @@
 /*   By: nimai <nimai@student.42urduliz.com>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/03 15:50:58 by nimai             #+#    #+#             */
-/*   Updated: 2023/11/08 18:27:32 by nimai            ###   ########.fr       */
+/*   Updated: 2023/11/09 16:13:30 by nimai            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,13 @@
 
 # include <string>
 # include "Bureaucrat.hpp"
+
+# define SHRUBERRY_REQUIRED 145
+# define SHRUBERRY_EXEC 137
+# define ROBOTOMY_REQUIRED 72
+# define ROBOTOMY_EXEC 45
+# define PRESIDENTIAL_REQUIRED 25
+# define PRESIDENTIAL_EXEC 5
 
 class Bureaucrat;
 
