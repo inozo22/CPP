@@ -12,6 +12,8 @@
 
 #include "ShrubberyCreationForm.hpp"
 #include <iostream>
+#include <fstream>
+
 
 ShrubberyCreationForm::ShrubberyCreationForm( void ) : AForm("shrubberycreationform", SC_SIGN, SC_EXEC) 
 {
@@ -45,13 +47,39 @@ ShrubberyCreationForm &ShrubberyCreationForm::operator=( const ShrubberyCreation
 
 
 
-void	ShrubberyCreationForm::execute( Bureaucrat const & executor ) const
+void	ShrubberyCreationForm::beExecuted( void ) const
 {
-	
+	std::ofstream ofs;
+	ofs.open((this->_target + "_shrubbery").c_str(), std::ofstream::out | std::ofstream::app);
+	if (ofs.is_open())
+	{
+		ofs << ShrubberyCreationForm::_shrubbery;
+	}
 }
 
-std::ostream &	operator << (std::ostream & os, ShrubberyCreationForm const & obj)
+std::string const &	ShrubberyCreationForm::getTarget( void ) const
 {
-	os << "ShrubberyCreationForm: " << obj.getName() << " ShrubberyCreationForm required grade " << obj.getGradeToSign() << " to sign. ";
-	return (os);
+	return (this->_target);
 }
+
+std::string const ShrubberyCreationForm::_shrubbery = 
+"\n"
+"          %%%%%% %\n"
+"        %%% %%%%%%%%%%         %%%%%%%%%%\n"
+"    %%%% % %%%%%%%%%%%%%      %%%%%%%%%%% %%% \n"
+"      %% %   %% %%'           %%%%%%%% %%% \n"
+"        % $  %  %% ¨¨¨¨¨¨¨¨¨¨¨¨ %%% %%¨¨¨¨¨'\n"
+"                ''''''''''''''''''''''''''   '\n"
+"                        $%%%%%%%$%%$%   '   '\n"
+"                   $%%%%%%%%%%%%%%%%%%%%$%%$\n"
+"   %$#%%%%%$%%%$%%%% ' %%%%%%%%$%%%%%%%%\n"
+"    %%%%%%%%$%$%%%%%%  '   '     \n"
+"  $%%%%%#%%%#$%%%%%%%%$%%  '\n"
+"    $%%%%%%%%%%%%%%%%%$%%__'___________\n"
+"              LLLLLLLLLLLLLLLLLLLLLL\n"
+"                LLLLLLLLLLLLLLLLLLL\n"
+"                LLLLLLLLLLLLLLLLLL\n"
+"                LLLLLLLLLLLLLLLLLL\n"
+"                LLLLLLLLLLLLLLLLLL\n"
+"\n"
+"\n"

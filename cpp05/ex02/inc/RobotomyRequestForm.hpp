@@ -21,8 +21,8 @@ class Bureaucrat;
 
 class RobotomyRequestForm : public AForm
 {
-	// private:
-	// 		std::string const	_name;
+	private:
+	 		std::string 		_target;
 	// 		bool				_signed;
 	// 		int					_gradeToSign;
 	// 		int					_gradeToExecute;
@@ -36,30 +36,10 @@ class RobotomyRequestForm : public AForm
 
 			RobotomyRequestForm & operator=(const RobotomyRequestForm &src);
 
-			AForm *	clone( void ) const;
-			void	execute( Bureaucrat const & executor ) const;
+			std::string const &		getTarget( void ) const;	
+			void	beExecuted( void ) const;
 
-			// std::string const &	getName( void ) const;
-			// int	getGradeToSign( void ) const;
-			// int	getGradeToExecute( void ) const;
 
-			// void	beSigned( Bureaucrat const & bureaucrat);
-
-			// class GradeTooHighException : public std::exception
-			// {
-			// 	public:
-			// 			virtual const char * what( void ) const throw();
-			// };
-			// class GradeTooLowException : public std::exception
-			// {
-			// 	public:
-			// 			virtual const char * what( void ) const throw();
-			// };
-			// class SignedException : public std::exception
-			// {
-			// 	public:
-			// 			virtual const char * what( void ) const throw();
-			// };
 };
 std::ostream &	operator << (std::ostream & os, RobotomyRequestForm const & obj);
 #endif

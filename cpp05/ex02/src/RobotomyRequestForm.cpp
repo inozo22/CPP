@@ -46,9 +46,18 @@ RobotomyRequestForm &RobotomyRequestForm::operator=( const RobotomyRequestForm &
 
 
 
-void	RobotomyRequestForm::execute( Bureaucrat const & executor ) const
+void	RobotomyRequestForm::beExecuted( void ) const
 {
-	
+	std::cout << this->_target << " * chuiiiiiiiin dlullululluulu pi--- pi--- BIIIIIIIIII * " << std::endl;
+	if (std::rand() % 2)
+		std::cout << "ROBOTOMIZATION FAILED! CAPTURE " << this->_target << " NOW!!!" << std::endl;
+	else
+		std::cout << this->_target << "SUCCESSFULLY ROBOTOMIZED."
+}
+
+std::string const &	RobotomyRequestForm::getTarget( void ) const
+{
+	return (this->_target);
 }
 
 std::ostream &	operator << (std::ostream & os, RobotomyRequestForm const & obj)

@@ -40,8 +40,8 @@ class PresidentialPardonForm : public AForm
 			// int	getGradeToSign( void ) const;
 			// int	getGradeToExecute( void ) const;
 
-			AForm *	clone( void ) const;
-			void	execute( Bureaucrat const & executor ) const;
+			std::string const &		getTarget( void ) const;	
+			void	beExecuted( void ) const;
 
 
 

@@ -56,9 +56,13 @@ void	AForm::beSigned(  Bureaucrat const & bureaucrat )
 	std::cout << this->_name << " has signed with " << bureaucrat.getGrade() << "th postion. Good job!" << std::endl;
 }
 
-void	execute( Bureaucrat const & executor ) const
+void	execute( Bureaucrat const & bureaucrat ) const
 {
-	
+	if (this->_signed == false)
+		return (throw(AForm::NoSignedException()));
+	if (bureaucrat.getGrade() > this->_gradeToExecute)
+		return (throw(AForm::GradeTooLowException));
+	this->beExecuted();	
 }
 
 
