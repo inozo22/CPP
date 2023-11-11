@@ -30,6 +30,8 @@ class RobotomyRequestForm : public AForm
 			RobotomyRequestForm( void );
 			RobotomyRequestForm( RobotomyRequestForm const & src);
 			// RobotomyRequestForm( std::string const & name, int const gradeToSign, int const gradeToExecute );
+			RobotomyRequestForm( std::string const & target );
+
 			~RobotomyRequestForm( void );
 
 			RobotomyRequestForm & operator=(const RobotomyRequestForm &src);

@@ -24,6 +24,13 @@ RobotomyRequestForm::RobotomyRequestForm( RobotomyRequestForm const & src ): AFo
 	*this = src;
 	// std::cout << this->_name << "RobotomyRequestForm: copy constructor called." << std::endl;
 }
+RobotomyRequestForm::RobotomyRequestForm( std::string const & target ): AForm("RobotomyRequestForm", RR_SIGN, RR_EXEC), _target(target)
+{
+	std::cout << "RobotomyRequestForm: arrtibute constructor called." << std::endl;
+	if (this->_target.empty())
+		this->target = "noname";
+	return ;
+}
 
 RobotomyRequestForm::~RobotomyRequestForm( void )
 {
@@ -33,7 +40,7 @@ RobotomyRequestForm::~RobotomyRequestForm( void )
 RobotomyRequestForm &RobotomyRequestForm::operator=( const RobotomyRequestForm &src )
 {
 	std::cout << "RobotomyRequestForm assignment operator overload called." << std::endl;
-	this->_signed = src._signed;
+	this->_target = src._target;
 	return (*this);
 }
 

@@ -23,6 +23,14 @@ ShrubberyCreationForm::ShrubberyCreationForm( ShrubberyCreationForm const & src 
 	std::cout << this->_name << "ShrubberyCreationForm: copy constructor called." << std::endl;
 }
 
+ShrubberyCreationForm::ShrubberyCreationForm( std::string const & target ): AForm("ShrubberyCreationForm", SC_SIGN, SC_EXEC), _target(target)
+{
+	std::cout << "ShrubberyCreationForm: arrtibute constructor called." << std::endl;
+	if (this->_target.empty())
+		this->target = "noname";
+	return ;
+}
+
 ShrubberyCreationForm::~ShrubberyCreationForm( void )
 {
 	std::cout << this->_name << ": Default destructor called." << std::endl;	
@@ -31,7 +39,7 @@ ShrubberyCreationForm::~ShrubberyCreationForm( void )
 ShrubberyCreationForm &ShrubberyCreationForm::operator=( const ShrubberyCreationForm &src )
 {
 	std::cout << "ShrubberyCreationForm assignment operator overload called." << std::endl;
-	this->_signed = src._signed;
+	this->_target = src._target;
 	return (*this);
 }
 

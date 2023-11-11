@@ -30,6 +30,8 @@ class ShrubberyCreationForm : public AForm
 			ShrubberyCreationForm( void );
 			ShrubberyCreationForm( ShrubberyCreationForm const & src);
 			// ShrubberyCreationForm( std::string const & name, int const gradeToSign, int const gradeToExecute );
+			ShrubberyCreationForm( std::string const & target );
+
 			~ShrubberyCreationForm( void );
 
 			ShrubberyCreationForm & operator=(const ShrubberyCreationForm &src);

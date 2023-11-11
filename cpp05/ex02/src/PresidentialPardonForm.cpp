@@ -23,6 +23,14 @@ PresidentialPardonForm::PresidentialPardonForm( PresidentialPardonForm const & s
 	std::cout << "PresidentialPardonForm: copy constructor called." << std::endl;
 }
 
+PresidentialPardonForm::PresidentialPardonForm( std::string const & target ): AForm("presidentialpardonform", PP_SIGN, PP_EXEC), _target(target)
+{
+	std::cout << "PresidentialPardonForm: arrtibute constructor called." << std::endl;
+	if (this->_target.empty())
+		this->target = "noname";
+	return ;
+}
+
 PresidentialPardonForm::~PresidentialPardonForm( void )
 {
 	std::cout << "Default destructor called." << std::endl;
@@ -33,7 +41,8 @@ PresidentialPardonForm &PresidentialPardonForm::operator=( const PresidentialPar
 	if (this == &src)
 		return *this;
 	std::cout << "PresidentialPardonForm assignment operator overload called." << std::endl;
-	this->_signed = src._signed;
+	this->_target = src._target;
+
 	return (*this);
 }
 
