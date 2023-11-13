@@ -6,7 +6,7 @@
 /*   By: nimai <nimai@student.42urduliz.com>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/09 15:50:04 by nimai             #+#    #+#             */
-/*   Updated: 2023/11/09 17:05:15 by nimai            ###   ########.fr       */
+/*   Updated: 2023/11/13 11:18:23 by nimai            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,7 @@ PresidentialPardonForm::PresidentialPardonForm( std::string const & target ): AF
 {
 	std::cout << "PresidentialPardonForm: arrtibute constructor called." << std::endl;
 	if (this->_target.empty())
-		this->target = "noname";
+		this->_target = "noname";
 	return ;
 }
 

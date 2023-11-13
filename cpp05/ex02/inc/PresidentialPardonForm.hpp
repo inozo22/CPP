@@ -21,7 +21,8 @@ class Bureaucrat;
 
 class PresidentialPardonForm : public AForm
 {
-	// private:
+	private:
+			std::string			_target;
 	// 		std::string const	_name;
 	// 		bool				_signed;
 	// 		int					_gradeToSign;

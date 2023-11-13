@@ -6,7 +6,7 @@
 /*   By: nimai <nimai@student.42urduliz.com>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/03 15:50:58 by nimai             #+#    #+#             */
-/*   Updated: 2023/11/09 16:32:48 by nimai            ###   ########.fr       */
+/*   Updated: 2023/11/13 10:14:09 by nimai            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 # define __BUREAUCRAT_HPP__
 
 # include <string>
-# include "Form.hpp"
+# include "AForm.hpp"
 
 # define HIGHEST	1
 # define LOWEST	150

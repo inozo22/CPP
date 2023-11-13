@@ -6,7 +6,7 @@
 /*   By: nimai <nimai@student.42urduliz.com>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/03 15:51:24 by nimai             #+#    #+#             */
-/*   Updated: 2023/11/09 16:33:44 by nimai            ###   ########.fr       */
+/*   Updated: 2023/11/13 11:55:12 by nimai            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -77,7 +77,7 @@ void	Bureaucrat::decrementGrade( int i )
 	return ;
 }
 
-void	Bureaucrat::signForm( Form & form ) const
+void	Bureaucrat::signForm( AForm & form ) const
 {
 	try
 	{
@@ -91,7 +91,7 @@ void	Bureaucrat::signForm( Form & form ) const
 	}	
 }
 
-void	Bureaucrat::executeForm( Form const & form )
+void	Bureaucrat::executeForm( AForm const & form )
 {
 	
 }

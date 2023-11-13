@@ -6,7 +6,7 @@
 /*   By: nimai <nimai@student.42urduliz.com>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/03 15:51:24 by nimai             #+#    #+#             */
-/*   Updated: 2023/11/09 16:44:23 by nimai            ###   ########.fr       */
+/*   Updated: 2023/11/13 11:53:24 by nimai            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,12 +56,12 @@ void	AForm::beSigned(  Bureaucrat const & bureaucrat )
 	std::cout << this->_name << " has signed with " << bureaucrat.getGrade() << "th postion. Good job!" << std::endl;
 }
 
-void	execute( Bureaucrat const & bureaucrat ) const
+void	execute( Bureaucrat const & executer ) const
 {
 	if (this->_signed == false)
 		return (throw(AForm::NoSignedException()));
-	if (bureaucrat.getGrade() > this->_gradeToExecute)
-		return (throw(AForm::GradeTooLowException));
+	if (executer.getGrade() > this->_gradeToExecute)
+		return (throw(AForm::GradeTooLowException()));
 	this->beExecuted();	
 }
 
