@@ -23,23 +23,14 @@ class PresidentialPardonForm : public AForm
 {
 	private:
 			std::string			_target;
-	// 		std::string const	_name;
-	// 		bool				_signed;
-	// 		int					_gradeToSign;
-	// 		int					_gradeToExecute;
 	public:
 			PresidentialPardonForm( void );
 			PresidentialPardonForm( PresidentialPardonForm const & src);
 			PresidentialPardonForm::PresidentialPardonForm( std::string const & target );
 
-			// PresidentialPardonForm( std::string const & name, int const gradeToSign, int const gradeToExecute );
 			~PresidentialPardonForm( void );
 
 			PresidentialPardonForm & operator=(const PresidentialPardonForm &src);
-
-			// std::string const &	getName( void ) const;
-			// int	getGradeToSign( void ) const;
-			// int	getGradeToExecute( void ) const;
 
 			std::string const &		getTarget( void ) const;	
 			void	beExecuted( void ) const;
@@ -47,5 +38,5 @@ class PresidentialPardonForm : public AForm
 
 
 };
-std::ostream &	operator << (std::ostream & os, PresidentialPardonForm const & obj);
+// std::ostream &	operator << (std::ostream & os, PresidentialPardonForm const & obj);
 #endif

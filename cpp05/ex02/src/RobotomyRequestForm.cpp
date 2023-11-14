@@ -6,7 +6,7 @@
 /*   By: nimai <nimai@student.42urduliz.com>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/09 15:50:47 by nimai             #+#    #+#             */
-/*   Updated: 2023/11/09 16:51:15 by nimai            ###   ########.fr       */
+/*   Updated: 2023/11/14 17:45:26 by nimai            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,7 @@ RobotomyRequestForm::RobotomyRequestForm( std::string const & target ): AForm("R
 {
 	std::cout << "RobotomyRequestForm: arrtibute constructor called." << std::endl;
 	if (this->_target.empty())
-		this->target = "noname";
+		this->_target = "noname";
 	return ;
 }
 

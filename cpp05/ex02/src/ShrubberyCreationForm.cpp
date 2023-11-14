@@ -6,7 +6,7 @@
 /*   By: nimai <nimai@student.42urduliz.com>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/09 15:51:13 by nimai             #+#    #+#             */
-/*   Updated: 2023/11/09 16:51:41 by nimai            ###   ########.fr       */
+/*   Updated: 2023/11/14 17:38:06 by nimai            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,7 @@ ShrubberyCreationForm::ShrubberyCreationForm( std::string const & target ): AFor
 {
 	std::cout << "ShrubberyCreationForm: arrtibute constructor called." << std::endl;
 	if (this->_target.empty())
-		this->target = "noname";
+		this->_target = "noname";
 	return ;
 }
 
@@ -82,4 +82,4 @@ std::string const ShrubberyCreationForm::_shrubbery =
 "                LLLLLLLLLLLLLLLLLL\n"
 "                LLLLLLLLLLLLLLLLLL\n"
 "\n"
-"\n"
+"\n";

@@ -6,7 +6,7 @@
 /*   By: nimai <nimai@student.42urduliz.com>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/08 18:05:04 by nimai             #+#    #+#             */
-/*   Updated: 2023/11/09 16:49:41 by nimai            ###   ########.fr       */
+/*   Updated: 2023/11/14 17:34:21 by nimai            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,9 +23,7 @@ class RobotomyRequestForm : public AForm
 {
 	private:
 	 		std::string 		_target;
-	// 		bool				_signed;
-	// 		int					_gradeToSign;
-	// 		int					_gradeToExecute;
+
 	public:
 			RobotomyRequestForm( void );
 			RobotomyRequestForm( RobotomyRequestForm const & src);
@@ -41,5 +39,5 @@ class RobotomyRequestForm : public AForm
 
 
 };
-std::ostream &	operator << (std::ostream & os, RobotomyRequestForm const & obj);
+// std::ostream &	operator << (std::ostream & os, RobotomyRequestForm const & obj);
 #endif

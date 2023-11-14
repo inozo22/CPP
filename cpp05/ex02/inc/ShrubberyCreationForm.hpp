@@ -6,7 +6,7 @@
 /*   By: nimai <nimai@student.42urduliz.com>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/03 15:50:58 by nimai             #+#    #+#             */
-/*   Updated: 2023/11/09 16:49:46 by nimai            ###   ########.fr       */
+/*   Updated: 2023/11/14 17:34:14 by nimai            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,11 +21,6 @@ class Bureaucrat;
 
 class ShrubberyCreationForm : public AForm
 {
-	// private:
-	// 		std::string const	_name;
-	// 		bool				_signed;
-	// 		int					_gradeToSign;
-	// 		int					_gradeToExecute;
 	private:
 			static std::string const _shrubbery;
 			std::string _target;
@@ -42,5 +37,5 @@ class ShrubberyCreationForm : public AForm
 			std::string const &		getTarget( void ) const;	
 			void	beExecuted( void ) const;
 };
-std::ostream &	operator << (std::ostream & os, ShrubberyCreationForm const & obj);
+// std::ostream &	operator << (std::ostream & os, ShrubberyCreationForm const & obj);
 #endif
