@@ -6,7 +6,7 @@
 /*   By: nimai <nimai@student.42urduliz.com>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/03 15:51:24 by nimai             #+#    #+#             */
-/*   Updated: 2023/11/13 11:53:24 by nimai            ###   ########.fr       */
+/*   Updated: 2023/11/17 16:31:17 by nimai            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,9 +29,9 @@ AForm::AForm( std::string const & name, int const gradeToSign, int const gradeTo
 	std::cout << this->_name << ": Created. Grade to sign: " << this->_gradeToSign << " and grade to execute: " << this->_gradeToExecute << std::endl;
 }
 
-AForm::AForm( Form const & src ): _name(src._name), _signed(false),  _gradeToSign(src._gradeToSign), _gradeToExecute(src._gradeToExecute)
+AForm::AForm( AForm const & src ): _name(src._name), _signed(false),  _gradeToSign(src._gradeToSign), _gradeToExecute(src._gradeToExecute)
 {
-	std::cout << this->_name << "Form: copy constructor called." << std::endl;
+	std::cout << this->_name << "AForm: copy constructor called." << std::endl;
 }
 
 AForm::~AForm( void )
@@ -39,9 +39,9 @@ AForm::~AForm( void )
 	std::cout << this->_name << ": Default destructor called." << std::endl;	
 }
 
-AForm &AForm::operator=( const Form &src )
+AForm &AForm::operator=( const AForm &src )
 {
-	std::cout << "Form assignment operator overload called." << std::endl;
+	std::cout << "AForm assignment operator overload called." << std::endl;
 	this->_signed = src._signed;
 	return (*this);
 }
@@ -56,12 +56,13 @@ void	AForm::beSigned(  Bureaucrat const & bureaucrat )
 	std::cout << this->_name << " has signed with " << bureaucrat.getGrade() << "th postion. Good job!" << std::endl;
 }
 
-void	execute( Bureaucrat const & executer ) const
+void	AForm::execute( Bureaucrat const & executer ) const
 {
 	if (this->_signed == false)
 		return (throw(AForm::NoSignedException()));
 	if (executer.getGrade() > this->_gradeToExecute)
 		return (throw(AForm::GradeTooLowException()));
+	std::cout << executer.getName() << " executed " << std::endl;
 	this->beExecuted();	
 }
 
@@ -89,12 +90,17 @@ const char	*	AForm::GradeTooHighException::what(void) const throw()
 
 const char	*	AForm::GradeTooLowException::what(void) const throw()
 {
-	return ("Form: grade too low to sign.");
+	return ("AForm: grade too low to sign.");
 }
 
 const char	*	AForm::SignedException::what(void) const throw()
 {
 	return ("AForm: is already signed.");
+}
+
+const char	*	AForm::NoSignedException::what(void) const throw()
+{
+	return ("AForm: not signed yet. Can't execute!");
 }
 
 std::ostream &	operator << (std::ostream & os, AForm const & obj)
