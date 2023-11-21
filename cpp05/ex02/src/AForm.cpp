@@ -6,7 +6,7 @@
 /*   By: nimai <nimai@student.42urduliz.com>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/03 15:51:24 by nimai             #+#    #+#             */
-/*   Updated: 2023/11/17 16:31:17 by nimai            ###   ########.fr       */
+/*   Updated: 2023/11/21 16:54:07 by nimai            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -100,7 +100,7 @@ const char	*	AForm::SignedException::what(void) const throw()
 
 const char	*	AForm::NoSignedException::what(void) const throw()
 {
-	return ("AForm: not signed yet. Can't execute!");
+	return ("AForm: hasn't been signed yet. Can't execute!");
 }
 
 std::ostream &	operator << (std::ostream & os, AForm const & obj)

@@ -6,11 +6,12 @@
 /*   By: nimai <nimai@student.42urduliz.com>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/09 15:51:13 by nimai             #+#    #+#             */
-/*   Updated: 2023/11/14 17:38:06 by nimai            ###   ########.fr       */
+/*   Updated: 2023/11/21 16:51:20 by nimai            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ShrubberyCreationForm.hpp"
+#include "AForm.hpp"
 #include <iostream>
 #include <fstream>
 
@@ -22,6 +23,7 @@ ShrubberyCreationForm::ShrubberyCreationForm( void ) : AForm("shrubberycreationf
 
 ShrubberyCreationForm::ShrubberyCreationForm( ShrubberyCreationForm const & src ):AForm("shrubberycreationform", SC_SIGN, SC_EXEC)
 {
+	*this = src;
 	std::cout << this->_name << "ShrubberyCreationForm: copy constructor called." << std::endl;
 }
 
@@ -44,7 +46,6 @@ ShrubberyCreationForm &ShrubberyCreationForm::operator=( const ShrubberyCreation
 	this->_target = src._target;
 	return (*this);
 }
-
 
 
 void	ShrubberyCreationForm::beExecuted( void ) const

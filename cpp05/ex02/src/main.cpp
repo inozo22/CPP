@@ -6,39 +6,37 @@
 /*   By: nimai <nimai@student.42urduliz.com>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/03 15:51:22 by nimai             #+#    #+#             */
-/*   Updated: 2023/11/13 10:15:22 by nimai            ###   ########.fr       */
+/*   Updated: 2023/11/21 17:10:48 by nimai            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Bureaucrat.hpp"
+#include "ShrubberyCreationForm.hpp"
+#include "RobotomyRequestForm.hpp"
+#include "PresidentialPardonForm.hpp"
 #include "AForm.hpp"
 #include <iostream>
 
 void	main_test( void )
 {
-	std::cout << std::endl << std::endl;
-	std::cout << "********** MAIN TEST **********"<< std::endl;
-	std::cout << std::endl;
+	Bureaucrat	commonOfficer("Common Officer", 147);
+	Bureaucrat	managerialPost("Managerial Post", 50);
+	Bureaucrat	bigwig("bigwig", 3);
+	
+	std::cout << "Bureaucrats are created:\n"
+				"\t" << commonOfficer << "\n"
+				"\t" << managerialPost << "\n"
+				"\t" << bigwig << std::endl;
+	
+	ShrubberyCreationForm SCForm("Bonsai");
+	RobotomyRequestForm RRForm("iCOP");
+	PresidentialPardonForm PPForm(bigwig.getName());
 
-	try
-	{
-		Bureaucrat	test("test", 47);
-		Bureaucrat	Badman("Badman", 150);
-		// Badman.decrementGrade();
-		Bureaucrat	presidente("presidente", 1);
-		// Bureaucrat	angel("angel", -20);
-		Bureaucrat	topo("topo", 140);
-		AForm	AForm("form", 123,50);
-		for (int i = 0; i < 5; i++)
-		{
-			topo.signForm(AForm);
-		}
-
-	}
-	catch(std::exception& e)
-	{
-		std::cerr << e.what() << '\n';
-	}
+	std::cout << "Forms are created:\n"
+				"\t" << SCForm << "\n"
+				"\t" << RRForm << "\n"
+				"\t" << PPForm << std::endl;
+	
 }
 
 void second_test()

@@ -6,7 +6,7 @@
 /*   By: nimai <nimai@student.42urduliz.com>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/09 15:50:47 by nimai             #+#    #+#             */
-/*   Updated: 2023/11/14 17:45:26 by nimai            ###   ########.fr       */
+/*   Updated: 2023/11/21 16:52:20 by nimai            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,16 +52,10 @@ void	RobotomyRequestForm::beExecuted( void ) const
 	if (std::rand() % 2)
 		std::cout << "ROBOTOMIZATION FAILED! CAPTURE " << this->_target << " NOW!!!" << std::endl;
 	else
-		std::cout << this->_target << "SUCCESSFULLY ROBOTOMIZED."
+		std::cout << this->_target << "SUCCESSFULLY ROBOTOMIZED." << std::endl;
 }
 
 std::string const &	RobotomyRequestForm::getTarget( void ) const
 {
 	return (this->_target);
-}
-
-std::ostream &	operator << (std::ostream & os, RobotomyRequestForm const & obj)
-{
-	os << "RobotomyRequestForm: " << obj.getName() << " RobotomyRequestForm required grade " << obj.getGradeToSign() << " to sign. ";
-	return (os);
 }

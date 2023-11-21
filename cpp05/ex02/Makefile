@@ -6,7 +6,7 @@
 #    By: nimai <nimai@student.42urduliz.com>        +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/07/25 11:05:17 by nimai             #+#    #+#              #
-#    Updated: 2023/11/17 15:51:12 by nimai            ###   ########.fr        #
+#    Updated: 2023/11/21 16:13:35 by nimai            ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -18,7 +18,8 @@ LIBS		:=
 INCS		:= inc
 
 SRC_DIR		:= src
-SRCS		:= main.cpp Bureaucrat.cpp AForm.cpp
+SRCS		:= main.cpp Bureaucrat.cpp AForm.cpp PresidentialPardonForm.cpp \
+				RobotomyRequestForm.cpp ShrubberyCreationForm.cpp
 SRCS		:= $(SRCS:%=$(SRC_DIR)/%)
 
 BUILD_DIR	:= .build
