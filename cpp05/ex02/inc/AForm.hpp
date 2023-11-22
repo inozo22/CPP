@@ -6,7 +6,7 @@
 /*   By: nimai <nimai@student.42urduliz.com>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/03 15:50:58 by nimai             #+#    #+#             */
-/*   Updated: 2023/11/21 16:31:00 by nimai            ###   ########.fr       */
+/*   Updated: 2023/11/22 16:03:11 by nimai            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,12 +27,13 @@ class Bureaucrat;
 
 class AForm
 {
-	protected:
+	private:
 			std::string const	_name;
 			bool				_signed;
 			int					_gradeToSign;
 			int					_gradeToExecute;
-			virtual void		beExecuted( void ) const;
+	protected:
+			virtual void		beExecuted( void ) const = 0;
 
 	public:
 			AForm( void );

@@ -6,7 +6,7 @@
 /*   By: nimai <nimai@student.42urduliz.com>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/03 15:51:22 by nimai             #+#    #+#             */
-/*   Updated: 2023/11/21 17:10:48 by nimai            ###   ########.fr       */
+/*   Updated: 2023/11/22 16:18:36 by nimai            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,10 @@
 
 void	main_test( void )
 {
+	std::cout << std::endl << std::endl;
+	std::cout << YELLOW "********** MAIN TEST **********" RESET << std::endl;
+	std::cout << std::endl;
+
 	Bureaucrat	commonOfficer("Common Officer", 147);
 	Bureaucrat	managerialPost("Managerial Post", 50);
 	Bureaucrat	bigwig("bigwig", 3);
@@ -36,6 +40,38 @@ void	main_test( void )
 				"\t" << SCForm << "\n"
 				"\t" << RRForm << "\n"
 				"\t" << PPForm << std::endl;
+	
+	std::cout << std::endl << std::endl;
+	std::cout << GREEN "----- ShrubberyCreationForm Sign and execute -----" RESET << std::endl << std::endl;
+
+	commonOfficer.signForm(SCForm);
+	commonOfficer.executeForm(SCForm);
+	managerialPost.executeForm(SCForm);
+
+
+	
+	std::cout << std::endl;
+
+	std::cout << std::endl << std::endl;
+	std::cout << CYAN "----- RobotomyRequestForm Sign and execute -----" RESET << std::endl << std::endl;
+
+	managerialPost.executeForm(RRForm);
+	managerialPost.signForm(RRForm);
+	managerialPost.executeForm(RRForm);
+	bigwig.executeForm(RRForm);
+		
+
+	std::cout << std::endl;
+
+	std::cout << std::endl << std::endl;
+	std::cout << ORANGE "----- PresidentialPardonForm Sign and execute -----" RESET << std::endl << std::endl;
+
+	bigwig.signForm(PPForm);
+	bigwig.executeForm(PPForm);
+
+
+	std::cout << std::endl << std::endl;
+	
 	
 }
 

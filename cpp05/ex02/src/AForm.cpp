@@ -6,7 +6,7 @@
 /*   By: nimai <nimai@student.42urduliz.com>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/03 15:51:24 by nimai             #+#    #+#             */
-/*   Updated: 2023/11/21 16:54:07 by nimai            ###   ########.fr       */
+/*   Updated: 2023/11/22 14:52:11 by nimai            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -105,6 +105,6 @@ const char	*	AForm::NoSignedException::what(void) const throw()
 
 std::ostream &	operator << (std::ostream & os, AForm const & obj)
 {
-	os << "AForm: " << obj.getName() << " AForm required grade " << obj.getGradeToSign() << " to sign. ";
+	os << "AForm: " << obj.getName() << " required grade " << obj.getGradeToSign() << " to sign. ";
 	return (os);
 }

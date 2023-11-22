@@ -6,7 +6,7 @@
 /*   By: nimai <nimai@student.42urduliz.com>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/03 15:51:24 by nimai             #+#    #+#             */
-/*   Updated: 2023/11/17 15:50:55 by nimai            ###   ########.fr       */
+/*   Updated: 2023/11/22 16:17:15 by nimai            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -93,10 +93,18 @@ void	Bureaucrat::signForm( AForm & form ) const
 
 void	Bureaucrat::executeForm( AForm const & form )
 {
-	(void)form;
+	try
+	{
+		form.execute(*this);
+		std::cout << *this << " executed " << form << std::endl;
+	}
+	catch(const std::exception& e)
+	{
+		std::cout << RED << *this << "can't execute " << form << " because ";
+		std::cerr << e.what() << RESET << '\n';
+	}
+	
 }
-
-
 
 std::string const &Bureaucrat::getName( void ) const
 {

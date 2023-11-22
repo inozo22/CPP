@@ -6,7 +6,7 @@
 /*   By: nimai <nimai@student.42urduliz.com>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/09 15:51:13 by nimai             #+#    #+#             */
-/*   Updated: 2023/11/21 16:51:20 by nimai            ###   ########.fr       */
+/*   Updated: 2023/11/22 16:01:56 by nimai            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ ShrubberyCreationForm::ShrubberyCreationForm( void ) : AForm("shrubberycreationf
 ShrubberyCreationForm::ShrubberyCreationForm( ShrubberyCreationForm const & src ):AForm("shrubberycreationform", SC_SIGN, SC_EXEC)
 {
 	*this = src;
-	std::cout << this->_name << "ShrubberyCreationForm: copy constructor called." << std::endl;
+	std::cout << this->getName() << "ShrubberyCreationForm: copy constructor called." << std::endl;
 }
 
 ShrubberyCreationForm::ShrubberyCreationForm( std::string const & target ): AForm("ShrubberyCreationForm", SC_SIGN, SC_EXEC), _target(target)
@@ -37,7 +37,7 @@ ShrubberyCreationForm::ShrubberyCreationForm( std::string const & target ): AFor
 
 ShrubberyCreationForm::~ShrubberyCreationForm( void )
 {
-	std::cout << this->_name << ": Default destructor called." << std::endl;	
+	std::cout << this->getName() << ": Default destructor called." << std::endl;	
 }
 
 ShrubberyCreationForm &ShrubberyCreationForm::operator=( const ShrubberyCreationForm &src )

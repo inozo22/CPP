@@ -6,12 +6,14 @@
 /*   By: nimai <nimai@student.42urduliz.com>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/09 15:50:47 by nimai             #+#    #+#             */
-/*   Updated: 2023/11/21 16:52:20 by nimai            ###   ########.fr       */
+/*   Updated: 2023/11/22 16:40:03 by nimai            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "RobotomyRequestForm.hpp"
 #include <iostream>
+#include <cstdlib>
+#include <ctime>
 
 RobotomyRequestForm::RobotomyRequestForm( void ) : AForm("robotomyrequestform", RR_SIGN, RR_EXEC)
 {
@@ -34,7 +36,7 @@ RobotomyRequestForm::RobotomyRequestForm( std::string const & target ): AForm("R
 
 RobotomyRequestForm::~RobotomyRequestForm( void )
 {
-	std::cout << this->_name << ": Default destructor called." << std::endl;	
+	std::cout << this->getName() << ": Default destructor called." << std::endl;	
 }
 
 RobotomyRequestForm &RobotomyRequestForm::operator=( const RobotomyRequestForm &src )
@@ -48,11 +50,13 @@ RobotomyRequestForm &RobotomyRequestForm::operator=( const RobotomyRequestForm &
 
 void	RobotomyRequestForm::beExecuted( void ) const
 {
+	std::srand(std::time(nullptr));//did not work without this
+
 	std::cout << this->_target << " * chuiiiiiiiin dlullululluulu pi--- pi--- BIIIIIIIIII * " << std::endl;
 	if (std::rand() % 2)
-		std::cout << "ROBOTOMIZATION FAILED! CAPTURE " << this->_target << " NOW!!!" << std::endl;
+		std::cout << RED "ROBOTOMIZATION FAILED! CAPTURE " << this->_target << " NOW!!!" RESET << std::endl;
 	else
-		std::cout << this->_target << "SUCCESSFULLY ROBOTOMIZED." << std::endl;
+		std::cout << CYAN << this->_target << "SUCCESSFULLY ROBOTOMIZED." RESET << std::endl;
 }
 
 std::string const &	RobotomyRequestForm::getTarget( void ) const
