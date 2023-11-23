@@ -6,12 +6,13 @@
 /*   By: nimai <nimai@student.42urduliz.com>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/03 15:51:24 by nimai             #+#    #+#             */
-/*   Updated: 2023/11/22 14:52:11 by nimai            ###   ########.fr       */
+/*   Updated: 2023/11/23 11:43:53 by nimai            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "AForm.hpp"
 #include <iostream>
+#include <iomanip>
 
 AForm::AForm( void ) : _name("unknown"), _signed(false), _gradeToSign(LOWEST), _gradeToExecute(LOWEST) 
 {
@@ -85,26 +86,27 @@ int	AForm::getGradeToExecute( void ) const
 
 const char	*	AForm::GradeTooHighException::what(void) const throw()
 {
-	return ("AForm: grade too high to sign.");
+	return ("The grade is too high for this form.");
 }
 
 const char	*	AForm::GradeTooLowException::what(void) const throw()
 {
-	return ("AForm: grade too low to sign.");
+	return ("The grade is too low for this form.");
 }
 
 const char	*	AForm::SignedException::what(void) const throw()
 {
-	return ("AForm: is already signed.");
+	return ("The form is already signed.");
 }
 
 const char	*	AForm::NoSignedException::what(void) const throw()
 {
-	return ("AForm: hasn't been signed yet. Can't execute!");
+	return ("The form hasn't been signed yet.");
 }
 
 std::ostream &	operator << (std::ostream & os, AForm const & obj)
 {
-	os << "AForm: " << obj.getName() << " required grade " << obj.getGradeToSign() << " to sign. ";
+	os << obj.getName() << " (Required grade " << obj.getGradeToSign()
+	<< " to sign and " << obj.getGradeToExecute() << " to execute)";
 	return (os);
 }

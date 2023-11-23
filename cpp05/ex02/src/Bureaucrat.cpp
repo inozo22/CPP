@@ -6,7 +6,7 @@
 /*   By: nimai <nimai@student.42urduliz.com>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/03 15:51:24 by nimai             #+#    #+#             */
-/*   Updated: 2023/11/22 16:17:15 by nimai            ###   ########.fr       */
+/*   Updated: 2023/11/23 11:37:28 by nimai            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,7 @@ Bureaucrat::Bureaucrat( std::string const & name, int grade ) : _name(name), _gr
 	else
 	{
 		this->_grade = grade;
-		std::cout << this->_name << ": Created. Grade: " << this->_grade << std::endl;
+		// std::cout << this->_name << ": Created. Grade: " << this->_grade << std::endl;
 	}
 	std::cout << this->_name << ": Bureaucrat constructor called. Grade: " << grade << std::endl;
 }
@@ -82,11 +82,11 @@ void	Bureaucrat::signForm( AForm & form ) const
 	try
 	{
 		form.beSigned(*this);
-		std::cout << this->_name << "has signed" << form << std::endl;
+		std::cout << this->_name << " has signed " << form << std::endl;
 	}
 	catch(const std::exception& e)
 	{
-		std::cout << this->_name << " couldn't sign " << "because: ";
+		std::cout << this->_name << " couldn't sign because: ";
 		std::cerr << e.what() << '\n';
 	}	
 }
@@ -100,7 +100,7 @@ void	Bureaucrat::executeForm( AForm const & form )
 	}
 	catch(const std::exception& e)
 	{
-		std::cout << RED << *this << "can't execute " << form << " because ";
+		std::cout << RED << *this << " can't execute " << form << "\n\t\tBecause ";
 		std::cerr << e.what() << RESET << '\n';
 	}
 	
@@ -128,6 +128,6 @@ const char	*	Bureaucrat::GradeTooLowException::what(void) const throw()
 
 std::ostream &	operator << (std::ostream & os, Bureaucrat const & obj)
 {
-	os << "Bureaucrat: " << obj.getName() << " bureaucrat grade " << obj.getGrade();
+	os << "Bureaucrat: " << obj.getName() << " (bureaucrat grade " << obj.getGrade() << ")";
 	return (os);
 }

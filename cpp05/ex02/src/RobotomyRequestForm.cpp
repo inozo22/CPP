@@ -6,7 +6,7 @@
 /*   By: nimai <nimai@student.42urduliz.com>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/09 15:50:47 by nimai             #+#    #+#             */
-/*   Updated: 2023/11/22 16:40:03 by nimai            ###   ########.fr       */
+/*   Updated: 2023/11/23 09:58:44 by nimai            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,11 +52,11 @@ void	RobotomyRequestForm::beExecuted( void ) const
 {
 	std::srand(std::time(nullptr));//did not work without this
 
-	std::cout << this->_target << " * chuiiiiiiiin dlullululluulu pi--- pi--- BIIIIIIIIII * " << std::endl;
+	std::cout << CYAN << this->_target << " * chuiiiiiiiin dlullululluulu pi--- pi--- BIIIIIIIIII * " RESET << std::endl;
 	if (std::rand() % 2)
 		std::cout << RED "ROBOTOMIZATION FAILED! CAPTURE " << this->_target << " NOW!!!" RESET << std::endl;
 	else
-		std::cout << CYAN << this->_target << "SUCCESSFULLY ROBOTOMIZED." RESET << std::endl;
+		std::cout << CYAN << this->_target << " SUCCESSFULLY ROBOTOMIZED." RESET << std::endl;
 }
 
 std::string const &	RobotomyRequestForm::getTarget( void ) const

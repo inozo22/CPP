@@ -6,7 +6,7 @@
 /*   By: nimai <nimai@student.42urduliz.com>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/03 15:51:22 by nimai             #+#    #+#             */
-/*   Updated: 2023/11/22 16:18:36 by nimai            ###   ########.fr       */
+/*   Updated: 2023/11/23 11:02:49 by nimai            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,18 +25,18 @@ void	main_test( void )
 
 	Bureaucrat	commonOfficer("Common Officer", 147);
 	Bureaucrat	managerialPost("Managerial Post", 50);
-	Bureaucrat	bigwig("bigwig", 3);
+	Bureaucrat	bigwig("Bigwig", 3);
 	
-	std::cout << "Bureaucrats are created:\n"
+	std::cout <<  MAGENTA "Bureaucrats are created:\n" RESET 
 				"\t" << commonOfficer << "\n"
 				"\t" << managerialPost << "\n"
-				"\t" << bigwig << std::endl;
-	
+				"\t" << bigwig << std::endl << std::endl;
+
 	ShrubberyCreationForm SCForm("Bonsai");
 	RobotomyRequestForm RRForm("iCOP");
 	PresidentialPardonForm PPForm(bigwig.getName());
 
-	std::cout << "Forms are created:\n"
+	std::cout << MAGENTA "Forms are created:\n" RESET
 				"\t" << SCForm << "\n"
 				"\t" << RRForm << "\n"
 				"\t" << PPForm << std::endl;
