@@ -6,7 +6,7 @@
 /*   By: nimai <nimai@student.42urduliz.com>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/03 15:51:24 by nimai             #+#    #+#             */
-/*   Updated: 2023/11/23 12:17:28 by nimai            ###   ########.fr       */
+/*   Updated: 2023/11/23 12:26:13 by nimai            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -103,7 +103,7 @@ void	Bureaucrat::executeForm( AForm const & form )
 	catch(const std::exception& e)
 	{
 		std::cout << RED << *this << " can't execute:\n            " << form  << YELLOW "\n" << std::setfill(' ') << std::setw(12) << "Reason: ";
-		std::cerr << e.what() << RESET << '\n';
+		std::cerr << e.what() << RESET << "\n";
 	}
 	
 }
