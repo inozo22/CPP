@@ -6,7 +6,7 @@
 /*   By: nimai <nimai@student.42urduliz.com>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/03 15:51:24 by nimai             #+#    #+#             */
-/*   Updated: 2023/11/23 11:51:53 by nimai            ###   ########.fr       */
+/*   Updated: 2023/11/23 16:48:31 by nimai            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -70,8 +70,6 @@ void	AForm::execute( Bureaucrat const & executer ) const
 	std::cout << executer.getName() << " executed " << std::endl;
 	this->beExecuted();	
 }
-
-
 
 std::string const &AForm::getName( void ) const
 {

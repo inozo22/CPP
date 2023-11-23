@@ -6,7 +6,7 @@
 /*   By: nimai <nimai@student.42urduliz.com>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/03 15:51:22 by nimai             #+#    #+#             */
-/*   Updated: 2023/11/23 11:02:49 by nimai            ###   ########.fr       */
+/*   Updated: 2023/11/23 16:58:56 by nimai            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,64 +15,37 @@
 #include "RobotomyRequestForm.hpp"
 #include "PresidentialPardonForm.hpp"
 #include "AForm.hpp"
+#include "Intern.hpp"
 #include <iostream>
+#include <iomanip>
 
-void	main_test( void )
+#define SCFormName "shrubbery creation"
+#define RRFormName "robotomy request"
+#define PPFormName "presidential pardon"
+
+void	intern_test(std::string formName, std::string target)
 {
 	std::cout << std::endl << std::endl;
-	std::cout << YELLOW "********** MAIN TEST **********" RESET << std::endl;
-	std::cout << std::endl;
+	std::cout << YELLOW "********** INTERN TEST **********" RESET << std::endl;
+	std::cout << BLUE << "Form name: " << formName << "\n";
+	std::cout << std::setfill(' ') << std::setw(11) <<"target: " << target << RESET << std::endl << std::endl;
 
-	Bureaucrat	commonOfficer("Common Officer", 147);
-	Bureaucrat	managerialPost("Managerial Post", 50);
-	Bureaucrat	bigwig("Bigwig", 3);
+	Intern jorge = Intern();
+	Bureaucrat bigwig("Bigwig", 1);
+	AForm * form;
+	try
+	{
+		form = jorge.makeForm(formName, target);
+		bigwig.signForm(*form);
+		bigwig.executeForm(*form);
+		delete (form);
+	}
+	catch(const std::exception& e)
+	{
+		std::cerr << RED << e.what() << RESET << '\n';
+	}
 	
-	std::cout <<  MAGENTA "Bureaucrats are created:\n" RESET 
-				"\t" << commonOfficer << "\n"
-				"\t" << managerialPost << "\n"
-				"\t" << bigwig << std::endl << std::endl;
 
-	ShrubberyCreationForm SCForm("Bonsai");
-	RobotomyRequestForm RRForm("iCOP");
-	PresidentialPardonForm PPForm(bigwig.getName());
-
-	std::cout << MAGENTA "Forms are created:\n" RESET
-				"\t" << SCForm << "\n"
-				"\t" << RRForm << "\n"
-				"\t" << PPForm << std::endl;
-	
-	std::cout << std::endl << std::endl;
-	std::cout << GREEN "----- ShrubberyCreationForm Sign and execute -----" RESET << std::endl << std::endl;
-
-	commonOfficer.signForm(SCForm);
-	commonOfficer.executeForm(SCForm);
-	managerialPost.executeForm(SCForm);
-
-
-	
-	std::cout << std::endl;
-
-	std::cout << std::endl << std::endl;
-	std::cout << CYAN "----- RobotomyRequestForm Sign and execute -----" RESET << std::endl << std::endl;
-
-	managerialPost.executeForm(RRForm);
-	managerialPost.signForm(RRForm);
-	managerialPost.executeForm(RRForm);
-	bigwig.executeForm(RRForm);
-		
-
-	std::cout << std::endl;
-
-	std::cout << std::endl << std::endl;
-	std::cout << ORANGE "----- PresidentialPardonForm Sign and execute -----" RESET << std::endl << std::endl;
-
-	bigwig.signForm(PPForm);
-	bigwig.executeForm(PPForm);
-
-
-	std::cout << std::endl << std::endl;
-	
-	
 }
 
 void second_test()
@@ -107,7 +80,11 @@ void second_test()
 
 int	main( void )
 {
-	main_test();
+	intern_test(SCFormName, "Forest");
+	intern_test(RRFormName, "iCOP");
+	intern_test(PPFormName, "Tramp");
+	intern_test("form does not exit", "Momomi");
+	intern_test("", "");
 	// second_test();
 	
 

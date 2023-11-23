@@ -6,12 +6,12 @@
 /*   By: nimai <nimai@student.42urduliz.com>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/23 12:49:03 by nimai             #+#    #+#             */
-/*   Updated: 2023/11/23 15:49:37 by nimai            ###   ########.fr       */
+/*   Updated: 2023/11/23 16:40:18 by nimai            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Intern.hpp"
-
+#include <iostream>
 
 Intern::Intern( void )
 {
@@ -35,9 +35,15 @@ Intern & Intern::operator=(const Intern &src)
 	return (*this);
 }
 
+const char *	Intern::InvalidFormName::what( void ) const throw()
+{
+	return ("Invalid form name");
+}
+
 AForm	*Intern::makeForm( std::string formName, std::string target)
 {
 	int			i;
+	AForm		*ret = NULL;
 	std::string	type[3] = 
 	{"shrubbery creation", "robotomy request", "presidential pardon"};
 	
@@ -46,22 +52,31 @@ AForm	*Intern::makeForm( std::string formName, std::string target)
 		if (formName == type[i])
 			break ;
 	}
-
 	switch ( i )
     {
 		case 0:
-			/* code */
+		{
+			ret = new ShrubberyCreationForm(target);
 			break;	
+		}
 		case 1:
-			/* code */
+		{
+			ret = new RobotomyRequestForm(target);
 			break;
+		}
 		case 2:
-			/* code */
+		{
+			ret = new PresidentialPardonForm(target);
 			break;
+		}
 		default:
-			break;
+		{
+			std::cout << RED "Intern couldn't create " << formName << RESET << std::endl;
+			throw Intern::InvalidFormName();
+			// return (NULL);
+		}
     }
-    std::cout << "Intern creates " << formName << std::endl;
-    
+	std::cout << "Intern creates " << formName << std::endl;
+	return (ret);    
 }
 

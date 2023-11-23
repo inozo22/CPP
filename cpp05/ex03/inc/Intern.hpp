@@ -6,7 +6,7 @@
 /*   By: nimai <nimai@student.42urduliz.com>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/23 12:47:43 by nimai             #+#    #+#             */
-/*   Updated: 2023/11/23 15:01:03 by nimai            ###   ########.fr       */
+/*   Updated: 2023/11/23 16:38:25 by nimai            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,9 @@
 # define INTERN_HPP
 
 # include <string>
-# include "AForm.hpp"
+# include "ShrubberyCreationForm.hpp"
+# include "RobotomyRequestForm.hpp"
+# include "PresidentialPardonForm.hpp"
 
 class Intern
 {
@@ -27,10 +29,14 @@ class Intern
 
 			AForm	*makeForm( std::string formName, std::string target);
 
+			class InvalidFormName : public std::exception
+			{
+				public:
+						virtual const char *	what(void) const throw();
+			};
+
+
     
 };
-
-
-
 
 #endif
