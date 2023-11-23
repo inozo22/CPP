@@ -6,7 +6,7 @@
 /*   By: nimai <nimai@student.42urduliz.com>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/09 15:51:13 by nimai             #+#    #+#             */
-/*   Updated: 2023/11/22 16:01:56 by nimai            ###   ########.fr       */
+/*   Updated: 2023/11/23 17:00:15 by nimai            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,6 +55,8 @@ void	ShrubberyCreationForm::beExecuted( void ) const
 	if (ofs.is_open())
 	{
 		ofs << ShrubberyCreationForm::_shrubbery;
+		std::cout << GREEN << this->_target 
+		<< " Shrubbery created." RESET << std::endl;
 	}
 }
 

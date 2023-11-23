@@ -6,7 +6,7 @@
 /*   By: nimai <nimai@student.42urduliz.com>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/09 15:50:04 by nimai             #+#    #+#             */
-/*   Updated: 2023/11/23 11:16:13 by nimai            ###   ########.fr       */
+/*   Updated: 2023/11/23 16:59:46 by nimai            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,7 +51,8 @@ PresidentialPardonForm &PresidentialPardonForm::operator=( const PresidentialPar
 
 void	PresidentialPardonForm::beExecuted( void ) const
 {
-	std::cout << this->_target << " has been pardoned by Zaphod Beeblebrox." << std::endl;
+	std::cout << MAGENTA << this->_target 
+	<< " has been pardoned by Zaphod Beeblebrox." RESET << std::endl;
 }
 
 std::string const &	PresidentialPardonForm::getTarget( void ) const
