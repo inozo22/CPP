@@ -6,7 +6,7 @@
 /*   By: nimai <nimai@student.42urduliz.com>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/23 12:47:43 by nimai             #+#    #+#             */
-/*   Updated: 2023/11/23 13:05:59 by nimai            ###   ########.fr       */
+/*   Updated: 2023/11/23 15:01:03 by nimai            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@ class Intern
 
 			Intern & operator=(const Intern &src);
 
-			AForm	makeForm( std::string const formName, std::string const target) const;
+			AForm	*makeForm( std::string formName, std::string target);
 
     
 };
