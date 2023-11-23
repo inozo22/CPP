@@ -6,7 +6,7 @@
 /*   By: nimai <nimai@student.42urduliz.com>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/03 15:51:24 by nimai             #+#    #+#             */
-/*   Updated: 2023/11/23 11:43:53 by nimai            ###   ########.fr       */
+/*   Updated: 2023/11/23 11:51:53 by nimai            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,8 @@ AForm::AForm( void ) : _name("unknown"), _signed(false), _gradeToSign(LOWEST), _
 	std::cout << "AForm: Default constructor called." << std::endl;
 }
 
-AForm::AForm( std::string const & name, int const gradeToSign, int const gradeToExecute ) : _name(name), _signed(false), _gradeToSign(gradeToSign), _gradeToExecute(gradeToExecute)
+AForm::AForm( std::string const & name, int const gradeToSign, int const gradeToExecute ) : 
+_name(name), _signed(false), _gradeToSign(gradeToSign), _gradeToExecute(gradeToExecute)
 {
 	if (gradeToSign < HIGHEST || gradeToExecute < HIGHEST)
 		throw(AForm::GradeTooHighException());
@@ -27,10 +28,12 @@ AForm::AForm( std::string const & name, int const gradeToSign, int const gradeTo
 		throw(AForm::GradeTooLowException());
 	this->_gradeToSign = gradeToSign;
 	this->_gradeToExecute =gradeToExecute;
-	std::cout << this->_name << ": Created. Grade to sign: " << this->_gradeToSign << " and grade to execute: " << this->_gradeToExecute << std::endl;
+	std::cout << this->_name << ": Created. Grade to sign: " << this->_gradeToSign 
+	<< " and grade to execute: " << this->_gradeToExecute << std::endl;
 }
 
-AForm::AForm( AForm const & src ): _name(src._name), _signed(false),  _gradeToSign(src._gradeToSign), _gradeToExecute(src._gradeToExecute)
+AForm::AForm( AForm const & src ): 
+_name(src._name), _signed(false),  _gradeToSign(src._gradeToSign), _gradeToExecute(src._gradeToExecute)
 {
 	std::cout << this->_name << "AForm: copy constructor called." << std::endl;
 }
@@ -54,7 +57,8 @@ void	AForm::beSigned(  Bureaucrat const & bureaucrat )
 	if (bureaucrat.getGrade() > this->getGradeToSign())
 		return (throw(AForm::GradeTooLowException()));
 	this->_signed = true;
-	std::cout << this->_name << " has signed with " << bureaucrat.getGrade() << "th postion. Good job!" << std::endl;
+	std::cout << this->_name << " has signed with " << bureaucrat.getGrade() 
+	<< "th postion. Good job!" << std::endl;
 }
 
 void	AForm::execute( Bureaucrat const & executer ) const

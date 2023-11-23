@@ -6,12 +6,14 @@
 /*   By: nimai <nimai@student.42urduliz.com>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/03 15:51:24 by nimai             #+#    #+#             */
-/*   Updated: 2023/11/23 11:37:28 by nimai            ###   ########.fr       */
+/*   Updated: 2023/11/23 12:17:28 by nimai            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Bureaucrat.hpp"
 #include <iostream>
+#include <iomanip>
+
 
 Bureaucrat::Bureaucrat( void ) : _name("unknown"), _grade(LOWEST)
 {
@@ -82,7 +84,7 @@ void	Bureaucrat::signForm( AForm & form ) const
 	try
 	{
 		form.beSigned(*this);
-		std::cout << this->_name << " has signed " << form << std::endl;
+		std::cout << *this << " has signed:\n            " << form << std::endl;
 	}
 	catch(const std::exception& e)
 	{
@@ -96,11 +98,11 @@ void	Bureaucrat::executeForm( AForm const & form )
 	try
 	{
 		form.execute(*this);
-		std::cout << *this << " executed " << form << std::endl;
+		std::cout << *this << " executed:\n            " << form << std::endl;
 	}
 	catch(const std::exception& e)
 	{
-		std::cout << RED << *this << " can't execute " << form << "\n\t\tBecause ";
+		std::cout << RED << *this << " can't execute:\n            " << form  << YELLOW "\n" << std::setfill(' ') << std::setw(12) << "Reason: ";
 		std::cerr << e.what() << RESET << '\n';
 	}
 	
