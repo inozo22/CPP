@@ -6,7 +6,7 @@
 /*   By: nimai <nimai@student.42urduliz.com>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/03 15:51:24 by nimai             #+#    #+#             */
-/*   Updated: 2023/11/23 12:26:13 by nimai            ###   ########.fr       */
+/*   Updated: 2023/11/24 11:53:14 by nimai            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -93,6 +93,9 @@ void	Bureaucrat::signForm( AForm & form ) const
 	}	
 }
 
+/**
+ * @note ATENTION! the way to put white space is ugly, look for better way
+  */
 void	Bureaucrat::executeForm( AForm const & form )
 {
 	try

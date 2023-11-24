@@ -6,7 +6,7 @@
 /*   By: nimai <nimai@student.42urduliz.com>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/23 12:49:03 by nimai             #+#    #+#             */
-/*   Updated: 2023/11/23 16:40:18 by nimai            ###   ########.fr       */
+/*   Updated: 2023/11/24 11:52:06 by nimai            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,6 +40,9 @@ const char *	Intern::InvalidFormName::what( void ) const throw()
 	return ("Invalid form name");
 }
 
+/**
+ * @note there is no a forest of if/else if, but is it OK?
+  */
 AForm	*Intern::makeForm( std::string formName, std::string target)
 {
 	int			i;
@@ -73,7 +76,6 @@ AForm	*Intern::makeForm( std::string formName, std::string target)
 		{
 			std::cout << RED "Intern couldn't create " << formName << RESET << std::endl;
 			throw Intern::InvalidFormName();
-			// return (NULL);
 		}
     }
 	std::cout << "Intern creates " << formName << std::endl;

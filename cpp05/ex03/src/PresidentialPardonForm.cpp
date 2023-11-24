@@ -6,24 +6,27 @@
 /*   By: nimai <nimai@student.42urduliz.com>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/09 15:50:04 by nimai             #+#    #+#             */
-/*   Updated: 2023/11/23 16:59:13 by nimai            ###   ########.fr       */
+/*   Updated: 2023/11/24 11:57:58 by nimai            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "PresidentialPardonForm.hpp"
 #include <iostream>
 
-PresidentialPardonForm::PresidentialPardonForm( void ) : AForm("PresidentialPardonform", PP_SIGN, PP_EXEC), _target("noname")
+PresidentialPardonForm::PresidentialPardonForm( void ) 
+: AForm("PresidentialPardonform", PP_SIGN, PP_EXEC), _target("noname")
 {
 	std::cout << "PresidentialPardonForm: Default constructor called." << std::endl;
 }
 
-PresidentialPardonForm::PresidentialPardonForm( PresidentialPardonForm const & src ): AForm(src), _target(src._target)
+PresidentialPardonForm::PresidentialPardonForm( PresidentialPardonForm const & src )
+: AForm(src), _target(src._target)
 {
 	std::cout << "PresidentialPardonForm: copy constructor called." << std::endl;
 }
 
-PresidentialPardonForm::PresidentialPardonForm( std::string const & target ): AForm("PresidentialPardonform", PP_SIGN, PP_EXEC), _target(target)
+PresidentialPardonForm::PresidentialPardonForm( std::string const & target )
+: AForm("PresidentialPardonform", PP_SIGN, PP_EXEC), _target(target)
 {
 	std::cout << "PresidentialPardonForm: arrtibute constructor called." << std::endl;
 	if (this->_target.empty())
@@ -45,9 +48,6 @@ PresidentialPardonForm &PresidentialPardonForm::operator=( const PresidentialPar
 
 	return (*this);
 }
-
-//			std::string const &		getTarget( void ) const;	
-//			void	beExecuted( void ) const;
 
 void	PresidentialPardonForm::beExecuted( void ) const
 {

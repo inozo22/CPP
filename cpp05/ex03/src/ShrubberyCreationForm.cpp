@@ -6,7 +6,7 @@
 /*   By: nimai <nimai@student.42urduliz.com>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/09 15:51:13 by nimai             #+#    #+#             */
-/*   Updated: 2023/11/23 16:58:05 by nimai            ###   ########.fr       */
+/*   Updated: 2023/11/24 12:01:17 by nimai            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,18 +16,21 @@
 #include <fstream>
 
 
-ShrubberyCreationForm::ShrubberyCreationForm( void ) : AForm("shrubberycreationform", SC_SIGN, SC_EXEC) 
+ShrubberyCreationForm::ShrubberyCreationForm( void ) 
+: AForm("shrubberycreationform", SC_SIGN, SC_EXEC) 
 {
 	std::cout << "ShrubberyCreationForm: Default constructor called." << std::endl;
 }
 
-ShrubberyCreationForm::ShrubberyCreationForm( ShrubberyCreationForm const & src ):AForm("shrubberycreationform", SC_SIGN, SC_EXEC)
+ShrubberyCreationForm::ShrubberyCreationForm( ShrubberyCreationForm const & src )
+: AForm("shrubberycreationform", SC_SIGN, SC_EXEC)
 {
 	*this = src;
 	std::cout << this->getName() << "ShrubberyCreationForm: copy constructor called." << std::endl;
 }
 
-ShrubberyCreationForm::ShrubberyCreationForm( std::string const & target ): AForm("ShrubberyCreationForm", SC_SIGN, SC_EXEC), _target(target)
+ShrubberyCreationForm::ShrubberyCreationForm( std::string const & target )
+: AForm("ShrubberyCreationForm", SC_SIGN, SC_EXEC), _target(target)
 {
 	std::cout << "ShrubberyCreationForm: arrtibute constructor called." << std::endl;
 	if (this->_target.empty())
