@@ -6,7 +6,7 @@
 /*   By: nimai <nimai@student.42urduliz.com>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/24 13:59:47 by nimai             #+#    #+#             */
-/*   Updated: 2023/11/24 15:28:55 by nimai            ###   ########.fr       */
+/*   Updated: 2023/11/24 16:46:45 by nimai            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,8 +25,18 @@ class ScalarConverter
 
 		ScalarConverter & operator=(const ScalarConverter & src);
 
+		char	getChar( void ) const;
+		int		getInt( void ) const;
+		float	getFloat( void ) const;
+		double	getDouble( void ) const;
+		int		getType( void ) const;
 
-
+		class NonDisplayableException : public std::exception
+		{
+			public:
+				virtual const char * what( void ) const throw();
+		};
+		
 
 	private:
 		char	_isChar;
@@ -34,6 +44,10 @@ class ScalarConverter
 		float	_isFloat;
 		double	_isDouble;
 		int		_type;
+		int		_error;
+
+		void	typeCheck( std::string const & str );
+		
 };
 
 std::ostream &	operator << (std::ostream & os, ScalarConverter const & obj);
