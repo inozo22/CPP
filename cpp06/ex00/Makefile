@@ -6,11 +6,11 @@
 #    By: nimai <nimai@student.42urduliz.com>        +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/07/25 11:05:17 by nimai             #+#    #+#              #
-#    Updated: 2023/11/23 17:33:36 by nimai            ###   ########.fr        #
+#    Updated: 2023/11/24 15:15:57 by nimai            ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME		:= Forms
+NAME		:= convert
 
 LIBS_TARGET	:= 
 LIBS		:= 
@@ -18,7 +18,7 @@ LIBS		:=
 INCS		:= inc
 
 SRC_DIR		:= src
-SRCS		:= main.cpp 
+SRCS		:= main.cpp ScalarConverter.cpp
 SRCS		:= $(SRCS:%=$(SRC_DIR)/%)
 
 BUILD_DIR	:= .build
