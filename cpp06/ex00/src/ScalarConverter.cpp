@@ -6,7 +6,7 @@
 /*   By: nimai <nimai@student.42urduliz.com>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/24 12:45:12 by nimai             #+#    #+#             */
-/*   Updated: 2023/11/24 16:41:26 by nimai            ###   ########.fr       */
+/*   Updated: 2023/11/24 17:25:40 by nimai            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,8 +68,24 @@ void	ScalarConverter::typeCheck( std::string const & str )
 		//error counter
 		
 	}
+	//int check
+	{
+		
+		this->_type = INT;
+	}
+	
+	//float check
+	{
+		this->_type = FLOAT;
+	}
+	//double check
+	{
+		this->_type = DOUBLE;
+	}
+	//char check
 	if (str.length() == 1)
 	{
+		this->_type = CHAR;
 		if (!std::isprint(str[0]))
 		{
 			//error counter

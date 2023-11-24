@@ -6,7 +6,7 @@
 /*   By: nimai <nimai@student.42urduliz.com>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/24 13:59:47 by nimai             #+#    #+#             */
-/*   Updated: 2023/11/24 16:46:45 by nimai            ###   ########.fr       */
+/*   Updated: 2023/11/24 17:22:20 by nimai            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,6 +45,15 @@ class ScalarConverter
 		double	_isDouble;
 		int		_type;
 		int		_error;
+
+		enum	e_type
+		{
+			DEFAULT = 0,
+			INT,
+			FLOAT,
+			DOUBLE,
+			CHAR
+		};
 
 		void	typeCheck( std::string const & str );
 		
