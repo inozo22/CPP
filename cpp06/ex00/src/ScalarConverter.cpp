@@ -70,7 +70,56 @@ bool	ScalarConverter::_checkInt(str::string const & str)
 	return (true);
 }
 
-void	ScalarConverter::typeCheck( std::string const & str )
+bool	ScalarConverter::_checkFloat(str::string const & str)
+{
+	float	value = 0;
+	char	*ptr = NULL;
+
+	value = std::strtof(str.c_str(), &ptr, 10);
+	if (ptr == str.c_str() || *ptr != 'f')
+	{
+		return (false);
+	}
+	if (*ptr == 'f' && ptr + 1 && !*(ptr + 1))
+	{
+		return (false);
+	}
+	this->_isFloat = value;
+	return (true);
+}
+
+bool	ScalarConverter::_checkDouble(str::string const & str)
+{
+	double	value = 0;
+	char	*ptr = NULL;
+
+	if (str.find('.') == std::string::npos)
+		return (false);
+	value = std::strtod(str.c_str(), &ptr);
+	if (ptr == str.c_str() || *ptr)
+		return (false);
+	this->_isDouble = value;
+	return (true);
+}
+
+bool	ScalarConverter::_checkChar(str::string const & str)
+{
+	if (str.length() == 1)
+	{
+		if (!std::isprint(str[0]))
+		{
+			//error counter
+
+		}
+		this->_isChar = str[0];
+		return (true);
+	}
+	else
+		return (false);
+}
+
+
+void	ScalarConverter::_typeCheck( std::string const & str )
 {
 	if (str == "inf" || str == "+inf" || str == "inff" || str == "+inff")
 	{
@@ -114,7 +163,7 @@ void	ScalarConverter::typeCheck( std::string const & str )
 		return (true);
 
 	} */
-	if (str.length() == 1)
+/* 	if (str.length() == 1)
 	{
 		if (!std::isprint(str[0]))
 		{
@@ -122,7 +171,7 @@ void	ScalarConverter::typeCheck( std::string const & str )
 
 		}
 		this->_isChar = str[0];
-	}
+	} */
 }
 
 

@@ -46,8 +46,11 @@ class ScalarConverter
 		int		_type;
 		int		_error;
 
-		void	typeCheck( std::string const & str );
+		void	_typeCheck( std::string const & str );
 		bool	_checkInt( std::string const & str );
+		bool	_checkFloat( std::string const & str );
+		bool	_checkDouble( std::string const & str );
+		bool	_checkChar( std::string const & str );
 
 		enum	e_type
 		{
