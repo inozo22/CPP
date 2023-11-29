@@ -14,6 +14,7 @@
 # define SCALARCONVERTER_HPP
 
 # include <string>
+# include <bitset>
 
 class ScalarConverter
 {
@@ -36,15 +37,23 @@ class ScalarConverter
 			public:
 				virtual const char * what( void ) const throw();
 		};
+//		const uint32_t BIT_FLAG_0 (1<<0); // 0000 0001
+//		const uint32_t BIT_FLAG_2 (1<<2); // 0000 0100
+//		const uint32_t BIT_FLAG_4 (1<<4); // 0001 0000
+		const uint32_t INT_OVER (1<<0); // 0000 0001
+		const uint32_t CHAR_OVER (1<<2); // 0000 0100
+		const uint32_t CHAR_UNPRI (1<<4); // 0001 0000
 		
 
 	private:
+
 		char	_isChar;
 		int		_isInt;
 		float	_isFloat;
 		double	_isDouble;
 		int		_type;
-		int		_error;
+		int		_bitFlag;
+
 
 		void	_typeCheck( std::string const & str );
 		bool	_checkInt( std::string const & str );
@@ -61,7 +70,7 @@ class ScalarConverter
 			CHAR,
 			OTHER
 		};
-		
+
 };
 
 std::ostream &	operator << (std::ostream & os, ScalarConverter const & obj);
