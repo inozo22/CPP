@@ -47,6 +47,17 @@ class ScalarConverter
 		int		_error;
 
 		void	typeCheck( std::string const & str );
+		bool	_checkInt( std::string const & str );
+
+		enum	e_type
+		{
+			DEFAULT = 0,
+			INT,
+			FLOAT,
+			DOUBLE,
+			CHAR,
+			OTHER
+		};
 		
 };
 
