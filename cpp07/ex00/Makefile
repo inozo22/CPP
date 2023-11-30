@@ -6,7 +6,7 @@
 #    By: nimai <nimai@student.42urduliz.com>        +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/07/25 11:05:17 by nimai             #+#    #+#              #
-#    Updated: 2023/11/30 17:35:55 by nimai            ###   ########.fr        #
+#    Updated: 2023/11/30 17:38:09 by nimai            ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -18,7 +18,7 @@ LIBS		:=
 INCS		:= inc
 
 SRC_DIR		:= src
-SRCS		:= main.cpp 
+SRCS		:= main.cpp
 SRCS		:= $(SRCS:%=$(SRC_DIR)/%)
 
 BUILD_DIR	:= .build
@@ -50,10 +50,10 @@ $(YELLOW)
         /^-^\         /^-----^\\
        / o o \        V  o o  V
       /   ▼   \        |  ▽  | 
-      V \ ∧ / V         \ Q /  Base?
+      V \ ∧ / V         \ Q /  Template!
         / - \\ ========= / - \\
-       /    |   CPP06   |    \\
-      /     |    EX02   |     \\     
+       /    |   CPP07   |    \\
+      /     |    EX00   |     \\     
  (===/___) || ========= || (___\\====)$(CLR_RMV)
 endef
 export	ART
