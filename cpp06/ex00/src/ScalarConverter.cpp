@@ -6,7 +6,7 @@
 /*   By: nimai <nimai@student.42urduliz.com>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/24 12:45:12 by nimai             #+#    #+#             */
-/*   Updated: 2023/11/24 17:25:40 by nimai            ###   ########.fr       */
+/*   Updated: 2023/11/29 13:10:29 by nimai            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -70,10 +70,13 @@ void	ScalarConverter::typeCheck( std::string const & str )
 	}
 	//int check
 	{
-		
+		long	value = 0;
+		char 	*ptr = NULL;
+		value = std::strtol( str.c_str(), &ptr, 10 );
+
+		std::cout << "value: " << value << "	ptr: " << ptr << std::endl;
 		this->_type = INT;
-	}
-	
+	}	
 	//float check
 	{
 		this->_type = FLOAT;
@@ -94,8 +97,6 @@ void	ScalarConverter::typeCheck( std::string const & str )
 		this->_isChar = str[0];
 	}
 }
-
-
 
 
 

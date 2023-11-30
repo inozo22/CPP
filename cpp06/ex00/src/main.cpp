@@ -6,7 +6,7 @@
 /*   By: nimai <nimai@student.42urduliz.com>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/24 14:01:57 by nimai             #+#    #+#             */
-/*   Updated: 2023/11/24 15:28:59 by nimai            ###   ########.fr       */
+/*   Updated: 2023/11/29 13:12:00 by nimai            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,6 +23,7 @@ int	main(int ac, char **av)
 	}
 	ScalarConverter test(av[1]);
 	std::cout << test << std::endl;
+	
     
     return (0);
 }
