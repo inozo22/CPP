@@ -6,7 +6,7 @@
 /*   By: nimai <nimai@student.42urduliz.com>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/30 17:44:54 by nimai             #+#    #+#             */
-/*   Updated: 2023/11/30 17:59:18 by nimai            ###   ########.fr       */
+/*   Updated: 2023/12/01 12:50:47 by nimai            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,6 +30,7 @@
 # define RESET   "\x1b[0m"
 
 # include <iostream>
+# include <cstdlib>
 
 // Implement a function template iter that takes 3 parameters and returns nothing.
 // • The first parameter is the address of an array.
@@ -46,13 +47,19 @@ void	iter(A * array, size_t len, F function)
 }
 
 template <typename T>
-void	print(A * array, size_t len)
+void	print(T * array, size_t len)
 {
+	std::cout << "Array: {";
 	for (size_t i = 0; i < len; i++)
 	{
-		std::cout << "Array[" << i << "]: " << array[i] << std::endl;
+		std::cout << array[i];
+		if ((i + 1 != len))
+			std::cout << ", ";
 	}
+	std::cout << "}";
 }
+
+
 
 #endif
 
