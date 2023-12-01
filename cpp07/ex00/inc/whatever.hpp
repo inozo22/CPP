@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   whatever.hpp                                       :+:      :+:    :+:   */
+/*   Whatever.hpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: nimai <nimai@student.42urduliz.com>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/30 17:26:50 by nimai             #+#    #+#             */
-/*   Updated: 2023/11/30 17:36:24 by nimai            ###   ########.fr       */
+/*   Updated: 2023/12/01 11:04:29 by nimai            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,17 +43,19 @@ void	swap(T &a, T &b)
 template <typename T>
 T const & min(T const &a, T const &b)
 {
-	if (a > b)
-		return (b);
-	return (a);
+	// if (a > b)
+	// 	return (b);
+	// return (a);
+	return a < b ? a : b;
 }
 
 template <typename T>
 T const & max(T const &a, T const &b)
 {
-	if (a > b)
-		return (a);
-	return (b);
+	// if (a > b)
+	// 	return (a);
+	// return (b);
+	return a > b ? a : b;
 }
 
 template <typename T>
