@@ -76,27 +76,12 @@ int	main( void )
 		::print<int>(intArray, len);
 		std::cout << std::endl << std::endl;
 	}
-	// {		
-	// 	std::cout << CYAN << std::setfill('=') << std::setw(25) << ">>> Float array test" << RESET << std::endl << std::endl;
-	// 	float	floatArray[] = {0.1f, 1.2f, 2.3f, 55.4f, 3.5f, 4.60f, 5.7f, 6.8f, 7.0f, 8.0f};
-	// 	size_t	len = 10;
-
-	// 	std::cout << "\tFloat: Original ";
-	// 	::print<float>(floatArray, len);
-	
-
-	// 	::iter(floatArray, len, ::intSumFive);
-
-	// 	std::cout << "\tFloat: After iter ";
-	// 	::print<float>(floatArray, len);
-	// 	std::cout << std::endl << std::endl;
-	// }
 	{		
 		std::cout << CYAN << std::setfill('=') << std::setw(25) << ">>> Double array test" << RESET << std::endl << std::endl;
 		double	doubleArray[] = {0.01, 1.20, 2.3, 55.4, 3.5, 4.670, 5.8, 6.9, 7.090, 8.0};
 		size_t	len = 10;
 
-		std::cout << "\tDouble: Original";
+		std::cout << "\tDouble: Original ";
 		::print<double>(doubleArray, len);
 
 
@@ -111,7 +96,7 @@ int	main( void )
 		char	charArray[] = {'a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j'};
 		size_t	len = 10;
 	
-		std::cout << "\tChar: Original";
+		std::cout << "\tChar: Original ";
 		::print<char>(charArray, len);
 	
 		::iter(charArray, len, ::charUpper);
@@ -126,7 +111,7 @@ int	main( void )
 		std::string	stringArray[] = {"Hello", "Hola", "Kaixo", "Konnichiwa", "Ciao", "Bonjour", "Privyet", "Hallo", "Oi", "Hoi"};
 		size_t	len = 10;
 
-		std::cout << "\tString: Original";
+		std::cout << "\tString: Original ";
 		::print<std::string>(stringArray, len);
 
 		::iter(stringArray, len, ::strAddWan);
