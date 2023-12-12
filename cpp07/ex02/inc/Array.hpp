@@ -18,6 +18,10 @@
 template <typename T>
 class	Array
 {
+	private:
+			T *				_array;
+			unsigned int	_size;
+
 	public:
 			Array( void )
 			{
@@ -59,20 +63,34 @@ class	Array
 			T &	operator[](unsigned int i)
 			{
 				if (i >= this->_size)
-					throw();
+					throw(Exception());
 				return (this->_array[i]);
 			}
 
+			class Exception : public std::exception
+			{
+				public:
+						virtual const char * what( void ) const throw()
+						{
+							return ("I got exception");
+						}
+			};
 
-
-	private:
-			T *				_array;
-			unsigned int	_size;
-
-
-
-
+			unsigned int	getSize( void ) const
+			{
+				return (this->_size);
+			}
 };
+
+template <typename T>
+std::ostream & operator<<(std::ostream &os, Array<T> &obj)
+{
+	for (unsigned int i = 0; i < obj.getSize(); ++i)
+	{
+		os << obj[i];
+	}
+	return (os);
+}
 
 
 #endif
