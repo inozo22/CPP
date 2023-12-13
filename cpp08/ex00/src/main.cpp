@@ -35,7 +35,21 @@ int	main( void )
 	}
 	std::cout << std::endl;
 
+	for (int i = -4; i < 10; i++)
+		container.push_back(i * 2);
+
+	std::cout << "Vector container2: ";
+	for (std::vector<int>::iterator iter = container.begin(); iter != container.end(); ++iter)
+	{
+		std::cout << "[" << *iter << "]";
+	}
+	std::cout << std::endl;
+
 	::searcher("Vector", container, 0);
 	std::cout << std::endl;
+
+	::searcher("Vector", container, 10);
+	std::cout << std::endl;
+
 	return (0);
 }
