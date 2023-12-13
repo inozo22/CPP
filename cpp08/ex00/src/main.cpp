@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   main.cpp                                           :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: nimai <nimai@student.42urduliz.com>        +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2023/12/13 14:01:25 by nimai             #+#    #+#             */
+/*   Updated: 2023/12/13 14:01:33 by nimai            ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "easyfind.hpp"
 #include <vector>
 #include <list>
@@ -5,8 +17,6 @@
 #include <deque>
 #include <iostream>
 
-
-//template<typename T>
 template<typename T>
 void	searcher(std::string type, T & container, int num)
 {
