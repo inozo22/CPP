@@ -6,7 +6,7 @@
 /*   By: nimai <nimai@student.42urduliz.com>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/05 09:00:17 by nimai             #+#    #+#             */
-/*   Updated: 2023/12/05 09:01:39 by nimai            ###   ########.fr       */
+/*   Updated: 2023/12/13 12:17:46 by nimai            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,7 +47,7 @@ class	Array
 
 			Array & operator=( const Array &src )
 			{
-				if (this = &src)
+				if (this == &src)
 					return (*this);
 				if (this->_size != src._size)
 				{
