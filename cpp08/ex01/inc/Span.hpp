@@ -1,30 +1,39 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.cpp                                           :+:      :+:    :+:   */
+/*   Span.hpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: nimai <nimai@student.42urduliz.com>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/12/13 14:01:18 by nimai             #+#    #+#             */
-/*   Updated: 2023/12/13 14:06:25 by nimai            ###   ########.fr       */
+/*   Created: 2023/12/13 14:02:27 by nimai             #+#    #+#             */
+/*   Updated: 2023/12/13 15:35:05 by nimai            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Span.hpp"
-#include <iostream>
+#ifndef SPAN_HPP
+# define SPAN_HPP
 
-int	main( void )//main in subject
+//# define MAX_N 750
+
+class Span
 {
-	Span sp = Span(5);
-	
-	sp.addNumber(6);
-	sp.addNumber(3);
-	sp.addNumber(17);
-	sp.addNumber(9);
-	sp.addNumber(11);
+private:
+    unsigned int	_n;
+public:
+    Span( void );
+    Span( unsigned int N );
+    Span( Span const &src );
+    ~Span();
 
-	std::cout << sp.shortestSpan() << std::endl;
-	std::cout << sp.longestSpan() << std::endl;
-	return (0);
-}
+	Span & operator=( const Span & src );
 
+	addNumber();
+	shortestSpan();
+	longestSpan();
+};
+
+
+
+
+
+#endif
