@@ -1,6 +1,8 @@
 #include "easyfind.hpp"
 #include <vector>
 #include <list>
+#include <forward_list>
+#include <deque>
 #include <iostream>
 
 
@@ -71,6 +73,54 @@ int	main( void )
 		std::cout << std::endl;
 		for (int i = 0; i <= 20; i++)
 			::searcher("List", container, i);
+		std::cout << std::endl;
+	}
+	{
+		std::cout << std::endl << CYAN ">>>>>>>>>> TEST with DEQUE <<<<<<<<<<" RESET << std::endl;
+		std::deque<int>	container;
+	
+		std::cout << "Deque container: ";
+		for (std::deque<int>::iterator iter = container.begin(); iter != container.end(); ++iter)
+			std::cout << "[" << *iter << "]";
+		std::cout << std::endl;
+		for (int i = 0; i <= 20; i++)
+			::searcher("Deque", container, i);
+
+		std::cout << std::endl;
+
+		for (int i = -4; i < 10; i++)
+			container.push_back(i * 2);
+
+		std::cout << "Deque container2: ";
+		for (std::deque<int>::iterator iter = container.begin(); iter != container.end(); ++iter)
+			std::cout << GREEN << "[" << *iter << "]" << RESET;
+		std::cout << std::endl;
+		for (int i = 0; i <= 20; i++)
+			::searcher("Deque", container, i);
+		std::cout << std::endl;
+	}
+	{
+		std::cout << std::endl << CYAN ">>>>>>>>>> TEST with FORWARD_LIST <<<<<<<<<<" RESET << std::endl;
+		std::forward_list<int>	container;
+	
+		std::cout << "Forward_list container: ";
+		for (std::forward_list<int>::iterator iter = container.begin(); iter != container.end(); ++iter)
+			std::cout << "[" << *iter << "]";
+		std::cout << std::endl;
+		for (int i = 0; i <= 20; i++)
+			::searcher("Forward_list", container, i);
+
+		std::cout << std::endl;
+
+		for (int i = -4; i < 10; i++)
+			container.push_front(i * 2);
+
+		std::cout << "Forward_list container2: ";
+		for (std::forward_list<int>::iterator iter = container.begin(); iter != container.end(); ++iter)
+			std::cout << GREEN << "[" << *iter << "]" << RESET;
+		std::cout << std::endl;
+		for (int i = 0; i <= 20; i++)
+			::searcher("Forward_list", container, i);
 		std::cout << std::endl;
 	}
 

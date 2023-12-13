@@ -22,15 +22,25 @@
 # include <iterator>
 
 template <typename T>
-typename T::const_iterator	easyfind(T const & container, int element)
+class EasyFind
 {
-	typename T::const_iterator	iter;
+	public:
+			typename T::const_iterator	easyfind(T const & container, int element);
 
-	iter = std::find(container.begin(), container.end(), element);
-	if (iter == container.end())
-	{
-		throw(std::out_of_range("Element is out of range."));
-	}
-	return (iter);
-}
+};
+
+// template <typename T>
+// typename T::const_iterator	easyfind(T const & container, int element);
+// {
+// 	typename T::const_iterator	iter;
+
+// 	iter = std::find(container.begin(), container.end(), element);
+// 	if (iter == container.end())
+// 	{
+// 		throw(std::out_of_range("Element is out of range."));
+// 	}
+// 	return (iter);
+// }
+# include "easyfind.tpp"
+
 #endif
