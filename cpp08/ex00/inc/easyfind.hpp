@@ -33,7 +33,4 @@ typename T::const_iterator	easyfind(T const & container, int element)
 	}
 	return (iter);
 }
-
-
-
 #endif
