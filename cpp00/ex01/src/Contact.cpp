@@ -6,7 +6,7 @@
 /*   By: nimai <nimai@student.42urduliz.com>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/25 11:05:37 by nimai             #+#    #+#             */
-/*   Updated: 2023/10/24 12:02:40 by nimai            ###   ########.fr       */
+/*   Updated: 2023/12/16 10:54:49 by nimai            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ Contact::~Contact()
 
 void Contact::set_info(int &colum, std::string &input)
 {
-	this->info[colum] = input;
+	this->_info[colum] = input;
 }
 
 /**
@@ -34,14 +34,14 @@ void Contact::get_info_list(int &index) const
 {
 	(void)index;
 	std::cout << "|";
-	std::cout << std::setfill(' ') << std::setw(10) << this->info[5];
+	std::cout << std::setfill(' ') << std::setw(10) << this->_info[5];
 	for (int i = 0; i < 3; ++i)
 	{
 		std::cout << "|";
-		if (this->info[i].size() <= 10)
-			std::cout << std::setfill(' ') << std::setw(10) << this->info[i];
+		if (this->_info[i].size() <= 10)
+			std::cout << std::setfill(' ') << std::setw(10) << this->_info[i];
 		else
-			std::cout << this->info[i].substr(0, 9) << ".";
+			std::cout << this->_info[i].substr(0, 9) << ".";
 	}
 	std::cout << "|" << std::endl;
 }
@@ -56,12 +56,12 @@ int Contact::get_info_full(std::string &input) const
 		"phone_number",
 		"darkest_secret"
 	};
-	if (input != info[5])
+	if (input != _info[5])
 		return(1) ;
 	for (int i = 0; i < 5; ++i)
 	{
 		std::cout << std::setw(15) << heads[i] << " : ";
-		std::cout << info[i] << std::endl;
+		std::cout << _info[i] << std::endl;
 	}
 	return (0);
 }

@@ -6,7 +6,7 @@
 /*   By: nimai <nimai@student.42urduliz.com>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/25 11:04:40 by nimai             #+#    #+#             */
-/*   Updated: 2023/10/24 12:29:56 by nimai            ###   ########.fr       */
+/*   Updated: 2023/12/16 10:51:59 by nimai            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,7 +44,7 @@ class PhoneBook
 		Contact	contact[MAX_CONTACT];
 		int		_pos;
 		int		_line;
-		int		_id;	
+		int		_id;
 };
 
 #endif

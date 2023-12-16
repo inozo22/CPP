@@ -6,7 +6,7 @@
 /*   By: nimai <nimai@student.42urduliz.com>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/25 11:05:51 by nimai             #+#    #+#             */
-/*   Updated: 2023/10/25 10:42:27 by nimai            ###   ########.fr       */
+/*   Updated: 2023/12/16 11:16:14 by nimai            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,18 +45,17 @@ void	PhoneBook::cmd_add()
 	{
 		std::cout << "[ADD] " << std::setfill(' ') << std::setw(15);
 		std::cout << heads[i] << " > ";
-		// std::getline(std::cin, input);
 		if (!std::getline(std::cin, input))
 		{
-			std::cout << "in cmd_add: " << COLOR_RED"Please don't send eof!!!!" << COLOR_RESET << std::endl;
+			std::cout << "in cmd_add: " << COLOR_RED "Please don't send eof!!!!" COLOR_RESET << std::endl;
 			break ;
 		}
 		if (!input.length() || (input.find_first_not_of("\t\v\n\r\f ") == std::string::npos))
 			std::cout << "CAUTION! Input field is empty, please fill it." << std::endl;
-		else if (input.find_first_of("\t\v\n\r\f") != std::string::npos)
+		else if (input.find_first_of("\t\v\n\r\f ") != std::string::npos)
 			std::cout << "CAUTION! You are using inappropriate space." << std::endl;
-		else if (i == 3 && (input.find_first_of("0123456789- ") == std::string::npos))
-			std::cout << "CAUTION! Only numeric letter, space and '-' are required." << std::endl;
+		else if (i == 3 && (input.find_first_of("0123456789-") == std::string::npos))
+			std::cout << "CAUTION! Only numeric letter and '-' are required." << std::endl;
 		else
 		{	
 			this->contact[_pos].set_info(i, input);
@@ -78,7 +77,7 @@ void	PhoneBook::cmd_search()
 		return ;
 	}
 	std::cout << "+----------+----------+----------+----------+\n";
-	std::cout << "|index     |first name|last name |nick name |\n";
+	std::cout << "|     index|first name| last name| nick name|\n";
 	std::cout << "+----------+----------+----------+----------+\n";
 	for (int i = 0; i < _line; ++i)
 	{
@@ -90,10 +89,9 @@ void	PhoneBook::cmd_search()
 		int	ret = 0;
 		std::string input;
 		std::cout << "[SEARCH] > ";
-		// std::getline(std::cin, input);
 		if (!std::getline(std::cin, input))
 		{
-			std::cout << "in cmd_search: " << COLOR_RED"Please don't send eof!!!!" << COLOR_RESET << std::endl;
+			std::cout << "in cmd_search: " << COLOR_RED "Please don't send eof!!!!" COLOR_RESET << std::endl;
 			break ;
 		}
 		if (input == "Q" || input == "q")
