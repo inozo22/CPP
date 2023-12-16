@@ -7,7 +7,7 @@ INCS		:= inc
 
 SRC_DIR		:= src
 SRCS		:= \
-				main.cpp 
+				megaphone.cpp 
 
 SRCS		:= $(SRCS:%=$(SRC_DIR)/%)
 
@@ -16,7 +16,7 @@ OBJS		:= $(SRCS:$(SRC_DIR)/%.cpp=$(BUILD_DIR)/%.o)
 DEPS		:= $(OBJS:.o=.d)
 
 CC			:= c++
-CFLAGS		:= -Wall -Wextra -Werror -pedantic
+CFLAGS		:= -Wall -Wextra -Werror -pedantic -std=c++98
 CPPFLAGS	:= $(addprefix -I,$(INCS)) -MMD -MP
 LDFLAGS		:= $(addprefix -L,$(dir $(LIBS_TARGET)))
 LDLIBS		:= $(addprefix -l,$(LIBS))

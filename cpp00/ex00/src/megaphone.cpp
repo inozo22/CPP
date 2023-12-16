@@ -1,4 +1,5 @@
 #include <iostream>
+#include <cctype>
 
 int	main(int ac, char **av)
 {
@@ -8,9 +9,8 @@ int	main(int ac, char **av)
 		{
 			for (int j = 0; av[i][j]; ++j)
 			{
-				if (av[i][j] >= 97 && av[i][j] <= 122)
-					av[i][j] -= 32;
-				std::cout << (char)av[i][j];
+				char ch = std::toupper(av[i][j]);
+				std::cout << ch;
 			}
 		}
 	}
