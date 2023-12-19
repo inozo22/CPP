@@ -6,7 +6,7 @@
 /*   By: nimai <nimai@student.42urduliz.com>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/28 10:08:19 by nimai             #+#    #+#             */
-/*   Updated: 2023/07/31 16:48:13 by nimai            ###   ########.fr       */
+/*   Updated: 2023/12/19 09:59:40 by nimai            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,17 +24,17 @@
 # include <iostream>
 # include <iomanip>
 
-class Weapon {
+class Weapon 
+{
+	public:
+			Weapon( void );
+			Weapon( std::string name_type );
+			~Weapon( void );
+			void		setType( std::string name_type );
+			std::string	getType( void );
 
-public:
-
-	Weapon( std::string name_type );
-	~Weapon( void );
-	void		setType( std::string name_type );
-	std::string	getType( void );
-
-private:
-    std::string type;
+	private:
+    	std::string type;
 
 };
 

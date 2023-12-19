@@ -6,11 +6,12 @@
 /*   By: nimai <nimai@student.42urduliz.com>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/31 16:03:55 by nimai             #+#    #+#             */
-/*   Updated: 2023/08/01 16:21:09 by nimai            ###   ########.fr       */
+/*   Updated: 2023/12/19 10:03:22 by nimai            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "HumanA.hpp"
+#include <iostream>
 
 HumanA::HumanA( std::string input_name, Weapon &input_weapon ) : name(input_name), weapon(input_weapon)
 {
