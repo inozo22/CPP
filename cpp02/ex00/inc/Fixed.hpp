@@ -6,7 +6,7 @@
 /*   By: nimai <nimai@student.42urduliz.com>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/28 10:08:19 by nimai             #+#    #+#             */
-/*   Updated: 2023/08/23 20:01:03 by nimai            ###   ########.fr       */
+/*   Updated: 2023/12/19 13:51:42 by nimai            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,24 +22,20 @@
 # define UTEST "TEST"
 # define LTEST "test"
 
-# include <iostream>
+class Fixed
+{
+	private:
+			int	_value;
+			static const int	_bits = 8;
+	public:
+			Fixed( void );
+			~Fixed( void );
+			Fixed( const Fixed &fixed );
+			Fixed & operator = ( const Fixed &fixed );
 
-class Fixed {
-
-private:
-	int	_value;
-	static const int	_bits = 8;
-public:
-
-	Fixed( void );
-	~Fixed( void );
-	Fixed( const Fixed &fixed );
-	Fixed & operator = ( const Fixed &fixed );
-
-	int		getRawBits( void ) const;
-	void	setRawBits( int const raw );
+			int		getRawBits( void ) const;
+			void	setRawBits( int const raw );
 
 };
-
 
 #endif
