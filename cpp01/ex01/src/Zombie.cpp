@@ -6,11 +6,13 @@
 /*   By: nimai <nimai@student.42urduliz.com>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/28 10:08:45 by nimai             #+#    #+#             */
-/*   Updated: 2023/07/30 16:35:28 by nimai            ###   ########.fr       */
+/*   Updated: 2023/12/19 09:19:10 by nimai            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Zombie.hpp"
+#include <iostream>
+#include <string>
 
 Zombie::Zombie( void )
 {

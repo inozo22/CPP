@@ -6,17 +6,17 @@
 /*   By: nimai <nimai@student.42urduliz.com>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/28 10:06:00 by nimai             #+#    #+#             */
-/*   Updated: 2023/07/31 14:39:23 by nimai            ###   ########.fr       */
+/*   Updated: 2023/12/19 09:43:15 by nimai            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <string>
+#include <iostream>
 #include "Zombie.hpp"
 
 int	main(void)
 {
 	std::string name;
-//	std::string number;
 	int	N;
 
 	std::cout << "\n...You are creating zombie horde\n";
@@ -26,8 +26,6 @@ int	main(void)
 	std::cin >> N;
 
 	Zombie *zombies = zombieHorde(N, name);
-//	std::cout << N << name << std::endl;
-//	std::cout << zombies << std::endl;
 	for (int i = 0; i < N; ++i)
 	{
 		zombies[i].announce();

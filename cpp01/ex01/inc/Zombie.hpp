@@ -6,7 +6,7 @@
 /*   By: nimai <nimai@student.42urduliz.com>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/28 10:08:19 by nimai             #+#    #+#             */
-/*   Updated: 2023/07/30 16:29:28 by nimai            ###   ########.fr       */
+/*   Updated: 2023/12/19 09:42:33 by nimai            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,23 +21,18 @@
 # define CLEAR "\033[0m"
 
 # include <string>
-# include <iostream>
-# include <iomanip>
 
-class Zombie {
+class Zombie 
+{
+	public:
+			Zombie( void );
+			Zombie( std::string name );
+			~Zombie( void );
+			void	announce( void );
+			void	setName( std::string name );
 
-
-public:
-
-	Zombie( void );
-	Zombie( std::string name );
-	~Zombie( void );
-	void	announce( void );
-	void	setName( std::string name );
-
-private:
-    std::string name;
-
+	private:
+			std::string name;
 };
 
 Zombie*	zombieHorde( int N, std::string name );
