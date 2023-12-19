@@ -6,7 +6,7 @@
 /*   By: nimai <nimai@student.42urduliz.com>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/28 10:08:19 by nimai             #+#    #+#             */
-/*   Updated: 2023/08/03 10:19:18 by nimai            ###   ########.fr       */
+/*   Updated: 2023/12/19 12:09:55 by nimai            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,23 +25,17 @@
 # include <iomanip>
 # include <fstream>
 
-class Replace {
+class Replace
+{
+	public:
+			Replace( std::string filename, std::string s1, std::string s2 );
+			~Replace( void );
+			void	func( void );
 
-
-public:
-
-	Replace( std::string filename, std::string s1, std::string s2 );
-//	Replace( char **av );
-	~Replace( void );
-	void	func( void );
-
-private:
-	std::string _inFile;
-	std::string _outFile;
-	std::string _target;
-	std::string _replacement;
-
+	private:
+			std::string _inFile;
+			std::string _outFile;
+			std::string _target;
+			std::string _replacement;
 };
-
-
 #endif
