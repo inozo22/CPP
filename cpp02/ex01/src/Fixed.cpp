@@ -6,11 +6,12 @@
 /*   By: nimai <nimai@student.42urduliz.com>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/31 16:03:55 by nimai             #+#    #+#             */
-/*   Updated: 2023/08/30 13:12:06 by nimai            ###   ########.fr       */
+/*   Updated: 2023/12/19 16:42:54 by nimai            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Fixed.hpp"
+#include <iostream>
 
 Fixed::Fixed( void ): _value(0)
 {
@@ -19,28 +20,33 @@ Fixed::Fixed( void ): _value(0)
 
 Fixed::Fixed( const int num ): _value(num << this->_bits)//there is a conflict230823
 {
+	// std::cout << "num: " << num << " _value: " << this->_value << std::endl;
 	std::cout << "Int constructor called" << std::endl;
 }
 
 Fixed::Fixed( const float numf ): _value(roundf((float)numf * (1 << this->_bits)))
 {
+	// std::cout << "numf: " << numf << " _value roundf: " << this->_value << std::endl;
 	std::cout << "Float constructor called" << std::endl;
 }
 
 Fixed::~Fixed(void)
 {	
 	std::cout << "Destructor called" << std::endl;
+	std::cout << "_value: " << this->_value << std::endl;
 }
 
 Fixed::Fixed( const Fixed &src )
 {
 	std::cout << "Copy constructor called" << std::endl;
+	// std::cout << "src._value: " << src._value << std::endl;
 	this->operator = (src);
 }
 
 Fixed &Fixed::operator = ( const Fixed &src )
 {
 	std::cout << "Copy assignment operator called" << std::endl;
+	// std::cout << "src._value: " << src._value << std::endl;
 	this->_value = src.getRawBits();
 	return (*this);
 }
