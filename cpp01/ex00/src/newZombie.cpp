@@ -6,11 +6,12 @@
 /*   By: nimai <nimai@student.42urduliz.com>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/28 11:09:28 by nimai             #+#    #+#             */
-/*   Updated: 2023/07/28 11:41:52 by nimai            ###   ########.fr       */
+/*   Updated: 2023/12/19 08:46:17 by nimai            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Zombie.hpp"
+#include <string>
 
 Zombie*	newZombie( std::string name )
 {

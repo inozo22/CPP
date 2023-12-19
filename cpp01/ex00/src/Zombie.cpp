@@ -6,11 +6,17 @@
 /*   By: nimai <nimai@student.42urduliz.com>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/28 10:08:45 by nimai             #+#    #+#             */
-/*   Updated: 2023/07/31 14:30:50 by nimai            ###   ########.fr       */
+/*   Updated: 2023/12/19 08:47:14 by nimai            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Zombie.hpp"
+#include <iostream>
+
+Zombie::Zombie( void )
+{
+	std::cout << "Default constructor called." << std::endl;
+}
 
 Zombie::Zombie( std::string name )
 {
