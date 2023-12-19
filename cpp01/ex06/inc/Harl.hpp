@@ -6,7 +6,7 @@
 /*   By: nimai <nimai@student.42urduliz.com>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/28 10:08:19 by nimai             #+#    #+#             */
-/*   Updated: 2023/08/04 11:19:09 by nimai            ###   ########.fr       */
+/*   Updated: 2023/12/19 12:28:01 by nimai            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,23 +26,21 @@
 # define MSG_WARNING "I think I deserve to have some extra bacon for free. I’ve been coming for years whereas you started working here since last month."
 # define MSG_ERROR "This is unacceptable! I want to speak to the manager now."
 
-# include <iostream>
+# include <string>
 
-class Harl {
-
-private:
-	void	debug( void );
-	void	info( void );
-	void	warning( void );
-	void	error( void );
-public:
-
-	Harl( void );
-	~Harl( void );
-	void	complain( std::string level );
+class Harl
+{
+	private:
+			void	debug( void );
+			void	info( void );
+			void	warning( void );
+			void	error( void );
+	public:
+			Harl( void );
+			~Harl( void );
+			void	complain( std::string level );
 };
 
 typedef void (Harl::*Pointer) ( void );
-
 
 #endif

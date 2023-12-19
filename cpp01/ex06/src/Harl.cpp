@@ -6,20 +6,21 @@
 /*   By: nimai <nimai@student.42urduliz.com>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/31 16:03:55 by nimai             #+#    #+#             */
-/*   Updated: 2023/08/04 16:58:53 by nimai            ###   ########.fr       */
+/*   Updated: 2023/12/19 12:50:54 by nimai            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Harl.hpp"
+# include <iostream>
 
 Harl::Harl( void )
 {
-	
+	// std::cout << "Default constructor called." << std::endl;
 }
 
 Harl::~Harl(void)
 {	
-
+	// std::cout << "Default destructor called." << std::endl;
 }
 
 void	Harl::debug( void )
@@ -41,8 +42,11 @@ void	Harl::error( void )
 void	Harl::complain( std::string level )
 {
 	std::string levels[4] = {"DEBUG", "INFO", "WARNING", "ERROR"};
-	int	i;
 
+	for (int i = 0; level[i]; i++)
+		level[i] = std::toupper(level[i]);
+
+	int	i;
 	for (i = 0; i < 4; ++i)
 	{
 		if (level == levels[i])

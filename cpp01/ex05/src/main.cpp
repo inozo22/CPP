@@ -6,11 +6,12 @@
 /*   By: nimai <nimai@student.42urduliz.com>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/28 10:06:00 by nimai             #+#    #+#             */
-/*   Updated: 2023/08/04 17:03:22 by nimai            ###   ########.fr       */
+/*   Updated: 2023/12/19 12:14:36 by nimai            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Harl.hpp"
+#include <iostream>
 
 int	main(int ac, char **av)
 {

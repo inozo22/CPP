@@ -6,20 +6,21 @@
 /*   By: nimai <nimai@student.42urduliz.com>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/31 16:03:55 by nimai             #+#    #+#             */
-/*   Updated: 2023/08/04 11:35:17 by nimai            ###   ########.fr       */
+/*   Updated: 2023/12/19 12:13:18 by nimai            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Harl.hpp"
+#include <iostream>
 
 Harl::Harl( void )
 {
-	
+	// std::cout << "Default constructor called." << std::endl;
 }
 
 Harl::~Harl(void)
 {	
-
+	// std::cout << "Default destructor called." << std::endl;
 }
 
 void	Harl::debug( void )
