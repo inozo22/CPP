@@ -6,11 +6,12 @@
 /*   By: nimai <nimai@student.42urduliz.com>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/31 16:03:11 by nimai             #+#    #+#             */
-/*   Updated: 2023/08/01 16:22:26 by nimai            ###   ########.fr       */
+/*   Updated: 2023/12/19 10:22:36 by nimai            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Weapon.hpp"
+# include <iostream>
 
 Weapon::Weapon( std::string name_type )
 {
