@@ -6,7 +6,7 @@
 /*   By: nimai <nimai@student.42urduliz.com>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/31 16:03:55 by nimai             #+#    #+#             */
-/*   Updated: 2023/12/19 16:42:54 by nimai            ###   ########.fr       */
+/*   Updated: 2023/12/20 09:30:38 by nimai            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,7 @@ Fixed::Fixed( const float numf ): _value(roundf((float)numf * (1 << this->_bits)
 Fixed::~Fixed(void)
 {	
 	std::cout << "Destructor called" << std::endl;
-	std::cout << "_value: " << this->_value << std::endl;
+	// std::cout << "_value: " << this->_value << std::endl;
 }
 
 Fixed::Fixed( const Fixed &src )
@@ -47,7 +47,8 @@ Fixed &Fixed::operator = ( const Fixed &src )
 {
 	std::cout << "Copy assignment operator called" << std::endl;
 	// std::cout << "src._value: " << src._value << std::endl;
-	this->_value = src.getRawBits();
+	if (this != &src)
+		this->_value = src.getRawBits();
 	return (*this);
 }
 

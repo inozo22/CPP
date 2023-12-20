@@ -6,7 +6,7 @@
 /*   By: nimai <nimai@student.42urduliz.com>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/28 10:06:00 by nimai             #+#    #+#             */
-/*   Updated: 2023/12/19 16:41:31 by nimai            ###   ########.fr       */
+/*   Updated: 2023/12/20 09:31:13 by nimai            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,13 +44,27 @@ int	main(void)
 	Fixed const	c( 42.42f );
 	Fixed const	d( b );
 
+	std::cout << BLUE "pointer: " CLEAR<< std::endl; 
+	std::cout << "a: " << &a << ": " << a << std::endl; 
+	std::cout << "b: " << &b << ": " << b << std::endl; 
+	std::cout << "c: " << &c << ": " << c << std::endl; 
+	std::cout << "d: " << &d << ": " << d << std::endl; 
+
 	a = Fixed( 1234.43521f );
+	std::cout << "a: " << &a << std::endl; 
+
 	// a = Fixed( 20.56f );
 
 	std::cout << "a is " << a << std::endl;
 	std::cout << "b is " << b << std::endl;
 	std::cout << "c is " << c << std::endl;
 	std::cout << "d is " << d << std::endl;
+
+	std::cout << BLUE "pointer: " CLEAR<< std::endl; 
+	std::cout << "a: " << &a << ": " << a << std::endl; 
+	std::cout << "b: " << &b << ": " << b << std::endl; 
+	std::cout << "c: " << &c << ": " << c << std::endl; 
+	std::cout << "d: " << &d << ": " << d << std::endl; 
 	
 	std::cout << "a is " << a.toInt() << " as integer" << std::endl;
 	std::cout << "b is " << b.toInt() << " as integer" << std::endl;
