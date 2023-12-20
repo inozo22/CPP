@@ -6,14 +6,17 @@
 /*   By: nimai <nimai@student.42urduliz.com>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/28 10:06:00 by nimai             #+#    #+#             */
-/*   Updated: 2023/10/25 13:10:59 by nimai            ###   ########.fr       */
+/*   Updated: 2023/12/20 19:06:40 by nimai            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ClapTrap.hpp"
+#include <iostream>
 
 int	main(void)
 {
+	std::cout << GREEN "\n>>>>>>>>>> MY TEST <<<<<<<<<<\n" CLEAR << std::endl;
+	
 	std::string Clap1Name = "S3-E3";
 	std::string Clap2Name = "D-4QP";
 

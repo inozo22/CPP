@@ -6,11 +6,12 @@
 /*   By: nimai <nimai@student.42urduliz.com>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/31 16:03:55 by nimai             #+#    #+#             */
-/*   Updated: 2023/10/25 13:10:18 by nimai            ###   ########.fr       */
+/*   Updated: 2023/12/20 19:11:31 by nimai            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ClapTrap.hpp"
+#include <iostream>
 
 //***	constructor and destructor//constructor and destructor	***//
 ClapTrap::ClapTrap( void ) : _hp(CLAPTRAP_DEFAULT_HP), _energy(CLAPTRAP_DEFAULT_ENERGY), _damage(CLAPTRAP_DEFAULT_DAMAGE)
@@ -26,7 +27,7 @@ ClapTrap::ClapTrap( std::string name ) : _name(name), _hp(CLAPTRAP_DEFAULT_HP), 
 
 ClapTrap::~ClapTrap(void)
 {	
-	std::cout << this->_name << ": Default destructor called." << std::endl;
+	std::cout << this->_name << ": Destructor called." << std::endl;
 }
 
 ClapTrap::ClapTrap( const ClapTrap &src )
@@ -55,31 +56,33 @@ void	ClapTrap::attack(const std::string& target)
 {
 	if (this->_hp > 0 && _energy > 0)
 	{
-		std::cout << "ClapTrap " << this->_name <<  " attacks " << target << ", causing "
-		<< this->_damage << "points of damage!" << std::endl;
+		std::cout << CYAN "ClapTrap " << this->_name <<  " attacks " << target << ", causing "
+		<< this->_damage << "points of damage!: " CLEAR;
 		this->_energy--;
 	}
 	else
 	{
-		std::cout << "ClapTrap " << this->_name << " can't attack due to lack of energy or hit points." << std::endl;
+		std::cout << "ClapTrap " << this->_name << " can't attack due to lack of energy or hit points.: ";
 	}
-	std::cout << GREEN << this->_name << ": hp: " << this->_hp << " energy: " << this->_energy << CLEAR << std::endl;
+	// std::cout << GREEN << this->_name << ": hp: " << this->_hp << " energy: " << this->_energy << CLEAR << std::endl;
+	std::cout << this->_name << ": hp: " << this->_hp << " energy: " << this->_energy << CLEAR << std::endl;
 }
 
 void	ClapTrap::takeDamage(unsigned int amount)
 {
 	if (this->_hp <= 0)
 	{
-		std::cout << "ClapTrap " << this->_name << " can't be taken more damage. It's already..." << std::endl;
+		std::cout << "ClapTrap " << this->_name << " can't be taken more damage. It's already...: ";
 	}
 	else
 	{
-		std::cout << "ClapTrap " << this->_name << " takes " << amount << " points of damage!" << std::endl;
+		std::cout << YELLOW "ClapTrap " << this->_name << " takes " << amount << " points of damage!: " CLEAR;
         this->_hp -= amount;
 		if (this->_hp <= 0)
-			std::cout << this->_name << " is destroyed..." << std::endl;
+			std::cout << this->_name << " is destroyed...: ";
 	}
-	std::cout << RED << this->_name << ": hp: " << this->_hp << " energy: " << this->_energy << CLEAR << std::endl;
+	std::cout << this->_name << ": hp: " << this->_hp << " energy: " << this->_energy << CLEAR << std::endl;
+	// std::cout << RED << this->_name << ": hp: " << this->_hp << " energy: " << this->_energy << CLEAR << std::endl;
 
 }
 
@@ -87,17 +90,16 @@ void	ClapTrap::beRepaired(unsigned int amount)
 {
     if (this->_hp > 0 && this->_energy > 0)
 	{
-        std::cout << "ClapTrap " << this->_name << " is being repaired for " << amount << " hit points." << std::endl;
+        std::cout << BLUE "ClapTrap " << this->_name << " is being repaired for " << amount << " hit points.: " CLEAR;
         this->_hp += amount;
         this->_energy--;
     }
 	else if (this->_hp <= 0)
-	{
-        std::cout << "ClapTrap " << _name << " can't be repaired due to be severely damaged." << std::endl;
-    }
+        std::cout << "ClapTrap " << this->_name << " can't be repaired due to be severely damaged.: ";
 	else
-        std::cout << "ClapTrap " << _name << " can't be repaired due to lack of energy points." << std::endl;	
-	std::cout << BLUE << this->_name << ": hp: " << this->_hp << " energy: " << this->_energy << CLEAR << std::endl;
+        std::cout << "ClapTrap " << this->_name << " can't be repaired due to lack of energy points.: ";	
+	std::cout << this->_name << ": hp: " << this->_hp << " energy: " << this->_energy << CLEAR << std::endl;
+	// std::cout << BLUE << this->_name << ": hp: " << this->_hp << " energy: " << this->_energy << CLEAR << std::endl;
 }
 
 std::string		ClapTrap::getName(void) const
