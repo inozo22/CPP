@@ -6,11 +6,12 @@
 /*   By: nimai <nimai@student.42urduliz.com>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/31 16:03:55 by nimai             #+#    #+#             */
-/*   Updated: 2023/09/05 14:35:28 by nimai            ###   ########.fr       */
+/*   Updated: 2023/12/20 10:07:57 by nimai            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Point.hpp"
+#include <iostream>
 
 //constructor and destructor//constructor and destructor//
 Point::Point( void ): _x(0), _y(0)

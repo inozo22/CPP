@@ -6,12 +6,13 @@
 /*   By: nimai <nimai@student.42urduliz.com>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/28 10:06:00 by nimai             #+#    #+#             */
-/*   Updated: 2023/09/05 14:46:40 by nimai            ###   ########.fr       */
+/*   Updated: 2023/12/20 10:38:37 by nimai            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Point.hpp"
 #include "Fixed.hpp"
+#include <iostream>
 
 bool	bsp( Point const a, Point const b, Point const c, Point const point );
 
@@ -30,6 +31,7 @@ int	main(void)
 	Point	b( 5, 6 );
 	Point	c( 8, 1 );
 	Point	point( 5, 5 );
+	std::cout << "Point a(1, 2), Point b(5, 6), Point c(8, 1), Target Point(5, 5)" << std::endl;
 
 	printResult(bsp(a, b, c, point));
 
@@ -38,6 +40,7 @@ int	main(void)
 	Point	e( -2, 6 );
 	Point	f( 8, 10 );
 	Point	point2( 8, 10 );
+	std::cout << "Point a(1, 2), Point b(-2, 6), Point c(8, 10), Target Point(8, 10)" << std::endl;
 
 	printResult(bsp(d, e, f, point2));
 
@@ -45,7 +48,8 @@ int	main(void)
 	Point	x( 1, 2 );
 	Point	y( 5, 6 );
 	Point	z( 8, 1 );
-	Point	point3( -5, -5 );
+	Point	point3( 8, 0 );
+	std::cout << "Point a(1, 2), Point b(5, 6), Point c(8, 1), Target Point(8, 0)" << std::endl;
 
 	printResult(bsp(x, y, z, point3));
 

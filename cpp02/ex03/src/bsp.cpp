@@ -6,12 +6,13 @@
 /*   By: nimai <nimai@student.42urduliz.com>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/04 15:16:31 by nimai             #+#    #+#             */
-/*   Updated: 2023/09/05 14:47:46 by nimai            ###   ########.fr       */
+/*   Updated: 2023/12/20 10:07:38 by nimai            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Point.hpp"
 #include "Fixed.hpp"
+#include <iostream>
 
 Fixed	getArea( Point const point, Point const a, Point const b, Point const c )
 {
