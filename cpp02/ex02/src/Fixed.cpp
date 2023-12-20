@@ -6,11 +6,13 @@
 /*   By: nimai <nimai@student.42urduliz.com>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/31 16:03:55 by nimai             #+#    #+#             */
-/*   Updated: 2023/09/04 12:54:24 by nimai            ###   ########.fr       */
+/*   Updated: 2023/12/20 09:38:11 by nimai            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Fixed.hpp"
+#include <iostream>
+#include <cmath>
 
 //constructor and destructor//constructor and destructor//
 Fixed::Fixed( void ): _value(0)
