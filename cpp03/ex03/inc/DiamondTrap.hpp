@@ -6,7 +6,7 @@
 /*   By: nimai <nimai@student.42urduliz.com>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/26 12:59:37 by nimai             #+#    #+#             */
-/*   Updated: 2023/12/21 16:25:06 by nimai            ###   ########.fr       */
+/*   Updated: 2023/12/21 17:15:19 by nimai            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,6 +32,12 @@ class DiamondTrap : public FragTrap, public ScavTrap
 
 			using   ScavTrap::attack;
 			void	whoAmI(void);
+			std::string		getName(void) const;
+			std::string		getClapTrapName(void) const;
+		
 };
+
+std::ostream& operator<<(std::ostream &out, DiamondTrap const &src);
+
 
 #endif

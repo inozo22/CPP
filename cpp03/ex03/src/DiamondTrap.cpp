@@ -6,7 +6,7 @@
 /*   By: nimai <nimai@student.42urduliz.com>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/26 12:59:32 by nimai             #+#    #+#             */
-/*   Updated: 2023/12/21 15:51:45 by nimai            ###   ########.fr       */
+/*   Updated: 2023/12/21 17:18:24 by nimai            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,39 +16,42 @@
 //***	constructor and destructor//constructor and destructor	***//
 DiamondTrap::DiamondTrap( void )
 {
-	std::cout << "Default constructor called in DiamondTrap." << std::endl;
+	std::cout << "DiamondTrap Default constructor called." << std::endl;
 }
 
-DiamondTrap::DiamondTrap( std::string name ) : ClapTrap(name + "_clap_name"), FragTrap(name + "_flag_name"), ScavTrap(name + "_scav_name")
+DiamondTrap::DiamondTrap( std::string name ) : ClapTrap(name + "_clap_name"), FragTrap(name), ScavTrap(name)
 {
 	this->_name = name;
 	this->hp = FragTrap::max_hp;
 	this->max_hp = FragTrap::max_hp;
 	this->energy = ScavTrap::energy;
 	this->damage = FragTrap::damage;
-	std::cout << "DiamondTrap " << name << ": Created." << std::endl;
+	std::cout << "DiamondTrap " << this->_name << ": Created." << std::endl;
 }
 
 DiamondTrap::~DiamondTrap(void)
 {	
-	std::cout << this->name << ": Default destructor called in DiamondTrap." << std::endl;
+	std::cout << this->name << ": Destructor called in DiamondTrap." << std::endl;
 }
 
-DiamondTrap::DiamondTrap( const DiamondTrap &src ) : ClapTrap(), FragTrap(), ScavTrap()
+DiamondTrap::DiamondTrap( const DiamondTrap &src ) : ClapTrap(src), FragTrap(src), ScavTrap(src)
 {
-	std::cout << this->name << ": Copy constructor called." << std::endl;
+	this->_name = src.getName();
+	std::cout << this->_name << ": Copy constructor called in DiamondTrap." << std::endl;
 	this->operator=(src);
 }
 
 DiamondTrap &DiamondTrap::operator=( const DiamondTrap &src )
 {
-//	std::cout << "Copy assignment operator called" << std::endl;
+	std::cout << "Copy assignment operator called in DiamondTrap." << std::endl;
 	if (this != &src)
 	{
-		this->name = src.getName();
+		this->_name = src.getName();
 		this->hp = src.getHp();
 		this->energy = src.getEnergy();
 		this->damage = src.getDamage();
+		this->max_hp = src.getMaxHp();
+		ClapTrap::name = src.getClapTrapName();
 	}
 	return (*this);
 }
@@ -70,4 +73,22 @@ void	DiamondTrap::whoAmI( void )
 	std::cout << GREEN << this->name << ": hp: " << this->hp << " energy: " << this->energy << CLEAR << std::endl;
 }
 
+std::string	DiamondTrap::getName( void ) const
+{
+	return (this->_name);
+}
+
+std::string	DiamondTrap::getClapTrapName( void ) const
+{
+	return (ClapTrap::name);
+}
 /**********************************************************************************/
+
+std::ostream&	operator<<(std::ostream &out, DiamondTrap const &src)
+{
+	out << "DiamondTrap name: " << src.getName() << "\nClapTrap name: " << src.getClapTrapName()
+	<< "\nhp: " << src.getHp() << "\nenergy: " << src.getEnergy() << "\ndamage: " 
+	<< src.getDamage() << "\nmax hp: " << src.getMaxHp();
+	return (out);
+}
+
