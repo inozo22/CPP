@@ -6,7 +6,7 @@
 /*   By: nimai <nimai@student.42urduliz.com>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/31 16:03:55 by nimai             #+#    #+#             */
-/*   Updated: 2023/12/20 19:11:31 by nimai            ###   ########.fr       */
+/*   Updated: 2023/12/21 11:34:07 by nimai            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,8 +38,8 @@ ClapTrap::ClapTrap( const ClapTrap &src )
 
 ClapTrap &ClapTrap::operator=( const ClapTrap &src )
 {
-//	std::cout << "Copy assignment operator called" << std::endl;
-	if (this != &src)
+	std::cout << "Copy assignment operator called" << std::endl;
+	if (this != &src)//it's not neecessary? Cause I cannot compile when I have the same this and src
 	{
 		this->_name = src.getName();
 		this->_hp = src.getHp();
@@ -56,15 +56,14 @@ void	ClapTrap::attack(const std::string& target)
 {
 	if (this->_hp > 0 && _energy > 0)
 	{
-		std::cout << CYAN "ClapTrap " << this->_name <<  " attacks " << target << ", causing "
-		<< this->_damage << "points of damage!: " CLEAR;
+		std::cout << "ClapTrap " CYAN << this->_name <<  CLEAR " attacks " << target << ", causing "
+		<< this->_damage << " points of damage!: " CLEAR;
 		this->_energy--;
 	}
 	else
 	{
-		std::cout << "ClapTrap " << this->_name << " can't attack due to lack of energy or hit points.: ";
+		std::cout << "ClapTrap " CYAN << this->_name <<  CLEAR " can't attack due to lack of energy or hit points.: ";
 	}
-	// std::cout << GREEN << this->_name << ": hp: " << this->_hp << " energy: " << this->_energy << CLEAR << std::endl;
 	std::cout << this->_name << ": hp: " << this->_hp << " energy: " << this->_energy << CLEAR << std::endl;
 }
 
@@ -72,34 +71,31 @@ void	ClapTrap::takeDamage(unsigned int amount)
 {
 	if (this->_hp <= 0)
 	{
-		std::cout << "ClapTrap " << this->_name << " can't be taken more damage. It's already...: ";
+		std::cout << "ClapTrap " YELLOW << this->_name << CLEAR " can't be taken more damage. It's already...: ";
 	}
 	else
 	{
-		std::cout << YELLOW "ClapTrap " << this->_name << " takes " << amount << " points of damage!: " CLEAR;
+		std::cout << "ClapTrap " YELLOW << this->_name << CLEAR " takes " << amount << " points of damage!: " CLEAR;
         this->_hp -= amount;
 		if (this->_hp <= 0)
-			std::cout << this->_name << " is destroyed...: ";
+			std::cout << "ClapTrap " << this->_name << " is destroyed...: ";
 	}
 	std::cout << this->_name << ": hp: " << this->_hp << " energy: " << this->_energy << CLEAR << std::endl;
-	// std::cout << RED << this->_name << ": hp: " << this->_hp << " energy: " << this->_energy << CLEAR << std::endl;
-
 }
 
 void	ClapTrap::beRepaired(unsigned int amount)
 {
     if (this->_hp > 0 && this->_energy > 0)
 	{
-        std::cout << BLUE "ClapTrap " << this->_name << " is being repaired for " << amount << " hit points.: " CLEAR;
+		std::cout << "ClapTrap " BLUE << this->_name << CLEAR " is being repaired for " << amount << " hit points.: " CLEAR;
         this->_hp += amount;
         this->_energy--;
     }
 	else if (this->_hp <= 0)
-        std::cout << "ClapTrap " << this->_name << " can't be repaired due to be severely damaged.: ";
+        std::cout << "ClapTrap " BLUE << this->_name << CLEAR " can't be repaired due to be severely damaged.: ";
 	else
-        std::cout << "ClapTrap " << this->_name << " can't be repaired due to lack of energy points.: ";	
+        std::cout << "ClapTrap " BLUE << this->_name << CLEAR " can't be repaired due to lack of energy points.: ";	
 	std::cout << this->_name << ": hp: " << this->_hp << " energy: " << this->_energy << CLEAR << std::endl;
-	// std::cout << BLUE << this->_name << ": hp: " << this->_hp << " energy: " << this->_energy << CLEAR << std::endl;
 }
 
 std::string		ClapTrap::getName(void) const
