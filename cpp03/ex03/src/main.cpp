@@ -6,7 +6,7 @@
 /*   By: nimai <nimai@student.42urduliz.com>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/28 10:06:00 by nimai             #+#    #+#             */
-/*   Updated: 2023/12/21 17:26:18 by nimai            ###   ########.fr       */
+/*   Updated: 2023/12/21 17:46:41 by nimai            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -89,33 +89,37 @@ int	main(void)
 	
 	std::cout << BLUE "\n---Check first DiamondTrap. D003 and D800" CLEAR << std::endl;
 	std::cout << "diamondTrap1: " << diamondTrap1 << std::endl;
-	std::cout << "diamondTrap2: " << diamondTrap2 << std::endl;
+	std::cout << "diamondTrap2: " << diamondTrap2 << std::endl << std::endl;
 	
 	diamondTrap1 = diamondTrap2;
 
 	std::cout << BLUE "\n---Check after copy assignment operator called in DiamondTrap. D003 and D800" CLEAR << std::endl;
 	std::cout << "diamondTrap1: " << diamondTrap1 << std::endl;
-	std::cout << "diamondTrap2: " << diamondTrap2 << std::endl;
+	std::cout << "diamondTrap2: " << diamondTrap2 << std::endl << std::endl;
 
 	DiamondTrap diamondTrap3(diamondTrap1);
 
 	std::cout << BLUE "\n---Check after copy constructor \"DiamondTrap diamondTrap3(diamondTrap1)\" called in DiamondTrap. D003 and D800" CLEAR << std::endl;
 	std::cout << "diamondTrap1: " << diamondTrap1 << std::endl;
-	std::cout << "diamondTrap3: " << diamondTrap3 << std::endl;
+	std::cout << "diamondTrap3: " << diamondTrap3 << std::endl << std::endl;
 
 	
 
 	diamondTrap1.whoAmI();
-	clapTrap.attack(scavTrapName);
-	scavTrap.takeDamage(clapTrap.getDamage());
-	scavTrap.attack(clapTrapName);
-	clapTrap.takeDamage(scavTrap.getDamage());
-	diamondTrap1.attack(scavTrapName);
-	scavTrap.takeDamage(diamondTrap1.getDamage());
-	diamondTrap1.highFiveGuys();
-	diamondTrap1.guardGate();
-	diamondTrap1.takeDamage(5000);
-	diamondTrap1.beRepaired(5000);
-	diamondTrap1.whoAmI();
+	for (int i = 0; i < 5; ++i)
+	{
+		diamondTrap1.attack(diamondTrapName2);
+		diamondTrap2.takeDamage(diamondTrap1.getDamage());
+	}
+	for (int i = 0; i < 50; ++i)
+	{
+		diamondTrap1.highFiveGuys();
+		diamondTrap3.guardGate();
+	}
+	diamondTrap3.highFiveGuys();
+	diamondTrap3.guardGate();
+	diamondTrap3.takeDamage(5000);
+	diamondTrap3.beRepaired(5000);
+	diamondTrap3.whoAmI();
 	return (0);
 }
