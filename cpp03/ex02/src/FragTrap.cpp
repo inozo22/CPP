@@ -6,7 +6,7 @@
 /*   By: nimai <nimai@student.42urduliz.com>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/25 16:45:42 by nimai             #+#    #+#             */
-/*   Updated: 2023/12/21 14:30:27 by nimai            ###   ########.fr       */
+/*   Updated: 2023/12/21 15:36:59 by nimai            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,12 +61,12 @@ void	FragTrap::highFiveGuys( void )
 {
 	if (this->hp > 0 && energy > 0)
 	{
-		std::cout << "FragTrap " MAGENTA << this->name << CLEAR " looks for someone to high-five... HIGH-FIVE!!!!" << std::endl;
+		std::cout << "FragTrap " MAGENTA << this->name << CLEAR " looks for someone to high-five... HIGH-FIVE!!!!: ";
 		this->energy--;
 	}
 	else
 	{
-		std::cout << "FragTrap " MAGENTA << this->name << CLEAR " can't move to find its friend due to lack of energy or hit points." << std::endl;
+		std::cout << "FragTrap " MAGENTA << this->name << CLEAR " can't move to find its friend due to lack of energy or hit points.: ";
 	}
 	std::cout << this->name << ": hp: " << this->hp << " energy: " << this->energy << CLEAR << std::endl;
 }
