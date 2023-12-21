@@ -6,7 +6,7 @@
 /*   By: nimai <nimai@student.42urduliz.com>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/28 10:06:00 by nimai             #+#    #+#             */
-/*   Updated: 2023/12/21 13:48:48 by nimai            ###   ########.fr       */
+/*   Updated: 2023/12/21 14:00:56 by nimai            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,7 @@ int	main(void)
 	scav.beRepaired(0);
 	scav.beRepaired(10);
 
-    std::cout << GREEN "\n---Loop test with 10 times Clap attacks and Scav takeDamages\n" CLEAR << std::endl;
+    std::cout << BLUE "\n---Loop test with 10 times Clap attacks and Scav takeDamages\n" CLEAR << std::endl;
 
 	for (int i = 0; i < 5; i++) 
 	{
@@ -36,22 +36,22 @@ int	main(void)
 		scav.takeDamage(CLAPTRAP_DEFAULT_DAMAGE);
 	}
 
-    std::cout << GREEN "\n---Loop test with 10 times Scav attacks and Clap takeDamages\n" CLEAR << std::endl;
+    std::cout << BLUE "\n---Loop test with 10 times Scav attacks and Clap takeDamages\n" CLEAR << std::endl;
 	for (int i = 0; i < 5; i++) 
 	{
 		scav.attack(clapName);
 		clap.takeDamage(SCAVTRAP_DEFAULT_DAMAGE);
 	}
 
-	std::cout << GREEN "\n---Hello, after a loop!\n" CLEAR << std::endl;
+	std::cout << BLUE "\n---Hello, after a loop!\n" CLEAR << std::endl;
 
 	ClapTrap	cava;
 	cava = clap;
 	scav.attack("Cava");
-	std::cout << BLUE "\nCheck if the coppy constructor works. It will be a copy of Clap ⬇" CLEAR << std::endl;
+	std::cout << BLUE "\n---Check if the coppy constructor works. It will be a copy of Clap ⬇" CLEAR << std::endl;
 	cava.takeDamage(SCAVTRAP_DEFAULT_DAMAGE);
 
-	std::cout << BLUE "\nAnother ScavTrap, NewEnemy has been showed." CLEAR << std::endl;
+	std::cout << BLUE "\n---Another ScavTrap, NewEnemy has been showed." CLEAR << std::endl;
 
 	std::string	newOneName("NewEnemy");
 	ScavTrap	newOne(newOneName);
@@ -67,7 +67,7 @@ int	main(void)
 	clap.attack(scavName);
 	newOne.attack(clapName);
 	
-	std::cout << BLUE "\nNew enemy starts endless guard gate mode!" CLEAR << std::endl;
+	std::cout << BLUE "\n---New enemy starts endless guard gate mode!" CLEAR << std::endl;
 	for (int i = 0; i < 50; i++)
 		newOne.guardGate();	
 	return 0;
