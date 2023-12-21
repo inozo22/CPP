@@ -6,12 +6,11 @@
 /*   By: nimai <nimai@student.42urduliz.com>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/31 16:03:55 by nimai             #+#    #+#             */
-/*   Updated: 2023/12/21 11:47:12 by nimai            ###   ########.fr       */
+/*   Updated: 2023/10/30 12:53:04 by nimai            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ClapTrap.hpp"
-#include <iostream>
 
 //***	constructor and destructor//constructor and destructor	***//
 ClapTrap::ClapTrap( void ) : hp(CLAPTRAP_DEFAULT_HP), max_hp(CLAPTRAP_DEFAULT_HP), energy(CLAPTRAP_DEFAULT_ENERGY), damage(CLAPTRAP_DEFAULT_DAMAGE)
@@ -22,7 +21,7 @@ ClapTrap::ClapTrap( void ) : hp(CLAPTRAP_DEFAULT_HP), max_hp(CLAPTRAP_DEFAULT_HP
 
 ClapTrap::ClapTrap( std::string name ) : name(name), hp(CLAPTRAP_DEFAULT_HP), max_hp(CLAPTRAP_DEFAULT_HP), energy(CLAPTRAP_DEFAULT_ENERGY), damage(CLAPTRAP_DEFAULT_DAMAGE)
 {
-	std::cout << this->name << ": Created." << std::endl;
+	std::cout << this->name << ": Created in ClapTrap." << std::endl;
 }
 
 ClapTrap::~ClapTrap(void)
@@ -84,7 +83,10 @@ void	ClapTrap::takeDamage(unsigned int amount)
 	{
 		std::cout << "ClapTrap " << this->name << " takes " << amount << " points of damage!";
 	}
-	std::cout << YELLOW << "[HP]" << this->hp << "/" << this->max_hp << CLEAR << std::endl;
+	if ((int)this->hp < ((int)this->max_hp * 0.5))
+		std::cout << RED << "[HP]" << this->hp << "/" << this->max_hp << CLEAR << std::endl;
+	else
+		std::cout << YELLOW << "[HP]" << this->hp << "/" << this->max_hp << CLEAR << std::endl;
 	std::cout << RED << this->name << ": hp: " << this->hp << " energy: " << this->energy << CLEAR << std::endl;
 
 }

@@ -6,11 +6,12 @@
 /*   By: nimai <nimai@student.42urduliz.com>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/26 12:59:32 by nimai             #+#    #+#             */
-/*   Updated: 2023/10/26 16:09:47 by nimai            ###   ########.fr       */
+/*   Updated: 2023/12/21 15:51:45 by nimai            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "DiamondTrap.hpp"
+#include <iostream>
 
 //***	constructor and destructor//constructor and destructor	***//
 DiamondTrap::DiamondTrap( void )

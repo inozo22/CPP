@@ -6,7 +6,7 @@
 /*   By: nimai <nimai@student.42urduliz.com>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/28 10:08:19 by nimai             #+#    #+#             */
-/*   Updated: 2023/12/21 16:21:22 by nimai            ###   ########.fr       */
+/*   Updated: 2023/10/26 16:05:53 by nimai            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,22 +17,22 @@
 # define SCAVTRAP_DEFAULT_ENERGY 50
 # define SCAVTRAP_DEFAULT_DAMAGE 20
 
-// # include <iostream>
-# include <string>
 # include "ClapTrap.hpp"
 
 class ScavTrap : virtual public ClapTrap
 {
-	protected:
-			ScavTrap( void );
-	public:
-			ScavTrap( std::string name );
-			ScavTrap( ScavTrap const &src );
-			~ScavTrap( void );
-			ScavTrap &operator=( const ScavTrap &src );
 
-			void	attack(const std::string& target);
-			void	guardGate(void);
+public:
+	ScavTrap( std::string name );
+	ScavTrap( ScavTrap const &src );
+	~ScavTrap( void );
+	ScavTrap &operator=( const ScavTrap &src );
+
+	void	attack(const std::string& target);
+	void	guardGate(void);
+
+protected:
+	ScavTrap( void );
 };
 
 #endif

@@ -6,7 +6,7 @@
 /*   By: nimai <nimai@student.42urduliz.com>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/28 10:06:00 by nimai             #+#    #+#             */
-/*   Updated: 2023/12/21 14:00:56 by nimai            ###   ########.fr       */
+/*   Updated: 2023/12/21 14:46:45 by nimai            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,7 @@ int	main(void)
 	scav.beRepaired(0);
 	scav.beRepaired(10);
 
-    std::cout << BLUE "\n---Loop test with 10 times Clap attacks and Scav takeDamages\n" CLEAR << std::endl;
+    std::cout << BLUE "\n---Loop test with 5 times Clap attacks and Scav takeDamages\n" CLEAR << std::endl;
 
 	for (int i = 0; i < 5; i++) 
 	{
@@ -36,7 +36,7 @@ int	main(void)
 		scav.takeDamage(CLAPTRAP_DEFAULT_DAMAGE);
 	}
 
-    std::cout << BLUE "\n---Loop test with 10 times Scav attacks and Clap takeDamages\n" CLEAR << std::endl;
+    std::cout << BLUE "\n---Loop test with 5 times Scav attacks and Clap takeDamages\n" CLEAR << std::endl;
 	for (int i = 0; i < 5; i++) 
 	{
 		scav.attack(clapName);

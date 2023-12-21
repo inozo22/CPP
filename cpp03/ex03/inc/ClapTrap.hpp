@@ -6,55 +6,60 @@
 /*   By: nimai <nimai@student.42urduliz.com>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/28 10:08:19 by nimai             #+#    #+#             */
-/*   Updated: 2023/10/26 15:34:19 by nimai            ###   ########.fr       */
+/*   Updated: 2023/12/21 16:23:54 by nimai            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef __CLAPTRAP_HPP__
 # define __CLAPTRAP_HPP__
 
-# define BLUE "\033[1;34m"
-# define YELLOW "\033[1;33m"
-# define RED "\033[1;31m"
-# define CYAN "\033[1;36m"
-# define GREEN "\033[1;32m"
-# define CLEAR "\033[0m"
-# define UTEST "TEST"
-# define LTEST "test"
+//===Color font code===/
+# define BLACK   "\x1B[30m"
+# define RED     "\x1b[31m"
+# define GREEN   "\x1b[32m"
+# define YELLOW  "\x1b[33m"
+# define BLUE    "\x1b[34m"
+# define MAGENTA "\x1b[35m"
+# define CYAN    "\x1b[36m"
+# define WHITE   "\x1B[37m"
+# define ORANGE  "\x1B[38;2;255;128;0m"
+# define ROSE    "\x1B[38;2;255;151;203m"
+# define LBLUE   "\x1B[38;2;53;149;240m"
+# define LGREEN  "\x1B[38;2;17;245;120m"
+# define GRAY    "\x1B[38;2;176;174;174m"
+# define CLEAR   "\x1b[0m"
 
 # define CLAPTRAP_DEFAULT_HP 10
 # define CLAPTRAP_DEFAULT_ENERGY 10
 # define CLAPTRAP_DEFAULT_DAMAGE 0
 
-# include <iostream>
+# include <string>
 
 class ClapTrap 
 {
+	protected:
+			std::string		name;
+			unsigned int	hp;
+			unsigned int	energy;
+			unsigned int	damage;
+			unsigned int	max_hp;
+			ClapTrap( void );
 
-protected:
-	std::string		name;
-	unsigned int	hp;
-	unsigned int	max_hp;
-	unsigned int	energy;
-	unsigned int	damage;
-	ClapTrap( void );
+	public:
+			ClapTrap( std::string name );
+			ClapTrap( ClapTrap const &src );
+			~ClapTrap( void );
+			ClapTrap &operator=( const ClapTrap &src );
 
-public:
+			std::string		getName(void) const;
+			unsigned int	getHp(void) const;
+			unsigned int	getEnergy(void) const;
+			unsigned int	getDamage(void) const;
+			unsigned int	getMaxHp(void) const;
 
-	ClapTrap( std::string name );
-	ClapTrap( ClapTrap const &src );
-	~ClapTrap( void );
-	ClapTrap &operator=( const ClapTrap &src );
-
-	std::string		getName(void) const;
-	unsigned int	getHp(void) const;
-	unsigned int	getEnergy(void) const;
-	unsigned int	getDamage(void) const;
-
-	void	attack(const std::string& target);
-	void	takeDamage(unsigned int amount);
-	void	beRepaired(unsigned int amount);
-	
+			void	attack(const std::string& target);
+			void	takeDamage(unsigned int amount);
+			void	beRepaired(unsigned int amount);
 };
 
 #endif

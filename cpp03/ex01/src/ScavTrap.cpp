@@ -6,7 +6,7 @@
 /*   By: nimai <nimai@student.42urduliz.com>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/31 16:03:55 by nimai             #+#    #+#             */
-/*   Updated: 2023/12/21 13:46:09 by nimai            ###   ########.fr       */
+/*   Updated: 2023/12/21 16:30:24 by nimai            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,6 +48,7 @@ ScavTrap &ScavTrap::operator=( const ScavTrap &src )
 		this->hp = src.getHp();
 		this->energy = src.getEnergy();
 		this->damage = src.getDamage();
+		this->max_hp = src.getMaxHp();
 	}
 	return (*this);
 }

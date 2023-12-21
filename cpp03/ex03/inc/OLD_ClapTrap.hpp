@@ -6,7 +6,7 @@
 /*   By: nimai <nimai@student.42urduliz.com>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/28 10:08:19 by nimai             #+#    #+#             */
-/*   Updated: 2023/12/21 11:47:02 by nimai            ###   ########.fr       */
+/*   Updated: 2023/10/26 15:34:19 by nimai            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,31 +27,34 @@
 # define CLAPTRAP_DEFAULT_DAMAGE 0
 
 # include <iostream>
-# include <string>
 
 class ClapTrap 
 {
-	protected:
-			std::string		name;
-			unsigned int	hp;
-			unsigned int	max_hp;
-			unsigned int	energy;
-			unsigned int	damage;
 
-	public:
-			ClapTrap( void );
-			ClapTrap( std::string name );
-			ClapTrap( ClapTrap const &src );
-			~ClapTrap( void );
-			ClapTrap &operator=( const ClapTrap &src );
+protected:
+	std::string		name;
+	unsigned int	hp;
+	unsigned int	max_hp;
+	unsigned int	energy;
+	unsigned int	damage;
+	ClapTrap( void );
 
-			std::string		getName(void) const;
-			unsigned int	getHp(void) const;
-			unsigned int	getEnergy(void) const;
-			unsigned int	getDamage(void) const;
+public:
 
-			void	attack(const std::string& target);
-			void	takeDamage(unsigned int amount);
-			void	beRepaired(unsigned int amount);
+	ClapTrap( std::string name );
+	ClapTrap( ClapTrap const &src );
+	~ClapTrap( void );
+	ClapTrap &operator=( const ClapTrap &src );
+
+	std::string		getName(void) const;
+	unsigned int	getHp(void) const;
+	unsigned int	getEnergy(void) const;
+	unsigned int	getDamage(void) const;
+
+	void	attack(const std::string& target);
+	void	takeDamage(unsigned int amount);
+	void	beRepaired(unsigned int amount);
+	
 };
+
 #endif
