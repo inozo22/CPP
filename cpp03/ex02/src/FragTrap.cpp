@@ -6,16 +6,17 @@
 /*   By: nimai <nimai@student.42urduliz.com>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/25 16:45:42 by nimai             #+#    #+#             */
-/*   Updated: 2023/10/26 11:32:48 by nimai            ###   ########.fr       */
+/*   Updated: 2023/12/21 14:30:27 by nimai            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "FragTrap.hpp"
+#include <iostream>
 
 //***	constructor and destructor//constructor and destructor	***//
 FragTrap::FragTrap( void )
 {
-	std::cout << "Default constructor called." << std::endl;
+	std::cout << "FlagTrap Default constructor called." << std::endl;
 }
 
 FragTrap::FragTrap( std::string name ) : ClapTrap( name )
@@ -29,24 +30,25 @@ FragTrap::FragTrap( std::string name ) : ClapTrap( name )
 
 FragTrap::~FragTrap(void)
 {	
-	std::cout << this->name << ": Default destructor called in FragTrap." << std::endl;
+	std::cout << this->name << ": Destructor called in FragTrap." << std::endl;
 }
 
 FragTrap::FragTrap( const FragTrap &src )
 {
-	std::cout << this->name << ": Copy constructor called." << std::endl;
+	std::cout << this->name << ": Copy constructor called in FragTrap." << std::endl;
 	this->operator=(src);
 }
 
 FragTrap &FragTrap::operator=( const FragTrap &src )
 {
-//	std::cout << "Copy assignment operator called" << std::endl;
+	std::cout << "Copy assignment operator called in FragTrap." << std::endl;
 	if (this != &src)
 	{
 		this->name = src.getName();
 		this->hp = src.getHp();
 		this->energy = src.getEnergy();
 		this->damage = src.getDamage();
+		this->max_hp = src.getMaxHp();
 	}
 	return (*this);
 }
@@ -54,33 +56,19 @@ FragTrap &FragTrap::operator=( const FragTrap &src )
 
 
 /**********************************************************************************/
-// void	FragTrap::attack(const std::string& target)
-// {
-// 	if (this->hp > 0 && energy > 0)
-// 	{
-// 		std::cout << "FragTrap " << this->name <<  " attacks " << target << ", causing "
-// 		<< this->damage << "points of damage!" << std::endl;
-// 		this->energy--;
-// 	}
-// 	else
-// 	{
-// 		std::cout << "FragTrap " << this->name << " can't attack due to lack of energy or hit points." << std::endl;
-// 	}
-// 	std::cout << GREEN << this->name << ": hp: " << this->hp << " energy: " << this->energy << CLEAR << std::endl;
-// }
 
 void	FragTrap::highFiveGuys( void )
 {
 	if (this->hp > 0 && energy > 0)
 	{
-		std::cout << CYAN"FragTrap " << this->name <<  " looks for someone to high-five." << CLEAR << std::endl;
+		std::cout << "FragTrap " MAGENTA << this->name << CLEAR " looks for someone to high-five... HIGH-FIVE!!!!" << std::endl;
 		this->energy--;
 	}
 	else
 	{
-		std::cout << "FragTrap " << this->name << " can't move to find its friend due to lack of energy or hit points." << std::endl;
+		std::cout << "FragTrap " MAGENTA << this->name << CLEAR " can't move to find its friend due to lack of energy or hit points." << std::endl;
 	}
-	std::cout << GREEN << this->name << ": hp: " << this->hp << " energy: " << this->energy << CLEAR << std::endl;
+	std::cout << this->name << ": hp: " << this->hp << " energy: " << this->energy << CLEAR << std::endl;
 }
 
 /**********************************************************************************/
