@@ -6,7 +6,7 @@
 /*   By: nimai <nimai@student.42urduliz.com>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/28 10:08:19 by nimai             #+#    #+#             */
-/*   Updated: 2023/10/25 13:47:46 by nimai            ###   ########.fr       */
+/*   Updated: 2023/12/21 13:03:34 by nimai            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,14 +19,13 @@
 # define CYAN "\033[1;36m"
 # define GREEN "\033[1;32m"
 # define CLEAR "\033[0m"
-# define UTEST "TEST"
-# define LTEST "test"
 
 # define SCAVTRAP_DEFAULT_HP 100
 # define SCAVTRAP_DEFAULT_ENERGY 50
 # define SCAVTRAP_DEFAULT_DAMAGE 20
 
 # include <iostream>
+# include <string>
 # include "ClapTrap.hpp"
 
 class ScavTrap : public ClapTrap
@@ -38,15 +37,15 @@ class ScavTrap : public ClapTrap
 // 	unsigned int	_energy;
 // 	unsigned int	_damage;
 
-public:
-	ScavTrap( void );
-	ScavTrap( std::string name );
-	ScavTrap( ScavTrap const &src );
-	~ScavTrap( void );
-	ScavTrap &operator=( const ScavTrap &src );
+	public:
+			ScavTrap( void );
+			ScavTrap( std::string name );
+			ScavTrap( ScavTrap const &src );
+			~ScavTrap( void );
+			ScavTrap &operator=( const ScavTrap &src );
 
-	void	attack(const std::string& target);
-	void	guardGate(void);
+			void	attack(const std::string& target);
+			void	guardGate(void);
 };
 
 #endif

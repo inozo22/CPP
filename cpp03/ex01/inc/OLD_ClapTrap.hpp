@@ -6,7 +6,7 @@
 /*   By: nimai <nimai@student.42urduliz.com>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/28 10:08:19 by nimai             #+#    #+#             */
-/*   Updated: 2023/12/21 12:05:48 by nimai            ###   ########.fr       */
+/*   Updated: 2023/12/21 11:47:02 by nimai            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,11 +19,14 @@
 # define CYAN "\033[1;36m"
 # define GREEN "\033[1;32m"
 # define CLEAR "\033[0m"
+# define UTEST "TEST"
+# define LTEST "test"
 
 # define CLAPTRAP_DEFAULT_HP 10
 # define CLAPTRAP_DEFAULT_ENERGY 10
 # define CLAPTRAP_DEFAULT_DAMAGE 0
 
+# include <iostream>
 # include <string>
 
 class ClapTrap 
@@ -31,9 +34,9 @@ class ClapTrap
 	protected:
 			std::string		name;
 			unsigned int	hp;
+			unsigned int	max_hp;
 			unsigned int	energy;
 			unsigned int	damage;
-			unsigned int	max_hp;
 
 	public:
 			ClapTrap( void );
@@ -46,11 +49,9 @@ class ClapTrap
 			unsigned int	getHp(void) const;
 			unsigned int	getEnergy(void) const;
 			unsigned int	getDamage(void) const;
-			unsigned int	getMaxHp(void) const;
 
 			void	attack(const std::string& target);
 			void	takeDamage(unsigned int amount);
 			void	beRepaired(unsigned int amount);
 };
-
 #endif
