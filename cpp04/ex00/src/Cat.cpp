@@ -6,11 +6,12 @@
 /*   By: nimai <nimai@student.42urduliz.com>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/26 16:16:49 by nimai             #+#    #+#             */
-/*   Updated: 2023/10/27 12:09:46 by nimai            ###   ########.fr       */
+/*   Updated: 2023/12/22 15:14:02 by nimai            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Cat.hpp"
+#include <iostream>
 
 //***	constructor and destructor//constructor and destructor	***//
 Cat::Cat( void ) : Animal("Cat")
@@ -49,7 +50,19 @@ Cat &Cat::operator=( const Cat &src )
 /**********************************************************************************/
 void	Cat::makeSound( void ) const
 {
-    std::cout << GREEN << this->type << ": " << CAT_SOUND << CLEAR << std::endl;
+    std::cout << GREEN << this->type << ": " << this->getSound() << CLEAR << std::endl;
 	return ;
 }
+
+std::string Cat::getSound( void ) const
+{
+	return (CAT_SOUND);
+}
 /**********************************************************************************/
+
+// std::ostream&	operator<<(std::ostream &out, Cat const &src)
+// {
+// 	std::cout << "Im here !!!!" << std::endl;
+// 	out << "What does the " << src.getType() << " say " << src.getSound();
+// 	return (out);
+// }

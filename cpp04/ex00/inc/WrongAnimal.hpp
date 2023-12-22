@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   WrongAnimal.hpp                                         :+:      :+:    :+:   */
+/*   WrongAnimal.hpp                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: nimai <nimai@student.42urduliz.com>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/26 16:16:54 by nimai             #+#    #+#             */
-/*   Updated: 2023/10/27 12:02:24 by nimai            ###   ########.fr       */
+/*   Updated: 2023/12/22 16:12:44 by nimai            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,10 +19,10 @@
 # define CYAN "\033[1;36m"
 # define GREEN "\033[1;32m"
 # define CLEAR "\033[0m"
-# define UTEST "TEST"
-# define LTEST "test"
 
 # define DEFAULT_WRONGANIMAL "Human"
+# define WRONGANIMAL_SOUND "*human groaning*"
+# define WRONGCAT_SOUND "Bee bee..."
 
 # include <iostream>
 # include <string>
@@ -30,26 +30,22 @@
 class WrongAnimal 
 {
 
-protected:
-	std::string		type;
+	protected:
+				std::string		type;
 
-public:
-	WrongAnimal( void );
-	WrongAnimal( std::string type );
-	WrongAnimal( WrongAnimal const &src );
-	~WrongAnimal( void );
-	WrongAnimal &operator=( const WrongAnimal &src );
+	public:
+				WrongAnimal( void );
+				WrongAnimal( std::string type );
+				WrongAnimal( WrongAnimal const &src );
+				~WrongAnimal( void );
+				WrongAnimal &operator=( const WrongAnimal &src );
 
-	std::string		getType(void) const;
-	// unsigned int	getHp(void) const;
-	// unsigned int	getEnergy(void) const;
-	// unsigned int	getDamage(void) const;
-
-	// void	attack(const std::string& target);
-	// void	takeDamage(unsigned int amount);
-	// void	beRepaired(unsigned int amount);
-    void    makeSound( void ) const;
+  				void    makeSound( void ) const;
+				std::string		getType(void) const;
+				std::string		getSound(void) const;
 	
 };
+// std::ostream&	operator<<(std::ostream &out, Animal const &src);
+
 
 #endif

@@ -6,7 +6,7 @@
 /*   By: nimai <nimai@student.42urduliz.com>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/26 16:16:49 by nimai             #+#    #+#             */
-/*   Updated: 2023/10/27 12:04:46 by nimai            ###   ########.fr       */
+/*   Updated: 2023/12/22 15:13:57 by nimai            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,7 +49,18 @@ Dog &Dog::operator=( const Dog &src )
 /**********************************************************************************/
 void	Dog::makeSound( void ) const
 {
-    std::cout << CYAN << this->type << ": " << DOG_SOUND << CLEAR << std::endl;
+    std::cout << CYAN << this->type << ": " << this->getSound() << CLEAR << std::endl;
 	return ;
 }
+
+std::string Dog::getSound( void ) const
+{
+	return (DOG_SOUND);
+}
 /**********************************************************************************/
+
+// std::ostream&	operator<<(std::ostream &out, Dog const &src)
+// {
+// 	out << "What does the " << src.getType() << " say " << src.getSound();
+// 	return (out);
+// }
