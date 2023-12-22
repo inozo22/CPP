@@ -6,7 +6,7 @@
 /*   By: nimai <nimai@student.42urduliz.com>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/26 16:16:54 by nimai             #+#    #+#             */
-/*   Updated: 2023/12/22 16:42:52 by nimai            ###   ########.fr       */
+/*   Updated: 2023/10/31 12:22:41 by nimai            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,22 +19,20 @@
 
 class Cat : public Animal
 {
-	private:
-			Brain	* _brain;
-	public:
-			Cat( void );
-			Cat( std::string type );
-			Cat( Cat const &src );
-			~Cat( void );
-			Cat &operator=( const Cat &src );
+public:
+	Cat( void );
+	Cat( std::string type );
+	Cat( Cat const &src );
+	~Cat( void );
+	Cat &operator=( const Cat &src );
 
-			// std::string		getType(void) const;
+	Brain*		getBrain(void) const;
+	// std::string		getType(void) const;
 
-   			void		makeSound( void ) const;
-			std::string	getSound( void ) const;
-			Brain*		getBrain(void) const;
+    void    makeSound( void ) const;
 
+private:
+	Brain * _brain;
 };
-// std::ostream&	operator<<(std::ostream &out, Cat const &src);
 
 #endif

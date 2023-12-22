@@ -6,7 +6,7 @@
 /*   By: nimai <nimai@student.42urduliz.com>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/26 16:16:54 by nimai             #+#    #+#             */
-/*   Updated: 2023/10/31 15:28:27 by nimai            ###   ########.fr       */
+/*   Updated: 2023/12/22 17:05:07 by nimai            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,12 +20,11 @@
 # define GREEN "\033[1;32m"
 # define MAGENTA "\033[1;35m"
 # define CLEAR "\033[0m"
-# define UTEST "TEST"
-# define LTEST "test"
 
-# define DEFAULT_ANIMAL "Bird"
-# define DOG_SOUND "Woof woof woof!"
-# define CAT_SOUND "Meaw meaw meaw"
+# define DEFAULT_ANIMAL "Bird[MY FAVORITE DEFAULT ANIMAL]"
+# define DOG_SOUND "Woof woof!"
+# define CAT_SOUND "Meaw"
+# define BIRD_SOUND "Piyo piyo"
 
 # include <iostream>
 # include <string>
@@ -33,26 +32,22 @@
 class Animal 
 {
 
-protected:
-	std::string		type;
+	protected:
+				std::string		type;
 
-public:
-	Animal( void );
-	Animal( std::string type );
-	Animal( Animal const &src );
-	virtual ~Animal( void );
-	Animal &operator=( const Animal &src );
+	public:
+				Animal( void );
+				Animal( std::string type );
+				Animal( Animal const &src );
+				virtual ~Animal( void );
+				Animal &operator=( const Animal &src );
 
-	std::string		getType(void) const;
-	// unsigned int	getHp(void) const;
-	// unsigned int	getEnergy(void) const;
-	// unsigned int	getDamage(void) const;
-
-	// void	attack(const std::string& target);
-	// void	takeDamage(unsigned int amount);
-	// void	beRepaired(unsigned int amount);
-    virtual void    makeSound( void ) const;
+  				virtual void    makeSound( void ) const;
+				std::string		getType(void) const;
+				virtual std::string		getSound(void) const;
 	
 };
+// std::ostream&	operator<<(std::ostream &out, Animal const &src);
+
 
 #endif

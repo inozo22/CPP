@@ -6,12 +6,11 @@
 /*   By: nimai <nimai@student.42urduliz.com>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/26 16:16:49 by nimai             #+#    #+#             */
-/*   Updated: 2023/12/22 15:07:49 by nimai            ###   ########.fr       */
+/*   Updated: 2023/10/27 12:03:21 by nimai            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Animal.hpp"
-#include <iostream>
 
 //***	constructor and destructor//constructor and destructor	***//
 Animal::Animal( void ) : type(DEFAULT_ANIMAL)
@@ -21,7 +20,7 @@ Animal::Animal( void ) : type(DEFAULT_ANIMAL)
 
 Animal::Animal( std::string type ) : type(type)
 {
-	std::cout << "TYPE: " << this->type << ": Created in Animal." << std::endl;
+	std::cout << this->type << ": Created in Animal." << std::endl;
 }
 
 Animal::~Animal(void)
@@ -50,7 +49,7 @@ Animal &Animal::operator=( const Animal &src )
 /**********************************************************************************/
 void	Animal::makeSound( void ) const
 {
-    std::cout << YELLOW << this->type << ": " << this->getSound() << CLEAR << std::endl;
+    std::cout << YELLOW << this->type << ": Piyo piyo" CLEAR << std::endl;
 	return ;
 }
 
@@ -59,15 +58,4 @@ std::string		Animal::getType(void) const
 	return (this->type);
 }
 
-std::string		Animal::getSound(void) const
-{
-	return (BIRD_SOUND);
-}
-
 /**********************************************************************************/
-
-// std::ostream&	operator<<(std::ostream &out, Animal const &src)
-// {
-// 	out << "What does the " << src.getType() << " say " << src.getSound();
-// 	return (out);
-// }

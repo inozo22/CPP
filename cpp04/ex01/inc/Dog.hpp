@@ -6,7 +6,7 @@
 /*   By: nimai <nimai@student.42urduliz.com>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/26 16:16:54 by nimai             #+#    #+#             */
-/*   Updated: 2023/10/31 10:47:19 by nimai            ###   ########.fr       */
+/*   Updated: 2023/12/22 16:45:59 by nimai            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,21 +19,21 @@
 
 class Dog : public Animal
 {
-public:
-	Dog( void );
-	Dog( std::string type );
-	Dog( Dog const &src );
-	~Dog( void );
-	Dog &operator=( const Dog &src );
+	private:
+			Brain	*	_brain;
+	public:
+			Dog( void );
+			Dog( std::string type );
+			Dog( Dog const &src );
+			~Dog( void );
+			Dog &operator=( const Dog &src );
 
-    Brain*		getBrain(void) const;
+			// std::string		getType(void) const;
 
-	// std::string		getType(void) const;
-
-    void    makeSound( void ) const;
-
-private:
-	Brain * _brain;
+			void		makeSound( void ) const;
+			std::string	getSound( void ) const;
+			Brain*		getBrain( void ) const;
 };
+// std::ostream&	operator<<(std::ostream &out, Dog const &src);
 
 #endif

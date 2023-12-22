@@ -6,7 +6,7 @@
 /*   By: nimai <nimai@student.42urduliz.com>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/26 16:16:05 by nimai             #+#    #+#             */
-/*   Updated: 2023/10/31 15:29:19 by nimai            ###   ########.fr       */
+/*   Updated: 2023/12/22 17:10:29 by nimai            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -106,8 +106,8 @@ void    subject_test()
 int main() 
 {
     // subject_test();
-    // my_test();
-    array_test();
+    my_test();
+    // array_test();
     return 0;
 }
 
