@@ -1,38 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Brain.hpp                                          :+:      :+:    :+:   */
+/*   WrongCat.hpp                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: nimai <nimai@student.42urduliz.com>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/10/30 14:03:14 by nimai             #+#    #+#             */
-/*   Updated: 2023/12/26 10:47:03 by nimai            ###   ########.fr       */
+/*   Created: 2023/10/26 16:16:54 by nimai             #+#    #+#             */
+/*   Updated: 2023/10/27 12:05:32 by nimai            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef __BRAIN_HPP__
-# define __BRAIN_HPP__
+#ifndef __WRONGCAT_HPP__
+# define __WRONGCAT_HPP__
 
-# include <string>
-# include "AAnimal.hpp"
+# include "WrongAnimal.hpp"
 
-class Brain
+class WrongCat : public WrongAnimal
 {
-	public:
-    
-		Brain( void );
-		~Brain( void );
-		Brain( Brain const &src );
-		Brain &operator=( const Brain &src );
+public:
+	WrongCat( void );
+	WrongCat( std::string type );
+	WrongCat( WrongCat const &src );
+	~WrongCat( void );
+	WrongCat &operator=( const WrongCat &src );
 
-		std::string	getIdeas(int i) const;
-		void		setIdeas(int index, std::string const & idea);
+	// std::string		getType(void) const;
 
-
-	private:
-		static int const _nb = 100;
-		std::string _ideas[_nb];
-		// std::string const _hundreadIdeas;
+    void    makeSound( void ) const;
 
 };
 

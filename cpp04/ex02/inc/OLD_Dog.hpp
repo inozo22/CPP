@@ -1,39 +1,39 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Brain.hpp                                          :+:      :+:    :+:   */
+/*   Dog.hpp                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: nimai <nimai@student.42urduliz.com>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/10/30 14:03:14 by nimai             #+#    #+#             */
-/*   Updated: 2023/12/26 10:47:03 by nimai            ###   ########.fr       */
+/*   Created: 2023/10/26 16:16:54 by nimai             #+#    #+#             */
+/*   Updated: 2023/10/31 16:06:52 by nimai            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef __BRAIN_HPP__
-# define __BRAIN_HPP__
+#ifndef __DOG_HPP__
+# define __DOG_HPP__
 
-# include <string>
 # include "AAnimal.hpp"
+# include "Brain.hpp"
+# include <string>
 
-class Brain
+class Dog : public AAnimal
 {
-	public:
-    
-		Brain( void );
-		~Brain( void );
-		Brain( Brain const &src );
-		Brain &operator=( const Brain &src );
+public:
+	Dog( void );
+	Dog( std::string type );
+	Dog( Dog const &src );
+	~Dog( void );
+	Dog &operator=( const Dog &src );
 
-		std::string	getIdeas(int i) const;
-		void		setIdeas(int index, std::string const & idea);
+    Brain*		getBrain(void) const;
 
+	// std::string		getType(void) const;
 
-	private:
-		static int const _nb = 100;
-		std::string _ideas[_nb];
-		// std::string const _hundreadIdeas;
+    void    makeSound( void ) const;
 
+private:
+	Brain * _brain;
 };
 
 #endif

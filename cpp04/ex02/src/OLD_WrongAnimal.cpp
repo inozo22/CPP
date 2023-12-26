@@ -1,17 +1,16 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   WrongAnimal.cpp                                    :+:      :+:    :+:   */
+/*   WrongAnimal.cpp                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: nimai <nimai@student.42urduliz.com>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/12/22 16:05:27 by nimai             #+#    #+#             */
-/*   Updated: 2023/12/22 16:12:51 by nimai            ###   ########.fr       */
+/*   Created: 2023/10/26 16:16:49 by nimai             #+#    #+#             */
+/*   Updated: 2023/10/27 12:03:21 by nimai            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "WrongAnimal.hpp"
-#include <iostream>
 
 //***	constructor and destructor//constructor and destructor	***//
 WrongAnimal::WrongAnimal( void ) : type(DEFAULT_WRONGANIMAL)
@@ -21,7 +20,7 @@ WrongAnimal::WrongAnimal( void ) : type(DEFAULT_WRONGANIMAL)
 
 WrongAnimal::WrongAnimal( std::string type ) : type(type)
 {
-	std::cout << "TYPE: " << this->type << ": Created in WrongAnimal." << std::endl;
+	std::cout << this->type << ": Created in WrongAnimal." << std::endl;
 }
 
 WrongAnimal::~WrongAnimal(void)
@@ -37,7 +36,7 @@ WrongAnimal::WrongAnimal( const WrongAnimal &src )
 
 WrongAnimal &WrongAnimal::operator=( const WrongAnimal &src )
 {
-	std::cout << GREEN "WrongAnimal assignment overload operator called." CLEAR << std::endl;
+	std::cout << GREEN "WrongAnimal assignment overload operator called." RESET << std::endl;
 	if (this != &src)
 	{
 		this->type = src.getType();
@@ -50,7 +49,7 @@ WrongAnimal &WrongAnimal::operator=( const WrongAnimal &src )
 /**********************************************************************************/
 void	WrongAnimal::makeSound( void ) const
 {
-    std::cout << YELLOW << this->type << ": " << this->getSound() << CLEAR << std::endl;
+    std::cout << RED << this->type << ": *human groaning*" RESET << std::endl;
 	return ;
 }
 
@@ -59,15 +58,4 @@ std::string		WrongAnimal::getType(void) const
 	return (this->type);
 }
 
-std::string		WrongAnimal::getSound(void) const
-{
-	return (WRONGANIMAL_SOUND);
-}
-
 /**********************************************************************************/
-
-// std::ostream&	operator<<(std::ostream &out, WrongAnimal const &src)
-// {
-// 	out << "What does the " << src.getType() << " say " << src.getSound();
-// 	return (out);
-// }

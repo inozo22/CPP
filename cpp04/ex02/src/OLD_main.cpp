@@ -6,7 +6,7 @@
 /*   By: nimai <nimai@student.42urduliz.com>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/26 16:16:05 by nimai             #+#    #+#             */
-/*   Updated: 2023/12/26 11:16:16 by nimai            ###   ########.fr       */
+/*   Updated: 2023/10/31 16:07:47 by nimai            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,13 +21,13 @@
 void    array_test()
 {
 	std::cout << std::endl << std::endl;
-	std::cout << GREEN "********** ARRAY TEST ********** U •x• U " CLEAR<< std::endl;
+	std::cout << GREEN "********** ARRAY TEST ********** U •x• U " RESET<< std::endl;
 	std::cout << std::endl;
 
 	AAnimal* animalArray[ANIMAL_AMOUNT + 1];
 	animalArray[ANIMAL_AMOUNT] = NULL;
-	std::cout << BLUE "How to keep dogs and cats?-----" CLEAR << std::endl;
-	std::cout << MAGENTA "-----The important thing is that don't keep more than you can take care." CLEAR << std::endl;
+	std::cout << BLUE "How to keep dogs and cats?-----" RESET << std::endl;
+	std::cout << MAGENTA "-----The important thing is that don't keep more than you can take care." RESET << std::endl;
 	for (int i = 0; i < ANIMAL_AMOUNT; i++)
 	{
 		if (i % 2 == 0)
@@ -35,14 +35,14 @@ void    array_test()
 		else
 			animalArray[i] = new Cat();
 	}
-	std::cout << BLUE "I think I welcame too many... they are so loud...-----" CLEAR << std::endl;
-	std::cout << MAGENTA "-----I said to you..." CLEAR << std::endl;	
+	std::cout << BLUE "I think I welcame too many... they are so loud...-----" RESET << std::endl;
+	std::cout << MAGENTA "-----I said to you..." RESET << std::endl;	
 	for (int i = 0; i < ANIMAL_AMOUNT; i++)
 	{
 		animalArray[i]->makeSound();
 	}
-	std::cout << BLUE "I decided to find new family for all of them-----" CLEAR << std::endl;
-	std::cout << MAGENTA "-----OK..." CLEAR << std::endl;	
+	std::cout << BLUE "I decided to find new family for all of them-----" RESET << std::endl;
+	std::cout << MAGENTA "-----OK..." RESET << std::endl;	
     for (int i = 0; i < ANIMAL_AMOUNT; i++)
 	{
 		delete (animalArray[i]);
@@ -51,139 +51,48 @@ void    array_test()
 
 void    my_test()
 {
-	std::cout << std::endl << std::endl;
-	std::cout << GREEN "********** MY DOG TEST ********** U •x• U" CLEAR<< std::endl;
-	std::cout << std::endl;
-	Dog *dog1 = new Dog();
+    std::cout << std::endl << std::endl;
+    std::cout << GREEN "********** MY TEST ********** = •ω• = " RESET<< std::endl;
+    std::cout << std::endl;
+    Dog dog1;
+    dog1.getBrain()->setIdeas(0, "Is it time for a walk?");
 
-	std::cout << BLUE "---Check dog1's ideas." CLEAR << std::endl;
-	for (int i = 0; i < 100; i++)
-	{
-		std::cout << "dog1: " << dog1->getBrain()->getIdeas(i) << std::endl;
-	}
-    
-	std::cout << BLUE "---Set dog1 ideas. \"I love my human.\"" CLEAR << std::endl;
-	for (int i = 0; i < 100; i++)
-	{
-		dog1->getBrain()->setIdeas(i, "I love my human.");    
-	}
-	std::cout << BLUE "---Check dog1's ideas." CLEAR << std::endl;
-	for (int i = 0; i < 100; i++)
-	{
-		std::cout << "dog1: " << dog1->getBrain()->getIdeas(i) << std::endl;
-	}
-
-    Dog *dog2 = new Dog(*dog1); // Deep copy constructor
+    Dog dog2 = dog1; // Deep copy constructor
     // dog2.getBrain()->setIdeas(0, "Chase the squirrel");
-	std::cout << BLUE "---Check dog2's ideas." CLEAR << std::endl;
-	for (int i = 0; i < 100; i++)
-	{
-		std::cout << "dog2: " << dog2->getBrain()->getIdeas(i) << std::endl;
-	}
 
-	std::cout << BLUE "---Set dog2 ideas. \"Is it time for a walk?\"" CLEAR << std::endl;
-	for (int i = 0; i < 100; i++)
-	{
-		dog2->getBrain()->setIdeas(i, "Is it time for a walk?");    
-	}
-	Dog *dog3 = new Dog();
-	// std::cout << dog3 << std::endl;
-	// std::cout << dog2 << std::endl;
+    Dog dog3;
+    dog3 = dog1; // Deep copy assignment operator
+    dog1.getBrain()->setIdeas(0, "I love my human.");
+    std::cout << "dog1: " << dog1.getBrain()->getIdeas(0) << std::endl;
+    std::cout << "dog2: " << dog2.getBrain()->getIdeas(0) << std::endl;
+    std::cout << "dog3: " << dog3.getBrain()->getIdeas(0) << std::endl;
 
-	*dog3 = *dog2;
-	std::cout << BLUE "---Check dog3's ideas." CLEAR << std::endl;
-	for (int i = 0; i < 100; i++)
-	{
-		// std::cout << dog3 << std::endl;
-		std::cout << "dog3: " << dog3->getBrain()->getIdeas(i) << std::endl;
-	}
-	std::cout << BLUE "---Check dog2's ideas." CLEAR << std::endl;
-	for (int i = 0; i < 100; i++)
-	{
-		// std::cout << dog2 << std::endl;
-		std::cout << "dog2: " << dog2->getBrain()->getIdeas(i) << std::endl;
-	}
+    Cat cat1;
+    cat1.getBrain()->setIdeas(0, "Time for a nap.");
 
-/**
- * 
- * 
- * 
- *  
- */
-	std::cout << std::endl << std::endl;
-	std::cout << GREEN "********** MY CAT TEST ********** = •ω• =" CLEAR<< std::endl;
-	std::cout << std::endl;
+    Cat cat2 = cat1; // Deep copy constructor
+    cat2.getBrain()->setIdeas(0, "Pet me, human.");
 
-	Cat *pontaro = new Cat();
-
-	std::cout << BLUE "---Check pontaro's ideas." CLEAR << std::endl;
-	for (int i = 0; i < 100; i++)
-	{
-		std::cout << "pontaro: " << pontaro->getBrain()->getIdeas(i) << std::endl;
-	}
-
-	std::cout << BLUE "---Set pontaro ideas. \"Pet me, human.\"" CLEAR << std::endl;
-	for (int i = 0; i < 100; i++)
-	{
-		pontaro->getBrain()->setIdeas(i, "Pet me, human.");    
-	}
-	std::cout << BLUE "---Check pontaro's ideas." CLEAR << std::endl;
-	for (int i = 0; i < 100; i++)
-	{
-		std::cout << "pontaro: " << pontaro->getBrain()->getIdeas(i) << std::endl;
-	}
-
-	Cat *ponjiro = new Cat(*pontaro); // Deep copy constructor
-	std::cout << BLUE "---Check ponjiro's ideas." CLEAR << std::endl;
-	for (int i = 0; i < 101; i++)
-	{
-		std::cout << "ponjiro: " << ponjiro->getBrain()->getIdeas(i) << std::endl;
-	}
-
-	std::cout << BLUE "---Set ponjiro ideas. \"I'm the ruler of this domain.\"" CLEAR << std::endl;
-	for (int i = 0; i < 101; i++)
-	{
-		ponjiro->getBrain()->setIdeas(i, "I'm the ruler of this domain.");
-	}
-	Cat *copyCat = new Cat();
-	// std::cout << copyCat << std::endl;
-	// std::cout << ponjiro << std::endl;
-
-	*copyCat = *ponjiro;
-	std::cout << BLUE "---Check copyCat's ideas." CLEAR << std::endl;
-	for (int i = 0; i < 100; i++)
-	{
-		// std::cout << copyCat << std::endl;
-		std::cout << "copyCat: " << copyCat->getBrain()->getIdeas(i) << std::endl;
-	}
-	std::cout << BLUE "---Check ponjiro's ideas." CLEAR << std::endl;
-	for (int i = 0; i < 100; i++)
-	{
-		// std::cout << ponjiro << std::endl;
-		std::cout << "ponjiro: " << ponjiro->getBrain()->getIdeas(i) << std::endl;
-	}
-
-	delete dog1;
-	delete dog2;
-	delete dog3;
-	delete pontaro;
-	delete ponjiro;
-	delete copyCat;
+    Cat cat3;
+    cat3 = cat1; // Deep copy assignment operator
+    std::cout << "cat1: " << cat1.getBrain()->getIdeas(0) << std::endl;
+    std::cout << "cat2: " << cat2.getBrain()->getIdeas(0) << std::endl;
+    std::cout << "cat3: " << cat3.getBrain()->getIdeas(0) << std::endl;
 
 }
 
 void    subject_test()
 {
     std::cout << std::endl << std::endl;
-    std::cout << GREEN "********** SUBJECT TEST ********** U •x• U " CLEAR<< std::endl;
+    std::cout << GREEN "********** SUBJECT TEST ********** U •x• U " RESET<< std::endl;
     std::cout << std::endl;
     const AAnimal* j = new Dog();
     const AAnimal* i = new Cat();
     delete j;//should not create a leak 
     delete i;
-    // const Animal* meta = new Animal();
-    // const Animal* j = new Dog();
-    // const Animal* i = new Cat();
+    // const AAnimal* meta = new AAnimal();
+    // const AAnimal* j = new Dog();
+    // const AAnimal* i = new Cat();
     // std::cout << j->getType() << " " << std::endl;
     // std::cout << i->getType() << " " << std::endl;
     // i->makeSound(); //will output the cat sound! 
@@ -197,8 +106,8 @@ void    subject_test()
 int main() 
 {
     // subject_test();
-    my_test();
-    // array_test();
+    // my_test();
+    array_test();
     return 0;
 }
 

@@ -6,7 +6,7 @@
 /*   By: nimai <nimai@student.42urduliz.com>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/30 14:03:14 by nimai             #+#    #+#             */
-/*   Updated: 2023/12/26 10:47:03 by nimai            ###   ########.fr       */
+/*   Updated: 2023/10/31 16:05:04 by nimai            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,7 @@
 
 # include <string>
 # include "AAnimal.hpp"
+
 
 class Brain
 {
@@ -28,11 +29,10 @@ class Brain
 		std::string	getIdeas(int i) const;
 		void		setIdeas(int index, std::string const & idea);
 
+		static int const nb = 100;
 
 	private:
-		static int const _nb = 100;
-		std::string _ideas[_nb];
-		// std::string const _hundreadIdeas;
+		std::string _ideas[nb];
 
 };
 

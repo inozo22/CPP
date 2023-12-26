@@ -1,17 +1,16 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   WrongCat.cpp                                       :+:      :+:    :+:   */
+/*   WrongCat.cpp                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: nimai <nimai@student.42urduliz.com>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/12/22 16:05:01 by nimai             #+#    #+#             */
-/*   Updated: 2023/12/22 16:13:27 by nimai            ###   ########.fr       */
+/*   Created: 2023/10/26 16:16:49 by nimai             #+#    #+#             */
+/*   Updated: 2023/10/27 12:09:46 by nimai            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "WrongCat.hpp"
-#include <iostream>
 
 //***	constructor and destructor//constructor and destructor	***//
 WrongCat::WrongCat( void ) : WrongAnimal("WrongCat")
@@ -37,7 +36,7 @@ WrongCat::WrongCat( const WrongCat &src )
 
 WrongCat &WrongCat::operator=( const WrongCat &src )
 {
-	std::cout << GREEN "WrongCat assignment overload operator called." CLEAR << std::endl;
+	std::cout << GREEN "WrongCat assignment overload operator called." RESET << std::endl;
 	if (this != &src)
 	{
 		this->type = src.getType();
@@ -50,19 +49,7 @@ WrongCat &WrongCat::operator=( const WrongCat &src )
 /**********************************************************************************/
 void	WrongCat::makeSound( void ) const
 {
-    std::cout << GREEN << this->type << ": " << this->getSound() << CLEAR << std::endl;
+    std::cout << GREEN << this->type << ": " << "Baa baa" << RESET << std::endl;
 	return ;
 }
-
-std::string WrongCat::getSound( void ) const
-{
-	return (WRONGCAT_SOUND);
-}
 /**********************************************************************************/
-
-// std::ostream&	operator<<(std::ostream &out, WrongCat const &src)
-// {
-// 	std::cout << "Im here !!!!" << std::endl;
-// 	out << "What does the " << src.getType() << " say " << src.getSound();
-// 	return (out);
-// }
