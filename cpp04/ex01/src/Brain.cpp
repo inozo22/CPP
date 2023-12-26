@@ -6,7 +6,7 @@
 /*   By: nimai <nimai@student.42urduliz.com>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/30 14:03:41 by nimai             #+#    #+#             */
-/*   Updated: 2023/12/22 18:17:08 by nimai            ###   ########.fr       */
+/*   Updated: 2023/12/26 10:19:52 by nimai            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,36 +16,19 @@
 //***	constructor and destructor//constructor and destructor	***//
 Brain::Brain( void )
 {
-	// std::istringstream input;
-	// input.str(this->_hundreadIdeas);
-	// std::string line;
-	// int	i = -1;
-	// while (std::getline(input, line) && ++i < 100)
-	// {
-	// 	this->_ideas[i] = line;
-	// }
-	// for (std::string line; std::getline(input, line);)
-	std::cout << "Default constructor called in Brain. _ideas[0]: " << this->_ideas[0] << std::endl;
+	std::cout << "Default constructor called in Brain." << std::endl;
 	for (int i = 0; i < 100; i++)
 	{
-		std::string str = "idea no. ";
+		std::string str = "idea no.";
 		std::ostringstream num;
 		num << (i + 1);
 		this->_ideas[i] = str + num.str();
 	}
-	// for (int i = 0; i < 100; i++)
-	// 	std::cout << "idea: " << this->_ideas[i] << "\n";
-	// std::cout << std::endl;
 }
 
-// Brain::Brain( std::string type ) : type(type)
-// {
-// 	std::cout << this->type << ": Created in Brain." << std::endl;
-// }
-
-Brain::~Brain(void)
+Brain::~Brain( void )
 {	
-	std::cout << "Default destructor called in Brain";
+	std::cout << "Destructor called in Brain" << std::endl;
 }
 
 Brain::Brain( const Brain &src )
