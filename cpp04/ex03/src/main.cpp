@@ -6,7 +6,7 @@
 /*   By: nimai <nimai@student.42urduliz.com>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/26 16:16:05 by nimai             #+#    #+#             */
-/*   Updated: 2023/12/26 11:38:08 by nimai            ###   ########.fr       */
+/*   Updated: 2023/12/26 14:31:21 by nimai            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,33 +54,69 @@ void    array_test()
 
 void    my_test()
 {
-    std::cout << std::endl << std::endl;
-    std::cout << GREEN "********** MY TEST ********** = •ω• = " RESET<< std::endl;
-    std::cout << std::endl;
-/*    Dog dog1;
-    dog1.getBrain()->setIdeas(0, "Is it time for a walk?");
+	std::cout << std::endl << std::endl;
+	std::cout << GREEN "********** MY TEST ********** = •ω• = " RESET<< std::endl;
+	std::cout << std::endl;
 
-    Dog dog2 = dog1; // Deep copy constructor
-    // dog2.getBrain()->setIdeas(0, "Chase the squirrel");
 
-    Dog dog3;
-    dog3 = dog1; // Deep copy assignment operator
-    dog1.getBrain()->setIdeas(0, "I love my human.");
-    std::cout << "dog1: " << dog1.getBrain()->getIdeas(0) << std::endl;
-    std::cout << "dog2: " << dog2.getBrain()->getIdeas(0) << std::endl;
-    std::cout << "dog3: " << dog3.getBrain()->getIdeas(0) << std::endl;
+	std::cout << BLUE "\n---Call Me Character constructor." RESET << std::endl;
+	ICharacter* me = new Character("me");
 
-    Cat cat1;
-    cat1.getBrain()->setIdeas(0, "Time for a nap.");
+	std::cout << BLUE "\n---Call MateriaSource constructor." RESET << std::endl;
+	IMateriaSource* src = new MateriaSource();
+	std::cout << BLUE "\n---Learn Materia." RESET << std::endl;
 
-    Cat cat2 = cat1; // Deep copy constructor
-    cat2.getBrain()->setIdeas(0, "Pet me, human.");
+	AMateria *ice = new Ice();
+	AMateria *cure = new Cure();
 
-    Cat cat3;
-    cat3 = cat1; // Deep copy assignment operator
-    std::cout << "cat1: " << cat1.getBrain()->getIdeas(0) << std::endl;
-    std::cout << "cat2: " << cat2.getBrain()->getIdeas(0) << std::endl;
-    std::cout << "cat3: " << cat3.getBrain()->getIdeas(0) << std::endl;*/
+	src->learnMateria(ice);
+	src->learnMateria(cure);
+	
+	std::cout << BLUE "\n---Call Bob Character constructor." RESET << std::endl;
+	ICharacter *bob = new Character("bob");
+	std::cout << BLUE "\n---Call Materia constructor." RESET << std::endl;
+
+	AMateria* tmp;
+	tmp = src->createMateria("ice");
+	me->equip(tmp);
+	tmp = src->createMateria("cure");
+	me->equip(tmp);
+	tmp = src->createMateria("ice");
+	me->equip(tmp);
+	tmp = src->createMateria("cure");
+	me->equip(tmp);
+	std::cout << BLUE "\n---Bob uses 0 materia, which is not set yet." RESET << std::endl;
+	bob->use(0, *me);
+	std::cout << BLUE "\n---Can I have more than 4???." RESET << std::endl;
+	tmp = src->createMateria("cure");
+	me->equip(tmp);
+	std::cout << BLUE "\n---I am going to throw a materia." RESET << std::endl;
+	me->unequip(0);
+
+	std::cout << BLUE "\n---Try to have the preview one. If there is no error message, I got it." RESET << std::endl;
+	me->equip(tmp);
+
+
+	
+	std::cout << BLUE "\n---me uses 2 materias to Bob." RESET << std::endl;
+	me->use(0, *bob);
+	me->use(1, *bob);
+	std::cout << BLUE "\n---Create materia not existing and try to keep it." RESET << std::endl;
+
+	tmp = src->createMateria("CURE");
+	me->equip(tmp);
+
+	tmp = src->createMateria("AJO");
+	tmp = src->createMateria("ice");
+	me->equip(tmp);
+	tmp = src->createMateria("cure");
+	me->equip(tmp);
+	for (int i = 0; i < 5; i++)
+		me->use(i, *bob);
+
+	delete bob;
+	delete me;
+	delete src;
 
 }
 
@@ -184,12 +220,46 @@ void    subject_test()
 	delete me;
 	delete src;
 }
+// void    subject_test()
+// {
+
+// 	// std::cout << std::endl << std::endl;
+// 	// std::cout << "********** SUBJECT TEST **********"<< std::endl;
+// 	// std::cout << std::endl;
+
+// 	IMateriaSource* src = new MateriaSource();
+// 	AMateria *ice = new Ice();
+// 	AMateria *cure = new Cure();
+	
+// 	src->learnMateria(ice);
+// 	src->learnMateria(cure);
+
+// 	delete ice;
+// 	delete cure;
+
+// 	ICharacter* me = new Character("me");
+
+// 	AMateria* tmp;
+// 	tmp = src->createMateria("ice");
+// 	me->equip(tmp);
+// 	tmp = src->createMateria("cure");
+// 	me->equip(tmp);
+
+// 	ICharacter *bob = new Character("bob");
+
+// 	me->use(0, *bob);
+// 	me->use(1, *bob);
+
+// 	delete bob;
+// 	delete me;
+// 	delete src;
+// }
 
 int main() 
 {
-    subject_test();
+    // subject_test();
 	// bad_state_test();
-    // my_test();
+    my_test();
     // array_test();
     return 0;
 }

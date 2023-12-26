@@ -6,7 +6,7 @@
 /*   By: nimai <nimai@student.42urduliz.com>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/01 12:28:12 by nimai             #+#    #+#             */
-/*   Updated: 2023/12/26 11:42:30 by nimai            ###   ########.fr       */
+/*   Updated: 2023/12/26 14:26:35 by nimai            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -102,8 +102,9 @@ void	Character::unequip(int idx)
 	{
 		if (this->_materias[idx])
 		{
-			this->_materias[idx] = NULL;
 			std::cout << this->getName() << ": threw materia: " << this->_materias[idx]->getType() << std::endl;
+			delete (this->_materias[idx]);
+			this->_materias[idx] = NULL;
 		}
 		else
 			std::cout << RED << this->getName() << ": this inventory is empty." RESET << std::endl;
