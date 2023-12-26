@@ -6,11 +6,12 @@
 /*   By: nimai <nimai@student.42urduliz.com>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/01 12:28:12 by nimai             #+#    #+#             */
-/*   Updated: 2023/11/03 15:08:16 by nimai            ###   ########.fr       */
+/*   Updated: 2023/12/26 11:42:30 by nimai            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Character.hpp"
+#include "../inc/Character.hpp"
+#include <iostream>
 #include <string>
 
 Character::Character ( void ): _name("unknown")
@@ -47,7 +48,7 @@ Character::~Character( void )
 		if (this->_materias[i] != NULL)
 			delete (this->_materias[i]);
 	}
-	// std::cout << "Default destructor called in Character";
+	// std::cout << "Destructor called in Character";
 }
 
 Character &Character::operator=( const Character &src )

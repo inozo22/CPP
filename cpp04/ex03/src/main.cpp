@@ -6,17 +6,18 @@
 /*   By: nimai <nimai@student.42urduliz.com>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/26 16:16:05 by nimai             #+#    #+#             */
-/*   Updated: 2023/11/03 15:07:16 by nimai            ###   ########.fr       */
+/*   Updated: 2023/12/26 11:38:08 by nimai            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "AMateria.hpp"
-#include "IMateriaSource.hpp"
-#include "MateriaSource.hpp"
-#include "ICharacter.hpp"
-#include "Character.hpp"
-#include "Ice.hpp"
-#include "Cure.hpp"
+#include "../inc/AMateria.hpp"
+#include "../inc/IMateriaSource.hpp"
+#include "../inc/MateriaSource.hpp"
+#include "../inc/ICharacter.hpp"
+#include "../inc/Character.hpp"
+#include "../inc/Ice.hpp"
+#include <iostream>
+#include "../inc/Cure.hpp"
 
 //#define ANIMAL_AMOUNT 10
 
@@ -158,9 +159,9 @@ void    bad_state_test()
 void    subject_test()
 {
 
-    // std::cout << std::endl << std::endl;
-    // std::cout << "********** SUBJECT TEST **********"<< std::endl;
-    // std::cout << std::endl;
+	// std::cout << std::endl << std::endl;
+	// std::cout << "********** SUBJECT TEST **********"<< std::endl;
+	// std::cout << std::endl;
 
 	IMateriaSource* src = new MateriaSource();
 	src->learnMateria(new Ice());

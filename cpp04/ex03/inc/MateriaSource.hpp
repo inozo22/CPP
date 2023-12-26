@@ -6,7 +6,7 @@
 /*   By: nimai <nimai@student.42urduliz.com>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/03 10:11:48 by nimai             #+#    #+#             */
-/*   Updated: 2023/11/03 12:28:12 by nimai            ###   ########.fr       */
+/*   Updated: 2023/12/26 11:31:35 by nimai            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@ class MateriaSource : public IMateriaSource
 			AMateria    *_materias[MAX_MATERIA];
 	public:
 			MateriaSource( void );
-			// MateriaSource( MateriaSource const & src);
+			MateriaSource( MateriaSource const & src);
 			~MateriaSource( void );
 
 			MateriaSource & operator=(MateriaSource const & src);

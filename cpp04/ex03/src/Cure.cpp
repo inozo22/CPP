@@ -10,7 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Cure.hpp"
+#include "../inc/Cure.hpp"
 #include <iostream>
 #include <string>
 
@@ -22,7 +22,7 @@ Cure::Cure( void ) : AMateria("cure")
 
 Cure::~Cure(void)
 {
-	// std::cout << "Default destructor called in Cure." << std::endl;
+	// std::cout << "Destructor called in Cure." << std::endl;
 }
 
 Cure::Cure( const Cure &src ) : AMateria("cure")

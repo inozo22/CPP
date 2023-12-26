@@ -6,7 +6,7 @@
 /*   By: nimai <nimai@student.42urduliz.com>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/26 16:16:54 by nimai             #+#    #+#             */
-/*   Updated: 2023/11/03 11:23:18 by nimai            ###   ########.fr       */
+/*   Updated: 2023/12/26 11:30:59 by nimai            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,11 +25,7 @@ class Cure : public AMateria
 			~Cure( void );
 			Cure &operator=( const Cure &src );
 
-//	Brain*		getBrain(void) const;
-//	std::string	const &getType(void) const;
-
 			AMateria *	clone( void ) const;
-//    void    makeSound( void ) const;
 			void	use(ICharacter& target);
 };
 

@@ -6,11 +6,12 @@
 /*   By: nimai <nimai@student.42urduliz.com>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/26 16:16:49 by nimai             #+#    #+#             */
-/*   Updated: 2023/11/03 15:02:42 by nimai            ###   ########.fr       */
+/*   Updated: 2023/12/26 11:43:00 by nimai            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Ice.hpp"
+#include <iostream>
+#include "../inc/Ice.hpp"
 
 //***	constructor and destructor//constructor and destructor	***//
 Ice::Ice( void ) : AMateria("ice")
@@ -20,7 +21,7 @@ Ice::Ice( void ) : AMateria("ice")
 
 Ice::~Ice(void)
 {
-	// std::cout << "Default destructor called in Ice." << std::endl;
+	// std::cout << "Destructor called in Ice." << std::endl;
 }
 
 Ice::Ice( const Ice &src ) : AMateria("ice")

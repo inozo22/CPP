@@ -6,7 +6,7 @@
 /*   By: nimai <nimai@student.42urduliz.com>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/01 12:27:50 by nimai             #+#    #+#             */
-/*   Updated: 2023/11/03 09:54:11 by nimai            ###   ########.fr       */
+/*   Updated: 2023/12/26 11:30:43 by nimai            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,8 +22,8 @@
 class Character: public ICharacter
 {
 	private:
-		std::string _name;
-		AMateria	*_materias[MAX_MATERIA];
+			std::string _name;
+			AMateria	*_materias[MAX_MATERIA];
 
 	public:
 			Character( void );

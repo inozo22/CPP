@@ -6,14 +6,15 @@
 /*   By: nimai <nimai@student.42urduliz.com>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/03 12:22:30 by nimai             #+#    #+#             */
-/*   Updated: 2023/11/03 15:04:53 by nimai            ###   ########.fr       */
+/*   Updated: 2023/12/26 11:37:29 by nimai            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <string>
-#include "MateriaSource.hpp"
-#include "Cure.hpp"
-#include "Ice.hpp"
+#include <iostream>
+#include "../inc/MateriaSource.hpp"
+#include "../inc/Cure.hpp"
+#include "../inc/Ice.hpp"
 
 MateriaSource::MateriaSource( void )
 {
