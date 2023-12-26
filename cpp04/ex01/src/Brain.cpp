@@ -6,7 +6,7 @@
 /*   By: nimai <nimai@student.42urduliz.com>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/30 14:03:41 by nimai             #+#    #+#             */
-/*   Updated: 2023/12/26 10:19:52 by nimai            ###   ########.fr       */
+/*   Updated: 2023/12/26 10:59:14 by nimai            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,8 +54,9 @@ std::string		Brain::getIdeas(int index) const
 {
 	if (index < 0 || index > 99)
 	{	
-		std::cout << RED "index should not be negative number nor more than 99." CLEAR << std::endl;
-		return (NULL);
+		// std::cout << RED "index should not be negative number nor more than 99." CLEAR << std::endl;
+		// return (NULL);
+		return (RED "index should not be negative number nor more than 99." CLEAR);
 	}
 	// if (this->_ideas[index] == (std::string)NULL)
 	// {

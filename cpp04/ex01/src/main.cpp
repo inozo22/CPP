@@ -6,7 +6,7 @@
 /*   By: nimai <nimai@student.42urduliz.com>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/26 16:16:05 by nimai             #+#    #+#             */
-/*   Updated: 2023/12/26 10:28:37 by nimai            ###   ########.fr       */
+/*   Updated: 2023/12/26 10:53:51 by nimai            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -135,13 +135,13 @@ void    my_test()
 
 	Cat *ponjiro = new Cat(*pontaro); // Deep copy constructor
 	std::cout << BLUE "---Check ponjiro's ideas." CLEAR << std::endl;
-	for (int i = 0; i < 100; i++)
+	for (int i = 0; i < 101; i++)
 	{
 		std::cout << "ponjiro: " << ponjiro->getBrain()->getIdeas(i) << std::endl;
 	}
 
 	std::cout << BLUE "---Set ponjiro ideas. \"I'm the ruler of this domain.\"" CLEAR << std::endl;
-	for (int i = 0; i < 100; i++)
+	for (int i = 0; i < 101; i++)
 	{
 		ponjiro->getBrain()->setIdeas(i, "I'm the ruler of this domain.");
 	}
@@ -197,8 +197,8 @@ void    subject_test()
 int main() 
 {
     // subject_test();
-    // my_test();
-    array_test();
+    my_test();
+    // array_test();
     return 0;
 }
 
