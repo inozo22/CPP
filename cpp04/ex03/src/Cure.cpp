@@ -20,15 +20,15 @@ Cure::Cure( void ) : AMateria("cure")
 	// std::cout << "Default constructor called in Cure." << std::endl;
 }
 
-Cure::~Cure(void)
-{
-	// std::cout << "Destructor called in Cure." << std::endl;
-}
-
 Cure::Cure( const Cure &src ) : AMateria("cure")
 {
 	*this = src;
 	// std::cout << "Copy constructor called in Cure." << std::endl;
+}
+
+Cure::~Cure( void )
+{
+	// std::cout << "Destructor called in Cure." << std::endl;
 }
 
 Cure &Cure::operator=( const Cure &src )

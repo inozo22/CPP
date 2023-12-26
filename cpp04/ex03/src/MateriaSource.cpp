@@ -6,7 +6,7 @@
 /*   By: nimai <nimai@student.42urduliz.com>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/03 12:22:30 by nimai             #+#    #+#             */
-/*   Updated: 2023/12/26 11:37:29 by nimai            ###   ########.fr       */
+/*   Updated: 2023/12/26 12:05:36 by nimai            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,9 +25,21 @@ MateriaSource::MateriaSource( void )
 	}
 }
 
+MateriaSource::MateriaSource( MateriaSource const & src )
+{
+	// std::cout << "Default constructor called in MateriaSource" << std::endl;
+	for (int i = 0; i < MAX_MATERIA; i++)
+	{
+		if (src._materias[i])
+			this->_materias[i] = src._materias[i]->clone();
+		else
+			this->_materias[i] = NULL;
+	}
+}
+
 MateriaSource::~MateriaSource( void )
 {
-	// std::cout << "Default destructor called in MateriaSource." << std::endl;
+	// std::cout << "Destructor called in MateriaSource." << std::endl;
 	for (int i = 0; i < MAX_MATERIA; i++)
 	{
 		if (this->_materias[i] != NULL)
@@ -37,6 +49,27 @@ MateriaSource::~MateriaSource( void )
 		}
 	}
 }
+
+MateriaSource & MateriaSource::operator=( MateriaSource const & src )
+{
+	if (this != &src)
+	{
+		for (int i = 0; i < MAX_MATERIA; i++)
+		{
+			if (this->_materias[i] != NULL)
+			{
+				delete (this->_materias[i]);
+				this->_materias[i] = NULL;
+			}
+			if (src._materias[i])
+				this->_materias[i] = src._materias[i]->clone();
+			else
+				this->_materias[i] = NULL;
+		}
+	}
+	return (*this);
+}
+
 
 void MateriaSource::learnMateria( AMateria *newOne )
 {
