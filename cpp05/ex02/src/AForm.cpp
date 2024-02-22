@@ -6,7 +6,7 @@
 /*   By: nimai <nimai@student.42urduliz.com>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/03 15:51:24 by nimai             #+#    #+#             */
-/*   Updated: 2023/11/23 11:51:53 by nimai            ###   ########.fr       */
+/*   Updated: 2024/02/22 17:35:38 by nimai            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,11 +68,11 @@ void	AForm::execute( Bureaucrat const & executer ) const
 	if (executer.getGrade() > this->_gradeToExecute)
 		return (throw(AForm::GradeTooLowException()));
 	std::cout << executer.getName() << " executed " << std::endl;
-	this->beExecuted();	
+	this->beExecuted();
 }
 
 
-
+// Accessor functions
 std::string const &AForm::getName( void ) const
 {
 	return (this->_name);
@@ -88,6 +88,12 @@ int	AForm::getGradeToExecute( void ) const
 	return (this->_gradeToExecute);
 }
 
+bool	AForm::isSigned( void ) const
+{
+	return (this->_signed);
+}
+
+// Exception functions
 const char	*	AForm::GradeTooHighException::what(void) const throw()
 {
 	return ("The grade is too high for this form.");
@@ -110,7 +116,7 @@ const char	*	AForm::NoSignedException::what(void) const throw()
 
 std::ostream &	operator << (std::ostream & os, AForm const & obj)
 {
-	os << obj.getName() << " (Required grade " << obj.getGradeToSign()
-	<< " to sign and " << obj.getGradeToExecute() << " to execute)";
+	os << "Form name: "<< obj.getName() << ", Required grade to sign: " << obj.getGradeToSign()
+	<< ", Required grade to execute: " << obj.getGradeToExecute() << ", Is signed: " << (obj.isSigned() ? "Yes" : "No");
 	return (os);
 }

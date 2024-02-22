@@ -6,7 +6,7 @@
 #    By: nimai <nimai@student.42urduliz.com>        +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/07/25 11:05:17 by nimai             #+#    #+#              #
-#    Updated: 2023/11/22 15:54:29 by nimai            ###   ########.fr        #
+#    Updated: 2024/02/22 17:36:33 by nimai            ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -81,6 +81,7 @@ clean:
 
 fclean: clean
 	$(RM) $(NAME)
+	$(RM) Bonsai_shrubbery
 	$(RF) $(BUILD_DIR)
 	$(info ELIMINATED $(NAME))
 

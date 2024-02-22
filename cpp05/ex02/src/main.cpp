@@ -6,7 +6,7 @@
 /*   By: nimai <nimai@student.42urduliz.com>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/03 15:51:22 by nimai             #+#    #+#             */
-/*   Updated: 2023/11/23 11:02:49 by nimai            ###   ########.fr       */
+/*   Updated: 2024/02/22 17:27:44 by nimai            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,6 +45,7 @@ void	main_test( void )
 	std::cout << GREEN "----- ShrubberyCreationForm Sign and execute -----" RESET << std::endl << std::endl;
 
 	commonOfficer.signForm(SCForm);
+	managerialPost.signForm(SCForm);
 	commonOfficer.executeForm(SCForm);
 	managerialPost.executeForm(SCForm);
 

@@ -6,7 +6,7 @@
 /*   By: nimai <nimai@student.42urduliz.com>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/09 15:50:47 by nimai             #+#    #+#             */
-/*   Updated: 2023/11/23 09:58:44 by nimai            ###   ########.fr       */
+/*   Updated: 2024/02/22 17:14:22 by nimai            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,7 +50,7 @@ RobotomyRequestForm &RobotomyRequestForm::operator=( const RobotomyRequestForm &
 
 void	RobotomyRequestForm::beExecuted( void ) const
 {
-	std::srand(std::time(nullptr));//did not work without this
+	std::srand(std::time(0));
 
 	std::cout << CYAN << this->_target << " * chuiiiiiiiin dlullululluulu pi--- pi--- BIIIIIIIIII * " RESET << std::endl;
 	if (std::rand() % 2)
