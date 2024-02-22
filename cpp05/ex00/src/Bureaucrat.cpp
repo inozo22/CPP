@@ -6,7 +6,7 @@
 /*   By: nimai <nimai@student.42urduliz.com>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/03 15:51:24 by nimai             #+#    #+#             */
-/*   Updated: 2023/11/07 11:14:34 by nimai            ###   ########.fr       */
+/*   Updated: 2024/02/22 12:53:28 by nimai            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,10 +54,12 @@ Bureaucrat &Bureaucrat::operator=( const Bureaucrat &src )
 	return (*this);
 }
 
+// Increment and Decrement functions
 void	Bureaucrat::incrementGrade( void )
 {
 	this->incrementGrade(1);
 }
+
 void	Bureaucrat::incrementGrade( int i )
 {
 	if (this->_grade - i < HIGHEST)
@@ -65,10 +67,12 @@ void	Bureaucrat::incrementGrade( int i )
 	this->_grade -= i;
 	std::cout << this->_name << " is promoted to " << this->_grade << "th postion. Congrats!" << std::endl;
 }
+
 void	Bureaucrat::decrementGrade( void )
 {
 	this->decrementGrade(1);
 }
+
 void	Bureaucrat::decrementGrade( int i )
 {
 	if (this->_grade + i > LOWEST)
@@ -77,7 +81,7 @@ void	Bureaucrat::decrementGrade( int i )
 	std::cout << this->_name << " is demoted to " << this->_grade << "th postion. Never mind!" << std::endl;
 }
 
-
+// Accessor functions
 std::string const &Bureaucrat::getName( void ) const
 {
 	return (this->_name);
@@ -88,6 +92,7 @@ int	Bureaucrat::getGrade( void ) const
 	return (this->_grade);
 }
 
+// Exception classes
 const char	*	Bureaucrat::GradeTooHighException::what(void) const throw()
 {
 	return ("Bureaucrat: grade too high.");
@@ -98,6 +103,7 @@ const char	*	Bureaucrat::GradeTooLowException::what(void) const throw()
 	return ("Bureaucrat: grade too low.");
 }
 
+// Stream insertion operator overload
 std::ostream &	operator << (std::ostream & os, Bureaucrat const & obj)
 {
 	os << "Bureaucrat: " << obj.getName() << " bureaucrat grade " << obj.getGrade();

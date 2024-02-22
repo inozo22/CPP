@@ -6,7 +6,7 @@
 /*   By: nimai <nimai@student.42urduliz.com>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/03 15:50:58 by nimai             #+#    #+#             */
-/*   Updated: 2023/11/07 11:14:59 by nimai            ###   ########.fr       */
+/*   Updated: 2024/02/22 12:39:52 by nimai            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@
 # include <string>
 
 # define HIGHEST	1
-# define LOWEST	150
+# define LOWEST		150
 
 //===Color font code===/
 #define BLACK   "\x1B[30m"

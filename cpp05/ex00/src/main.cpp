@@ -6,7 +6,7 @@
 /*   By: nimai <nimai@student.42urduliz.com>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/03 15:51:22 by nimai             #+#    #+#             */
-/*   Updated: 2023/11/08 11:13:58 by nimai            ###   ########.fr       */
+/*   Updated: 2024/02/20 15:56:09 by nimai            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,11 +68,36 @@ void second_test()
 
 }
 
+void third_test() 
+{
+	std::cout << std::endl << std::endl;
+	std::cout << "********** THIRD TEST **********"<< std::endl;
+	std::cout << std::endl;
+
+    try {
+        Bureaucrat highGradeBureaucrat("John", 1);
+        Bureaucrat lowGradeBureaucrat("Alice", 150);
+
+        std::cout << highGradeBureaucrat << std::endl;
+        std::cout << lowGradeBureaucrat << std::endl;
+
+        lowGradeBureaucrat.decrementGrade();
+        highGradeBureaucrat.incrementGrade();
+
+        std::cout << highGradeBureaucrat << std::endl;
+        std::cout << lowGradeBureaucrat << std::endl;
+    }
+    catch (const std::exception &e) {
+        std::cerr << "Exception caught: " << e.what() << std::endl;
+    }
+}
+
 
 int	main( void )
 {
-	main_test();
+	// main_test();
 	// second_test();
+	third_test();
 	
 
 
