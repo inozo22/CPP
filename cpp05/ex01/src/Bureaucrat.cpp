@@ -6,7 +6,7 @@
 /*   By: nimai <nimai@student.42urduliz.com>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/03 15:51:24 by nimai             #+#    #+#             */
-/*   Updated: 2023/11/08 17:03:35 by nimai            ###   ########.fr       */
+/*   Updated: 2024/02/22 16:05:31 by nimai            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -82,7 +82,7 @@ void	Bureaucrat::signForm( Form & form ) const
 	try
 	{
 		form.beSigned(*this);
-		std::cout << this->_name << "has signed" << form << std::endl;
+		std::cout << this->_name << " has signed " << form << std::endl;
 	}
 	catch(const std::exception& e)
 	{

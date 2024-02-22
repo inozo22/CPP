@@ -6,7 +6,7 @@
 /*   By: nimai <nimai@student.42urduliz.com>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/03 15:51:24 by nimai             #+#    #+#             */
-/*   Updated: 2023/11/08 17:04:15 by nimai            ###   ########.fr       */
+/*   Updated: 2024/02/22 16:12:38 by nimai            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -72,6 +72,11 @@ int	Form::getGradeToExecute( void ) const
 	return (this->_gradeToExecute);
 }
 
+bool	Form::isSigned( void ) const
+{
+	return (this->_signed);
+}
+
 const char	*	Form::GradeTooHighException::what(void) const throw()
 {
 	return ("Form: grade too high to sign.");
@@ -89,6 +94,6 @@ const char	*	Form::SignedException::what(void) const throw()
 
 std::ostream &	operator << (std::ostream & os, Form const & obj)
 {
-	os << "Form: " << obj.getName() << " Form required grade " << obj.getGradeToSign() << " to sign. ";
+	os << "Form: " << obj.getName() << "\nForm required grade: " << obj.getGradeToSign() << "\nSigned: " << (obj.isSigned() ? "Yes" : "No");
 	return (os);
 }

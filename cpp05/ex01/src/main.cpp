@@ -6,7 +6,7 @@
 /*   By: nimai <nimai@student.42urduliz.com>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/03 15:51:22 by nimai             #+#    #+#             */
-/*   Updated: 2023/11/08 10:37:04 by nimai            ###   ########.fr       */
+/*   Updated: 2024/02/22 16:43:02 by nimai            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,18 +26,23 @@ void	main_test( void )
 		Bureaucrat	Badman("Badman", 150);
 		// Badman.decrementGrade();
 		Bureaucrat	presidente("presidente", 1);
-		// Bureaucrat	angel("angel", -20);
 		Bureaucrat	topo("topo", 140);
-		Form	form("form", 123,50);
+		Form	form("form", 123, 50);
+//		std::cout << "Is it signed form?: " << form.isSigned() << std::endl;
+//		std::cout << "Getter form name: " << form.getName() << std::endl;
+//		std::cout << "Getter form grade to sign: " << form.getGradeToSign() << std::endl;
+//		std::cout << "Getter form grade to execute: " << form.getGradeToExecute() << std::endl;
+		std::cout << form << std::endl;
 		for (int i = 0; i < 5; i++)
 		{
 			topo.signForm(form);
+			if (!form.isSigned())
+				topo.incrementGrade(5);
 		}
-
 	}
 	catch(std::exception& e)
 	{
-		std::cerr << e.what() << '\n';
+		std::cerr << RED << e.what() << '\n';
 	}
 }
 
@@ -47,37 +52,28 @@ void second_test()
 	std::cout << "********** SECOND TEST **********"<< std::endl;
 	std::cout << std::endl;
 
-	try
-	{
-		Bureaucrat bureaucrat("second", 47);
-		std::cout << bureaucrat << " successfully created." << std::endl;
-		Bureaucrat bureaucrat1("second", 150);
-		std::cout << bureaucrat1 << " successfully created." << std::endl;
-		bureaucrat.incrementGrade(5);
-		bureaucrat1.decrementGrade(5);
-		bureaucrat.incrementGrade(5);
-		return ;
-	}
-	catch(Bureaucrat::GradeTooHighException& e)
-	{
-		std::cerr << RED << e.what() << RESET << '\n';
-	}
-	catch(Bureaucrat::GradeTooLowException& e)
-	{
-		std::cerr << MAGENTA << e.what() << RESET << '\n';
-	}
-	
+    try {
+        Bureaucrat bureaucrat("John Doe", 75);
+        Form form("FormA", 50, 80);
+
+        std::cout << form << std::endl;
+
+        bureaucrat.signForm(form);
+
+        // Attempting to sign the form again (should fail)
+        bureaucrat.signForm(form);
+    } catch (const std::exception& e) {
+        std::cerr << RED << "Exception: " << e.what() << std::endl;
+    }
 
 }
 
 
 int	main( void )
 {
-	main_test();
-	// second_test();
+	//main_test();
+	second_test();
 	
-
-
-    
+   
 	return (0);
 }
