@@ -6,7 +6,7 @@
 /*   By: nimai <nimai@student.42urduliz.com>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/03 15:51:24 by nimai             #+#    #+#             */
-/*   Updated: 2023/11/23 16:48:31 by nimai            ###   ########.fr       */
+/*   Updated: 2024/02/22 17:48:40 by nimai            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -71,6 +71,7 @@ void	AForm::execute( Bureaucrat const & executer ) const
 	this->beExecuted();	
 }
 
+// Accessor functions
 std::string const &AForm::getName( void ) const
 {
 	return (this->_name);
@@ -85,7 +86,13 @@ int	AForm::getGradeToExecute( void ) const
 {
 	return (this->_gradeToExecute);
 }
+bool	AForm::isSigned( void ) const
+{
+	return (this->_signed);
+}
+// Accessor functions
 
+// Exception functions
 const char	*	AForm::GradeTooHighException::what(void) const throw()
 {
 	return ("The grade is too high for this form.");
@@ -105,10 +112,11 @@ const char	*	AForm::NoSignedException::what(void) const throw()
 {
 	return ("The form hasn't been signed yet.");
 }
+// Exception functions
 
 std::ostream &	operator << (std::ostream & os, AForm const & obj)
 {
-	os << obj.getName() << " (Required grade " << obj.getGradeToSign()
-	<< " to sign and " << obj.getGradeToExecute() << " to execute)";
+	os << "Form name: "<< obj.getName() << ", Required grade to sign: " << obj.getGradeToSign()
+	<< ", Required grade to execute: " << obj.getGradeToExecute() << ", Is signed: " << (obj.isSigned() ? "Yes" : "No");
 	return (os);
 }

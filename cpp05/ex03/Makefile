@@ -6,7 +6,7 @@
 #    By: nimai <nimai@student.42urduliz.com>        +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/07/25 11:05:17 by nimai             #+#    #+#              #
-#    Updated: 2023/11/23 16:39:00 by nimai            ###   ########.fr        #
+#    Updated: 2024/02/22 18:05:53 by nimai            ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -81,6 +81,7 @@ clean:
 
 fclean: clean
 	$(RM) $(NAME)
+	$(RM) Forest_shrubbery
 	$(RF) $(BUILD_DIR)
 	$(info ELIMINATED $(NAME))
 
@@ -92,5 +93,5 @@ re:
 #   SPEC                                         #
 #------------------------------------------------#
 
-.PHONY: clean fclean re
+.PHONY: all clean fclean re
 .SILENT:

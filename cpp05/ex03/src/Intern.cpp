@@ -6,7 +6,7 @@
 /*   By: nimai <nimai@student.42urduliz.com>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/23 12:49:03 by nimai             #+#    #+#             */
-/*   Updated: 2023/11/24 11:52:06 by nimai            ###   ########.fr       */
+/*   Updated: 2024/02/22 17:56:08 by nimai            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,15 +17,16 @@ Intern::Intern( void )
 {
     std::cout << "Intern: Default constructor called." << std::endl;
 }
+
 Intern::Intern( Intern const &src )
 {
     *this = src;
 	std::cout << "Intern: copy constructor called." << std::endl;
 }
+
 Intern::~Intern( void )
 {
     std::cout << "Intern: Default destructor called." << std::endl;
-    
 }
 
 Intern & Intern::operator=(const Intern &src)

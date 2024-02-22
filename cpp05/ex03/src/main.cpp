@@ -6,7 +6,7 @@
 /*   By: nimai <nimai@student.42urduliz.com>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/03 15:51:22 by nimai             #+#    #+#             */
-/*   Updated: 2023/11/23 16:58:56 by nimai            ###   ########.fr       */
+/*   Updated: 2024/02/22 18:04:03 by nimai            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,36 +48,6 @@ void	intern_test(std::string formName, std::string target)
 
 }
 
-void second_test()
-{
-	std::cout << std::endl << std::endl;
-	std::cout << "********** SECOND TEST **********"<< std::endl;
-	std::cout << std::endl;
-
-	try
-	{
-		Bureaucrat bureaucrat("second", 47);
-		std::cout << bureaucrat << " successfully created." << std::endl;
-		Bureaucrat bureaucrat1("second", 150);
-		std::cout << bureaucrat1 << " successfully created." << std::endl;
-		bureaucrat.incrementGrade(5);
-		bureaucrat1.decrementGrade(5);
-		bureaucrat.incrementGrade(5);
-		return ;
-	}
-	catch(Bureaucrat::GradeTooHighException& e)
-	{
-		std::cerr << RED << e.what() << RESET << '\n';
-	}
-	catch(Bureaucrat::GradeTooLowException& e)
-	{
-		std::cerr << MAGENTA << e.what() << RESET << '\n';
-	}
-	
-
-}
-
-
 int	main( void )
 {
 	intern_test(SCFormName, "Forest");
@@ -85,10 +55,6 @@ int	main( void )
 	intern_test(PPFormName, "Tramp");
 	intern_test("form does not exit", "Momomi");
 	intern_test("", "");
-	// second_test();
-	
-
-
-    
+   
 	return (0);
 }

@@ -6,7 +6,7 @@
 /*   By: nimai <nimai@student.42urduliz.com>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/03 15:50:58 by nimai             #+#    #+#             */
-/*   Updated: 2023/11/22 16:03:11 by nimai            ###   ########.fr       */
+/*   Updated: 2024/02/22 17:41:43 by nimai            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,6 +46,7 @@ class AForm
 			std::string const &	getName( void ) const;
 			int	getGradeToSign( void ) const;
 			int	getGradeToExecute( void ) const;
+			bool	isSigned( void ) const;
 
 			void	beSigned( Bureaucrat const & bureaucrat);
 			void	execute( Bureaucrat const & executer ) const;
