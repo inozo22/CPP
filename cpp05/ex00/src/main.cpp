@@ -6,7 +6,7 @@
 /*   By: nimai <nimai@student.42urduliz.com>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/03 15:51:22 by nimai             #+#    #+#             */
-/*   Updated: 2024/02/20 15:56:09 by nimai            ###   ########.fr       */
+/*   Updated: 2024/02/23 09:49:30 by nimai            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -95,9 +95,9 @@ void third_test()
 
 int	main( void )
 {
-	// main_test();
+	main_test();
 	// second_test();
-	third_test();
+	// third_test();
 	
 
 

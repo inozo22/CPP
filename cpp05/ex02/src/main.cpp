@@ -6,7 +6,7 @@
 /*   By: nimai <nimai@student.42urduliz.com>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/03 15:51:22 by nimai             #+#    #+#             */
-/*   Updated: 2024/02/22 17:39:41 by nimai            ###   ########.fr       */
+/*   Updated: 2024/02/23 10:02:06 by nimai            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,6 +35,8 @@ void	main_test( void )
 	ShrubberyCreationForm SCForm("Bonsai");
 	RobotomyRequestForm RRForm("iCOP");
 	PresidentialPardonForm PPForm(bigwig.getName());
+	// AForm	form("form", 123, 50);
+	
 
 	std::cout << MAGENTA "Forms are created:\n" RESET
 				"\t" << SCForm << "\n"
