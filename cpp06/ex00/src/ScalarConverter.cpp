@@ -6,7 +6,7 @@
 /*   By: nimai <nimai@student.42urduliz.com>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/24 12:45:12 by nimai             #+#    #+#             */
-/*   Updated: 2024/02/26 16:21:52 by nimai            ###   ########.fr       */
+/*   Updated: 2024/02/26 19:31:31 by nimai            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,23 +18,14 @@
 #include <limits>
 
 ScalarConverter::ScalarConverter( void ) 
-: bitFlag(0), _isChar(0), _isInt(0), _isFloat(0), _isDouble(0), _type(0)
 {
 	// std::cout << "Default constructor called" << std::endl;
 }
 
 ScalarConverter::ScalarConverter( ScalarConverter const & src ) 
-: bitFlag(src.bitFlag), _isChar(src._isChar), _isInt(src._isInt), _isFloat(src._isFloat), 
-_isDouble(src._isDouble), _type(src._type)
 {
 	// std::cout << "Copy constructor called" << std::endl;
-}
-
-ScalarConverter::ScalarConverter( std::string const & str ) 
-: bitFlag(0), _isChar(0), _isInt(0), _isFloat(0), _isDouble(0), _type(0)
-{
-	// std::cout << "Constructor called (str: " << str << ")" << std::endl;
-	this->_scalarConversion(str);
+	(void)src;
 }
 
 ScalarConverter::~ScalarConverter( void )
@@ -44,64 +35,136 @@ ScalarConverter::~ScalarConverter( void )
 
 ScalarConverter & ScalarConverter::operator=(const ScalarConverter & src)
 {
-	this->_isChar = src._isChar;
-	this->_isInt = src._isInt;
-	this->_isFloat = src._isFloat;
-	this->_isDouble = src._isDouble;
-	this->_type = src._type;
-	this->bitFlag = src.bitFlag;
-	// std::cout << "Copy constructor called" << std::endl;
+	// std::cout << "AForm assignment operator overload called." << std::endl;
+	(void)src;
 	return (*this);
 }
 
 /**
  * @note main function
   */
-void	ScalarConverter::_scalarConversion(std::string const & str)
+void	ScalarConverter::convert(std::string const & input)
 {
-	this->_typeCheck(str);//obtain orginal type
-	switch (this->_type)//convert depends on the original type
+	char	charResult = 0;
+	int		intResult = 0;
+	double	doubleResult = 0;
+	float	floatResult = 0;
+	int		bitFlag = 0;
+
+	if (input == "inf" || input == "+inf" || input == "inff" || input == "+inff")
 	{
-	case CHAR:
-		_convertFromChar();
-		break;
-	case INT:
-		_convertFromInt();
-		break;
-	case DOUBLE:
-		_convertFromDouble();
-		break;
-	case FLOAT:
-		_convertFromFloat();
-		break;
-	case OTHER:
-		break;
-	default:
-		throw(ScalarConverter::NonConvertableException());//when it doesn't much any, throw exception
+		bitFlag = INT_OVER | CHAR_OVER;
+		floatResult = std::numeric_limits<float>::infinity();
+		doubleResult = std::numeric_limits<double>::infinity();
 	}
+	else if (input == "-inf" || input == "-inff")
+	{
+		bitFlag = INT_OVER | CHAR_OVER;
+		floatResult = (-1) * std::numeric_limits<float>::infinity();
+		doubleResult = (-1) * std::numeric_limits<double>::infinity();
+	}
+	else if (input == "nan" || input == "nanf")
+	{
+		bitFlag = INT_OVER | CHAR_OVER;
+		floatResult = std::numeric_limits<float>::quiet_NaN();
+		doubleResult = std::numeric_limits<double>::quiet_NaN();
+	}
+	if (bitFlag & CHAR_OVER)
+	{
+		std::cout << std::setfill(' ') << std::setw(8) << "Char: " << "Impossible\n";
+		std::cout << std::setfill(' ') << std::setw(8) << "Int: " << "Impossible\n";
+		std::cout << std::setfill(' ') << std::setw(8) << "Float: " << floatResult << "f\n";
+		std::cout << std::setfill(' ') << std::setw(8) << "Double: " << doubleResult << std::endl;
+		return ;
+	}
+
+
+
+
+	// Convert to char
+	std::cout << std::setfill(' ') << std::setw(8) << "Char: ";
+	try 
+	{
+		charResult = convertToChar(input);
+        std::cout << charResult << std::endl;
+	}
+	catch (const std::exception & e)
+	{
+		std::cerr << e.what() << std::endl;
+    }
+
+	// Convert to int
+	try
+	{
+		intResult = ScalarConverter::convertToInt(input);
+		std::cout << "Int: " << intResult << std::endl;
+    }
+	catch (const std::exception & e)
+	{
+		std::cerr << "Int: " << e.what() << std::endl;
+	}
+	
+	// Convert to float
+	try
+	{
+		floatResult = ScalarConverter::convertToDouble(input);
+		std::cout << "Float: " << floatResult << std::endl;
+    }
+	catch (const std::exception & e)
+	{
+		std::cerr << "Float: " << e.what() << std::endl;
+    }
+
+	// Convert to double
+	try
+	{
+		doubleResult = ScalarConverter::convertToFloat(input);
+		std::cout << "Double: " << doubleResult << std::endl;
+	}
+	catch (const std::exception & e)
+	{
+		std::cerr << "Double: " << e.what() << std::endl;
+	}
+
+
+
+
+
+
 }
 
-void	ScalarConverter::_convertFromChar( void )
+char	ScalarConverter::convertToChar( std::string const & input )
 {
-	this->_isInt = static_cast<int>(this->_isChar);
-	this->_isDouble = static_cast<double>(this->_isChar);
-	this->_isFloat = static_cast<float>(this->_isChar);
+	if (input.size() == 1)
+	{
+		char charResult = input[0];
+		if (isprint(charResult))
+			return charResult;
+		else
+			throw ScalarConverter::NonDisplableException();
+		//return ("Impossible")
+	}
+	else
+		throw ScalarConverter::NonConvertableException();
 }
 
-void	ScalarConverter::_convertFromInt( void )
+int	ScalarConverter::convertToInt( std::string const & input )
 {
-	this->_isChar = static_cast<char>(this->_isInt);
+/* 	this->_isChar = static_cast<char>(this->_isInt);
 	this->_isDouble = static_cast<double>(this->_isInt);
 	this->_isFloat = static_cast<float>(this->_isInt);
 	if (!std::isprint(this->_isChar))
 		this->bitFlag = CHAR_UNPRI;
 	if (this->_isInt < CHAR_MIN || this->_isInt > CHAR_MAX)
-		this->bitFlag = CHAR_OVER;
+		this->bitFlag = CHAR_OVER; */
+	(void)input;
+	return(0);
+
 }
 
-void	ScalarConverter::_convertFromDouble( void )
+double	ScalarConverter::convertToDouble( std::string const & input )
 {
-	this->_isInt = static_cast<int>(this->_isDouble);
+/* 	this->_isInt = static_cast<int>(this->_isDouble);
 	this->_isChar = static_cast<char>(this->_isDouble);
 	this->_isFloat = static_cast<float>(this->_isDouble);
 	if (!std::isprint(this->_isChar))
@@ -109,138 +172,18 @@ void	ScalarConverter::_convertFromDouble( void )
 	if (this->_isDouble < CHAR_MIN || this->_isDouble > CHAR_MAX)
 		this->bitFlag = CHAR_OVER;
 	if (this->_isDouble < INT_MIN || this->_isDouble > INT_MAX)
-		this->bitFlag = INT_OVER;
+		this->bitFlag = INT_OVER; */
+	(void)input;
+
+	return(0);
+
 }
-void	ScalarConverter::_convertFromFloat( void )
+float	ScalarConverter::convertToFloat( std::string const & input )
 {
-	this->_isInt = static_cast<int>(this->_isFloat);
-	this->_isChar = static_cast<char>(this->_isFloat);
-	this->_isDouble = static_cast<double>(this->_isFloat);
-	if (!std::isprint(this->_isChar))
-		this->bitFlag = CHAR_UNPRI;
-	if (this->_isFloat < CHAR_MIN || this->_isFloat > CHAR_MAX)
-		this->bitFlag = CHAR_OVER;
-	if (this->_isFloat < INT_MIN || this->_isFloat > INT_MAX)
-		this->bitFlag = INT_OVER;
-}
+	(void)input;
 
-bool	ScalarConverter::_checkInt( std::string const & str )
-{
-	long	value = 0;
-	char	*ptr = NULL;
+	return(0);
 
-	value = std::strtol(str.c_str(), &ptr, 10);
-	if (ptr == str.c_str() || *ptr)
-		return (false);
-	if (value < INT_MIN || value > INT_MAX)
-	{
-		bitFlag = INT_OVER;
-		return (false);
-	}
-	this->_isInt = static_cast<int>(value);
-	return (true);
-}
-
-bool	ScalarConverter::_checkFloat( std::string const & str )
-{
-	float	value = 0;
-	char	*ptr = NULL;
-
-	value = std::strtof(str.c_str(), &ptr);
-	if (ptr == str.c_str() || *ptr != 'f')
-		return (false);
-	if (*ptr == 'f' && (ptr + 1 && *(ptr + 1) != '\0'))
-		return (false);
-	this->_isFloat = value;
-	return (true);
-}
-
-bool	ScalarConverter::_checkDouble( std::string const & str )
-{
-	double	value = 0;
-	char	*ptr = NULL;
-
-	if (str.find('.') == std::string::npos)
-		return (false);
-	value = std::strtod(str.c_str(), &ptr);
-	if (ptr == str.c_str() || *ptr)
-		return (false);
-	this->_isDouble = value;
-	return (true);
-}
-
-bool	ScalarConverter::_checkChar( std::string const & str )
-{
-	if (str.length() == 1)
-	{
-		this->_type = CHAR;
-		if (!std::isprint(str[0]))
-		{
-			bitFlag = CHAR_UNPRI;
-		}
-		this->_isChar = str[0];
-		return (true);
-	}
-	else
-		return (false);
-}
-
-void	ScalarConverter::_typeCheck( std::string const & str )
-{
-	if (str == "inf" || str == "+inf" || str == "inff" || str == "+inff")
-	{
-		this->bitFlag = INT_OVER | CHAR_OVER;
-		this->_isFloat = std::numeric_limits<float>::infinity();
-		this->_isDouble = std::numeric_limits<double>::infinity();
-		this->_type = OTHER;
-	}
-	else if (str == "-inf" || str == "-inff")
-	{
-		this->bitFlag = INT_OVER | CHAR_OVER;
-		this->_isFloat = (-1) * std::numeric_limits<float>::infinity();
-		this->_isDouble = (-1) * std::numeric_limits<double>::infinity();
-		this->_type = OTHER;
-	}
-	else if (str == "nan" || str == "nanf")
-	{
-		this->bitFlag = INT_OVER | CHAR_OVER;
-		this->_isFloat = std::numeric_limits<float>::quiet_NaN();
-		this->_isDouble = std::numeric_limits<double>::quiet_NaN();
-		this->_type = OTHER;
-	}
-	else if (_checkInt(str))
-		this->_type = INT;
-	else if (_checkFloat(str))
-		this->_type = FLOAT;	
-	else if (_checkDouble(str))
-		this->_type = DOUBLE;
-	else if (_checkChar(str))
-		this->_type = CHAR;
-}
-
-char	ScalarConverter::getChar( void ) const
-{
-	return (this->_isChar);
-}
-
-int	ScalarConverter::getInt( void ) const
-{
-	return (this->_isInt);
-}
-
-float	ScalarConverter::getFloat( void ) const
-{
-	return (this->_isFloat);
-}
-
-double	ScalarConverter::getDouble( void ) const
-{
-	return (this->_isDouble);
-}
-
-int	ScalarConverter::getType( void ) const
-{
-	return (this->_type);
 }
 
 const char	*	ScalarConverter::NonConvertableException::what(void) const throw()
@@ -248,29 +191,64 @@ const char	*	ScalarConverter::NonConvertableException::what(void) const throw()
 	return ("Input value is not a legitimate type. (char, int, float, nor double)");
 }
 
-/**
- * @note as result in the subject
-  */
-std::ostream &	operator << (std::ostream & os, ScalarConverter const & obj)
+const char	*	ScalarConverter::ImpossibleConvertException::what(void) const throw()
 {
-	os << std::setfill(' ') << std::setw(8) << "char: ";
-	if (obj.bitFlag & CHAR_OVER)
-		os << "Impossible";//error message
-	else if (obj.bitFlag & CHAR_UNPRI)
-		os << "Non displayable";//error message
-	else
-		os << "'" << obj.getChar() << "'";
-	os << "\n" << std::setfill(' ') << std::setw(8) << "int: ";
-	if (obj.bitFlag & INT_OVER)
-		os << "Impossible";//error message
-	else
-		os << obj.getInt();
-	os << "\n" << std::setfill(' ') << std::setw(8) << "float: ";
-	if (obj.getFloat() == static_cast<int>(obj.getFloat()))
-		os << std::fixed << std::setprecision(1) << obj.getFloat() << "f";
-	else
-		os << obj.getFloat() << "f";
-	os << "\n" << std::setfill(' ') << std::setw(8) << "double: "
-	<<	obj.getDouble();
-	return (os);
+	return ("Impossible");
 }
+
+const char	*	ScalarConverter::NonDisplableException::what(void) const throw()
+{
+	return ("Not displayable");
+}
+
+/* #include "ScalarConverter.hpp"
+
+// Static method for converting string representation to different scalar types
+void ScalarConverter::convert(const std::string& input) {
+    // Convert to char
+    try {
+        char charResult = convertToChar(input);
+        std::cout << "Char: " << charResult << std::endl;
+    } catch (const std::invalid_argument& e) {
+        std::cerr << "Error converting to char: " << e.what() << std::endl;
+    }
+
+    // Convert to int
+    try {
+        int intResult = std::stoi(input);
+        std::cout << "Int: " << intResult << std::endl;
+    } catch (const std::invalid_argument& e) {
+        std::cerr << "Error converting to int: " << e.what() << std::endl;
+    }
+
+    // Convert to float
+    try {
+        float floatResult = std::stof(input);
+        std::cout << "Float: " << floatResult << std::endl;
+    } catch (const std::invalid_argument& e) {
+        std::cerr << "Error converting to float: " << e.what() << std::endl;
+    }
+
+    // Convert to double
+    try {
+        double doubleResult = std::stod(input);
+        std::cout << "Double: " << doubleResult << std::endl;
+    } catch (const std::invalid_argument& e) {
+        std::cerr << "Error converting to double: " << e.what() << std::endl;
+    }
+}
+
+// Helper function to convert string to char
+char ScalarConverter::convertToChar(const std::string& input) {
+    if (input.size() == 1) {
+        char charResult = input[0];
+        if (isprint(charResult)) {
+            return charResult;
+        } else {
+            throw std::invalid_argument("Non-displayable character cannot be converted to char.");
+        }
+    } else {
+        throw std::invalid_argument("Input is not a valid char literal.");
+    }
+}
+ */

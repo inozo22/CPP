@@ -6,7 +6,7 @@
 /*   By: nimai <nimai@student.42urduliz.com>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/24 13:59:47 by nimai             #+#    #+#             */
-/*   Updated: 2024/02/26 19:03:58 by nimai            ###   ########.fr       */
+/*   Updated: 2024/02/26 16:08:57 by nimai            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,66 +32,71 @@
 #define GRAY    "\x1B[38;2;176;174;174m"
 #define RESET   "\x1b[0m"
 
-/* #ifndef SCALAR_CONVERTER_HPP
-#define SCALAR_CONVERTER_HPP
-
-#include <iostream>
-#include <sstream>
-#include <limits>
-#include <cmath>
-
-class ScalarConverter {
-public:
-    // Static method for converting string representation to different scalar types
-    static void convert(const std::string& input);
-
-private:
-    // Helper function to convert string to char
-    static char convertToChar(const std::string& input);
-};
-
-#endif // SCALAR_CONVERTER_HPP */
-
-
 #define INT_OVER (1<<0) // 0000 0000 0000 0001
 #define CHAR_OVER (1<<2) // 0000 0000 0000 0100
 #define CHAR_UNPRI (1<<4) // 0000 0000 0001 0000
 
+//		const uint32_t INT_OVER (1<<0); // 0000 0001
+//		const uint32_t CHAR_OVER (1<<2); // 0000 0100
+//		const uint32_t CHAR_UNPRI (1<<4); // 0001 0000
 
 class ScalarConverter
 {
     public:
+		ScalarConverter( void );
+		ScalarConverter( ScalarConverter const & src );
+		ScalarConverter( std::string const & str );
 		~ScalarConverter( void );
-		static void	convert(std::string const & input);
 
+		ScalarConverter & operator=(const ScalarConverter & src);
+
+		char	getChar( void ) const;
+		int		getInt( void ) const;
+		float	getFloat( void ) const;
+		double	getDouble( void ) const;
+		int		getType( void ) const;
 
 		class NonConvertableException : public std::exception
 		{
 			public:
 				virtual const char * what( void ) const throw();
 		};
-		class ImpossibleConvertException : public std::exception
-		{
-			public:
-				virtual const char * what( void ) const throw();
-		};
-		class NonDisplableException : public std::exception
-		{
-			public:
-				virtual const char * what( void ) const throw();
-		};
+		int		bitFlag;
+
+		
 
 	private:
-		ScalarConverter( void );
-		ScalarConverter( ScalarConverter const & input );
-		ScalarConverter & operator=(const ScalarConverter & src);
 
-		static char	convertToChar( std::string const & input );
-		static int	convertToInt( std::string const & input );
-		static double	convertToDouble( std::string const & input );
-		static float	convertToFloat( std::string const & input );
-		int		bitFlag;
+		char	_isChar;
+		int		_isInt;
+		float	_isFloat;
+		double	_isDouble;
+		int		_type;
+
+		void	_scalarConversion(std::string const & str);
+		void	_typeCheck( std::string const & str );
+		bool	_checkInt( std::string const & str );
+		bool	_checkFloat( std::string const & str );
+		bool	_checkDouble( std::string const & str );
+		bool	_checkChar( std::string const & str );
+		void	_convertFromChar( void );
+		void	_convertFromInt( void );
+		void	_convertFromDouble( void );
+		void	_convertFromFloat( void );
+
+		enum	e_type
+		{
+			DEFAULT = 0,
+			INT,
+			FLOAT,
+			DOUBLE,
+			CHAR,
+			OTHER
+		};
+
 };
+
+std::ostream &	operator << (std::ostream & os, ScalarConverter const & obj);
 
 #endif
 
