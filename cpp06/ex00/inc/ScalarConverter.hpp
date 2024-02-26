@@ -6,7 +6,7 @@
 /*   By: nimai <nimai@student.42urduliz.com>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/24 13:59:47 by nimai             #+#    #+#             */
-/*   Updated: 2024/02/26 19:03:58 by nimai            ###   ########.fr       */
+/*   Updated: 2024/02/26 19:39:52 by nimai            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -90,7 +90,21 @@ class ScalarConverter
 		static int	convertToInt( std::string const & input );
 		static double	convertToDouble( std::string const & input );
 		static float	convertToFloat( std::string const & input );
+		bool	checkInt( std::string const & str );
+		bool	checkFloat( std::string const & str );
+		bool	checkDouble( std::string const & str );
+		bool	checkChar( std::string const & str );
 		int		bitFlag;
+
+		enum	e_type
+		{
+			DEFAULT = 0,
+			INT,
+			FLOAT,
+			DOUBLE,
+			CHAR,
+			OTHER
+		};
 };
 
 #endif
