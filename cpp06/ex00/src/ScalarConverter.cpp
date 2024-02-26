@@ -6,7 +6,7 @@
 /*   By: nimai <nimai@student.42urduliz.com>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/24 12:45:12 by nimai             #+#    #+#             */
-/*   Updated: 2023/11/30 12:03:26 by nimai            ###   ########.fr       */
+/*   Updated: 2024/02/26 16:21:52 by nimai            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,8 @@
 #include <iostream>
 #include <iomanip>
 #include <climits>
+#include <cstdlib>
+#include <limits>
 
 ScalarConverter::ScalarConverter( void ) 
 : bitFlag(0), _isChar(0), _isInt(0), _isFloat(0), _isDouble(0), _type(0)

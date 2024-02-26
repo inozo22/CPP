@@ -6,7 +6,7 @@
 /*   By: nimai <nimai@student.42urduliz.com>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/24 13:59:47 by nimai             #+#    #+#             */
-/*   Updated: 2023/11/30 11:58:48 by nimai            ###   ########.fr       */
+/*   Updated: 2024/02/26 16:08:57 by nimai            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,13 +32,13 @@
 #define GRAY    "\x1B[38;2;176;174;174m"
 #define RESET   "\x1b[0m"
 
+#define INT_OVER (1<<0) // 0000 0000 0000 0001
+#define CHAR_OVER (1<<2) // 0000 0000 0000 0100
+#define CHAR_UNPRI (1<<4) // 0000 0000 0001 0000
 
-//		const uint32_t BIT_FLAG_0 (1<<0); // 0000 0001
-//		const uint32_t BIT_FLAG_2 (1<<2); // 0000 0100
-//		const uint32_t BIT_FLAG_4 (1<<4); // 0001 0000
-		const uint32_t INT_OVER (1<<0); // 0000 0001
-		const uint32_t CHAR_OVER (1<<2); // 0000 0100
-		const uint32_t CHAR_UNPRI (1<<4); // 0001 0000
+//		const uint32_t INT_OVER (1<<0); // 0000 0001
+//		const uint32_t CHAR_OVER (1<<2); // 0000 0100
+//		const uint32_t CHAR_UNPRI (1<<4); // 0001 0000
 
 class ScalarConverter
 {
