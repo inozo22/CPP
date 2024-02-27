@@ -6,7 +6,7 @@
 /*   By: nimai <nimai@student.42urduliz.com>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/24 13:59:47 by nimai             #+#    #+#             */
-/*   Updated: 2024/02/26 19:39:52 by nimai            ###   ########.fr       */
+/*   Updated: 2024/02/27 11:36:32 by nimai            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,7 +56,9 @@ private:
 #define INT_OVER (1<<0) // 0000 0000 0000 0001
 #define CHAR_OVER (1<<2) // 0000 0000 0000 0100
 #define CHAR_UNPRI (1<<4) // 0000 0000 0001 0000
-
+#define HAS_TYPE (1<<6) // 0000 0000 0100 0000
+#define IS_CHAR (1<<8) // 0000 0001 0000 0000
+//#define IS_DOUBLE (1<<10) // 0000 0100 0000 0000
 
 class ScalarConverter
 {
@@ -86,15 +88,15 @@ class ScalarConverter
 		ScalarConverter( ScalarConverter const & input );
 		ScalarConverter & operator=(const ScalarConverter & src);
 
-		static char	convertToChar( std::string const & input );
-		static int	convertToInt( std::string const & input );
-		static double	convertToDouble( std::string const & input );
-		static float	convertToFloat( std::string const & input );
-		bool	checkInt( std::string const & str );
-		bool	checkFloat( std::string const & str );
-		bool	checkDouble( std::string const & str );
-		bool	checkChar( std::string const & str );
-		int		bitFlag;
+		static void	convertToChar( std::string const & input );
+		static void	convertToInt( std::string const & input );
+		static void	convertToDouble( std::string const & input );
+		static void	convertToFloat( std::string const & input );
+		static bool	checkInt( std::string const & str );
+		static bool	checkFloat( std::string const & str );
+		static bool	checkDouble( std::string const & str );
+		static bool	checkChar( std::string const & str );
+		static int	bitFlag;
 
 		enum	e_type
 		{
@@ -106,6 +108,7 @@ class ScalarConverter
 			OTHER
 		};
 };
+
 
 #endif
 
