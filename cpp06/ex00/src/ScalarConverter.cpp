@@ -6,7 +6,7 @@
 /*   By: nimai <nimai@student.42urduliz.com>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/24 12:45:12 by nimai             #+#    #+#             */
-/*   Updated: 2024/02/27 12:01:44 by nimai            ###   ########.fr       */
+/*   Updated: 2024/02/27 12:29:26 by nimai            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -87,6 +87,8 @@ bool	ScalarConverter::checkDouble( std::string const & str )
 
 bool	ScalarConverter::checkChar( std::string const & str )
 {
+	if (str == "-nanf")
+		return (false);
 	if (str.length() == 1)
 	{
 		if (!std::isprint(str[0]))
@@ -161,10 +163,14 @@ void	ScalarConverter::convertToChar( std::string const & input )
 	{
 		if (ScalarConverter::bitFlag & CHAR_UNPRI)
 			throw ScalarConverter::NonDisplableException();
-		if (std::isprint(static_cast<char>(std::atoi(input.c_str()))))
+		if (ScalarConverter::bitFlag & IS_CHAR)
+			std::cout << static_cast<char>(input[0]) << std::endl;
+		//std::cout << "what do I have? " << std::atoi(input.c_str()) << std::endl;
+		else if (input.length() < 4 && std::isprint(static_cast<char>(std::atoi(input.c_str()))))
 			std::cout << "'" << static_cast<char>(std::atoi(input.c_str())) << "'" << std::endl;
 		else
-			throw ScalarConverter::NonDisplableException();
+			// throw ScalarConverter::NonDisplableException();
+			std::cerr << "Non displayable" << std::endl;
 	}
 	catch(const std::exception & e)
 	{
@@ -185,9 +191,13 @@ void	ScalarConverter::convertToInt( std::string const & input )
 	else
 	{
 		try
+		{	
 			std::cout << static_cast<int>(std::atoi(input.c_str())) << std::endl;
+		}
 		catch (const std::exception & e)
+		{	
 			std::cout << RED "" << e.what() << RESET << std::endl;	
+		}
 	}
 }
 
@@ -200,9 +210,13 @@ void	ScalarConverter::convertToDouble( std::string const & input )
 		return ;
 	}
 	try
+	{	
 		std::cout << std::fixed << std::setprecision(1) << static_cast<double>(std::atof(input.c_str())) << std::endl;
+	}
 	catch (const std::exception & e)
+	{
 		std::cout << RED "" << e.what() << RESET << std::endl;
+	}
 }
 
 void	ScalarConverter::convertToFloat( std::string const & input )
@@ -214,9 +228,13 @@ void	ScalarConverter::convertToFloat( std::string const & input )
 		return ;
 	}
 	try
+	{
 		std::cout << std::fixed << std::setprecision(1) << static_cast<double>(std::atof(input.c_str())) << std::endl;
+	}
 	catch (const std::exception & e)
+	{
 		std::cout << RED "" << e.what() << RESET << std::endl;
+	}
 }
 
 const char	*	ScalarConverter::NonConvertableException::what(void) const throw()

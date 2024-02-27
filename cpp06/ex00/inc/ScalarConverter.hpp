@@ -6,7 +6,7 @@
 /*   By: nimai <nimai@student.42urduliz.com>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/24 13:59:47 by nimai             #+#    #+#             */
-/*   Updated: 2024/02/27 12:02:39 by nimai            ###   ########.fr       */
+/*   Updated: 2024/02/27 12:05:35 by nimai            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -67,15 +67,16 @@ class ScalarConverter
 		ScalarConverter( ScalarConverter const & input );
 		ScalarConverter & operator=(const ScalarConverter & src);
 
-		static void	convertToChar( std::string input );
-		static void	convertToInt( std::string input );
-		static void	convertToDouble( std::string input );
-		static void	convertToFloat( std::string input );
+		static void	convertToChar( std::string const & input );
+		static void	convertToInt( std::string const & input );
+		static void	convertToDouble( std::string const & input );
+		static void	convertToFloat( std::string const & input );
 		static bool	checkInt( std::string const & str );
 		static bool	checkFloat( std::string const & str );
 		static bool	checkDouble( std::string const & str );
 		static bool	checkChar( std::string const & str );
 		static int	bitFlag;
+
 };
 
 
