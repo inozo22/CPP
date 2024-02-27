@@ -6,7 +6,7 @@
 /*   By: nimai <nimai@student.42urduliz.com>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/24 12:45:12 by nimai             #+#    #+#             */
-/*   Updated: 2024/02/27 11:50:51 by nimai            ###   ########.fr       */
+/*   Updated: 2024/02/27 12:01:44 by nimai            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -107,11 +107,8 @@ bool	ScalarConverter::checkChar( std::string const & str )
   */
 void	ScalarConverter::convert(std::string const & input)
 {
-//	char	charResult = 0;
-//	int		intResult = 0;
 	double	doubleResult = 0;
 	float	floatResult = 0;
-//	ScalarConverter::bitFlag = 0;
 
 // pseudo check
 	if (input == "inf" || input == "+inf" || input == "inff" || input == "+inff")
@@ -150,60 +147,11 @@ void	ScalarConverter::convert(std::string const & input)
 		throw ScalarConverter::NonConvertableException();
 	}
 
+// convert and print
 	ScalarConverter::convertToChar(input);
 	ScalarConverter::convertToInt(input);
 	ScalarConverter::convertToFloat(input);
 	ScalarConverter::convertToDouble(input);
-	// Convert to char
-	/* std::cout << std::setfill(' ') << std::setw(8) << "Char: ";
-	try 
-	{
-		charResult = convertToChar(input);
-        std::cout << charResult << std::endl;
-	}
-	catch (const std::exception & e)
-	{
-		std::cerr << e.what() << std::endl;
-    }
-
-	// Convert to int
-	try
-	{
-		intResult = ScalarConverter::convertToInt(input);
-		std::cout << "Int: " << intResult << std::endl;
-    }
-	catch (const std::exception & e)
-	{
-		std::cerr << "Int: " << e.what() << std::endl;
-	}
-	
-	// Convert to float
-	try
-	{
-		floatResult = ScalarConverter::convertToDouble(input);
-		std::cout << "Float: " << floatResult << std::endl;
-    }
-	catch (const std::exception & e)
-	{
-		std::cerr << "Float: " << e.what() << std::endl;
-    }
-
-	// Convert to double
-	try
-	{
-		doubleResult = ScalarConverter::convertToFloat(input);
-		std::cout << "Double: " << doubleResult << std::endl;
-	}
-	catch (const std::exception & e)
-	{
-		std::cerr << "Double: " << e.what() << std::endl;
-	} */
-
-
-
-
-
-
 }
 
 void	ScalarConverter::convertToChar( std::string const & input )
@@ -216,7 +164,6 @@ void	ScalarConverter::convertToChar( std::string const & input )
 		if (std::isprint(static_cast<char>(std::atoi(input.c_str()))))
 			std::cout << "'" << static_cast<char>(std::atoi(input.c_str())) << "'" << std::endl;
 		else
-	//		std::cout << "Non Displable" << std::endl;
 			throw ScalarConverter::NonDisplableException();
 	}
 	catch(const std::exception & e)
@@ -225,18 +172,7 @@ void	ScalarConverter::convertToChar( std::string const & input )
 			std::cout << "'" << static_cast<char>(input[0]) << "'" << std::endl;
 		else
 			std::cerr << "impossible" << std::endl;
-			//throw ScalarConverter::ImpossibleConvertException();
-	//		std::cout << "impossible\n";
 	}
-/* 	if (input.size() == 1)
-	{
-		if (ScalarConverter::bitFlag & CHAR_UNPRI)
-			throw ScalarConverter::NonDisplableException();
-		char charResult = input[0];
-			return charResult;
-	}
-	else
-		throw ScalarConverter::ImpossibleConvertException(); */
 }
 
 void	ScalarConverter::convertToInt( std::string const & input )
@@ -245,24 +181,14 @@ void	ScalarConverter::convertToInt( std::string const & input )
 	if (ScalarConverter::bitFlag & INT_OVER)
 		std::cerr << "impossible" << std::endl;
 	else if (ScalarConverter::bitFlag & IS_CHAR)
-	{
 		std::cout << static_cast<int>(input[0]) << std::endl;
-	}
 	else
 	{
-		std::cout << static_cast<int>(std::atoi(input.c_str())) << std::endl;
+		try
+			std::cout << static_cast<int>(std::atoi(input.c_str())) << std::endl;
+		catch (const std::exception & e)
+			std::cout << RED "" << e.what() << RESET << std::endl;	
 	}
-
-/* 	this->_isChar = static_cast<char>(this->_isInt);
-	this->_isDouble = static_cast<double>(this->_isInt);
-	this->_isFloat = static_cast<float>(this->_isInt);
-	if (!std::isprint(this->_isChar))
-		this->bitFlag = CHAR_UNPRI;
-	if (this->_isInt < CHAR_MIN || this->_isInt > CHAR_MAX)
-		this->bitFlag = CHAR_OVER; */
-
-//	return(0);
-
 }
 
 void	ScalarConverter::convertToDouble( std::string const & input )
@@ -274,26 +200,11 @@ void	ScalarConverter::convertToDouble( std::string const & input )
 		return ;
 	}
 	try
-	{
 		std::cout << std::fixed << std::setprecision(1) << static_cast<double>(std::atof(input.c_str())) << std::endl;
-	}
 	catch (const std::exception & e)
-	{
 		std::cout << RED "" << e.what() << RESET << std::endl;
-	}
-
-/* 	this->_isInt = static_cast<int>(this->_isDouble);
-	this->_isChar = static_cast<char>(this->_isDouble);
-	this->_isFloat = static_cast<float>(this->_isDouble);
-	if (!std::isprint(this->_isChar))
-		this->bitFlag = CHAR_UNPRI;
-	if (this->_isDouble < CHAR_MIN || this->_isDouble > CHAR_MAX)
-		this->bitFlag = CHAR_OVER;
-	if (this->_isDouble < INT_MIN || this->_isDouble > INT_MAX)
-		this->bitFlag = INT_OVER; */
-//	return(0);
-
 }
+
 void	ScalarConverter::convertToFloat( std::string const & input )
 {
 	std::cout << std::setfill(' ') << std::setw(8) << "Float: ";
@@ -303,16 +214,9 @@ void	ScalarConverter::convertToFloat( std::string const & input )
 		return ;
 	}
 	try
-	{
 		std::cout << std::fixed << std::setprecision(1) << static_cast<double>(std::atof(input.c_str())) << std::endl;
-	}
 	catch (const std::exception & e)
-	{
 		std::cout << RED "" << e.what() << RESET << std::endl;
-	}
-
-//	return(0);
-
 }
 
 const char	*	ScalarConverter::NonConvertableException::what(void) const throw()
@@ -329,55 +233,3 @@ const char	*	ScalarConverter::NonDisplableException::what(void) const throw()
 {
 	return ("Not displayable");
 }
-
-/* #include "ScalarConverter.hpp"
-
-// Static method for converting string representation to different scalar types
-void ScalarConverter::convert(const std::string& input) {
-    // Convert to char
-    try {
-        char charResult = convertToChar(input);
-        std::cout << "Char: " << charResult << std::endl;
-    } catch (const std::invalid_argument& e) {
-        std::cerr << "Error converting to char: " << e.what() << std::endl;
-    }
-
-    // Convert to int
-    try {
-        int intResult = std::stoi(input);
-        std::cout << "Int: " << intResult << std::endl;
-    } catch (const std::invalid_argument& e) {
-        std::cerr << "Error converting to int: " << e.what() << std::endl;
-    }
-
-    // Convert to float
-    try {
-        float floatResult = std::stof(input);
-        std::cout << "Float: " << floatResult << std::endl;
-    } catch (const std::invalid_argument& e) {
-        std::cerr << "Error converting to float: " << e.what() << std::endl;
-    }
-
-    // Convert to double
-    try {
-        double doubleResult = std::stod(input);
-        std::cout << "Double: " << doubleResult << std::endl;
-    } catch (const std::invalid_argument& e) {
-        std::cerr << "Error converting to double: " << e.what() << std::endl;
-    }
-}
-
-// Helper function to convert string to char
-char ScalarConverter::convertToChar(const std::string& input) {
-    if (input.size() == 1) {
-        char charResult = input[0];
-        if (isprint(charResult)) {
-            return charResult;
-        } else {
-            throw std::invalid_argument("Non-displayable character cannot be converted to char.");
-        }
-    } else {
-        throw std::invalid_argument("Input is not a valid char literal.");
-    }
-}
- */

@@ -6,7 +6,7 @@
 /*   By: nimai <nimai@student.42urduliz.com>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/24 13:59:47 by nimai             #+#    #+#             */
-/*   Updated: 2024/02/27 11:36:32 by nimai            ###   ########.fr       */
+/*   Updated: 2024/02/27 12:02:39 by nimai            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,27 +31,6 @@
 #define LGREEN  "\x1B[38;2;17;245;120m"
 #define GRAY    "\x1B[38;2;176;174;174m"
 #define RESET   "\x1b[0m"
-
-/* #ifndef SCALAR_CONVERTER_HPP
-#define SCALAR_CONVERTER_HPP
-
-#include <iostream>
-#include <sstream>
-#include <limits>
-#include <cmath>
-
-class ScalarConverter {
-public:
-    // Static method for converting string representation to different scalar types
-    static void convert(const std::string& input);
-
-private:
-    // Helper function to convert string to char
-    static char convertToChar(const std::string& input);
-};
-
-#endif // SCALAR_CONVERTER_HPP */
-
 
 #define INT_OVER (1<<0) // 0000 0000 0000 0001
 #define CHAR_OVER (1<<2) // 0000 0000 0000 0100
@@ -88,25 +67,15 @@ class ScalarConverter
 		ScalarConverter( ScalarConverter const & input );
 		ScalarConverter & operator=(const ScalarConverter & src);
 
-		static void	convertToChar( std::string const & input );
-		static void	convertToInt( std::string const & input );
-		static void	convertToDouble( std::string const & input );
-		static void	convertToFloat( std::string const & input );
+		static void	convertToChar( std::string input );
+		static void	convertToInt( std::string input );
+		static void	convertToDouble( std::string input );
+		static void	convertToFloat( std::string input );
 		static bool	checkInt( std::string const & str );
 		static bool	checkFloat( std::string const & str );
 		static bool	checkDouble( std::string const & str );
 		static bool	checkChar( std::string const & str );
 		static int	bitFlag;
-
-		enum	e_type
-		{
-			DEFAULT = 0,
-			INT,
-			FLOAT,
-			DOUBLE,
-			CHAR,
-			OTHER
-		};
 };
 
 
