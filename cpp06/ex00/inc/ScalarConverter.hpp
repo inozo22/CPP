@@ -6,7 +6,7 @@
 /*   By: nimai <nimai@student.42urduliz.com>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/24 13:59:47 by nimai             #+#    #+#             */
-/*   Updated: 2024/02/27 12:05:35 by nimai            ###   ########.fr       */
+/*   Updated: 2024/02/27 16:12:39 by nimai            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,9 +35,6 @@
 #define INT_OVER (1<<0) // 0000 0000 0000 0001
 #define CHAR_OVER (1<<2) // 0000 0000 0000 0100
 #define CHAR_UNPRI (1<<4) // 0000 0000 0001 0000
-#define HAS_TYPE (1<<6) // 0000 0000 0100 0000
-#define IS_CHAR (1<<8) // 0000 0001 0000 0000
-//#define IS_DOUBLE (1<<10) // 0000 0100 0000 0000
 
 class ScalarConverter
 {
@@ -51,31 +48,37 @@ class ScalarConverter
 			public:
 				virtual const char * what( void ) const throw();
 		};
-		class ImpossibleConvertException : public std::exception
-		{
-			public:
-				virtual const char * what( void ) const throw();
-		};
-		class NonDisplableException : public std::exception
-		{
-			public:
-				virtual const char * what( void ) const throw();
-		};
 
 	private:
 		ScalarConverter( void );
 		ScalarConverter( ScalarConverter const & input );
 		ScalarConverter & operator=(const ScalarConverter & src);
 
-		static void	convertToChar( std::string const & input );
-		static void	convertToInt( std::string const & input );
-		static void	convertToDouble( std::string const & input );
-		static void	convertToFloat( std::string const & input );
+		static void	convertFromChar( void );
+		static void	convertFromInt( void );
+		static void	convertFromDouble( void );
+		static void	convertFromFloat( void );
 		static bool	checkInt( std::string const & str );
 		static bool	checkFloat( std::string const & str );
 		static bool	checkDouble( std::string const & str );
 		static bool	checkChar( std::string const & str );
+		static void printResult( void );
 		static int	bitFlag;
+		static int	type;
+		static int	retInt;
+		static char	retChar;
+		static double	retDouble;
+		static float	retFloat;
+
+		enum	e_type
+		{
+			DEFAULT = 0,
+			INT,
+			FLOAT,
+			DOUBLE,
+			CHAR,
+			OTHER
+		};
 
 };
 
