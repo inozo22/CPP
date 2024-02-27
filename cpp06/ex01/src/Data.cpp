@@ -6,11 +6,18 @@
 /*   By: nimai <nimai@student.42urduliz.com>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/30 12:20:05 by nimai             #+#    #+#             */
-/*   Updated: 2023/11/30 16:00:37 by nimai            ###   ########.fr       */
+/*   Updated: 2024/02/27 16:44:31 by nimai            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Data.hpp"
+
+Data::Data(int val) : value(val)
+{
+    
+}
+
+/* #include "Data.hpp"
 #include <iostream>
 #include <iomanip>
 
@@ -27,7 +34,7 @@ std::ostream & operator<<( std::ostream &os, const Data & obj )
     os << "Data structure stored at: " << &obj << "\n" << std::setfill(' ') << std::setw(8) << "value: " << obj.value
     << "\n" << std::setfill(' ') << std::setw(8) << "string: " << obj.str;
     return (os);
-}
+} */
 
 // Data::Data( void )
 // {
