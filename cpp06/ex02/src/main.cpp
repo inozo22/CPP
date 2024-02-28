@@ -6,7 +6,7 @@
 /*   By: nimai <nimai@student.42urduliz.com>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/30 16:24:24 by nimai             #+#    #+#             */
-/*   Updated: 2023/11/30 17:16:46 by nimai            ###   ########.fr       */
+/*   Updated: 2024/02/28 11:29:53 by nimai            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,13 +25,13 @@ Base * generate( void )
 	switch (rnb)
 	{
 		case 0:
-			std::cout << "Generated: \"A\"";
+			std::cout << "Generated: \"A\"" << std::endl;
 			return (new A);
 		case 1:
-			std::cout << "Generated: \"B\"";
+			std::cout << "Generated: \"B\""<< std::endl;
 			return (new B);
 		case 2:
-			std::cout << "Generated: \"C\"";
+			std::cout << "Generated: \"C\""<< std::endl;
 			return (new C);
 	}
 	return (NULL);
@@ -39,7 +39,7 @@ Base * generate( void )
 
 void	identify( Base * ptr )
 {
-	std::cout << "Pointer identifying: This is ";
+	std::cout << "Pointer identifying: ";
 	if (dynamic_cast<A *>(ptr))
 		std::cout << GREEN "A" RESET << std::endl;
 	else if (dynamic_cast<B *>(ptr))
@@ -52,41 +52,49 @@ void	identify( Base * ptr )
 
 void	identify( Base & ptr )
 {
-	std::cout << "Reference identifying: This is ";
+	std::cout << "Reference identifying: ";
 	try
 	{
-		(void)(dynamic_cast<A &>(ptr));
+		dynamic_cast<A &>(ptr);
 		std::cout << GREEN "A" RESET << std::endl;
 	}
 	catch(const std::exception& e)
 	{
-		std::cerr << e.what() << '\n';
+		//std::cerr << e.what() << '\n';
 	}
 	try
 	{
-		(void)(dynamic_cast<B &>(ptr));
+		dynamic_cast<B &>(ptr);
 		std::cout << GREEN "B" RESET << std::endl;
 	}
 	catch(const std::exception& e)
 	{
-		std::cerr << e.what() << '\n';
+		//std::cerr << e.what() << '\n';
 	}
 	try
 	{
-		(void)(dynamic_cast<C &>(ptr));
+		dynamic_cast<C &>(ptr);
 		std::cout << GREEN "C" RESET << std::endl;
 	}
 	catch(const std::exception& e)
 	{
-		std::cerr << e.what() << '\n';
+		//std::cerr << e.what() << '\n';
 	}
 }
 
 int	main( void )
 {
+/* 	Base* obj = generate();
+
+	identify(obj);
+	identify(*obj);
+
+    delete obj;
+
+    return 0; */
 	Base * ptr;
-	std::srand( std::time(NULL) );
-	
+	std::srand( std::time(0) );
+
 	for (int i = 1; i < 11; i++)
 	{
 		if (i == 1)
@@ -99,9 +107,7 @@ int	main( void )
 			std::cout << i << "th Test\n";
 		
 		ptr = generate();
-		std::cout << ", ";
 		identify(ptr);
-		std::cout << ", ";
 		identify(*ptr);
 		delete (ptr);
 		std::cout << std::endl;
