@@ -6,11 +6,12 @@
 /*   By: nimai <nimai@student.42urduliz.com>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/30 17:26:30 by nimai             #+#    #+#             */
-/*   Updated: 2023/11/30 17:45:33 by nimai            ###   ########.fr       */
+/*   Updated: 2024/02/28 16:03:28 by nimai            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Whatever.hpp"
+#include "whatever.hpp"
+#include <iostream>
 
 int	main( void ) 
 {
