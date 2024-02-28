@@ -6,7 +6,7 @@
 /*   By: nimai <nimai@student.42urduliz.com>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/30 16:24:24 by nimai             #+#    #+#             */
-/*   Updated: 2024/02/28 15:42:57 by nimai            ###   ########.fr       */
+/*   Updated: 2024/02/28 15:45:45 by nimai            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -92,13 +92,13 @@ int	main( void )
 	for (int i = 1; i < 11; i++)
 	{
 		if (i == 1)
-			std::cout << i << "st Test\n"; 
+			std::cout << BLUE << i << "st Test\n" << RESET; 
 		else if (i == 2)
-			std::cout << i << "nd Test\n";
+			std::cout << BLUE << i << "nd Test\n" << RESET;
 		else if (i == 3)
-			std::cout << i << "rd Test\n";
+			std::cout << BLUE << i << "rd Test\n" << RESET;
 		else
-			std::cout << i << "th Test\n";
+			std::cout << BLUE << i << "th Test\n" << RESET;
 		
 		Base * ptr = generate();
 		Base & ref = *ptr;
@@ -110,4 +110,3 @@ int	main( void )
 	}
 	return (0);
 }
-
