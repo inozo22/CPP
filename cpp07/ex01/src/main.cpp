@@ -6,7 +6,7 @@
 /*   By: nimai <nimai@student.42urduliz.com>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/30 17:45:49 by nimai             #+#    #+#             */
-/*   Updated: 2023/12/01 15:29:46 by nimai            ###   ########.fr       */
+/*   Updated: 2024/02/28 16:58:20 by nimai            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,12 @@
 #include <iostream>
 #include <cmath>
 #include <string>
+
+template <typename T>
+void	printElement(T& element)
+{
+	std::cout << element << " ";
+}
 
 void	intSumFive( int & num )
 {
@@ -38,7 +44,7 @@ void	strAddWan( std::string & str )
 
 int	main( void )
 {
-	std::cout << GREEN << std::setfill('=') << std::setw(25) << ">>> ITER TEST" << RESET << std::endl;
+/* 	std::cout << GREEN << std::setfill('=') << std::setw(25) << ">>> ITER TEST" << RESET << std::endl;
 	{		
 		//if you want to check how works with empty array, the pedantic should be desabled
 		std::cout << CYAN << std::setfill('=') << std::setw(25) << ">>> Empty arrays" << RESET << std::endl << std::endl;
@@ -60,14 +66,15 @@ int	main( void )
 		std::cout << "\tEmpty float: ";
 		::print<float>(floatArray, len);
 		std::cout << std::endl << std::endl;
-	}
+	} */
 	{		
 		std::cout << CYAN << std::setfill('=') << std::setw(25) << ">>> Int array test" << RESET << std::endl << std::endl;
 		int		intArray[] = {0, 1, 2, 55, 3, 4, 5, 6, 7, 8};
-		size_t	len = 10;
+		size_t	len = sizeof(intArray) / sizeof(int);
 	
 		std::cout << "\tInt: Original ";
-		::print<int>(intArray, len);
+//		::print<int>(intArray, len);
+		::iter(intArray, len, ::printElement);
 
 		::iter(intArray, len, ::intSumFive);
 
