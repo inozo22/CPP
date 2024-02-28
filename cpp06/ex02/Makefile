@@ -6,7 +6,7 @@
 #    By: nimai <nimai@student.42urduliz.com>        +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/07/25 11:05:17 by nimai             #+#    #+#              #
-#    Updated: 2024/02/28 11:15:48 by nimai            ###   ########.fr        #
+#    Updated: 2024/02/28 15:38:29 by nimai            ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -18,7 +18,7 @@ LIBS		:=
 INCS		:= inc
 
 SRC_DIR		:= src
-SRCS		:= main.cpp A.cpp B.cpp C.cpp Base.cpp
+SRCS		:= main.cpp A.cpp B.cpp C.cpp Base.cpp #Dammy.cpp
 SRCS		:= $(SRCS:%=$(SRC_DIR)/%)
 
 BUILD_DIR	:= .build

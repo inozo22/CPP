@@ -6,7 +6,7 @@
 /*   By: nimai <nimai@student.42urduliz.com>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/30 16:24:24 by nimai             #+#    #+#             */
-/*   Updated: 2024/02/28 11:29:53 by nimai            ###   ########.fr       */
+/*   Updated: 2024/02/28 15:42:57 by nimai            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,7 @@
 #include "A.hpp"
 #include "B.hpp"
 #include "C.hpp"
+#include "Dammy.hpp"
 #include <ctime>
 #include <cstdlib>
 #include <iostream>
@@ -34,6 +35,7 @@ Base * generate( void )
 			std::cout << "Generated: \"C\""<< std::endl;
 			return (new C);
 	}
+	std::cout <<  "Generated: \"Nothing\""<< std::endl;
 	return (NULL);
 }
 
@@ -56,7 +58,7 @@ void	identify( Base & ptr )
 	try
 	{
 		dynamic_cast<A &>(ptr);
-		std::cout << GREEN "A" RESET << std::endl;
+		std::cout << GREEN "A" RESET;
 	}
 	catch(const std::exception& e)
 	{
@@ -65,7 +67,7 @@ void	identify( Base & ptr )
 	try
 	{
 		dynamic_cast<B &>(ptr);
-		std::cout << GREEN "B" RESET << std::endl;
+		std::cout << GREEN "B" RESET;
 	}
 	catch(const std::exception& e)
 	{
@@ -74,25 +76,17 @@ void	identify( Base & ptr )
 	try
 	{
 		dynamic_cast<C &>(ptr);
-		std::cout << GREEN "C" RESET << std::endl;
+		std::cout << GREEN "C" RESET;
 	}
 	catch(const std::exception& e)
 	{
 		//std::cerr << e.what() << '\n';
 	}
+	std::cout << std::endl;
 }
 
 int	main( void )
 {
-/* 	Base* obj = generate();
-
-	identify(obj);
-	identify(*obj);
-
-    delete obj;
-
-    return 0; */
-	Base * ptr;
 	std::srand( std::time(0) );
 
 	for (int i = 1; i < 11; i++)
@@ -106,9 +100,11 @@ int	main( void )
 		else
 			std::cout << i << "th Test\n";
 		
-		ptr = generate();
+		Base * ptr = generate();
+		Base & ref = *ptr;
+
 		identify(ptr);
-		identify(*ptr);
+		identify(ref);
 		delete (ptr);
 		std::cout << std::endl;
 	}
