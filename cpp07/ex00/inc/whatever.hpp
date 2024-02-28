@@ -6,7 +6,7 @@
 /*   By: nimai <nimai@student.42urduliz.com>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/30 17:26:50 by nimai             #+#    #+#             */
-/*   Updated: 2024/02/28 16:03:55 by nimai            ###   ########.fr       */
+/*   Updated: 2024/02/28 16:13:17 by nimai            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,6 @@ void	swap(T &a, T &b)
 	T tmp = a;
 	a = b;
 	b = tmp;
-	return ;
 }
 
 template <typename T>
