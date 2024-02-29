@@ -6,7 +6,7 @@
 /*   By: nimai <nimai@student.42urduliz.com>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/05 09:00:17 by nimai             #+#    #+#             */
-/*   Updated: 2024/02/29 16:54:52 by nimai            ###   ########.fr       */
+/*   Updated: 2024/02/29 22:21:25 by nimai            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,10 +40,12 @@ class	Array
 
 	public:
 			Array( void ): _array(NULL), _size(0) {};
-			Array( unsigned int n ): _array(new T[n]), _size(n) {};
+//			Array( unsigned int n ): _array(new T[n]), _size(n) {};
+			Array( unsigned int n ): _array(new (std::nothrow) T[n]), _size(n) {};
 			Array( Array const & src )
 			{
-				_array = new T[src._size];
+	//			_array = new T[src._size];
+				_array = new (std::nothrow) T[src._size];
 				_size = src._size;
 				for (unsigned int i = 0; i < this->_size; i++)
 					this->_array[i] = src._array[i];
@@ -58,7 +60,8 @@ class	Array
 				{
 					delete[] _array;
 					this->_size = src._size;
-					this->_array = new T[this->_size];
+	//				this->_array = new T[this->_size];
+					this->_array = new (std::nothrow) T[this->_size];
 				}
 				for (unsigned int i = 0; i < this->_size; i++)
 					this->_array[i] = src._array[i];
@@ -99,9 +102,9 @@ std::ostream & operator<<(std::ostream &os, Array<T> &obj)
 }
 
 template <typename T>
-void	print(T * array, size_t len)
+void	print(T * array, unsigned int len)
 {
-	for (size_t i = 0; i < len; i++)
+	for (unsigned int i = 0; i < len; i++)
 	{
 		std::cout << array[i];
 		if ((i + 1 != len))
