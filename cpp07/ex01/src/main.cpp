@@ -6,11 +6,11 @@
 /*   By: nimai <nimai@student.42urduliz.com>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/30 17:45:49 by nimai             #+#    #+#             */
-/*   Updated: 2024/02/29 09:11:18 by nimai            ###   ########.fr       */
+/*   Updated: 2024/02/29 09:30:47 by nimai            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Iter.hpp"
+#include "iter.hpp"
 #include <iomanip>
 #include <iostream>
 #include <cmath>
