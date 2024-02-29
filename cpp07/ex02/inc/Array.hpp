@@ -6,7 +6,7 @@
 /*   By: nimai <nimai@student.42urduliz.com>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/05 09:00:17 by nimai             #+#    #+#             */
-/*   Updated: 2023/12/13 12:17:46 by nimai            ###   ########.fr       */
+/*   Updated: 2024/02/29 16:54:52 by nimai            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,22 @@
 # define ARRAY_HPP
 
 # include <iostream>
+
+//===Color font code===/
+# define BLACK   "\x1B[30m"
+# define RED     "\x1b[31m"
+# define GREEN   "\x1b[32m"
+# define YELLOW  "\x1b[33m"
+# define BLUE    "\x1b[34m"
+# define MAGENTA "\x1b[35m"
+# define CYAN    "\x1b[36m"
+# define WHITE   "\x1B[37m"
+# define ORANGE  "\x1B[38;2;255;128;0m"
+# define ROSE    "\x1B[38;2;255;151;203m"
+# define LBLUE   "\x1B[38;2;53;149;240m"
+# define LGREEN  "\x1B[38;2;17;245;120m"
+# define GRAY    "\x1B[38;2;176;174;174m"
+# define RESET   "\x1b[0m"
 
 template <typename T>
 class	Array
@@ -23,16 +39,8 @@ class	Array
 			unsigned int	_size;
 
 	public:
-			Array( void )
-			{
-				_array = NULL;
-				_size = 0;
-			}
-			Array( unsigned int num )
-			{
-				_array = new T[num];
-				_size = num;
-			}
+			Array( void ): _array(NULL), _size(0) {};
+			Array( unsigned int n ): _array(new T[n]), _size(n) {};
 			Array( Array const & src )
 			{
 				_array = new T[src._size];
@@ -40,10 +48,7 @@ class	Array
 				for (unsigned int i = 0; i < this->_size; i++)
 					this->_array[i] = src._array[i];
 			}
-			~Array( void )
-			{
-				delete[] _array;
-			}
+			~Array( void ) {delete[] _array;};
 
 			Array & operator=( const Array &src )
 			{
@@ -63,34 +68,47 @@ class	Array
 			T &	operator[](unsigned int i)
 			{
 				if (i >= this->_size)
-					throw(Exception());
+					throw(OutRangeException());
 				return (this->_array[i]);
 			}
 
-			class Exception : public std::exception
+			class OutRangeException : public std::exception
 			{
 				public:
 						virtual const char * what( void ) const throw()
 						{
-							return ("I got exception");
+							return ("Index is out of range");
 						}
 			};
-
-			unsigned int	getSize( void ) const
+			unsigned int	size() const
 			{
-				return (this->_size);
-			}
+				return this->_size;
+			};
 };
 
 template <typename T>
 std::ostream & operator<<(std::ostream &os, Array<T> &obj)
 {
-	for (unsigned int i = 0; i < obj.getSize(); ++i)
+	for (unsigned int i = 0; i < obj.size(); ++i)
 	{
 		os << obj[i];
+		if ((i + 1) != obj.size())
+			os << ", ";
 	}
 	return (os);
 }
 
+template <typename T>
+void	print(T * array, size_t len)
+{
+	for (size_t i = 0; i < len; i++)
+	{
+		std::cout << array[i];
+		if ((i + 1 != len))
+			std::cout << ", ";
+		else
+			std::cout << std::endl;
+	}
+}
 
 #endif
