@@ -6,7 +6,7 @@
 /*   By: nimai <nimai@student.42urduliz.com>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/30 17:44:54 by nimai             #+#    #+#             */
-/*   Updated: 2023/12/01 12:50:47 by nimai            ###   ########.fr       */
+/*   Updated: 2024/02/29 08:58:33 by nimai            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,15 +36,39 @@
 // • The first parameter is the address of an array.
 // • The second one is the length of the array.
 // • The third one is a function that will be call on every element of the array.
-template <typename A, typename F>
-void	iter(A * array, size_t len, F function)
+
+// for template function
+template<typename T>
+void	iter(T* array, size_t len, void function(T const&))
 {
 	for (size_t i = 0; i < len; i++)
 	{
 		function(array[i]);
 	}
-	return ;
 }
+
+// for not template function
+template <typename T, typename F>
+void	iter(T* array, size_t len, F function)
+{
+	for (size_t i = 0; i < len; i++)
+	{
+		function(array[i]);
+	}
+}
+
+template <typename T>
+void	printElement(const T& element)
+{
+	std::cout << element << " ";
+}
+
+template <typename T>
+void	sumFive(T& element)
+{
+	element += 5;
+}
+
 
 template <typename T>
 void	print(T * array, size_t len)

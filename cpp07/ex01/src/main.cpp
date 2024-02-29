@@ -6,7 +6,7 @@
 /*   By: nimai <nimai@student.42urduliz.com>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/30 17:45:49 by nimai             #+#    #+#             */
-/*   Updated: 2024/02/28 16:58:20 by nimai            ###   ########.fr       */
+/*   Updated: 2024/02/29 09:11:18 by nimai            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,12 +15,6 @@
 #include <iostream>
 #include <cmath>
 #include <string>
-
-template <typename T>
-void	printElement(T& element)
-{
-	std::cout << element << " ";
-}
 
 void	intSumFive( int & num )
 {
@@ -72,80 +66,59 @@ int	main( void )
 		int		intArray[] = {0, 1, 2, 55, 3, 4, 5, 6, 7, 8};
 		size_t	len = sizeof(intArray) / sizeof(int);
 	
-		std::cout << "\tInt: Original ";
-//		::print<int>(intArray, len);
+		std::cout << "\tOriginal Int array: ";
 		::iter(intArray, len, ::printElement);
-
-		::iter(intArray, len, ::intSumFive);
-
+		::iter(intArray, len, ::sumFive<int>);
 		std::cout << std::endl;
-		std::cout << "\tInt: After iter ";
-		::print<int>(intArray, len);
+	
+		std::cout << "\tAfter iter sumFive: ";
+		::iter(intArray, len, ::printElement);
 		std::cout << std::endl << std::endl;
 	}
 	{		
 		std::cout << CYAN << std::setfill('=') << std::setw(25) << ">>> Double array test" << RESET << std::endl << std::endl;
 		double	doubleArray[] = {0.01, 1.20, 2.3, 55.4, 3.5, 4.670, 5.8, 6.9, 7.090, 8.0};
-		size_t	len = 10;
+		size_t	len = sizeof(doubleArray) / sizeof(double);
 
-		std::cout << "\tDouble: Original ";
-		::print<double>(doubleArray, len);
+		std::cout << "\tOriginal Double array: ";
+		::iter(doubleArray, len, ::printElement);
+		::iter(doubleArray, len, ::sumFive<double>);
 
-
-		::iter(doubleArray, len, ::doubleRound);
+//		::iter(doubleArray, len, ::doubleRound);
 		std::cout << std::endl;	
-		std::cout << "\tDouble: After iter ";
-		::print<double>(doubleArray, len);
+		std::cout << "\tAfter iter sumFive: ";
+		::iter(doubleArray, len, ::printElement);
 		std::cout << std::endl << std::endl;
 	}
 	{		
 		std::cout << CYAN << std::setfill('=') << std::setw(25) << ">>> Char array test" << RESET << std::endl << std::endl;
 		char	charArray[] = {'a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j'};
-		size_t	len = 10;
+		size_t	len = sizeof(charArray) / sizeof(char);
 	
-		std::cout << "\tChar: Original ";
-		::print<char>(charArray, len);
-	
+		std::cout << "\tOriginal Char array: ";
+		::iter(charArray, len, ::printElement);
 		::iter(charArray, len, ::charUpper);
-
 		std::cout << std::endl;
-		std::cout << "\tChar: After iter ";
-		::print<char>(charArray, len);
+	
+		std::cout << "\tAfter iter charUpper: ";
+		::iter(charArray, len, ::printElement);
 		std::cout << std::endl << std::endl;
 	}
 	{		
 		std::cout << CYAN << std::setfill('=') << std::setw(25) << ">>> String array test" << RESET << std::endl << std::endl;
 		std::string	stringArray[] = {"Hello", "Hola", "Kaixo", "Konnichiwa", "Ciao", "Bonjour", "Privyet", "Hallo", "Oi", "Hoi"};
-		size_t	len = 10;
+		size_t	len = sizeof(stringArray) / sizeof(std::string);
 
-		std::cout << "\tString: Original ";
-		::print<std::string>(stringArray, len);
-
+		std::cout << "\tOriginal String array: ";
+		::iter(stringArray, len, ::printElement);
 		::iter(stringArray, len, ::strAddWan);
-
 		std::cout << std::endl;
-		std::cout << "\tString: After iter ";
-		::print<std::string>(stringArray, len);
+	
+		std::cout << "\tAfter iter strAddWan: ";
+		::iter(stringArray, len, ::printElement);
 		std::cout << std::endl << std::endl;
 	}
 
 	
 	return (0);
 }
-
-
-
-	// int a = 2;
-	// int b = 3;
-
-	// ::swap( a, b );
-	// std::cout << "a = " << a << ", b = " << b << std::endl;
-	// std::cout << "min( a, b ) = " << ::min( a, b ) << std::endl;
-	// std::cout << "max( a, b ) = " << ::max( a, b ) << std::endl;
-	// std::string c = "chaine1";
-	// std::string d = "chaine2";
-	// ::swap( c, d );
-	// std::cout << "c = " << c << ", d = " << d << std::endl;
-	// std::cout << "min( c, d ) = " << ::min( c, d ) << std::endl;
-	// std::cout << "max( c, d ) = " << ::max( c, d ) << std::endl;
-	// return 0;
