@@ -6,7 +6,7 @@
 /*   By: nimai <nimai@student.42urduliz.com>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/30 16:24:24 by nimai             #+#    #+#             */
-/*   Updated: 2024/02/28 15:45:45 by nimai            ###   ########.fr       */
+/*   Updated: 2024/03/01 13:08:39 by nimai            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,7 +57,7 @@ void	identify( Base & ptr )
 	std::cout << "Reference identifying: ";
 	try
 	{
-		dynamic_cast<A &>(ptr);
+		(void)dynamic_cast<A &>(ptr);
 		std::cout << GREEN "A" RESET;
 	}
 	catch(const std::exception& e)
@@ -66,7 +66,7 @@ void	identify( Base & ptr )
 	}
 	try
 	{
-		dynamic_cast<B &>(ptr);
+		(void)dynamic_cast<B &>(ptr);
 		std::cout << GREEN "B" RESET;
 	}
 	catch(const std::exception& e)
@@ -75,7 +75,7 @@ void	identify( Base & ptr )
 	}
 	try
 	{
-		dynamic_cast<C &>(ptr);
+		(void)dynamic_cast<C &>(ptr);
 		std::cout << GREEN "C" RESET;
 	}
 	catch(const std::exception& e)

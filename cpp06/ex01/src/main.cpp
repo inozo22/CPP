@@ -6,7 +6,7 @@
 /*   By: nimai <nimai@student.42urduliz.com>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/30 12:19:59 by nimai             #+#    #+#             */
-/*   Updated: 2024/02/27 17:02:23 by nimai            ###   ########.fr       */
+/*   Updated: 2024/03/01 13:36:47 by nimai            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,6 +38,9 @@ int main()
         std::cout << "deserialized: " << deserialized << std::endl;
         std::cout << "serialized: " << serialized << std::endl;
     }
+
+    std::cout << "deserialized: " << deserialized->value << std::endl;
+    std::cout << "dataObj: " << dataObj.value << std::endl;
 
     return 0;
 }

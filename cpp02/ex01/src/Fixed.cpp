@@ -6,7 +6,7 @@
 /*   By: nimai <nimai@student.42urduliz.com>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/31 16:03:55 by nimai             #+#    #+#             */
-/*   Updated: 2023/12/20 09:30:38 by nimai            ###   ########.fr       */
+/*   Updated: 2023/12/20 13:18:29 by nimai            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,9 @@ Fixed::Fixed( const int num ): _value(num << this->_bits)//there is a conflict23
 
 Fixed::Fixed( const float numf ): _value(roundf((float)numf * (1 << this->_bits)))
 {
-	// std::cout << "numf: " << numf << " _value roundf: " << this->_value << std::endl;
+	std::cout << "numf: " << numf << " _value roundf: " << this->_value << std::endl;
+	std::cout << "numf: " << numf << " _value without roundf: " << (float)numf * (1 << this->_bits) << std::endl;
+
 	std::cout << "Float constructor called" << std::endl;
 }
 

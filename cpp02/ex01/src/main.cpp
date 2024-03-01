@@ -6,7 +6,7 @@
 /*   By: nimai <nimai@student.42urduliz.com>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/28 10:06:00 by nimai             #+#    #+#             */
-/*   Updated: 2023/12/20 09:31:13 by nimai            ###   ########.fr       */
+/*   Updated: 2023/12/20 14:10:55 by nimai            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,7 +41,7 @@ int	main(void)
 	std::cout << GREEN ">>>>>>>>>> MY TEST <<<<<<<<<<" CLEAR << std::endl;
 	Fixed		a;
 	Fixed const	b( 10 );
-	Fixed const	c( 42.42f );
+	Fixed const	c( 12789456.0f );
 	Fixed const	d( b );
 
 	std::cout << BLUE "pointer: " CLEAR<< std::endl; 
@@ -50,7 +50,7 @@ int	main(void)
 	std::cout << "c: " << &c << ": " << c << std::endl; 
 	std::cout << "d: " << &d << ": " << d << std::endl; 
 
-	a = Fixed( 1234.43521f );
+	a = Fixed( 789.4f );
 	std::cout << "a: " << &a << std::endl; 
 
 	// a = Fixed( 20.56f );
