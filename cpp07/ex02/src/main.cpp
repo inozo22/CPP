@@ -6,7 +6,7 @@
 /*   By: nimai <nimai@student.42urduliz.com>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/05 09:00:34 by nimai             #+#    #+#             */
-/*   Updated: 2024/02/29 22:38:17 by nimai            ###   ########.fr       */
+/*   Updated: 2024/03/01 13:45:46 by nimai            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 #include <iostream>
 #include <cstdlib>
 
-//#define MAX_VAL 750
+// #define MAX_VAL 750
 #define MAX_VAL 10
 
 int	main( void )
@@ -90,6 +90,7 @@ int	main( void )
 	{
 		std::cerr << e.what() << "\n";
 	}
+	std::cout << CYAN "print numbers[2]: " RESET << numbers[2] << std::endl;
 
 ///////print whole array
 	std::cout << CYAN "print numbers:\n" RESET << numbers << std::endl;
