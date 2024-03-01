@@ -6,7 +6,7 @@
 /*   By: nimai <nimai@student.42urduliz.com>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/24 12:45:12 by nimai             #+#    #+#             */
-/*   Updated: 2024/03/01 09:22:14 by nimai            ###   ########.fr       */
+/*   Updated: 2024/03/01 09:38:31 by nimai            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,8 @@ ScalarConverter::ScalarConverter( void )
 ScalarConverter::ScalarConverter( ScalarConverter const & src ) 
 {
 	// std::cout << "Copy constructor called" << std::endl;
-	(void)src;
+	if (this != &src)
+		*this = src;
 }
 
 ScalarConverter::~ScalarConverter( void )

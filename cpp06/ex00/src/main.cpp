@@ -6,7 +6,7 @@
 /*   By: nimai <nimai@student.42urduliz.com>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/24 14:01:57 by nimai             #+#    #+#             */
-/*   Updated: 2024/02/27 15:55:14 by nimai            ###   ########.fr       */
+/*   Updated: 2024/03/01 09:35:31 by nimai            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,8 @@
 
 int	main(int ac, char **av)
 {
+//	ScalarConverter test;
+	std::string str(av[1]);
 	if (ac != 2)
 	{
 		std::cout << "USAGE: ./conver <number>" << std::endl;
@@ -23,8 +25,9 @@ int	main(int ac, char **av)
 	}
 	try
 	{
-		std::cout << GREEN "Converting... [ " << av[1] << " ]" RESET << std::endl;
-		ScalarConverter::convert(av[1]);
+//		test.convert(str);
+		std::cout << GREEN "Converting... [ " << str << " ]" RESET << std::endl;
+		ScalarConverter::convert(str);
 	}
 	catch(const std::exception & e)
 	{
