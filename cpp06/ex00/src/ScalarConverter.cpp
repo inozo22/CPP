@@ -6,7 +6,7 @@
 /*   By: nimai <nimai@student.42urduliz.com>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/24 12:45:12 by nimai             #+#    #+#             */
-/*   Updated: 2024/02/29 23:25:20 by nimai            ###   ########.fr       */
+/*   Updated: 2024/03/01 09:22:14 by nimai            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -72,15 +72,11 @@ bool	ScalarConverter::checkFloat( std::string const & str )
 
 	if (str == "-nanf")
 		return (false);
-//	std::istringstream iss(str);
-	std::strtof(str.c_str(), &ptr);
-	value = std::strtof(str.c_str(), &ptr);
+	value = std::strtod(str.c_str(), &ptr);
 	if (ptr == str.c_str() || *ptr != 'f')
 		return (false);
 	if (*ptr == 'f' && (ptr + 1 && *(ptr + 1) != '\0'))
 		return (false);
-/* 	if (!(iss >> value))
-		return (false); */
 	ScalarConverter::retFloat = value;
 	return (true);
 }
