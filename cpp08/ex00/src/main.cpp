@@ -14,6 +14,7 @@
 #include <iostream>
 #include <vector>
 #include <list>
+#include <deque>
 
 int	main( void )
 {
@@ -24,8 +25,9 @@ int	main( void )
 //		std::vector<int>::const_iterator ret;
 		try
 		{
-			std::vector<int>::const_iterator ret1 = easyfind(container, 3);
-			std::cout << "Value found at index: " << *ret1 << std::endl;
+			int value = 1;
+			std::vector<int>::const_iterator ret = easyfind(container, value);
+			std::cout << "Element " BLUE << value << RESET " found at index: " GREEN << std::distance<std::vector<int>::const_iterator>(container.begin(), ret) << RESET << std::endl;
 		}
 		catch (const std::out_of_range& e)
 		{
@@ -33,8 +35,9 @@ int	main( void )
     	}
 		try
 		{
-			std::vector<int>::const_iterator ret2 = easyfind(container, 8);
-			std::cout << "Value found at index: " << *ret2 << std::endl;
+			int value = 8;
+			std::vector<int>::const_iterator ret = easyfind(container, value);
+			std::cout << "Element " BLUE << value << RESET " found at index: " GREEN << std::distance<std::vector<int>::const_iterator>(container.begin(), ret) << RESET << std::endl;
 		}
 		catch (const std::out_of_range& e)
 		{
@@ -73,7 +76,37 @@ int	main( void )
 		}
 	}
 	std::cout << YELLOW ">>>>>>>>>> TEST with LIST <<<<<<<<<<\n" RESET << std::endl;
-
+	std::cout << std::endl << ROSE ">>>>>>>>>> TEST with DEQUE <<<<<<<<<<" RESET << std::endl;
+	{
+//		int arr[] = {1, 2, 3, 4, 5};
+		std::deque<int>	container;
+		for (int i = 0; i < 100; i++)
+		{
+			container.push_back(i + 2);
+		}
+		std::deque<int>::const_iterator ret;
+		try
+		{
+			int value = 0;
+			std::deque<int>::const_iterator ret = easyfind(container, value);
+			std::cout << "Element " BLUE << value << RESET " found at index: " GREEN << std::distance<std::deque<int>::const_iterator>(container.begin(), ret) << RESET << std::endl;
+		}
+		catch (const std::out_of_range& e)
+		{
+			std::cerr << e.what() << std::endl;
+    	}
+		try
+		{
+			int value = 11181;
+			std::deque<int>::const_iterator ret = easyfind(container, value);
+			std::cout << "Element " BLUE << value << RESET " found at index: " GREEN << std::distance<std::deque<int>::const_iterator>(container.begin(), ret) << RESET << std::endl;
+		}
+		catch (const std::out_of_range& e)
+		{
+			std::cerr << e.what() << std::endl;
+		}
+	}
+	std::cout << ROSE ">>>>>>>>>> TEST with DEQUE <<<<<<<<<<\n" RESET << std::endl;
 	return 0;
 }
 
