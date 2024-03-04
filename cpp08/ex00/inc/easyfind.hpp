@@ -6,7 +6,7 @@
 /*   By: nimai <nimai@student.42urduliz.com>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/13 14:01:40 by nimai             #+#    #+#             */
-/*   Updated: 2024/03/04 12:10:42 by nimai            ###   ########.fr       */
+/*   Updated: 2024/03/04 14:46:05 by nimai            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,26 +33,26 @@
 # include <algorithm>
 # include <iterator>
 
-template <typename T>
+/* template <typename T>
 class EasyFind
 {
 	public:
 			typename T::const_iterator	easyfind(T const & container, int element);
 
-};
+}; */
 
-// template <typename T>
-// typename T::const_iterator	easyfind(T const & container, int element);
-// {
-// 	typename T::const_iterator	iter;
+template <typename T>
+void	easyfind(T const & container, int element)
+{
+	typename T::const_iterator	iter;
 
-// 	iter = std::find(container.begin(), container.end(), element);
-// 	if (iter == container.end())
-// 	{
-// 		throw(std::out_of_range("Element is out of range."));
-// 	}
-// 	return (iter);
-// }
-# include "easyfind.tpp"
+	iter = std::find(container.begin(), container.end(), element);
+	if (iter == container.end())
+	{
+		throw(std::out_of_range("Element is out of range."));
+	}
+//	return (iter);
+}
+//# include "easyfind.tpp"
 
 #endif

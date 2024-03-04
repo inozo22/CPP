@@ -6,7 +6,7 @@
 /*   By: nimai <nimai@student.42urduliz.com>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/13 14:01:25 by nimai             #+#    #+#             */
-/*   Updated: 2024/03/04 12:11:36 by nimai            ###   ########.fr       */
+/*   Updated: 2024/03/04 14:35:51 by nimai            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,11 +21,10 @@ int	main( void )
 		int arr[] = {1, 2, 3, 4, 5};
 		std::vector<int>	container(arr, arr + sizeof(arr) / sizeof(arr[0]));
 
-		EasyFind<std::vector<int> > finder;
 		try
 		{
-			std::vector<int>::const_iterator result = finder.easyfind(container, 3);
-			std::cout << "Value found at index: " << std::distance(container.begin(), static_cast<std::vector<int>::const_iterator>(result)) << std::endl;
+			easyfind(container, 3);
+			std::cout << "Value found at index: " << /* easyfind(container, 3) << */ std::endl;
 		}
 		catch (const std::out_of_range& e)
 		{
@@ -33,8 +32,8 @@ int	main( void )
     	}
 		try
 		{
-			std::vector<int>::const_iterator result = finder.easyfind(container, 8);
-			std::cout << "Value found at index: " << std::distance(container.begin(), static_cast<std::vector<int>::const_iterator>(result)) << std::endl;
+			easyfind(container, 8);
+			std::cout << "Value found at index: " << /* easyfind(container, 8) << */ std::endl;
 		}
 		catch (const std::out_of_range& e)
 		{
