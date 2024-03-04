@@ -32,6 +32,7 @@
 # include <stdexcept>
 # include <algorithm>
 # include <iterator>
+# include <iostream>
 
 /* template <typename T>
 class EasyFind
@@ -50,7 +51,8 @@ typename T::const_iterator	easyfind(T const & container, int element)
 	iter = std::find(container.begin(), container.end(), element);
 	if (iter == container.end())
 	{
-		throw(std::out_of_range("Element is out of range."));
+		std::cout << "Element " MAGENTA << element << RESET " ";
+		throw std::out_of_range("is not found.");
 	}
 	return (iter);
 }

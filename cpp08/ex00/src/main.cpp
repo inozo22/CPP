@@ -13,6 +13,7 @@
 #include "easyfind.hpp"
 #include <iostream>
 #include <vector>
+#include <list>
 
 int	main( void )
 {
@@ -20,8 +21,7 @@ int	main( void )
 	{
 		int arr[] = {1, 2, 3, 4, 5};
 		std::vector<int>	container(arr, arr + sizeof(arr) / sizeof(arr[0]));
-		std::vector<int>::const_iterator ret;
-
+//		std::vector<int>::const_iterator ret;
 		try
 		{
 			std::vector<int>::const_iterator ret1 = easyfind(container, 3);
@@ -41,6 +41,39 @@ int	main( void )
 			std::cerr << e.what() << std::endl;
 		}
 	}
+	std::cout << CYAN ">>>>>>>>>> TEST with VECTOR <<<<<<<<<<\n" RESET << std::endl;
+	std::cout << std::endl << YELLOW ">>>>>>>>>> TEST with LIST <<<<<<<<<<" RESET << std::endl;
+	{
+//		int arr[] = {1, 2, 3, 4, 5};
+		std::list<int>	container;
+		for (int i = 0; i < 100; i++)
+		{
+			container.push_front(i + 2);
+		}
+		std::list<int>::const_iterator ret;
+		try
+		{
+			int value = 0;
+			std::list<int>::const_iterator ret = easyfind(container, value);
+			std::cout << "Element " BLUE << value << RESET " found at index: " GREEN << std::distance<std::list<int>::const_iterator>(container.begin(), ret) << RESET << std::endl;
+		}
+		catch (const std::out_of_range& e)
+		{
+			std::cerr << e.what() << std::endl;
+    	}
+		try
+		{
+			int value = 81;
+			std::list<int>::const_iterator ret = easyfind(container, value);
+			std::cout << "Element " BLUE << value << RESET " found at index: " GREEN << std::distance<std::list<int>::const_iterator>(container.begin(), ret) << RESET << std::endl;
+		}
+		catch (const std::out_of_range& e)
+		{
+			std::cerr << e.what() << std::endl;
+		}
+	}
+	std::cout << YELLOW ">>>>>>>>>> TEST with LIST <<<<<<<<<<\n" RESET << std::endl;
+
 	return 0;
 }
 
