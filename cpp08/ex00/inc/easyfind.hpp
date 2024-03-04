@@ -42,7 +42,8 @@ class EasyFind
 }; */
 
 template <typename T>
-void	easyfind(T const & container, int element)
+//void	easyfind(T const & container, int element)
+typename T::const_iterator	easyfind(T const & container, int element)
 {
 	typename T::const_iterator	iter;
 
@@ -51,7 +52,7 @@ void	easyfind(T const & container, int element)
 	{
 		throw(std::out_of_range("Element is out of range."));
 	}
-//	return (iter);
+	return (iter);
 }
 //# include "easyfind.tpp"
 

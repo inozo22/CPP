@@ -20,11 +20,12 @@ int	main( void )
 	{
 		int arr[] = {1, 2, 3, 4, 5};
 		std::vector<int>	container(arr, arr + sizeof(arr) / sizeof(arr[0]));
+		std::vector<int>::const_iterator ret;
 
 		try
 		{
-			easyfind(container, 3);
-			std::cout << "Value found at index: " << /* easyfind(container, 3) << */ std::endl;
+			std::vector<int>::const_iterator ret1 = easyfind(container, 3);
+			std::cout << "Value found at index: " << *ret1 << std::endl;
 		}
 		catch (const std::out_of_range& e)
 		{
@@ -32,8 +33,8 @@ int	main( void )
     	}
 		try
 		{
-			easyfind(container, 8);
-			std::cout << "Value found at index: " << /* easyfind(container, 8) << */ std::endl;
+			std::vector<int>::const_iterator ret2 = easyfind(container, 8);
+			std::cout << "Value found at index: " << *ret2 << std::endl;
 		}
 		catch (const std::out_of_range& e)
 		{
