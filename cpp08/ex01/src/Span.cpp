@@ -12,12 +12,50 @@
 
 #include "Span.hpp"
 
-Span::Span(/* args */)
+//--- Orthodox Canonical Form ---//
+Span::Span( void ) 
 {
+	// std::cout << "Default constructor called" << std::endl;
 }
 
-Span::~Span()
+Span::Span( unsigned int N ): _max(N) 
 {
+	// std::cout << "Constructor called" << std::endl;
 }
 
+Span::Span( Span const & src ) 
+{
+	// std::cout << "Copy constructor called" << std::endl;
+	if (this != &src)
+		*this = src;
+}
+
+Span::~Span( void )
+{
+	// std::cout << "Destructor called" << std::endl;
+}
+
+Span & Span::operator=(const Span & src)
+{
+	// std::cout << "AForm assignment operator overload called." << std::endl;
+	this->_max = src._max;
+    // to copy the vector, is it enough???
+	this->_numbers = src._numbers;
+	return (*this);
+}
+//--- Orthodox Canonical Form ---//
+
+
+void	Span::addNumber( unsigned int Element )
+{
+
+}
+int		Span::shortestSpan( void )
+{
+
+}
+int		Span::longestSpan( void )
+{
+
+}
 

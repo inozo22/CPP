@@ -12,24 +12,26 @@
 
 #ifndef SPAN_HPP
 # define SPAN_HPP
+# include <algorithm>
 
 //# define MAX_N 750
 
 class Span
 {
-private:
-    unsigned int	_n;
-public:
-    Span( void );
-    Span( unsigned int N );
-    Span( Span const &src );
-    ~Span();
+	private:
+   		unsigned int		_max;
+		std::vector<int>	_numbers;
+	public:
+		Span( void );
+		Span( unsigned int N );
+		Span( Span const &src );
+		~Span();
 
-	Span & operator=( const Span & src );
+		Span & operator=( const Span & src );
 
-	addNumber();
-	shortestSpan();
-	longestSpan();
+		void	addNumber( unsigned int Element );
+		int		shortestSpan( void );
+		int		longestSpan( void );
 };
 
 
