@@ -13,6 +13,7 @@
 #ifndef SPAN_HPP
 # define SPAN_HPP
 # include <algorithm>
+# include <vector>
 
 //# define MAX_N 750
 
@@ -29,7 +30,7 @@ class Span
 
 		Span & operator=( const Span & src );
 
-		void	addNumber( unsigned int Element );
+		void	addNumber( const int element );
 		int		shortestSpan( void );
 		int		longestSpan( void );
 };

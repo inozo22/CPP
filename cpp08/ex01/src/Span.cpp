@@ -11,6 +11,9 @@
 /* ************************************************************************** */
 
 #include "Span.hpp"
+#include <iostream>
+#include <stdexcept>
+#include <limits>
 
 //--- Orthodox Canonical Form ---//
 Span::Span( void ) 
@@ -46,16 +49,32 @@ Span & Span::operator=(const Span & src)
 //--- Orthodox Canonical Form ---//
 
 
-void	Span::addNumber( unsigned int Element )
+void	Span::addNumber( const int element )
 {
-
+	if (this->_numbers.size() >= this->_max)
+		throw std::out_of_range("Maximum number of elements reached");
+	this->_numbers.push_back(element);
 }
+
 int		Span::shortestSpan( void )
 {
-
+	if (this->_numbers.size() <= 1)
+		throw std::logic_error("There is no enough elements");
+	std::sort(this->_numbers.begin(), this->_numbers.end());
+	int ret = std::numeric_limits<int>::max();
+	for (size_t i = 0; i < this->_numbers.size(); ++i)
+	{
+		int span = this->_numbers[i] - this->_numbers[i - 1];
+		ret = std::min(ret, span);
+	}
+	return ret;
 }
+
 int		Span::longestSpan( void )
 {
-
+	if (this->_numbers.size() <= 1)
+		throw std::logic_error("There is no enough elements");
+	std::sort(this->_numbers.begin(), this->_numbers.end());
+	return this->_numbers[_numbers.size() - 1] - this->_numbers[0];
 }
 
