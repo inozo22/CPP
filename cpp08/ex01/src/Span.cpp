@@ -62,7 +62,7 @@ int		Span::shortestSpan( void )
 		throw std::logic_error("There is no enough elements");
 	std::sort(this->_numbers.begin(), this->_numbers.end());
 	int ret = std::numeric_limits<int>::max();
-	for (size_t i = 0; i < this->_numbers.size(); ++i)
+	for (size_t i = 1; i < this->_numbers.size(); ++i)
 	{
 		int span = this->_numbers[i] - this->_numbers[i - 1];
 		ret = std::min(ret, span);
