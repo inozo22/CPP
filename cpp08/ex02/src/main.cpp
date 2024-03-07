@@ -6,7 +6,7 @@
 /*   By: nimai <nimai@student.42urduliz.com>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/13 14:01:18 by nimai             #+#    #+#             */
-/*   Updated: 2023/12/13 14:06:25 by nimai            ###   ########.fr       */
+/*   Updated: 2024/03/07 11:56:22 by nimai            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 #include <iostream>
 #include <limits>
 
-void	test1( void )
+/* void	test1( void )
 {
 	std::cout << std::endl << CYAN ">>>>>>>>>> TEST1 CALLED <<<<<<<<<<" RESET << std::endl;
 	std::cout << "input 5(1, 5, 6, 7, 222) numbers" << std::endl;
@@ -63,9 +63,9 @@ void	test3( void )
 	sp.addMultipulNumber(begin, end);
 	std::cout << sp.shortestMutantStack() << std::endl;
 	std::cout << sp.longestMutantStack() << std::endl;
-}
+} */
 
-void	subject_test( void )
+/* void	subject_test( void )
 {
 	std::cout << std::endl << CYAN ">>>>>>>>>> SUBJECT TEST CALLED <<<<<<<<<<" RESET << std::endl;
 
@@ -79,9 +79,9 @@ void	subject_test( void )
 
 	std::cout << sp.shortestMutantStack() << std::endl;
 	std::cout << sp.longestMutantStack() << std::endl;
-}
+} */
 
-int	main( int ac, char **av )//main in subject
+/* int	main( int ac, char **av )//main in subject
 {
 	if (ac == 2)
 	{
@@ -96,4 +96,31 @@ int	main( int ac, char **av )//main in subject
 	else
 		subject_test();
 	return (0);
+} */
+
+int main( void )
+{
+	MutantStack<int> mstack;
+	mstack.push(5);
+	mstack.push(17);
+	std::cout << mstack.top() << std::endl;
+	mstack.pop();
+	std::cout << mstack.size() << std::endl;
+	mstack.push(3);
+	mstack.push(5);
+	mstack.push(737);
+	//[...]
+	mstack.push(0);
+	MutantStack<int>::iterator it = mstack.begin();
+	MutantStack<int>::iterator ite = mstack.end();
+	++it;
+	--it;
+	while (it != ite)
+	{
+		std::cout << *it << std::endl;
+		++it;
+	}
+	std::stack<int> s(mstack);
+	return 0;
 }
+
