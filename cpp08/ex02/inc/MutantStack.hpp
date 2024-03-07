@@ -13,7 +13,7 @@
 #ifndef MUTANTSTACK_HPP
 # define MUTANTSTACK_HPP
 # include <algorithm>
-# include <vector>
+# include <stack>
 # include <stdexcept>
 
 //===Color font code===/
@@ -34,38 +34,80 @@
 
 //# define MAX_N 750
 
+/* template <typename T, typename Container = std::deque<T> >
+class MutantStack : public std::stack<T, Container> {
+public:
+    typedef typename Container::iterator iterator;
+
+    iterator begin() {
+        return this->c.begin();
+    }
+
+    iterator end() {
+        return this->c.end();
+    }
+};*/
+
+template <typename T>
 class MutantStack
 {
 	private:
-   		unsigned int		_max;
-		std::vector<int>	_numbers;
+		std::stack<T>	_stack;
 	public:
-		MutantStack( void );
+/*		MutantStack( void );
 		MutantStack( unsigned int N );
 		MutantStack( MutantStack const &src );
 		~MutantStack();
 
-		MutantStack & operator=( const MutantStack & src );
+		MutantStack & operator=( const MutantStack & src );*/
 
-		void	addNumber( const int element );
-		int		shortestMutantStack( void );
-		int		longestMutantStack( void );
+//		typedef typename std::stack<T>::container_type container_type;
+//		typedef typename std::stack<T>::value_type value_type;
+//		typedef typename std::stack<T>::size_type size_type;
 
-		template <typename T>
-		void	addMultipulNumber(T begin, T end)
+//Iterator for MutantStack
+		class iterator
 		{
-			unsigned int	spaceLeft = _max - _numbers.size();
-			unsigned int	inputSize = std::distance(begin, end);
-			if (inputSize > spaceLeft)
-			{
-				throw std::overflow_error("Not enough space left.");
-			}
-			_numbers.insert(_numbers.end(), begin, end);
-		}
+			private:
+					typename std::stack<T>::container_type::iterator it;
+			public:
+					iterator(typename std::stack<T>::container_type::iterator iter);
+					iterator & operator++( void );
+					iterator operator++( int );
+					iterator & operator--( void );
+					iterator operator--( int );
+					bool	operator==(const iterator & src) const;
+					bool	operator!=(const iterator & src) const;
+					T & operator * ( void );
+		};
+
+//Functions to make MutantStack iterable
+		iterator begin( void );
+		iterator end( void );
+
+//Other member functions to mimic std::stack
+		bool	empty( void ) const;
+		size_t	size( void ) const;
+		void	push( const T& value );
+		void 	pop( void );
+		T & 	top( void );
+
+//		void	addNumber( const int element );
+//		int		shortestMutantStack( void );
+//		int		longestMutantStack( void );
+
+//		template <typename T>
+//		void	addMultipulNumber(T begin, T end)
+//		{
+//			unsigned int	spaceLeft = _max - _numbers.size();
+//			unsigned int	inputSize = std::distance(begin, end);
+//			if (inputSize > spaceLeft)
+//			{
+//				throw std::overflow_error("Not enough space left.");
+//			}
+//			_numbers.insert(_numbers.end(), begin, end);
+//		}
 };
 
-
-
-
-
+# include "MutantStack.tpp"
 #endif

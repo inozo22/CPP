@@ -10,11 +10,110 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "MutantStack.hpp"
+#ifndef MUTANTSTACK_TPP
+# define MUTANTSTACK_TPP
 #include <iostream>
-#include <stdexcept>
-#include <limits>
 
+template <typename T>
+MutantStack<T>::iterator::iterator(typename std::stack<T>::container_type::iterator iter): it(iter)
+{
+
+}
+
+template <typename T>
+typename MutantStack<T>::iterator & MutantStack<T>::iterator::operator++( void )
+{
+	++it;
+	return *this;
+}
+
+template <typename T>
+typename MutantStack<T>::iterator MutantStack<T>::iterator::operator++( int )
+{
+	iterator temp = *this;
+	++it;
+	return temp;
+}
+
+template <typename T>
+typename MutantStack<T>::iterator & MutantStack<T>::iterator::operator--( void )
+{
+	--it;
+	return *this;
+}
+
+template <typename T>
+typename MutantStack<T>::iterator MutantStack<T>::iterator::operator--( int )
+{
+	iterator temp = *this;
+	--it;
+	return temp;
+}
+
+
+template <typename T>
+bool	MutantStack<T>::iterator::operator==(const iterator & src) const
+{
+	return it == src.it;
+}
+
+template <typename T>
+bool	MutantStack<T>::iterator::operator!=(const iterator & src) const
+{
+	return it != src.it;
+}
+
+template <typename T>
+T & MutantStack<T>::iterator::operator * ( void )
+{
+	return *it;
+}
+
+template <typename T>
+typename MutantStack<T>::iterator MutantStack<T>::begin( void )
+{
+	return iterator(this->_stack.begin());
+}
+
+template <typename T>
+typename MutantStack<T>::iterator MutantStack<T>::end( void )
+{
+	return iterator(this->_stack.end());
+}
+
+template <typename T>
+bool	MutantStack<T>::empty( void ) const
+{
+	return this->_stack.empty();
+}
+
+template <typename T>
+size_t	MutantStack<T>::size( void ) const
+{
+	return this->_stack.size();
+}
+
+template <typename T>
+void	MutantStack<T>::push( const T & value )
+{
+	return this->_stack.push(value);
+}
+
+template <typename T>
+void	MutantStack<T>::pop( void )
+{
+	return this->_stack.pop();
+}
+
+template <typename T>
+T &	MutantStack<T>::top( void )
+{
+	return this->_stack.top();
+}
+
+#endif // MUTANTSTACK_TPP
+
+/*
 //--- Orthodox Canonical Form ---//
 MutantStack::MutantStack( void ) 
 {
@@ -77,4 +176,4 @@ int		MutantStack::longestMutantStack( void )
 	std::sort(this->_numbers.begin(), this->_numbers.end());
 	return this->_numbers[_numbers.size() - 1] - this->_numbers[0];
 }
-
+*/
