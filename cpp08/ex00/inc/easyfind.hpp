@@ -6,7 +6,7 @@
 /*   By: nimai <nimai@student.42urduliz.com>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/13 14:01:40 by nimai             #+#    #+#             */
-/*   Updated: 2024/03/09 10:25:17 by nimai            ###   ########.fr       */
+/*   Updated: 2024/03/09 10:26:12 by nimai            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,32 +29,6 @@
 # define GRAY    "\x1B[38;2;176;174;174m"
 # define RESET   "\x1b[0m"
 
-// # include <stdexcept>
-// # include <algorithm>
-// # include <iterator>
-// # include <iostream>
-
-// template <typename T>
-// class EasyFind
-// {
-// 	public:
-// 			typename T::const_iterator	easyfind(T const & container, int element);
-
-// };
-
-// template <typename T>
-// typename T::const_iterator	easyfind(T const & container, int element)
-// {
-// 	typename T::const_iterator	iter;
-
-// 	iter = std::find(container.begin(), container.end(), element);
-// 	if (iter == container.end())
-// 	{
-// 		std::cout << "Element " MAGENTA << element << RESET " ";
-// 		throw std::out_of_range("is not found.");
-// 	}
-// 	return (iter);
-// }
 template <typename T>
 typename T::const_iterator	easyfind(T const & container, int element);
 # include "easyfind.tpp"

@@ -6,7 +6,7 @@
 /*   By: nimai <nimai@student.42urduliz.com>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/13 14:01:25 by nimai             #+#    #+#             */
-/*   Updated: 2024/03/04 14:35:51 by nimai            ###   ########.fr       */
+/*   Updated: 2024/03/09 10:42:39 by nimai            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,13 +16,29 @@
 #include <list>
 #include <deque>
 
+template <typename T>
+void	print(T * array, unsigned int len)
+{
+	for (unsigned int i = 0; i < len; i++)
+	{
+		std::cout << array[i];
+		if ((i + 1 != len))
+			std::cout << ", ";
+		else
+			std::cout << std::endl;
+	}
+}
+
 int	main( void )
 {
 	std::cout << std::endl << CYAN ">>>>>>>>>> TEST with VECTOR <<<<<<<<<<" RESET << std::endl;
 	{
 		int arr[] = {1, 2, 3, 4, 5};
+		//print array
+		std::cout << "array: ";
+		::print(arr, sizeof(arr) / sizeof(arr[0]));
+		//print array
 		std::vector<int>	container(arr, arr + sizeof(arr) / sizeof(arr[0]));
-//		std::vector<int>::const_iterator ret;
 		try
 		{
 			int value = 1;
@@ -47,18 +63,19 @@ int	main( void )
 	std::cout << CYAN ">>>>>>>>>> TEST with VECTOR <<<<<<<<<<\n" RESET << std::endl;
 	std::cout << std::endl << YELLOW ">>>>>>>>>> TEST with LIST <<<<<<<<<<" RESET << std::endl;
 	{
-//		int arr[] = {1, 2, 3, 4, 5};
 		std::list<int>	container;
 		for (int i = 0; i < 100; i++)
 		{
-			container.push_front(i + 2);
+			container.push_front(i);
 		}
 		std::list<int>::const_iterator ret;
 		try
 		{
-			int value = 0;
-			std::list<int>::const_iterator ret = easyfind(container, value);
-			std::cout << "Element " BLUE << value << RESET " found at index: " GREEN << std::distance<std::list<int>::const_iterator>(container.begin(), ret) << RESET << std::endl;
+			for (int value = 0; value < 150; value++)
+			{
+				ret = easyfind(container, value);
+				std::cout << "Element " BLUE << value << RESET " found at index: " GREEN << std::distance<std::list<int>::const_iterator>(container.begin(), ret) << RESET << std::endl;
+			}
 		}
 		catch (const std::out_of_range& e)
 		{
@@ -67,7 +84,7 @@ int	main( void )
 		try
 		{
 			int value = 81;
-			std::list<int>::const_iterator ret = easyfind(container, value);
+			ret = easyfind(container, value);
 			std::cout << "Element " BLUE << value << RESET " found at index: " GREEN << std::distance<std::list<int>::const_iterator>(container.begin(), ret) << RESET << std::endl;
 		}
 		catch (const std::out_of_range& e)
@@ -78,7 +95,6 @@ int	main( void )
 	std::cout << YELLOW ">>>>>>>>>> TEST with LIST <<<<<<<<<<\n" RESET << std::endl;
 	std::cout << std::endl << ROSE ">>>>>>>>>> TEST with DEQUE <<<<<<<<<<" RESET << std::endl;
 	{
-//		int arr[] = {1, 2, 3, 4, 5};
 		std::deque<int>	container;
 		for (int i = 0; i < 100; i++)
 		{
@@ -88,7 +104,7 @@ int	main( void )
 		try
 		{
 			int value = 0;
-			std::deque<int>::const_iterator ret = easyfind(container, value);
+			ret = easyfind(container, value);
 			std::cout << "Element " BLUE << value << RESET " found at index: " GREEN << std::distance<std::deque<int>::const_iterator>(container.begin(), ret) << RESET << std::endl;
 		}
 		catch (const std::out_of_range& e)
@@ -98,7 +114,7 @@ int	main( void )
 		try
 		{
 			int value = 11181;
-			std::deque<int>::const_iterator ret = easyfind(container, value);
+			ret = easyfind(container, value);
 			std::cout << "Element " BLUE << value << RESET " found at index: " GREEN << std::distance<std::deque<int>::const_iterator>(container.begin(), ret) << RESET << std::endl;
 		}
 		catch (const std::out_of_range& e)
@@ -109,4 +125,3 @@ int	main( void )
 	std::cout << ROSE ">>>>>>>>>> TEST with DEQUE <<<<<<<<<<\n" RESET << std::endl;
 	return 0;
 }
-
