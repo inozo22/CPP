@@ -6,7 +6,7 @@
 /*   By: nimai <nimai@student.42urduliz.com>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/13 14:03:30 by nimai             #+#    #+#             */
-/*   Updated: 2024/03/09 11:00:17 by nimai            ###   ########.fr       */
+/*   Updated: 2024/03/09 11:13:46 by nimai            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,8 +39,10 @@ Span & Span::operator=(const Span & src)
 	// std::cout << "AForm assignment operator overload called." << std::endl;
 	if (this != &src)
 	{
-		this->_max = src._max;
-		this->_numbers = src._numbers;
+        Span tmp(src);
+        std::swap(*this, tmp);
+		// this->_max = src._max;
+		// this->_numbers = src._numbers;
 	}
 	return (*this);
 }

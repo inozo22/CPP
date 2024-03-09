@@ -6,7 +6,7 @@
 /*   By: nimai <nimai@student.42urduliz.com>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/13 14:01:18 by nimai             #+#    #+#             */
-/*   Updated: 2024/03/09 11:09:53 by nimai            ###   ########.fr       */
+/*   Updated: 2024/03/09 11:32:00 by nimai            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,9 +41,30 @@ void	test2( void )
 	std::cout << std::endl;
 	int	*begin = inputNumbers;
 	int *end = inputNumbers + sizeof(inputNumbers) / sizeof(inputNumbers[0]);
-	sp.addMultipleNumber(begin, end);
-	std::cout << sp.shortestSpan() << std::endl;
-	std::cout << sp.longestSpan() << std::endl;
+	try
+	{
+		sp.addMultipleNumber(begin, end);
+	}
+	catch(const std::exception& e)
+	{
+		std::cerr << e.what() << '\n';
+	}
+	try
+	{
+		std::cout << sp.shortestSpan() << std::endl;
+	}
+	catch (const std::exception & e)
+	{
+		std::cerr << e.what() << '\n';
+	}
+	try
+	{
+		std::cout << sp.longestSpan() << std::endl;
+	}
+	catch (const std::exception & e)
+	{
+		std::cerr << e.what() << '\n';
+	}
 }
 
 void	test3( void )
@@ -68,17 +89,39 @@ void	test3( void )
 void	test4( void )
 {
 	std::cout << std::endl << CYAN ">>>>>>>>>> TEST4 CALLED <<<<<<<<<<" RESET << std::endl;
-	std::cout << "input more than 5 numbers to Span(5)" << std::endl;
-	Span sp = Span(5);
-
+	std::cout << "input 10005 numbers to Span(1005)" << std::endl;
+	Span sp = Span(1005);
+	int inputNumbers[10005];
+	for (int i = 0; i < 10005; i++)
+	{
+		inputNumbers[i] = i * 5;
+	}
+	std::cout << std::endl;
+	int	*begin = inputNumbers;
+	int *end = inputNumbers + sizeof(inputNumbers) / sizeof(inputNumbers[0]);
 	try
 	{
-		for (int i = 0; i < 10; i++)
-			sp.addNumber(i);
+		sp.addMultipleNumber(begin, end);
 	}
-	catch(const std::out_of_range &e)
+	catch(const std::exception& e)
 	{
-		std::cerr << "Caught exception: " << e.what() << std::endl;
+		std::cerr << e.what() << '\n';
+	}
+	try
+	{
+		std::cout << sp.shortestSpan() << std::endl;
+	}
+	catch (const std::exception & e)
+	{
+		std::cerr << e.what() << '\n';
+	}
+	try
+	{
+		std::cout << sp.longestSpan() << std::endl;
+	}
+	catch (const std::exception & e)
+	{
+		std::cerr << e.what() << '\n';
 	}
 }
 
