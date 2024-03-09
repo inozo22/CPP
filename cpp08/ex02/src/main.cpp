@@ -6,7 +6,7 @@
 /*   By: nimai <nimai@student.42urduliz.com>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/13 14:01:18 by nimai             #+#    #+#             */
-/*   Updated: 2024/03/07 11:56:22 by nimai            ###   ########.fr       */
+/*   Updated: 2024/03/09 11:44:33 by nimai            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 #include <iostream>
 #include <limits>
 
-/* void	test1( void )
+void	test1( void )
 {
 	std::cout << std::endl << CYAN ">>>>>>>>>> TEST1 CALLED <<<<<<<<<<" RESET << std::endl;
 	std::cout << "input 5(1, 5, 6, 7, 222) numbers" << std::endl;
@@ -27,7 +27,7 @@
 	std::cout << sp.shortestMutantStack() << std::endl;
 	std::cout << sp.longestMutantStack() << std::endl;
 }
-
+/*
 void	test2( void )
 {
 	std::cout << std::endl << CYAN ">>>>>>>>>> TEST2 CALLED <<<<<<<<<<" RESET << std::endl;
@@ -65,40 +65,7 @@ void	test3( void )
 	std::cout << sp.longestMutantStack() << std::endl;
 } */
 
-/* void	subject_test( void )
-{
-	std::cout << std::endl << CYAN ">>>>>>>>>> SUBJECT TEST CALLED <<<<<<<<<<" RESET << std::endl;
-
-	MutantStack sp = MutantStack(5);
-	
-	sp.addNumber(6);
-	sp.addNumber(3);
-	sp.addNumber(17);
-	sp.addNumber(9);
-	sp.addNumber(11);
-
-	std::cout << sp.shortestMutantStack() << std::endl;
-	std::cout << sp.longestMutantStack() << std::endl;
-} */
-
-/* int	main( int ac, char **av )//main in subject
-{
-	if (ac == 2)
-	{
-		std::string arg = av[1];
-		if (arg == "test1")
-			test1();
-		if (arg == "test2")
-			test2();
-		if (arg == "test3")
-			test3();
-	}
-	else
-		subject_test();
-	return (0);
-} */
-
-int main( void )
+void	subject_test( void )
 {
 	MutantStack<int> mstack;
 	mstack.push(5);
@@ -122,6 +89,21 @@ int main( void )
 		++it;
 	}
 	std::stack<int> s(mstack);
-	return 0;
 }
 
+int	main( int ac, char **av )//main in subject
+{
+	if (ac == 2)
+	{
+		std::string arg = av[1];
+		if (arg == "test1")
+			test1();
+		// if (arg == "test2")
+		// 	test2();
+		// if (arg == "test3")
+		// 	test3();
+	}
+	else
+		subject_test();
+	return (0);
+}

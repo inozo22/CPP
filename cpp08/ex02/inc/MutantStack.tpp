@@ -36,7 +36,10 @@ template <typename T>
 MutantStack<T> & MutantStack<T>::operator=( const MutantStack<T> & src )
 {
 	if (this != &src)
-		std::stack<T>::operator=(src);
+	{
+		MutantStack<T> tmp(src);
+		std::swap(*this, tmp);
+	}
 	return *this;
 }
 //--- Orthodox Canonical Form ---//
