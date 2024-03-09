@@ -6,13 +6,12 @@
 /*   By: nimai <nimai@student.42urduliz.com>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/13 14:02:27 by nimai             #+#    #+#             */
-/*   Updated: 2023/12/13 15:35:05 by nimai            ###   ########.fr       */
+/*   Updated: 2024/03/09 10:59:24 by nimai            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef SPAN_HPP
 # define SPAN_HPP
-# include <algorithm>
 # include <vector>
 # include <stdexcept>
 
@@ -52,7 +51,7 @@ class Span
 		int		longestSpan( void );
 
 		template <typename T>
-		void	addMultipulNumber(T begin, T end)
+		void	addMultipleNumber(T begin, T end)
 		{
 			unsigned int	spaceLeft = _max - _numbers.size();
 			unsigned int	inputSize = std::distance(begin, end);
@@ -63,9 +62,5 @@ class Span
 			_numbers.insert(_numbers.end(), begin, end);
 		}
 };
-
-
-
-
 
 #endif

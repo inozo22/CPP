@@ -6,24 +6,20 @@
 /*   By: nimai <nimai@student.42urduliz.com>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/13 14:03:30 by nimai             #+#    #+#             */
-/*   Updated: 2023/12/13 14:16:30 by nimai            ###   ########.fr       */
+/*   Updated: 2024/03/09 11:00:17 by nimai            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Span.hpp"
 #include <iostream>
 #include <stdexcept>
+#include <algorithm>
 #include <limits>
 
 //--- Orthodox Canonical Form ---//
 Span::Span( void ) 
 {
 	// std::cout << "Default constructor called" << std::endl;
-}
-
-Span::Span( unsigned int N ): _max(N) 
-{
-	// std::cout << "Constructor called" << std::endl;
 }
 
 Span::Span( Span const & src ) 
@@ -41,13 +37,20 @@ Span::~Span( void )
 Span & Span::operator=(const Span & src)
 {
 	// std::cout << "AForm assignment operator overload called." << std::endl;
-	this->_max = src._max;
-    // to copy the vector, is it enough???
-	this->_numbers = src._numbers;
+	if (this != &src)
+	{
+		this->_max = src._max;
+		this->_numbers = src._numbers;
+	}
 	return (*this);
 }
 //--- Orthodox Canonical Form ---//
 
+// Constructor with parametar
+Span::Span( unsigned int N ): _max(N) 
+{
+	// std::cout << "Constructor called" << std::endl;
+}
 
 void	Span::addNumber( const int element )
 {
@@ -77,4 +80,3 @@ int		Span::longestSpan( void )
 	std::sort(this->_numbers.begin(), this->_numbers.end());
 	return this->_numbers[_numbers.size() - 1] - this->_numbers[0];
 }
-

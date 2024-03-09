@@ -6,7 +6,7 @@
 /*   By: nimai <nimai@student.42urduliz.com>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/13 14:01:18 by nimai             #+#    #+#             */
-/*   Updated: 2023/12/13 14:06:25 by nimai            ###   ########.fr       */
+/*   Updated: 2024/03/09 11:09:53 by nimai            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ void	test1( void )
 	int	*begin = inputNumbers;
 	int *end = inputNumbers + sizeof(inputNumbers) / sizeof(inputNumbers[0]);
 
-	sp.addMultipulNumber(begin, end);
+	sp.addMultipleNumber(begin, end);
 	std::cout << sp.shortestSpan() << std::endl;
 	std::cout << sp.longestSpan() << std::endl;
 }
@@ -41,7 +41,7 @@ void	test2( void )
 	std::cout << std::endl;
 	int	*begin = inputNumbers;
 	int *end = inputNumbers + sizeof(inputNumbers) / sizeof(inputNumbers[0]);
-	sp.addMultipulNumber(begin, end);
+	sp.addMultipleNumber(begin, end);
 	std::cout << sp.shortestSpan() << std::endl;
 	std::cout << sp.longestSpan() << std::endl;
 }
@@ -60,9 +60,26 @@ void	test3( void )
 	}
 	int	*begin = inputNumbers;
 	int *end = inputNumbers + sizeof(inputNumbers) / sizeof(inputNumbers[0]);
-	sp.addMultipulNumber(begin, end);
+	sp.addMultipleNumber(begin, end);
 	std::cout << sp.shortestSpan() << std::endl;
 	std::cout << sp.longestSpan() << std::endl;
+}
+
+void	test4( void )
+{
+	std::cout << std::endl << CYAN ">>>>>>>>>> TEST4 CALLED <<<<<<<<<<" RESET << std::endl;
+	std::cout << "input more than 5 numbers to Span(5)" << std::endl;
+	Span sp = Span(5);
+
+	try
+	{
+		for (int i = 0; i < 10; i++)
+			sp.addNumber(i);
+	}
+	catch(const std::out_of_range &e)
+	{
+		std::cerr << "Caught exception: " << e.what() << std::endl;
+	}
 }
 
 void	subject_test( void )
@@ -70,7 +87,7 @@ void	subject_test( void )
 	std::cout << std::endl << CYAN ">>>>>>>>>> SUBJECT TEST CALLED <<<<<<<<<<" RESET << std::endl;
 
 	Span sp = Span(5);
-	
+
 	sp.addNumber(6);
 	sp.addNumber(3);
 	sp.addNumber(17);
@@ -88,10 +105,12 @@ int	main( int ac, char **av )//main in subject
 		std::string arg = av[1];
 		if (arg == "test1")
 			test1();
-		if (arg == "test2")
+		else if (arg == "test2")
 			test2();
-		if (arg == "test3")
+		else if (arg == "test3")
 			test3();
+		else if (arg == "test4")
+			test4();
 	}
 	else
 		subject_test();
