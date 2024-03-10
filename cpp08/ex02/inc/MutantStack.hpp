@@ -6,7 +6,7 @@
 /*   By: nimai <nimai@student.42urduliz.com>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/13 14:02:27 by nimai             #+#    #+#             */
-/*   Updated: 2024/03/09 10:45:38 by nimai            ###   ########.fr       */
+/*   Updated: 2024/03/10 15:53:23 by nimai            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,7 +47,6 @@ class MutantStack : public std::stack<T>
 //Functions to make MutantStack iterable
 		iterator begin( void );
 		iterator end( void );
-
 };
 # include "MutantStack.tpp"
 #endif // MUTANTSTACK_HPP
