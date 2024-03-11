@@ -23,15 +23,15 @@
 class BitcoinExchange
 {
 	public:
-			BitcoinExchange( void );
 			BitcoinExchange( BitcoinExchange const & src);
-			BitcoinExchange(const std::string& databaseFile);
 			~BitcoinExchange( void );
 			BitcoinExchange & operator=( const BitcoinExchange & src );
+			BitcoinExchange(const std::string& databaseFile);
 
 			void processInputFile(const std::string& inputFileName) const;
 
 	private:
+			BitcoinExchange( void );
 			struct Record
 			{
 				double value;
@@ -41,5 +41,7 @@ class BitcoinExchange
 			Database loadDatabase(const std::string& databaseFile) const;
 			std::string findClosestDate(const Database& database, const std::string& targetDate) const;
 		    Database database;
+			bool	isValidDate(const std::string &) const;
+
 };
 #endif // BITCOINEXCHANGE_HPP
