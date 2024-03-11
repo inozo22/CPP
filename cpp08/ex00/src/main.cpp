@@ -6,7 +6,7 @@
 /*   By: nimai <nimai@student.42urduliz.com>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/13 14:01:25 by nimai             #+#    #+#             */
-/*   Updated: 2024/03/09 10:42:39 by nimai            ###   ########.fr       */
+/*   Updated: 2024/03/11 14:00:40 by nimai            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,7 +43,7 @@ int	main( void )
 		{
 			int value = 1;
 			std::vector<int>::const_iterator ret = easyfind(container, value);
-			std::cout << "Element " BLUE << value << RESET " found at index: " GREEN << std::distance<std::vector<int>::const_iterator>(container.begin(), ret) << RESET << std::endl;
+			std::cout << "Element " BLUE << *ret << RESET " found at index: " GREEN << std::distance<std::vector<int>::const_iterator>(container.begin(), ret) << RESET << std::endl;
 		}
 		catch (const std::out_of_range& e)
 		{
@@ -53,7 +53,7 @@ int	main( void )
 		{
 			int value = 8;
 			std::vector<int>::const_iterator ret = easyfind(container, value);
-			std::cout << "Element " BLUE << value << RESET " found at index: " GREEN << std::distance<std::vector<int>::const_iterator>(container.begin(), ret) << RESET << std::endl;
+			std::cout << "Element " BLUE << *ret << RESET " found at index: " GREEN << std::distance<std::vector<int>::const_iterator>(container.begin(), ret) << RESET << std::endl;
 		}
 		catch (const std::out_of_range& e)
 		{
@@ -74,7 +74,7 @@ int	main( void )
 			for (int value = 0; value < 150; value++)
 			{
 				ret = easyfind(container, value);
-				std::cout << "Element " BLUE << value << RESET " found at index: " GREEN << std::distance<std::list<int>::const_iterator>(container.begin(), ret) << RESET << std::endl;
+				std::cout << "Element " BLUE << *ret << RESET " found at index: " GREEN << std::distance<std::list<int>::const_iterator>(container.begin(), ret) << RESET << std::endl;
 			}
 		}
 		catch (const std::out_of_range& e)
@@ -85,7 +85,7 @@ int	main( void )
 		{
 			int value = 81;
 			ret = easyfind(container, value);
-			std::cout << "Element " BLUE << value << RESET " found at index: " GREEN << std::distance<std::list<int>::const_iterator>(container.begin(), ret) << RESET << std::endl;
+			std::cout << "Element " BLUE << *ret << RESET " found at index: " GREEN << std::distance<std::list<int>::const_iterator>(container.begin(), ret) << RESET << std::endl;
 		}
 		catch (const std::out_of_range& e)
 		{
@@ -105,7 +105,7 @@ int	main( void )
 		{
 			int value = 0;
 			ret = easyfind(container, value);
-			std::cout << "Element " BLUE << value << RESET " found at index: " GREEN << std::distance<std::deque<int>::const_iterator>(container.begin(), ret) << RESET << std::endl;
+			std::cout << "Element " BLUE << *ret << RESET " found at index: " GREEN << std::distance<std::deque<int>::const_iterator>(container.begin(), ret) << RESET << std::endl;
 		}
 		catch (const std::out_of_range& e)
 		{
@@ -115,7 +115,7 @@ int	main( void )
 		{
 			int value = 11181;
 			ret = easyfind(container, value);
-			std::cout << "Element " BLUE << value << RESET " found at index: " GREEN << std::distance<std::deque<int>::const_iterator>(container.begin(), ret) << RESET << std::endl;
+			std::cout << "Element " BLUE << *ret << RESET " found at index: " GREEN << std::distance<std::deque<int>::const_iterator>(container.begin(), ret) << RESET << std::endl;
 		}
 		catch (const std::out_of_range& e)
 		{
