@@ -6,11 +6,11 @@
 #    By: nimai <nimai@student.42urduliz.com>        +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/07/25 11:05:17 by nimai             #+#    #+#              #
-#    Updated: 2023/12/13 14:01:07 by nimai            ###   ########.fr        #
+#    Updated: 2024/03/11 08:05:59 by nimai            ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME		:= template
+NAME		:=  PmergeMe
 
 LIBS_TARGET	:= 
 LIBS		:= 
@@ -18,7 +18,7 @@ LIBS		:=
 INCS		:= inc
 
 SRC_DIR		:= src
-SRCS		:= main.cpp 
+SRCS		:= main.cpp  PmergeMe.cpp
 SRCS		:= $(SRCS:%=$(SRC_DIR)/%)
 
 BUILD_DIR	:= .build
@@ -52,7 +52,7 @@ $(YELLOW)
       /   ▼   \        |  ▽  | I AM 
       V \ ∧ / V         \ Q /   THE
         / - \\ ========= / - \\ 
-       /    |   CPP08   |    \\	 MUTANTTT!
+       /    |   CPP09   |    \\	 MUTANTTT!
       /     |    EX02   |     \\     
  (===/___) || ========= || (___\\====)$(CLR_RMV)
 endef
@@ -91,5 +91,5 @@ re:
 #   SPEC                                         #
 #------------------------------------------------#
 
-.PHONY: clean fclean re
+.PHONY: all clean fclean re
 .SILENT:
