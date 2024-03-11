@@ -115,11 +115,24 @@ bool	BitcoinExchange::isValidDate(const std::string & date) const
 {
 	std::istringstream ss(date);
 	std::string year, mounth, day;
-	if (std::getline(ss, year, '-') && std::getline(ss, mounth, '-') && std::getline(ss, day))
+	if (std::getline(ss, year, '-') && std::getline(ss, mounth, '-') && std::getline(ss, day, ' '))
 	{
-		std::cout << year << "/" << mounth << "/" << day << std::endl;
-		// Check if it's leap year
-		if (std::stoi(year))
+//		std::cout << year << "/" << mounth << "/" << day << std::endl;
+//		std::cout << year.size() << "/" << mounth.size() << "/" << day.size() << std::endl;
+		if (year.size() != 4 || mounth.size() != 2 || day.size() != 2)
+			return false;
+		if (!std::isdigit(mounth[1]) || !std::isdigit(day[1]))
+			return false;
+		int yy = std::atoi(year.c_str());
+		int mm = std::atoi(mounth.c_str());
+		int dd = std::atoi(day.c_str());
+//		std::cout << yy << "-" << mm << "-" << dd << std::endl;
+		if (yy < 1000 || yy > 3000 || mm < 1 || mm > 12 || dd < 1 || dd > 31)
+			return false;
+		if ((mm == 4 || mm == 6 || mm == 9 || mm == 11) && dd == 31)
+			return false;
+		if (mm == 2 && ((!(yy % 4) && dd > 29) ||((yy % 4) && dd > 28)))
+			return false;
 		return true;
 	}
 	return false;
@@ -152,8 +165,15 @@ void	BitcoinExchange::processInputFile(const std::string& inputFileName) const
 //- - -DEBUG- - -//
 
 // Check the date is correct
-			bool valid = isValidDate(date);
-			std::cout << valid << std::endl;
+			int ret = isValidDate(date);
+			std::cout << "ret: " << ret << std::endl;
+			if (!isValidDate(date))
+			{
+				std::cerr << "Error: bad input => " << line << std::endl;
+				continue;
+			}
+
+			
 
 
 			std::istringstream valueStream(valueStr);
