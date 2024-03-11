@@ -176,7 +176,6 @@ void	BitcoinExchange::processInputFile(const std::string& inputFileName) const
 			std::istringstream valueStream(valueStr);
 			double value;
 //- - -DEBUG- - -//
-			std::cout << "value: " << value << RESET << std::endl;
 //- - -DEBUG- - -//
 			if (!(valueStream >> value))
 			{
@@ -184,6 +183,7 @@ void	BitcoinExchange::processInputFile(const std::string& inputFileName) const
 			}
 			else
 			{
+				std::cout << "value: " << value << RESET << std::endl;
 				std::string closestDate = findClosestDate(database, date);
 
 				if (!closestDate.empty())
