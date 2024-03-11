@@ -13,6 +13,8 @@ BitcoinExchange::BitcoinExchange( void )
 BitcoinExchange::BitcoinExchange( BitcoinExchange const & src)
 {
 	// std::cout << Copyt constructor called" << std::endl;
+    if (this != &src)
+	*this = src;
 }
 BitcoinExchange::~BitcoinExchange( void )
 {
@@ -20,14 +22,20 @@ BitcoinExchange::~BitcoinExchange( void )
 }
 BitcoinExchange & BitcoinExchange::operator=( const BitcoinExchange & src )
 {
-	// std::cout << "Assignment operator overload called." << std::endl;
+    // std::cout << "Assignment operator overload called." << std::endl;
+	if (this != &src)
+	{
+        BitcoinExchange tmp(src);
+        std::swap(*this, tmp);
+	}
+	return (*this);
 }
 //--- Orthodox Canonical Form ---//
 
 // Constructor with parametor
 BitcoinExchange::BitcoinExchange(const std::string& databaseFile) : database(loadDatabase(databaseFile))
 {
-    
+
 }
 
 BitcoinExchange::Database BitcoinExchange::loadDatabase(const std::string& databaseFile) const {
