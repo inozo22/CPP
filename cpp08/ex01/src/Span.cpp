@@ -6,7 +6,7 @@
 /*   By: nimai <nimai@student.42urduliz.com>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/13 14:03:30 by nimai             #+#    #+#             */
-/*   Updated: 2024/03/09 11:13:46 by nimai            ###   ########.fr       */
+/*   Updated: 2024/03/11 09:28:08 by nimai            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,7 +36,7 @@ Span::~Span( void )
 
 Span & Span::operator=(const Span & src)
 {
-	// std::cout << "AForm assignment operator overload called." << std::endl;
+	// std::cout << "Assignment operator overload called." << std::endl;
 	if (this != &src)
 	{
         Span tmp(src);
