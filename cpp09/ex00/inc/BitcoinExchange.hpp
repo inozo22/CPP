@@ -23,7 +23,12 @@
 class BitcoinExchange
 {
 	public:
+			BitcoinExchange( void );
+			BitcoinExchange( BitcoinExchange const & src);
 			BitcoinExchange(const std::string& databaseFile);
+			~BitcoinExchange( void );
+			BitcoinExchange & operator=( const BitcoinExchange & src );
+
 			void processInputFile(const std::string& inputFileName) const;
 
 	private:
