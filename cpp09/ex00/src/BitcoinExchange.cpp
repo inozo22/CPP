@@ -165,16 +165,13 @@ void	BitcoinExchange::processInputFile(const std::string& inputFileName) const
 //- - -DEBUG- - -//
 
 // Check the date is correct
-			int ret = isValidDate(date);
-			std::cout << "ret: " << ret << std::endl;
+//			int ret = isValidDate(date);
+//			std::cout << "ret: " << ret << std::endl;
 			if (!isValidDate(date))
 			{
 				std::cerr << "Error: bad input => " << line << std::endl;
 				continue;
 			}
-
-			
-
 
 			std::istringstream valueStream(valueStr);
 			double value;
