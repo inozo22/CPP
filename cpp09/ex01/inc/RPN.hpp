@@ -18,6 +18,7 @@
 # define RESET   "\x1b[0m"
 
 # include <string>
+# include <stdexcept>
 
 class RPN
 {
@@ -33,14 +34,12 @@ class RPN
 //						std::string _message;
 //				public:
 //						errorException(const std::string & message): _message(message){}
-//						virtual const char * what( void ) const throw(){
-//							return _message.c_str();
-//						}
+//						virtual const char * what( void ) const throw(){}
 //			};
 			class errorException : public std::exception
 			{
 				public:
-						virtual const char * what( void ) const throw();
+						virtual const char * what() const throw();
 			};
 
 	private:

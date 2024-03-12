@@ -38,22 +38,21 @@ RPN::RPN( const std::string & input ): _input(input)
 int RPN::evaluate( void )
 {
 	std::stack<int> stack;
-
 	std::istringstream iss(this->_input);
 	std::string token;
-
 	try
 	{
 		while (iss>>token)
 		{
 			if (token.find_first_not_of("\t\v\n\r\f ") == std::string::npos)
 				continue ;
+//			std::cout << "token: " << token << std::endl;
 			if (isNumber(token))
 				stack.push(std::atoi(token.c_str()));
 			else if (isOperator(token))
 			{
 				if (stack.size() < 2)
-					errorControl("Insufficient operands for operator " + token);
+					throw errorException(/*"Insufficient operands for operator " + token*/);
 				int operand2 = stack.top();
 				stack.pop();
 				int operand1 = stack.top();
@@ -85,6 +84,11 @@ bool	RPN::isOperator( const std::string & token)
 }
 bool	RPN::isNumber( const std::string & token)
 {
+	if ((token.c_str()[0] == '-' || token.c_str()[0] == '+') && token.c_str()[1] \
+	&& std::isdigit(token[1]) && token.size() == 2)
+		return true;
+	if (token.size() > 1)
+		return false;
 	return std::isdigit(token[0]);
 }
 int		RPN::calculation( int num1, int num2, const std::string & op )
@@ -115,7 +119,7 @@ void	RPN::errorControl( const std::string & comment)
 //{
 //	return ("");
 //}
-const char	*	RPN::errorException::what(void) const throw()
+const char	*	RPN::errorException::what() const throw()
 {
-	return ("Error");
+	return "Error";
 }
