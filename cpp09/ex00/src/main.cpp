@@ -22,7 +22,10 @@ int main(int argc, char* argv[])
 	}
 	std::string inputFileName = argv[1];
 	BitcoinExchange exchange("./database/data.csv");
-	exchange.processInputFile(inputFileName);
+	BitcoinExchange exchange2("./database/data2.csv");
+//	BitcoinExchange exchange3(exchange);
+	exchange2 = exchange;
+	exchange2.processInputFile(inputFileName);
 
 	return 0;
 }

@@ -10,11 +10,11 @@ BitcoinExchange::BitcoinExchange( void )
 {
 	// std::cout << "Default constructor called" << std::endl;
 }
-BitcoinExchange::BitcoinExchange( BitcoinExchange const & src)
+BitcoinExchange::BitcoinExchange( BitcoinExchange const & src): database(src.database)
 {
-	// std::cout << Copyt constructor called" << std::endl;
-    if (this != &src)
-	*this = src;
+	// std::cout << Copy constructor called" << std::endl;
+	//if (this != &src)
+	///	*this = src;
 }
 BitcoinExchange::~BitcoinExchange( void )
 {
@@ -25,8 +25,7 @@ BitcoinExchange & BitcoinExchange::operator=( const BitcoinExchange & src )
     // std::cout << "Assignment operator overload called." << std::endl;
 	if (this != &src)
 	{
-        BitcoinExchange tmp(src);
-        std::swap(*this, tmp);
+		this->database = src.database;
 	}
 	return (*this);
 }
