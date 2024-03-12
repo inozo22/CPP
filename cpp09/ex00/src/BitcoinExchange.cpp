@@ -107,7 +107,7 @@ std::string	BitcoinExchange::findClosestDate(const Database& database, const std
 	{
 		if (it->first <= targetDate)
 		{
-			std::cout << BLUE "it->first: " << it->first << RESET << std::endl;
+//			std::cout << BLUE "it->first: " << it->first << RESET << std::endl;
 			return it->first;
 		}
 	}
@@ -154,17 +154,25 @@ void	BitcoinExchange::processInputFile(const std::string& inputFileName) const
 	std::string line;
 	while (std::getline(inputFile, line))
 	{
+//		std::cout << GREEN "line: " << line << RESET << std::endl;
+
 		if (line.find("date | value") != std::string::npos)
 			continue;
-		if (line.empty() || line[0] == '#')
+		if (/*line.empty() || line[0] == '#' || */line.find_first_not_of("\t\v\n\r\f ") == std::string::npos || !(line.size()))
 			continue;
 		std::istringstream ss(line);
 		std::string date, valueStr;
+//		std::cout << "line: " << line << std::endl;
+//		std::getline(ss, date, '|');
+//		std::getline(ss, valueStr);
+//		std::cout << "date: " << date << std::endl;
+//		std::cout << "valueStr: " << valueStr << std::endl;
+//		if (!(date.empty()) && !(valueStr.empty()))
 		if (std::getline(ss, date, '|') && std::getline(ss, valueStr))
 		{
 //- - -DEBUG- - -//
-			std::cout << CYAN "date: " << date << std::endl;
-			std::cout << "valueStr: " << valueStr << std::endl;
+//			std::cout << CYAN "date: " << date << std::endl;
+//			std::cout << "valueStr: " << valueStr << std::endl;
 //- - -DEBUG- - -//
 
 // Check the date is correct
@@ -172,7 +180,7 @@ void	BitcoinExchange::processInputFile(const std::string& inputFileName) const
 //			std::cout << "ret: " << ret << std::endl;
 			if (!isValidDate(date))
 			{
-				std::cerr << "Error: bad input => " << line << std::endl;
+				std::cerr << "Error: bad input => " << date << std::endl;
 				continue;
 			}
 
@@ -185,10 +193,15 @@ void	BitcoinExchange::processInputFile(const std::string& inputFileName) const
 				std::cerr << "Error: not a positive number." << std::endl;
 				continue ;
 			}
-			std::cout << "value: " << value << RESET << std::endl;
+//			std::cout << "value: " << value << RESET << std::endl;
 			if (value < 0)
 			{
 				std::cerr << "Error: not a positive number." << std::endl;
+				continue ;
+			}
+			if (value > 1000)
+			{
+				std::cerr << "Error: too large number." << std::endl;
 				continue ;
 			}
 			std::string closestDate = findClosestDate(database, date);
@@ -200,10 +213,13 @@ void	BitcoinExchange::processInputFile(const std::string& inputFileName) const
 
 				if (it != database.end())
 				{
-					std::cout << GREEN "value: " << value << RESET << std::endl;
-					std::cout << GREEN "it->second.value: " << it->second.value << RESET << std::endl;
+//					std::cout << GREEN "value: " << value << RESET << std::endl;
+//					std::cout << GREEN "it->second.value: " << it->second.value << RESET << std::endl;
 					double exchangeRate = value * it->second.value;
-					std::cout << date << " => " << value << " = " << std::fixed << std::setprecision(2) << exchangeRate << std::endl;
+					if (exchangeRate == static_cast<int>(exchangeRate))
+						std::cout << date << " => " << value << " = " << exchangeRate << std::endl;
+					else
+						std::cout << date << " => " << value << " = " << std::fixed << std::setprecision(2) << std::noshowpoint << exchangeRate << std::endl;
 				}
 				else
 				{
