@@ -85,6 +85,8 @@ BitcoinExchange::Database BitcoinExchange::loadDatabase(const std::string& datab
 			}
 			else
 			{
+//				if (i > 200 && i < 210)
+//					std::cout << YELLOW "record.value: " << record.value << RESET << std::endl;
 				data[date] = record;
 			}
 		}
@@ -105,6 +107,7 @@ std::string	BitcoinExchange::findClosestDate(const Database& database, const std
 	{
 		if (it->first <= targetDate)
 		{
+			std::cout << BLUE "it->first: " << it->first << RESET << std::endl;
 			return it->first;
 		}
 	}
@@ -180,30 +183,36 @@ void	BitcoinExchange::processInputFile(const std::string& inputFileName) const
 			if (!(valueStream >> value))
 			{
 				std::cerr << "Error: not a positive number." << std::endl;
+				continue ;
 			}
-			else
+			std::cout << "value: " << value << RESET << std::endl;
+			if (value < 0)
 			{
-				std::cout << "value: " << value << RESET << std::endl;
-				std::string closestDate = findClosestDate(database, date);
+				std::cerr << "Error: not a positive number." << std::endl;
+				continue ;
+			}
+			std::string closestDate = findClosestDate(database, date);
+			if (closestDate.empty())
+				std::cerr << "Error: the date is before bitcoin." << std::endl;
+			else if (!closestDate.empty())
+			{
+				Database::const_iterator it = database.find(closestDate);
 
-				if (!closestDate.empty())
+				if (it != database.end())
 				{
-					Database::const_iterator it = database.find(closestDate);
-
-					if (it != database.end())
-					{
-						double exchangeRate = value / it->second.value;
-						std::cout << date << " => " << value << " = " << std::fixed << std::setprecision(2) << exchangeRate << std::endl;
-					}
-					else
-					{
-						std::cerr << "Error: No data found for closest date (" << closestDate << ")." << std::endl;
-					}
+					std::cout << GREEN "value: " << value << RESET << std::endl;
+					std::cout << GREEN "it->second.value: " << it->second.value << RESET << std::endl;
+					double exchangeRate = value * it->second.value;
+					std::cout << date << " => " << value << " = " << std::fixed << std::setprecision(2) << exchangeRate << std::endl;
 				}
 				else
 				{
-					//std::cerr << "Error: No valid date found in the database for " << date << "." << std::endl;
+					std::cerr << "Error: No data found for closest date (" << closestDate << ")." << std::endl;
 				}
+			}
+			else
+			{
+				//std::cerr << "Error: No valid date found in the database for " << date << "." << std::endl;
 			}
 		}
 		else
