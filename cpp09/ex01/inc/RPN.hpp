@@ -27,6 +27,21 @@ class RPN
 			RPN & operator=( RPN const & src );
 			RPN( const std::string & input );
 			int evaluate( void );
+//			class errorException : public std::exception
+//			{
+//				private:
+//						std::string _message;
+//				public:
+//						errorException(const std::string & message): _message(message){}
+//						virtual const char * what( void ) const throw(){
+//							return _message.c_str();
+//						}
+//			};
+			class errorException : public std::exception
+			{
+				public:
+						virtual const char * what( void ) const throw();
+			};
 
 	private:
 			RPN( void );

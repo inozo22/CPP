@@ -42,34 +42,38 @@ int RPN::evaluate( void )
 	std::istringstream iss(this->_input);
 	std::string token;
 
-	while (iss>>token)
+	try
 	{
-		// CHECK IF WORKS WELL
-		if (token.find_first_not_of("\t\v\n\r\f ") == std::string::npos)
-			continue ;
-		if (isNumber(token))
-			stack.push(std::atoi(token.c_str()));
-		else if (isOperator(token))
+		while (iss>>token)
 		{
-			if (stack.size() < 2)
-				errorControl("Insufficient operands for operator " + token);
-			int operand2 = stack.top();
-			stack.pop();
-			int operand1 = stack.top();
-			stack.pop();
-			int result = calculation(operand1, operand2, token);
-			stack.push(result);
+			if (token.find_first_not_of("\t\v\n\r\f ") == std::string::npos)
+				continue ;
+			if (isNumber(token))
+				stack.push(std::atoi(token.c_str()));
+			else if (isOperator(token))
+			{
+				if (stack.size() < 2)
+					errorControl("Insufficient operands for operator " + token);
+				int operand2 = stack.top();
+				stack.pop();
+				int operand1 = stack.top();
+				stack.pop();
+				int result = calculation(operand1, operand2, token);
+				stack.push(result);
+			}
+			else
+				throw errorException(/*"Invalid token " + token*/);
 		}
-		else
-		{
-			errorControl("Invalid token " + token);
-		}
+		if (stack.size() != 1)
+			throw errorException(/*"Invalid input"*/);
+		return stack.top();
 	}
-	if (stack.size() != 1)
+	catch (const std::exception& e)
 	{
-		errorControl("Invalid input");
+		std::cerr << e.what() << RESET << "\n";
+		exit (1);
 	}
-	return stack.top();
+	return 0;
 }
 
 //- - - Main member function - - -//
@@ -90,8 +94,12 @@ int		RPN::calculation( int num1, int num2, const std::string & op )
 		case '+': return num1 + num2;
 		case '-': return num1 - num2;
 		case '*': return num1 * num2;
-		case '/': return num1 / num2;
-		default:errorControl("some error");
+		case '/': if (num2 != 0){
+		return num1 / num2;
+		}
+		else
+			throw errorException(/*"Division by zero"*/);
+		default: throw errorException(/*"some error"*/);
 			break ;
 	}
 	return 0;
@@ -99,10 +107,15 @@ int		RPN::calculation( int num1, int num2, const std::string & op )
 }
 void	RPN::errorControl( const std::string & comment)
 {
-	std::cerr << "Error: " << comment << std::endl;
-	
+	std::cerr << /*"Error: " <<*/ comment << "\n";
 }
 //- - - Member functions - - -//
 
-
-
+//const char	*	RPN::errorException::what(void) const throw()
+//{
+//	return ("");
+//}
+const char	*	RPN::errorException::what(void) const throw()
+{
+	return ("Error");
+}
