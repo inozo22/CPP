@@ -15,20 +15,20 @@
 
 int	main( int ac, char *av[] )
 {
-	if (ac == 1)
-	{
-		std::cout << "USAGE: " << av[0] << " <positive integer sequence>" std::endl;
-		return (1);
-	}
-	PmergeMe pmerge(ac, av);
+//	if (ac < 2)
+//	{
+//		std::cout << "USAGE: " << av[0] << " <positive integer sequence>" << std::endl;
+//		return (1);
+//	}
 	try
 	{
-		pmerge.process();
+		PmergeMe pmerge(ac, av);
+		pmerge.sortProcess();
+		pmerge.printResult();
 	}
-	catch (const std::exception& e)
+	catch (const std::invalid_argument& e)
 	{
-		std::cerr << RED << e.what() << RESET << "\n";
-		exit (1);
+		std::cerr << RED "Error: " << e.what() << RESET << std::endl;
 	}
 	return (0);
 }

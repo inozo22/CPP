@@ -17,9 +17,12 @@
 # define GRAY    "\x1B[38;2;176;174;174m"
 # define RESET   "\x1b[0m"
 
+# include <deque>
+# include <vector>
+
 class PmergeMe
 {
-    public:
+	public:
 //- - - Orthodox Canonical Form - - -//
 			PmergeMe( void );
 			~PmergeMe( void );
@@ -29,7 +32,8 @@ class PmergeMe
 			PmergeMe( int ac, char *av[] );
 
 //- - -     member function     - - -//
-			void    process( void );
+			void    sortProcess( void );
+			void    printResult( void );
 //- - -     member function     - - -//
 
 	private:
@@ -37,6 +41,12 @@ class PmergeMe
 			int		size;
 			std::vector<int> sorted_vector;
 			std::deque<int> sorted_deque;
+
+//- - -     member function     - - -//
+			std::vector<int> merge_insert_sort(int *sequence, int size, double tmVector);
+//			std::vector<int> merge_insert_sort(int *sequence, int size, double tmVector);
+//- - -     member function     - - -//
+
 
 
 };
