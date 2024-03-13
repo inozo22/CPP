@@ -48,11 +48,11 @@ CYAN 		:= \033[1;36m
 define	ART
 $(YELLOW)
         /^-^\         /^-----^\\
- UGH   / o o \        V  = =  V
-      /   ▼   \        |  ▽  | I AM 
-      V \ ∧ / V         \ Q /   THE
+       / o o \        V  = =  V
+      /   ▼   \        |  ▽  |  
+      V \ ∧ / V         \ Q /  
         / - \\ ========= / - \\ 
-       /    |   CPP09   |    \\	 MUTANTTT!
+       /    |   CPP09   |    \\	
       /     |    EX02   |     \\     
  (===/___) || ========= || (___\\====)$(CLR_RMV)
 endef
