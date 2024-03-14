@@ -26,7 +26,7 @@ OBJS		:= $(SRCS:$(SRC_DIR)/%.cpp=$(BUILD_DIR)/%.o)
 DEPS		:= $(OBJS:.o=.d)
 
 CC			:= c++
-CFLAGS		:= -Wall -Wextra -Werror -std=c++98 #-pedantic
+CFLAGS		:= -Wall -Wextra -Werror -std=c++98 -pedantic
 CPPFLAGS	:= $(addprefix -I,$(INCS)) -MMD -MP
 LDFLAGS		:= $(addprefix -L,$(dir $(LIBS_TARGET)))
 LDLIBS		:= $(addprefix -l,$(LIBS))
