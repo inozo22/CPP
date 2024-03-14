@@ -39,12 +39,14 @@ class PmergeMe
 	private:
 			int		*sequence;
 			int		size;
+			double	timeVector;
+			double	timeDeque;
 			std::vector<int> sorted_vector;
 			std::deque<int> sorted_deque;
 
 //- - -     member function     - - -//
-			std::vector<int> merge_insert_sort(int *sequence, int size, double &tmVector);
-//			std::vector<int> merge_insert_sort(int *sequence, int size, double tmVector);
+			std::vector<int> merge_insert_vector(int *sequence, int size, double &tmVector);
+			std::deque<int> merge_insert_deque(int *sequence, int size, double &tmDeque);
 //- - -     member function     - - -//
 
 

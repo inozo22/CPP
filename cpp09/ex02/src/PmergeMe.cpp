@@ -4,6 +4,8 @@
 #include <sstream>
 #include <iostream>
 #include <iterator>
+# include <iomanip>
+
 
 //- - - Orthodox Canonical Form - - -//
 PmergeMe::PmergeMe( void )
@@ -66,42 +68,45 @@ PmergeMe::PmergeMe( int ac, char *av[] )
 //- - -     member function     - - -//
 void    PmergeMe::sortProcess( void )
 {
-	double	tmVector = 0.0;
-//	std::cout << "size before sort: " << size << std::endl;
-	this->sorted_vector = merge_insert_sort(this->sequence, this->size, tmVector);
-	std::cout << "Time for sorting with vector: " << tmVector << " us" << std::endl;
+	this->timeVector = 0.0;
+	this->sorted_vector = merge_insert_vector(this->sequence, this->size, this->timeVector);
+	this->timeDeque = 0.0;
+	this->sorted_deque = merge_insert_deque(this->sequence, this->size, this->timeDeque);
 }
 void    PmergeMe::printResult( void )
 {
+//Print original nunmber sequence
 	std::cout << "Before: ";
 	std::copy(this->sequence, this->sequence + this->size, std::ostream_iterator<int>(std::cout, " "));
 	std::cout << std::endl;
 
+//Print sorted nunmber sequence by vector
 	std::cout << "After(with vector): ";
 	std::copy(this->sorted_vector.begin(), this->sorted_vector.end(), std::ostream_iterator<int>(std::cout, " "));
 	std::cout << std::endl;
+//Print sorted nunmber sequence by deque
+	std::cout << "After(with deque): ";
+	std::copy(this->sorted_deque.begin(), this->sorted_deque.end(), std::ostream_iterator<int>(std::cout, " "));
+	std::cout << std::endl;
+
+//Print both time to took
+	std::cout << "Time to process a range of " << std::setfill(' ') << std::setw(8) << this->size << " elements with std::vector : " << this->timeVector << " us" << std::endl;
+	std::cout << "Time to process a range of " << std::setfill(' ') << std::setw(8) << this->size << " elements with std::deque  : " << this->timeDeque << " us" << std::endl;
 
 }
 
-std::vector<int> PmergeMe::merge_insert_sort(int *sequence, int size, double & tmVector)
+std::vector<int> PmergeMe::merge_insert_vector(int *sequence, int size, double & tmVector)
 {
-//	std::cout << BLUE "size before sort: " << size << RESET << std::endl;
 	clock_t start_time = clock();
 	if (size <= 1)
 	{
-//		std::cout << "HELLO!!! size: " << size << "sequence" << std::endl;
-		for (int i = 0; i < size; i++)
-			std::cout << sequence[i] << " ";
-		std::cout << std::endl;
 		std::vector<int> result(sequence, sequence + size);
 		tmVector = double(clock() - start_time) / CLOCKS_PER_SEC * 1e6;
 		return result;
 	}
-//	std::cout << "HELLO!!! size: " << size << "sequence" << std::endl;
-
 	int	mid = size / 2;
-	std::vector<int> left = merge_insert_sort(sequence, mid, tmVector);
-	std::vector<int> right = merge_insert_sort(sequence + mid, size - mid, tmVector);
+	std::vector<int> left = merge_insert_vector(sequence, mid, tmVector);
+	std::vector<int> right = merge_insert_vector(sequence + mid, size - mid, tmVector);
 
 	std::vector<int> result;
 	result.reserve(left.size() + right.size());
@@ -120,11 +125,51 @@ std::vector<int> PmergeMe::merge_insert_sort(int *sequence, int size, double & t
 		result.push_back(right[j++]);
 
 	tmVector += double(clock() - start_time) / CLOCKS_PER_SEC * 1e6;
-	std::cout << "CHECK: ";
-	std::copy(result.begin(), result.end(), std::ostream_iterator<int>(std::cout, " "));
-	std::cout << std::endl;
 	return result;
 }
+
+std::deque<int> PmergeMe::merge_insert_deque(int *sequence, int size, double &tmDeque)
+{
+	clock_t	start_time = clock();
+
+	if (size <= 1)
+	{
+		std::deque<int> result(sequence, sequence + size);
+		tmDeque = double(clock() - start_time) / CLOCKS_PER_SEC * 1e6;
+		return result;
+	}
+	int	mid = size / 2;
+	std::deque<int> left = merge_insert_deque(sequence, mid, tmDeque);
+	std::deque<int> right = merge_insert_deque(sequence + mid, size - mid, tmDeque);
+	std::deque<int> result;
+
+	while (!left.empty() && !right.empty())
+	{
+		if (left.front() <= right.front())
+		{
+			result.push_back(left.front());
+			left.pop_front();
+		}
+		else
+		{
+			result.push_back(right.front());
+			right.pop_front();
+		}
+	}
+	while (!left.empty())
+	{
+		result.push_back(left.front());
+		left.pop_front();
+	}
+	while (!right.empty())
+	{
+		result.push_back(right.front());
+		right.pop_front();
+	}
+	tmDeque += double(clock() - start_time) / CLOCKS_PER_SEC * 1e6;
+	return result;
+}
+
 
 //- - -     member function     - - -//
 
