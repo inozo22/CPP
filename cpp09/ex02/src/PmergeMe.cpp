@@ -76,22 +76,22 @@ void    PmergeMe::sortProcess( void )
 void    PmergeMe::printResult( void )
 {
 //Print original nunmber sequence
-	std::cout << "Before: ";
+	std::cout << std::setfill(' ') << std::setw(20) << "Before: ";
 	std::copy(this->sequence, this->sequence + this->size, std::ostream_iterator<int>(std::cout, " "));
 	std::cout << std::endl;
 
 //Print sorted nunmber sequence by vector
-	std::cout << "After(with vector): ";
+	std::cout << std::setfill(' ') << std::setw(20) << "After(with vector): ";
 	std::copy(this->sorted_vector.begin(), this->sorted_vector.end(), std::ostream_iterator<int>(std::cout, " "));
 	std::cout << std::endl;
 //Print sorted nunmber sequence by deque
-	std::cout << "After(with deque): ";
+	std::cout << std::setfill(' ') << std::setw(20) << "After(with deque): ";
 	std::copy(this->sorted_deque.begin(), this->sorted_deque.end(), std::ostream_iterator<int>(std::cout, " "));
 	std::cout << std::endl;
 
 //Print both time to took
-	std::cout << "Time to process a range of " << std::setfill(' ') << std::setw(8) << this->size << " elements with std::vector : " << this->timeVector << " us" << std::endl;
-	std::cout << "Time to process a range of " << std::setfill(' ') << std::setw(8) << this->size << " elements with std::deque  : " << this->timeDeque << " us" << std::endl;
+	std::cout << "Time to process a range of " << std::setfill(' ') << std::setw(6) << this->size << " elements with std::vector : " << this->timeVector << " us" << std::endl;
+	std::cout << "Time to process a range of " << std::setfill(' ') << std::setw(6) << this->size << " elements with std::deque  : " << this->timeDeque << " us" << std::endl;
 
 }
 
@@ -169,7 +169,4 @@ std::deque<int> PmergeMe::merge_insert_deque(int *sequence, int size, double &tm
 	tmDeque += double(clock() - start_time) / CLOCKS_PER_SEC * 1e6;
 	return result;
 }
-
-
 //- - -     member function     - - -//
-
