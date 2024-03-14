@@ -17,12 +17,20 @@ int	main( int ac, char *av[] )
 {
 	try
 	{
+//		PmergeMe test;
 //		std::cout << "call constructor(`-´)/" << std::endl;
 		PmergeMe pmerge(ac, av);
+
+//		PmergeMe ref(pmerge);
+//		test = pmerge;
 //		std::cout << "call sortProcess(`*´)/" << std::endl;
+//		ref.sortProcess();
+//		test.sortProcess();
 		pmerge.sortProcess();
 //		std::cout << "call printResult\\(`3´)/" << std::endl;
 		pmerge.printResult();
+//		test.printResult();
+//		ref.printResult();
 	}
 	catch (const std::invalid_argument& e)
 	{

@@ -7,14 +7,13 @@
 # include <iomanip>
 
 //- - - Orthodox Canonical Form - - -//
-PmergeMe::PmergeMe( void )
+PmergeMe::PmergeMe( void ): sequence(NULL), size(0)
 {
 	// std::cout << "Default constructor called" << std::endl;
-
 }
 PmergeMe::~PmergeMe( void )
 {
-	// std::cout << "Destructor called" << std::endl;
+//	std::cout << "Destructor called" << std::endl;
 	delete[] sequence;
 }
 PmergeMe::PmergeMe( PmergeMe const & src )
@@ -53,11 +52,6 @@ PmergeMe::PmergeMe( int ac, char *av[] )
 	for (int i = 1; i < ac; ++i)
 	{
 		std::string token = av[i];
-//		if (!this->isNumber(token))
-//		{
-//			delete[] sequence;
-//			throw std::invalid_argument("Invalid input. Please provide only positive integers.");
-//		}
 		std::stringstream ss(av[i]);
 		if (!this->isNumber(token) || !(ss >> sequence[i - 1]) || sequence[i - 1] < 0)
 		{
