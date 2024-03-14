@@ -19,6 +19,7 @@
 
 # include <deque>
 # include <vector>
+# include <string>
 
 class PmergeMe
 {
@@ -45,8 +46,10 @@ class PmergeMe
 			std::deque<int> sorted_deque;
 
 //- - -     member function     - - -//
-			std::vector<int> merge_insert_vector(int *sequence, int size);
-			std::deque<int> merge_insert_deque(int *sequence, int size);
+			std::vector<int>	merge_insert_vector(int *sequence, int size);
+			std::deque<int>		merge_insert_deque(int *sequence, int size);
+			bool				isNumber( const std::string & token);
+
 //- - -     member function     - - -//
 
 

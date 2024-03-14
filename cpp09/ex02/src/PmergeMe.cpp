@@ -52,8 +52,14 @@ PmergeMe::PmergeMe( int ac, char *av[] )
 	this->sequence = new int[this->size];
 	for (int i = 1; i < ac; ++i)
 	{
+		std::string token = av[i];
+//		if (!this->isNumber(token))
+//		{
+//			delete[] sequence;
+//			throw std::invalid_argument("Invalid input. Please provide only positive integers.");
+//		}
 		std::stringstream ss(av[i]);
-		if (!(ss >> sequence[i - 1]) || sequence[i - 1] < 0)
+		if (!this->isNumber(token) || !(ss >> sequence[i - 1]) || sequence[i - 1] < 0)
 		{
 			delete[] sequence;
 			throw std::invalid_argument("Invalid input. Please provide only positive integers.");
@@ -68,27 +74,28 @@ void    PmergeMe::sortProcess( void )
 
 	this->timeVector = 0.0;
 	start_time = clock();
-	this->sorted_vector = merge_insert_vector(this->sequence, this->size/*, this->timeVector*/);
+	this->sorted_vector = merge_insert_vector(this->sequence, this->size);
 	this->timeVector = double(clock() - start_time) / CLOCKS_PER_SEC * 1e6;
 
 	this->timeDeque = 0.0;
 	start_time = clock();
-	this->sorted_deque = merge_insert_deque(this->sequence, this->size/*, this->timeDeque*/);
+	this->sorted_deque = merge_insert_deque(this->sequence, this->size);
 	this->timeDeque = double(clock() - start_time) / CLOCKS_PER_SEC * 1e6;
 }
+
 void    PmergeMe::printResult( void )
 {
 //Print original nunmber sequence
-	std::cout << std::setfill(' ') << std::setw(20) << "Before: " GREEN;
+	std::cout << std::setfill(' ') << GREEN << std::setw(20) << "Before: ";
 	std::copy(this->sequence, this->sequence + this->size, std::ostream_iterator<int>(std::cout, " "));
 	std::cout << RESET << std::endl;
 
 //Print sorted nunmber sequence by vector
-	std::cout << std::setfill(' ') << std::setw(20) << "After(with vector): " GREEN;
+	std::cout << std::setfill(' ') << GREEN << std::setw(20) << "After(with vector): ";
 	std::copy(this->sorted_vector.begin(), this->sorted_vector.end(), std::ostream_iterator<int>(std::cout, " "));
 	std::cout << RESET << std::endl;
 //Print sorted nunmber sequence by deque
-	std::cout << std::setfill(' ') << std::setw(20) << "After(with deque): " GREEN;
+	std::cout << std::setfill(' ') << GREEN << std::setw(20) << "After(with deque): ";
 	std::copy(this->sorted_deque.begin(), this->sorted_deque.end(), std::ostream_iterator<int>(std::cout, " "));
 	std::cout << RESET << std::endl;
 
@@ -105,12 +112,16 @@ std::vector<int> PmergeMe::merge_insert_vector(int *sequence, int size)
 		return result;
 	}
 	int	mid = size / 2;
+
+	//Split data columns.
 	std::vector<int> left = merge_insert_vector(sequence, mid);
 	std::vector<int> right = merge_insert_vector(sequence + mid, size - mid);
 	std::vector<int> result;
-	//
+
+	//Before merge step, allocate memory to avoid reallocate mamory multiple times.  
 	result.reserve(left.size() + right.size());
-	//
+
+	//Merge phase
 	size_t i = 0, j = 0;
 	while (i < left.size() && j < right.size())
 	{
@@ -134,10 +145,13 @@ std::deque<int> PmergeMe::merge_insert_deque(int *sequence, int size)
 		return result;
 	}
 	int	mid = size / 2;
+
+	//Split data columns.
 	std::deque<int> left = merge_insert_deque(sequence, mid);
 	std::deque<int> right = merge_insert_deque(sequence + mid, size - mid);
 	std::deque<int> result;
 
+	//Merge phase
 	while (!left.empty() && !right.empty())
 	{
 		if (left.front() <= right.front())
@@ -162,5 +176,15 @@ std::deque<int> PmergeMe::merge_insert_deque(int *sequence, int size)
 		right.pop_front();
 	}
 	return result;
+}
+
+bool	PmergeMe::isNumber( const std::string & token)
+{
+	for (size_t i = 0; i < (token.size()); i++)
+	{
+		if (!std::isdigit(token[i]))
+			return false;
+	}
+	return true;
 }
 //- - -     member function     - - -//
