@@ -22,8 +22,11 @@ int	main( int ac, char *av[] )
 //	}
 	try
 	{
+		std::cout << "call constructor(`-´)/" << std::endl;
 		PmergeMe pmerge(ac, av);
+		std::cout << "call sortProcess(`*´)/" << std::endl;
 		pmerge.sortProcess();
+		std::cout << "call printResult\\(`3´)/" << std::endl;
 		pmerge.printResult();
 	}
 	catch (const std::invalid_argument& e)

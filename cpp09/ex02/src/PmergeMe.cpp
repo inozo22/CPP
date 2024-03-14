@@ -1,6 +1,9 @@
 #include "PmergeMe.hpp"
 #include <stdexcept>
 #include <ctime>
+#include <sstream>
+#include <iostream>
+#include <iterator>
 
 //- - - Orthodox Canonical Form - - -//
 PmergeMe::PmergeMe( void )
@@ -13,7 +16,7 @@ PmergeMe::~PmergeMe( void )
 	// std::cout << "Destructor called" << std::endl;
 	delete[] sequence;
 }
-PmergeMe::PmergeMe( PmergeMe & src )
+PmergeMe::PmergeMe( PmergeMe const & src )
 {
 	// std::cout << "Copy constructor called" << std::endl;
 	if (this != &src)
@@ -25,7 +28,6 @@ PmergeMe::PmergeMe( PmergeMe & src )
 			this->sequence[i] = src.sequence[i];
 		}
 	}
-	return *this;
 }
 PmergeMe & PmergeMe::operator=( PmergeMe const & src )
 {
@@ -42,11 +44,13 @@ PmergeMe & PmergeMe::operator=( PmergeMe const & src )
 //- - - Constructor with parametor - - -//
 PmergeMe::PmergeMe( int ac, char *av[] )
 {
+//	std::cout << "ac: " << ac << std::endl;
 	if (ac < 2)
 		throw std::invalid_argument("Please provide a positive integer sequence.");
 	this->size = ac - 1;
+//	std::cout << "size: " << size << std::endl;
 	this->sequence = new int[size];
-	for (int i = 1; 1 < ac; ++i)
+	for (int i = 1; i < ac; ++i)
 	{
 		std::stringstream ss(av[i]);
 		if (!(ss >> sequence[i - 1]) || sequence[i - 1] < 0)
@@ -55,16 +59,26 @@ PmergeMe::PmergeMe( int ac, char *av[] )
 			delete[] sequence;
 			throw std::invalid_argument("Invalid input. Please provide only positive integers.");
 		}
+//		std::cout << "sequence: " << sequence[i - 1] << std::endl;
 	}
 }
 
 //- - -     member function     - - -//
 void    PmergeMe::sortProcess( void )
 {
-
+	double	tmVector = 0.0;
+	this->sorted_vector = merge_insert_sort(this->sequence, this->size, tmVector);
+	std::cout << "Time for sorting with vector: " << tmVector << " us" << std::endl;
 }
 void    PmergeMe::printResult( void )
 {
+	std::cout << "Before: ";
+	std::copy(this->sequence, this->sequence + this->size, std::ostream_iterator<int>(std::cout, " "));
+	std::cout << std::endl;
+
+	std::cout << "After(with vector): ";
+	std::copy(this->sorted_vector.begin(), this->sorted_vector.end(), std::ostream_iterator<int>(std::cout, " "));
+	std::cout << std::endl;
 
 }
 
@@ -92,7 +106,13 @@ std::vector<int> PmergeMe::merge_insert_sort(int *sequence, int size, double & t
 		else
 			result.push_back(right[j++]);
 	}
-	//20240313 until here
+	while (i < left.size())
+		result.push_back(left[i++]);
+	while (j < right.size())
+		result.push_back(right[j++]);
+
+	tmVector += double(clock() - start_time) / CLOCKS_PER_SEC * 1e6;
+	return result;
 }
 
 //- - -     member function     - - -//

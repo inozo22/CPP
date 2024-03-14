@@ -26,7 +26,7 @@ class PmergeMe
 //- - - Orthodox Canonical Form - - -//
 			PmergeMe( void );
 			~PmergeMe( void );
-			PmergeMe( PmergeMe & src );
+			PmergeMe( PmergeMe const & src );
 			PmergeMe & operator=( PmergeMe const & src );
 //- - - Orthodox Canonical Form - - -//
 			PmergeMe( int ac, char *av[] );
@@ -43,7 +43,7 @@ class PmergeMe
 			std::deque<int> sorted_deque;
 
 //- - -     member function     - - -//
-			std::vector<int> merge_insert_sort(int *sequence, int size, double tmVector);
+			std::vector<int> merge_insert_sort(int *sequence, int size, double &tmVector);
 //			std::vector<int> merge_insert_sort(int *sequence, int size, double tmVector);
 //- - -     member function     - - -//
 
