@@ -48,8 +48,8 @@ PmergeMe::PmergeMe( int ac, char *av[] )
 	if (ac < 2)
 		throw std::invalid_argument("Please provide a positive integer sequence.");
 	this->size = ac - 1;
-//	std::cout << "size: " << size << std::endl;
-	this->sequence = new int[size];
+//	std::cout << "size: " << this->size << std::endl;
+	this->sequence = new int[this->size];
 	for (int i = 1; i < ac; ++i)
 	{
 		std::stringstream ss(av[i]);
@@ -67,6 +67,7 @@ PmergeMe::PmergeMe( int ac, char *av[] )
 void    PmergeMe::sortProcess( void )
 {
 	double	tmVector = 0.0;
+//	std::cout << "size before sort: " << size << std::endl;
 	this->sorted_vector = merge_insert_sort(this->sequence, this->size, tmVector);
 	std::cout << "Time for sorting with vector: " << tmVector << " us" << std::endl;
 }
@@ -84,16 +85,23 @@ void    PmergeMe::printResult( void )
 
 std::vector<int> PmergeMe::merge_insert_sort(int *sequence, int size, double & tmVector)
 {
+//	std::cout << BLUE "size before sort: " << size << RESET << std::endl;
 	clock_t start_time = clock();
 	if (size <= 1)
 	{
+//		std::cout << "HELLO!!! size: " << size << "sequence" << std::endl;
+		for (int i = 0; i < size; i++)
+			std::cout << sequence[i] << " ";
+		std::cout << std::endl;
 		std::vector<int> result(sequence, sequence + size);
 		tmVector = double(clock() - start_time) / CLOCKS_PER_SEC * 1e6;
 		return result;
 	}
+//	std::cout << "HELLO!!! size: " << size << "sequence" << std::endl;
+
 	int	mid = size / 2;
 	std::vector<int> left = merge_insert_sort(sequence, mid, tmVector);
-	std::vector<int> right = merge_insert_sort(sequence, size - mid, tmVector);
+	std::vector<int> right = merge_insert_sort(sequence + mid, size - mid, tmVector);
 
 	std::vector<int> result;
 	result.reserve(left.size() + right.size());
@@ -112,6 +120,9 @@ std::vector<int> PmergeMe::merge_insert_sort(int *sequence, int size, double & t
 		result.push_back(right[j++]);
 
 	tmVector += double(clock() - start_time) / CLOCKS_PER_SEC * 1e6;
+	std::cout << "CHECK: ";
+	std::copy(result.begin(), result.end(), std::ostream_iterator<int>(std::cout, " "));
+	std::cout << std::endl;
 	return result;
 }
 
