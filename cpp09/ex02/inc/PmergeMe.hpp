@@ -29,7 +29,7 @@ class PmergeMe
 			PmergeMe( PmergeMe const & src );
 			PmergeMe & operator=( PmergeMe const & src );
 //- - - Orthodox Canonical Form - - -//
-			PmergeMe( int ac, char *av[] );
+			PmergeMe( int ac, char **av );
 
 //- - -     member function     - - -//
 			void    sortProcess( void );

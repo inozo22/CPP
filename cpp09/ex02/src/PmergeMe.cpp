@@ -68,10 +68,17 @@ PmergeMe::PmergeMe( int ac, char *av[] )
 //- - -     member function     - - -//
 void    PmergeMe::sortProcess( void )
 {
+	clock_t start_time;
+
 	this->timeVector = 0.0;
+	start_time = clock();
 	this->sorted_vector = merge_insert_vector(this->sequence, this->size, this->timeVector);
+	this->timeVector = double(clock() - start_time) / CLOCKS_PER_SEC * 1e6;
+
 	this->timeDeque = 0.0;
+	start_time = clock();
 	this->sorted_deque = merge_insert_deque(this->sequence, this->size, this->timeDeque);
+	this->timeDeque = double(clock() - start_time) / CLOCKS_PER_SEC * 1e6;
 }
 void    PmergeMe::printResult( void )
 {
@@ -97,11 +104,11 @@ void    PmergeMe::printResult( void )
 
 std::vector<int> PmergeMe::merge_insert_vector(int *sequence, int size, double & tmVector)
 {
-	clock_t start_time = clock();
+//	clock_t start_time = clock();
 	if (size <= 1)
 	{
 		std::vector<int> result(sequence, sequence + size);
-		tmVector = double(clock() - start_time) / CLOCKS_PER_SEC * 1e6;
+//		tmVector = double(clock() - start_time) / CLOCKS_PER_SEC * 1e6;
 		return result;
 	}
 	int	mid = size / 2;
@@ -124,18 +131,18 @@ std::vector<int> PmergeMe::merge_insert_vector(int *sequence, int size, double &
 	while (j < right.size())
 		result.push_back(right[j++]);
 
-	tmVector += double(clock() - start_time) / CLOCKS_PER_SEC * 1e6;
+//	tmVector += double(clock() - start_time) / CLOCKS_PER_SEC * 1e6;
 	return result;
 }
 
 std::deque<int> PmergeMe::merge_insert_deque(int *sequence, int size, double &tmDeque)
 {
-	clock_t	start_time = clock();
+//	clock_t	start_time = clock();
 
 	if (size <= 1)
 	{
 		std::deque<int> result(sequence, sequence + size);
-		tmDeque = double(clock() - start_time) / CLOCKS_PER_SEC * 1e6;
+//		tmDeque = double(clock() - start_time) / CLOCKS_PER_SEC * 1e6;
 		return result;
 	}
 	int	mid = size / 2;
@@ -166,7 +173,7 @@ std::deque<int> PmergeMe::merge_insert_deque(int *sequence, int size, double &tm
 		result.push_back(right.front());
 		right.pop_front();
 	}
-	tmDeque += double(clock() - start_time) / CLOCKS_PER_SEC * 1e6;
+//	tmDeque += double(clock() - start_time) / CLOCKS_PER_SEC * 1e6;
 	return result;
 }
 //- - -     member function     - - -//

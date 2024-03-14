@@ -15,18 +15,13 @@
 
 int	main( int ac, char *av[] )
 {
-//	if (ac < 2)
-//	{
-//		std::cout << "USAGE: " << av[0] << " <positive integer sequence>" << std::endl;
-//		return (1);
-//	}
 	try
 	{
-		std::cout << "call constructor(`-´)/" << std::endl;
+//		std::cout << "call constructor(`-´)/" << std::endl;
 		PmergeMe pmerge(ac, av);
-		std::cout << "call sortProcess(`*´)/" << std::endl;
+//		std::cout << "call sortProcess(`*´)/" << std::endl;
 		pmerge.sortProcess();
-		std::cout << "call printResult\\(`3´)/" << std::endl;
+//		std::cout << "call printResult\\(`3´)/" << std::endl;
 		pmerge.printResult();
 	}
 	catch (const std::invalid_argument& e)
